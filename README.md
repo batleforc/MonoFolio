@@ -16,7 +16,7 @@
   - GitLeaks should block commit
   - Test should block if error and display a warn if warning
   - Include a taskfile command that will simplify the most used command ?
-- Create a CI/CD that will trigger subsequent task depending on the code change (If possible in tekton)
+- Create a CI/CD that will trigger subsequent task depending on the code change (If possible in tekton and if not in github)
   - If front change
     - Build in it's own container (nginx)
     - Redeploy container (Helm chart)
@@ -26,6 +26,7 @@
     - Redeploy container (Helm chart with every sub component)
     - Sonar scann
   - Translate [github ci workflow](https://github.com/batleforc/NeoNet/tree/main/.github/workflows)
+- Create a doc regarding the good practice that should be followed in order to work on this project
 
 ### Front
 
@@ -42,6 +43,7 @@
   - Actix
   - A database ?
   - Include dotenv
+- DDD based on sub-lib ?
 
 ## Idea
 
@@ -66,6 +68,49 @@
   - Include an "easter egg" that will redirect to a 3D version of the portfolio
   - Include a true blog section
   - Include a true project section
+
+### Portfolio base content
+
+- Home
+  - Presentation
+    - Me ?
+    - History ?
+  - CV
+  - Project
+    - Tech that i've used and use
+    - Project that i've done using those tech (Linked to blog and Doc)
+    - Project that i'm working on (Linked to blog and Doc)
+    - Future project (Linked to the WIP page blog and Doc)
+  - Contact and Social
+- Blog
+  - Discovery
+  - Tutorial
+  - Project (linked to the project section)
+  - Editorial/Event
+- Doc
+  - Link to other doc (like the one for each project) with disclaimer
+  - Doc page that in reality is a blog post
+- Easter Egg (either [ThreeJS](https://docs.tresjs.org/guide/getting-started.html) or [Bevy](https://github.com/bevyengine/bevy) or vanillaVue JS or Gif)
+  - 3D version of the portfolio (Little game ?)
+  - Pong game
+  - Konami code
+  - 418 page, i'm a teapot
+  - LEEROYYY JENKINS
+  - Rick Roll
+  - The cake is a lie
+  - The matrix (code, bullet time, rain)
+  - Star Wars opening with the text "A long time ago in a galaxy far, far away...."
+  - Star Wars BB-8/RD-D2 (little droid that will follow the mouse or run through the base of the page)
+  - Iron Man (Jarvis ?)
+  - The Avengers (Thanos snap ?)
+  - Thor (Mjolnir ?)
+  - The Hulk (Always angry ?)
+  - H2G2 (Don't panic take a towel, 42, "the answer to the ultimate question of life, the universe, and everything" , the wale and the petunia)
+  - Jojo (To be continued, the pose, No No No, Yes Yes Yes)
+  - Pokemon (Pikachu, Charmander, Bulbasaur, Squirtle, One day i'll be the best)
+  - Zelda ("It's dangerous to go alone, take this", the triforce, the master sword, the ocarina, im not zelda but a link)
+
+Doc and Blog article should be in the markdown format
 
 ## Nx - Front
 
