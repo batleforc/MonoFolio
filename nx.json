@@ -39,6 +39,7 @@
         "componentTestingTargetName": "component-test",
         "ciTargetName": "e2e-ci"
       }
-    }
+    },
+    "@monodon/rust"
   ]
 }
