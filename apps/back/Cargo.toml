@@ -2,9 +2,22 @@
 name = "back"
 version = "0.1.0"
 edition = "2021"
+default-run = "server"
 
 
 [dependencies]
+markdown-parser = "0.1.2"
+serde = "1.0.204"
+serde_yaml = "0.9.34"
 
+# Code that handle the CLI
+[[bin]]
+name = "server"
+path = "src/main.rs"
+test = true
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# Code for development purpose
+[[bin]]
+name = "sandbox"
+path = "src/bin/sandbox.rs"
+test = false
