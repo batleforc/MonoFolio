@@ -7,15 +7,13 @@
 
 ### Archi
 
-- Create a [local plugin](https://nx.dev/extending-nx/intro/getting-started)
+- [DONE] Create a [local plugin](https://nx.dev/extending-nx/intro/getting-started)
   - Create a true Rust Lint command that will integrate what's in cog.toml
   - Create a true Vue Lint command that will extend the front:lint
-  - Create a command that will check if there is a change in the rust/vue part and execute the command (might not be needed if nx do what i thing it does)
-- Change GitHooks to include all the project lint/check
+- [DONE] Change GitHooks to include all the project lint/check
   - Lint should be applied before commit
   - GitLeaks should block commit
   - Test should block if error and display a warn if warning
-  - Include a taskfile command that will simplify the most used command ?
 - Create a CI/CD that will trigger subsequent task depending on the code change (If possible in tekton and if not in github)
   - If front change
     - Build in it's own container (nginx)
