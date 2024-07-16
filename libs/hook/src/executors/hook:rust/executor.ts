@@ -1,4 +1,4 @@
-import { PromiseExecutor } from '@nx/devkit';
+import { PromiseExecutor, workspaceRoot } from '@nx/devkit';
 import { HookRustExecutorSchema } from './schema';
 import { exec } from 'child_process';
 import { promisify } from 'util';
@@ -8,7 +8,7 @@ const runExecutor: PromiseExecutor<HookRustExecutorSchema> = async (
 ) => {
   console.info('Running Rust hook for', options['target-dir']);
   const hookCommand = [
-    'cd ' + options['target-dir'],
+    `cd ${workspaceRoot}/${options['target-dir']}`,
     'cargo fmt -v --all --check',
     'cargo clippy',
     'gitleaks protect --verbose --redact --staged',

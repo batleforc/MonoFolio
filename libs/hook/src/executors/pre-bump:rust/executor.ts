@@ -1,4 +1,4 @@
-import { PromiseExecutor } from '@nx/devkit';
+import { PromiseExecutor, workspaceRoot } from '@nx/devkit';
 import { PreBumpRustExecutorSchema } from './schema';
 import { exec } from 'child_process';
 import { promisify } from 'util';
@@ -14,7 +14,7 @@ const runExecutor: PromiseExecutor<PreBumpRustExecutorSchema> = async (
     version
   );
   const hookCommand = [
-    'cd ' + options['target-dir'],
+    `cd ${workspaceRoot}/${options['target-dir']}`,
     'echo ' + version,
     `cargo audit`,
     `cargo bump ${version}`,
