@@ -109,8 +109,17 @@
   - Jojo (To be continued, the pose, No No No, Yes Yes Yes)
   - Pokemon (Pikachu, Charmander, Bulbasaur, Squirtle, One day i'll be the best)
   - Zelda ("It's dangerous to go alone, take this", the triforce, the master sword, the ocarina, im not zelda but a link)
+  - Gundam
 
 Doc and Blog article should be in the markdown format
+
+## Participating
+
+### Install Hook
+
+```bash
+cog install-hook --all
+```
 
 ## Nx - Front
 

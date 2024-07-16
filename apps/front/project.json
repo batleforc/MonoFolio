@@ -4,5 +4,13 @@
   "projectType": "application",
   "sourceRoot": "apps/front/src",
   "// targets": "to see all targets run: nx show project front --web",
-  "targets": {}
+  "targets": {
+    "hook": {
+      "executor": "@portfolio/hook:hook-vue",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "apps/front"
+      }
+    }
+  }
 }

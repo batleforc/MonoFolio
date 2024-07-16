@@ -1,7 +1,4 @@
-pre_bump_hooks = [
-    "echo {{version}}",
-    "cargo audit && cargo bump {{version}} && git add Cargo.toml && git commit -m \"chore(version): set cargo version to {{version}}\"",
-]
+pre_bump_hooks = ["RUST_BUMP_VERSION=\"{{version}}\" nx run-many -t bump"]
 post_bump_hooks = ["git push", "git push origin {{version}}"]
 
 [changelog]
@@ -22,7 +19,5 @@ authors = [
 [git_hooks.commit-msg]
 script = """#!/bin/sh
 set -e
-cargo fmt -v --all --check
-cargo clippy
-gitleaks protect --verbose --redact --staged
+nx run-many -t hook
 """

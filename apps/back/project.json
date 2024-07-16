@@ -49,6 +49,20 @@
           "release": true
         }
       }
+    },
+    "hook": {
+      "executor": "@portfolio/hook:hook-rust",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "apps/back"
+      }
+    },
+    "bump": {
+      "executor": "@portfolio/bump:pre-bump-rust",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "apps/back"
+      }
     }
   },
   "tags": []

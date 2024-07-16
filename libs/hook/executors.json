@@ -1,0 +1,19 @@
+{
+  "executors": {
+    "hook-vue": {
+      "implementation": "./src/executors/hook:vue/executor",
+      "schema": "./src/executors/hook:vue/schema.json",
+      "description": "hook-vue executor"
+    },
+    "hook-rust": {
+      "implementation": "./src/executors/hook:rust/executor",
+      "schema": "./src/executors/hook:rust/schema.json",
+      "description": "hook-rust executor"
+    },
+    "pre-bump-rust": {
+      "implementation": "./src/executors/pre-bump:rust/executor",
+      "schema": "./src/executors/pre-bump:rust/schema.json",
+      "description": "pre-bump-rust executor"
+    }
+  }
+}
