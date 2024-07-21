@@ -38,6 +38,16 @@ pub struct DocHeaderSpec {
     pub doc: bool,
 }
 
+impl Default for DocHeaderSpec {
+    fn default() -> Self {
+        DocHeaderSpec {
+            blog: false,
+            project: false,
+            doc: true,
+        }
+    }
+}
+
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct DocHeaderLink {
     pub name: String,

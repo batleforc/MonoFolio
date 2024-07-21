@@ -78,15 +78,19 @@ mod tests {
         let folder = process_folder_struct(ressources_dir.to_str().unwrap().to_string()).unwrap();
         assert_eq!(folder.name, ressources_dir.to_str().unwrap().to_string());
         assert_eq!(folder.files.len(), 1);
-        assert_eq!(folder.folders.len(), 2);
+        assert_eq!(folder.folders.len(), 3);
         assert_eq!(folder.files[0].name, "index.md");
         assert_eq!(
             folder.folders[0].name,
             format!("{}/project", ressources_dir.to_str().unwrap())
         );
         assert_eq!(
-            folder.folders[1].name,
+            folder.folders[2].name,
             format!("{}/cicd", ressources_dir.to_str().unwrap())
+        );
+        assert_eq!(
+            folder.folders[1].name,
+            format!("{}/techno", ressources_dir.to_str().unwrap())
         );
     }
     #[test]
