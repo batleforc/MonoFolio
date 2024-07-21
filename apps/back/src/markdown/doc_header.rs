@@ -31,34 +31,34 @@ fn empty_doc_header_spec() -> DocHeaderSpec {
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct DocHeaderSpec {
     #[serde(default = "false_default")]
-    blog: bool,
+    pub blog: bool,
     #[serde(default = "false_default")]
-    project: bool,
+    pub project: bool,
     #[serde(default = "true_default")]
-    doc: bool,
+    pub doc: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct DocHeaderLink {
-    name: String,
-    url: String,
+    pub name: String,
+    pub url: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct DocHeader {
-    title: String,
-    date: String,
-    description: Option<String>,
+    pub title: String,
+    pub date: String,
+    pub description: Option<String>,
     #[serde(default = "default_weight")]
-    weight: i32,
+    pub weight: i32,
     #[serde(default = "empty_doc_header_spec")]
-    spec: DocHeaderSpec,
+    pub spec: DocHeaderSpec,
     #[serde(default = "empty_default")]
-    tags: Vec<String>,
+    pub tags: Vec<String>,
     #[serde(default = "empty_default")]
-    techno: Vec<String>,
+    pub techno: Vec<String>,
     #[serde(default = "empty_vec_doc_header_link")]
-    links: Vec<DocHeaderLink>,
+    pub links: Vec<DocHeaderLink>,
 }
 
 #[derive(Debug)]
