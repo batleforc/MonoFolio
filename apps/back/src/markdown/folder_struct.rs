@@ -16,7 +16,6 @@ pub struct Folder {
 #[derive(Debug)]
 pub enum ProcessFolderStructError {
     IoError(std::io::Error),
-    Utf8Error(std::str::Utf8Error),
 }
 
 pub fn process_folder_struct(base_path: String) -> Result<Folder, ProcessFolderStructError> {
