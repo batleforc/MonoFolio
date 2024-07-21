@@ -14,6 +14,11 @@
       "implementation": "./src/executors/pre-bump:rust/executor",
       "schema": "./src/executors/pre-bump:rust/schema.json",
       "description": "pre-bump-rust executor"
+    },
+    "coverage-rust": {
+      "implementation": "./src/executors/coverage:rust/executor",
+      "schema": "./src/executors/coverage:rust/schema.json",
+      "description": "coverage-rust executor"
     }
   }
 }

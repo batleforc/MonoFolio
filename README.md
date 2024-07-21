@@ -119,6 +119,25 @@ Doc and Blog article should be in the markdown format
 cog install-hook --all
 ```
 
+### Generate code coverage
+
+```bash
+cargo llvm-cov --workspace --open
+```
+
+### Tool needed
+
+- [Rust](https://www.rust-lang.org/tools/install) => Backend runtime
+- [NodeJS](https://nodejs.org/en/download/) => Frontend runtime
+- [Yarn](https://yarnpkg.com/getting-started/install) => Package manager
+- [GitLeaks](https://github.com/gitleaks/gitleaks) => Git security
+- [Rust - Clippy](https://rust-lang.github.io/rust-clippy/master/index.html) => Code security/quality
+- [Rust - Rustfmt](https://rust-lang.github.io/rustfmt/) => Code formatting
+- [Rust - cargo-llvm](https://github.com/taiki-e/cargo-llvm-cov) => Code coverage
+- [Rust - bump](https://crates.io/crates/cargo-bump) => Bump version
+- [Git](https://git-scm.com/downloads) => Version control (obviously)
+- [Cocogitto](https://docs.cocogitto.io/) => Git hooks and conventional commit
+
 ## Nx - Front
 
 ### Start the application
