@@ -58,7 +58,14 @@
       }
     },
     "bump": {
-      "executor": "@portfolio/bump:pre-bump-rust",
+      "executor": "@portfolio/hook:pre-bump-rust",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "apps/back"
+      }
+    },
+    "coverage":{
+      "executor": "@portfolio/hook:coverage-rust",
       "outputs": ["{options.target-dir}"],
       "options": {
         "target-dir": "apps/back"
