@@ -72,6 +72,18 @@ mod tests {
     const TEST_FOLDER: &str = "../../test_dataset/content";
 
     #[test]
+    fn test_process_folder_struct_base_folder_is_a_file() {
+        let mut ressources_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+        ressources_dir.push("../../test_dataset/content/index.md");
+        let folder = process_folder_struct(ressources_dir.to_str().unwrap().to_string());
+        assert!(folder.is_err());
+        assert!(matches!(
+            folder.unwrap_err(),
+            ProcessFolderStructError::IoError(_)
+        ));
+    }
+
+    #[test]
     fn test_process_folder_struct() {
         let mut ressources_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
         ressources_dir.push(TEST_FOLDER);
