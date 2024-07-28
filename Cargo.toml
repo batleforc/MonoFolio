@@ -1,7 +1,10 @@
 
 [workspace]
 resolver = '2'
-members = ['apps/back']
+members = [
+	'apps/back',
+	'libs/markdown_header',
+]
 
 [profile.release]
 lto = true

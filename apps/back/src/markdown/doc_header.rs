@@ -1,5 +1,5 @@
 use chrono::{DateTime, Utc};
-use markdown_parser::parse;
+use markdown_header::parse;
 use serde::{Deserialize, Serialize};
 
 fn true_default() -> bool {
@@ -74,7 +74,7 @@ pub struct DocHeader {
 
 #[derive(Debug)]
 pub enum DocHeaderParseError {
-    ParseError(markdown_parser::Error),
+    ParseError(markdown_header::Error),
     PaseHeaderError(serde_yaml::Error),
 }
 
