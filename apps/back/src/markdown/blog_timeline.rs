@@ -18,6 +18,12 @@ pub enum BlogTimelineGenerationError {
     MetadataParseError(DocHeaderParseError),
 }
 
+impl Default for BlogTimeline {
+    fn default() -> Self {
+        BlogTimeline::new()
+    }
+}
+
 impl BlogTimeline {
     pub fn new() -> Self {
         BlogTimeline {
@@ -65,6 +71,8 @@ impl BlogTimeline {
 
 #[cfg(test)]
 mod tests {
+    use chrono::DateTime;
+
     use crate::markdown::folder_struct::File;
 
     use super::*;
@@ -105,7 +113,7 @@ mod tests {
         let mut folder = get_folder_struct();
         folder.files.push(File {
             name: "test_file.md".to_string(),
-            content: "---\ntitle: Test\ndate: 2024-07-16 22:51:00\n---\nTest content".to_string(),
+            content: "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\n---\nTest content".to_string(),
         });
         folder
     }
@@ -114,7 +122,7 @@ mod tests {
         let mut folder = get_folder_struct();
         folder.files.push(File {
             name: "test_file.md".to_string(),
-            content: "---\ntitle: Test\ndate: 2024-07-16 22:51:00\nspec:\n  blog: true\n---\nTest content".to_string(),
+            content: "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\nspec:\n  blog: true\n---\nTest content".to_string(),
         });
         folder
     }
@@ -199,7 +207,9 @@ mod tests {
             "test_content".to_string(),
             DocHeader {
                 title: "Test Title".to_string(),
-                date: "2021-01-01".to_string(),
+                date: DateTime::parse_from_rfc3339("2024-07-16T22:51:00Z")
+                    .unwrap()
+                    .into(),
                 description: None,
                 weight: 0,
                 spec: Default::default(),
@@ -220,7 +230,9 @@ mod tests {
             "test_content".to_string(),
             DocHeader {
                 title: "Test Title".to_string(),
-                date: "2021-01-01".to_string(),
+                date: DateTime::parse_from_rfc3339("2024-07-16T22:51:00Z")
+                    .unwrap()
+                    .into(),
                 description: None,
                 weight: 0,
                 spec: Default::default(),
@@ -230,7 +242,7 @@ mod tests {
             },
         );
         blog_timeline.add_page(page);
-        let page = blog_timeline.get_page("2021-01-01-Test_Title");
+        let page = blog_timeline.get_page("2024-07-16-22h51-Test_Title");
         assert!(page.is_some());
     }
 }

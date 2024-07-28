@@ -18,7 +18,12 @@ impl Page {
     }
 
     pub fn url_encode_name(&self) -> String {
-        format!("{}-{}", self.metadata.date, self.metadata.title).replace(' ', "_")
+        format!(
+            "{}-{}",
+            self.metadata.date.format("%Y-%m-%d-%Hh%M"),
+            self.metadata.title
+        )
+        .replace(' ', "_")
     }
 }
 
@@ -41,11 +46,15 @@ pub struct PageShort {
 
 #[cfg(test)]
 mod tests {
+    use chrono::DateTime;
+
     use super::*;
     pub fn get_test_doc_header() -> DocHeader {
         DocHeader {
             title: "Test Title".to_string(),
-            date: "2021-01-01".to_string(),
+            date: DateTime::parse_from_rfc3339("2024-07-16T22:51:00Z")
+                .unwrap()
+                .into(),
             description: None,
             weight: 0,
             spec: Default::default(),
@@ -74,7 +83,10 @@ mod tests {
     #[test]
     fn test_page_url_encode_name() {
         let page = get_test_page();
-        assert_eq!(page.url_encode_name(), "2021-01-01-Test_Title".to_string());
+        assert_eq!(
+            page.url_encode_name(),
+            "2024-07-16-22h51-Test_Title".to_string()
+        );
     }
 
     #[test]

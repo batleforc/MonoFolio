@@ -1,5 +1,5 @@
 ---
-date: 2024-07-16 22:51:00
+date: 2024-07-16T22:51:00Z
 title: "CiCd"
 spec:
   blog: false

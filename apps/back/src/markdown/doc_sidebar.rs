@@ -64,6 +64,8 @@ impl DocCategory {
 
 #[cfg(test)]
 mod tests {
+    use chrono::DateTime;
+
     use crate::markdown::folder_struct::File;
 
     use super::*;
@@ -108,12 +110,12 @@ mod tests {
             files: vec![
                 File {
                     name: "index.md".to_string(),
-                    content: "---\ntitle: Test\ndate: 2024-07-16 22:51:00\n---\nTest content"
+                    content: "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\n---\nTest content"
                         .to_string(),
                 },
                 File {
                     name: "test.md".to_string(),
-                    content: "---\ntitle: Test\ndate: 2024-07-16 22:51:00\n---\nTest content"
+                    content: "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\n---\nTest content"
                         .to_string(),
                 },
             ],
@@ -136,12 +138,12 @@ mod tests {
             files: vec![
                 File {
                     name: "index.md".to_string(),
-                    content: "---\ntitle: Test\ndate: 2024-07-16 22:51:00\nspec:\n  blog: true\n---\nTest content"
+                    content: "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\nspec:\n  blog: true\n---\nTest content"
                         .to_string(),
                 },
                 File {
                     name: "test.md".to_string(),
-                    content: "---\ntitle: Test\ndate: 2024-07-16 22:51:00\nspec:\n  blog: true\n---\nTest content"
+                    content: "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\nspec:\n  blog: true\n---\nTest content"
                         .to_string(),
                 },
             ],
@@ -165,13 +167,13 @@ mod tests {
                         File {
                             name: "index.md".to_string(),
                             content:
-                                "---\ntitle: Test\ndate: 2024-07-16 22:51:00\n---\nTest content"
+                                "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\n---\nTest content"
                                     .to_string(),
                         },
                         File {
                             name: "test.md".to_string(),
                             content:
-                                "---\ntitle: Test\ndate: 2024-07-16 22:51:00\n---\nTest content"
+                                "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\n---\nTest content"
                                     .to_string(),
                         },
                     ],
@@ -183,13 +185,13 @@ mod tests {
                         File {
                             name: "index.md".to_string(),
                             content:
-                                "---\ntitle: Test\ndate: 2024-07-16 22:51:00\n---\nTest content"
+                                "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\n---\nTest content"
                                     .to_string(),
                         },
                         File {
                             name: "test.md".to_string(),
                             content:
-                                "---\ntitle: Test\ndate: 2024-07-16 22:51:00\n---\nTest content"
+                                "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\n---\nTest content"
                                     .to_string(),
                         },
                     ],
@@ -224,7 +226,7 @@ mod tests {
                     },
                     File {
                         name: "test.md".to_string(),
-                        content: "---\ntitle: Test\ndate: 2024-07-16 22:51:00\n---\nTest content"
+                        content: "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\n---\nTest content"
                             .to_string(),
                     },
                 ],
@@ -241,7 +243,7 @@ mod tests {
             files: vec![
                 File {
                     name: "index.md".to_string(),
-                    content: "---\ntitle: Test\ndate: 2024-07-16 22:51:00\n---\nTest content"
+                    content: "---\ntitle: Test\ndate: 2024-07-16T22:51:00Z\n---\nTest content"
                         .to_string(),
                 },
                 File {
@@ -287,7 +289,9 @@ mod tests {
                     content: "Test content".to_string(),
                     metadata: DocHeader {
                         title: "Test".to_string(),
-                        date: "2024-07-16 22:51:00".to_string(),
+                        date: DateTime::parse_from_rfc3339("2024-07-16T22:51:00Z")
+                            .unwrap()
+                            .into(),
                         description: None,
                         weight: 0,
                         spec: Default::default(),

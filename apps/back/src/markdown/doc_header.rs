@@ -1,3 +1,4 @@
+use chrono::{DateTime, Utc};
 use markdown_parser::parse;
 use serde::{Deserialize, Serialize};
 
@@ -57,7 +58,7 @@ pub struct DocHeaderLink {
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct DocHeader {
     pub title: String,
-    pub date: String,
+    pub date: DateTime<Utc>,
     pub description: Option<String>,
     #[serde(default = "default_weight")]
     pub weight: i32,
@@ -98,7 +99,7 @@ mod tests {
     fn test_parse_md() {
         let content = r#"
 ---
-date: 2024-07-16 22:51:00
+date: 2024-07-16T22:51:00Z
 title: "Portfolio"
 description: "Portfolio"
 spec:
@@ -124,7 +125,10 @@ THIS IS A TEST
         let (header, content) = DocHeader::parse_md(content).unwrap();
         assert_eq!(content, "THIS IS A TEST");
         assert_eq!(header.title, "Portfolio");
-        assert_eq!(header.date, "2024-07-16 22:51:00");
+        assert_eq!(
+            header.date,
+            DateTime::parse_from_rfc3339("2024-07-16T22:51:00Z").unwrap()
+        );
         assert!(header.description.is_some());
         assert_eq!(header.description.unwrap(), "Portfolio");
         assert_eq!(header.weight, 0);
@@ -149,7 +153,7 @@ THIS IS A TEST
     fn test_parse_md_no_description_and_all_spec_false() {
         let content = r#"
 ---
-date: 2024-07-16 22:51:00
+date: 2024-07-16T22:51:00Z
 title: "Portfolio"
 spec:
   blog: false
@@ -173,7 +177,10 @@ THIS IS A TEST
         let (header, content) = DocHeader::parse_md(content).unwrap();
         assert_eq!(content, "THIS IS A TEST");
         assert_eq!(header.title, "Portfolio");
-        assert_eq!(header.date, "2024-07-16 22:51:00");
+        assert_eq!(
+            header.date,
+            DateTime::parse_from_rfc3339("2024-07-16T22:51:00Z").unwrap()
+        );
         assert!(header.description.is_none());
         assert_eq!(header.weight, 0);
         assert_eq!(header.spec.blog, false);
@@ -203,7 +210,7 @@ THIS IS A TEST
     fn no_spec_minimal() {
         let content = r#"
 ---
-date: 2024-07-16 22:51:00
+date: 2024-07-16T22:51:00Z
 title: "Portfolio"
 ---
 
@@ -212,7 +219,10 @@ THIS IS A TEST
         let (header, content) = DocHeader::parse_md(content).unwrap();
         assert_eq!(content, "THIS IS A TEST");
         assert_eq!(header.title, "Portfolio");
-        assert_eq!(header.date, "2024-07-16 22:51:00");
+        assert_eq!(
+            header.date,
+            DateTime::parse_from_rfc3339("2024-07-16T22:51:00Z").unwrap()
+        );
         assert!(header.description.is_none());
         assert_eq!(header.weight, 0);
         assert_eq!(header.spec.blog, false);
