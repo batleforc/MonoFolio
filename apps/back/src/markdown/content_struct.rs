@@ -1,7 +1,7 @@
 use super::doc_header::DocHeader;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub struct Page {
     pub name: String,
     pub content: String,
@@ -25,6 +25,14 @@ impl Page {
         )
         .replace(' ', "_")
     }
+
+    pub fn to_short(&self, path: String) -> PageShort {
+        PageShort {
+            name: self.name.clone(),
+            path,
+            metadata: self.metadata.clone(),
+        }
+    }
 }
 
 impl TryInto<PageShort> for Page {
@@ -33,15 +41,28 @@ impl TryInto<PageShort> for Page {
     fn try_into(self) -> Result<PageShort, Self::Error> {
         Ok(PageShort {
             name: self.name,
+            path: "".to_string(),
             metadata: self.metadata,
         })
     }
 }
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Serialize, Deserialize, Clone)]
 pub struct PageShort {
     pub name: String,
+    pub path: String,
     pub metadata: DocHeader,
+}
+
+impl PageShort {
+    pub fn url_encode_name(&self) -> String {
+        format!(
+            "{}-{}",
+            self.metadata.date.format("%Y-%m-%d-%Hh%M"),
+            self.metadata.title
+        )
+        .replace(' ', "_")
+    }
 }
 
 #[cfg(test)]

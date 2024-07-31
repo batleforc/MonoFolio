@@ -29,7 +29,7 @@ fn empty_doc_header_spec() -> DocHeaderSpec {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub struct DocHeaderSpec {
     #[serde(default = "false_default")]
     pub blog: bool,
@@ -49,13 +49,13 @@ impl Default for DocHeaderSpec {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub struct DocHeaderLink {
     pub name: String,
     pub url: String,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub struct DocHeader {
     pub title: String,
     pub date: DateTime<Utc>,
