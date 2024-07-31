@@ -28,11 +28,10 @@ jobs:
         components: llvm-tools-preview
 
     - uses: taiki-e/install-action@cargo-llvm-cov
-    - uses: taiki-e/install-action@nextest
 
     - name: Collect coverage data (including doctests)
       run: |
-        cargo llvm-cov --lcov --output-path lcov.info nextest
+        cargo llvm-cov --lcov --output-path lcov.info
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
