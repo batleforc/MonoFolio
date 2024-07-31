@@ -11,7 +11,7 @@ on:
 
 jobs:
   rust-coverage:
-    name: Run rust-clippy analyzing
+    name: Rust coverage
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -34,7 +34,7 @@ jobs:
       run: |
         cargo llvm-cov --no-report nextest
         cargo llvm-cov --no-report --doc
-        cargo llvm-cov report --doctests --lcov --output-path lcov.info
+        cargo llvm-cov report --lcov --output-path lcov.info
 
     - name: Upload coverage data to codecov
       uses: codecov/codecov-action@v3
