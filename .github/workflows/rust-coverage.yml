@@ -32,9 +32,7 @@ jobs:
 
     - name: Collect coverage data (including doctests)
       run: |
-        cargo llvm-cov --no-report nextest
-        cargo llvm-cov --no-report --doc
-        cargo llvm-cov report --lcov --output-path lcov.info
+        cargo llvm-cov --lcov --output-path lcov.info nextest
 
     - name: Upload coverage data to codecov
       uses: codecov/codecov-action@v3
