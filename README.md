@@ -1,5 +1,7 @@
 # Portfolio - v3 Monorepo Over Heaven
 
+[![codecov](https://codecov.io/github/batleforc/MonoFolio/graph/badge.svg?token=UONUFAX0K2)](https://codecov.io/github/batleforc/MonoFolio)
+
 ## TODO
 
 - Define the content of the portfolio
