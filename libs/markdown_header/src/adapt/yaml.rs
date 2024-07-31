@@ -35,7 +35,7 @@ impl Adapter for YamlAdapter {
             front_matter = front_matter[4..].to_string();
         }
 
-        if front_matter.ends_with("\n") {
+        if front_matter.ends_with('\n') {
             front_matter.pop();
         }
 

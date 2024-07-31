@@ -31,7 +31,7 @@ impl Adapter for TomlAdapter {
     {
         let mut front_matter = toml::to_string(&data)?;
 
-        if front_matter.ends_with("\n") {
+        if front_matter.ends_with('\n') {
             front_matter.pop();
         }
 

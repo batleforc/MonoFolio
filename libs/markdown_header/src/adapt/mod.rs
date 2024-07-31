@@ -31,19 +31,19 @@ where
 
     match md.format() {
         Format::YAML => {
-            let data = serde_yaml::from_str::<T>(&fm)?;
+            let data = serde_yaml::from_str::<T>(fm)?;
 
-            return Ok(data);
+            Ok(data)
         }
         Format::TOML => {
-            let data = ::toml::from_str::<T>(&fm)?;
+            let data = ::toml::from_str::<T>(fm)?;
 
-            return Ok(data);
+            Ok(data)
         }
         Format::JSON => {
-            let data = serde_json::from_str::<T>(&fm)?;
+            let data = serde_json::from_str::<T>(fm)?;
 
-            return Ok(data);
+            Ok(data)
         }
     }
 }

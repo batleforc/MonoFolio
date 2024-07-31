@@ -30,7 +30,7 @@ impl Adapter for JsonAdapter {
     {
         let mut front_matter = serde_json::to_string_pretty(&data)?;
 
-        if front_matter.ends_with("\n") {
+        if front_matter.ends_with('\n') {
             front_matter.pop();
         }
 
