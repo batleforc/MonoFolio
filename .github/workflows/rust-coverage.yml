@@ -1,0 +1,42 @@
+name: rust-coverage
+
+on:
+  push:
+    branches: ["main", "*"]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: ["main"]
+  schedule:
+  - cron: '50 23 * * *'
+
+jobs:
+  rust-coverage:
+    name: Run rust-clippy analyzing
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Rust toolchain
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        toolchain: stable
+        components: llvm-tools-preview
+
+    - uses: taiki-e/install-action@cargo-llvm-cov
+    - uses: taiki-e/install-action@nextest
+
+    - name: Collect coverage data (including doctests)
+      run: |
+        cargo llvm-cov --no-report nextest
+        cargo llvm-cov --no-report --doc
+        cargo llvm-cov report --doctests --lcov --output-path lcov.info
+
+    - name: Upload coverage data to codecov
+      uses: codecov/codecov-action@v3
+      with:
+        files: lcov.info
