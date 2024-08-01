@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "rust:test":"cargo llvm-cov --open"
+    "rust:test":"cargo llvm-cov --open --ignore-filename-regex 'init'"
   },
   "private": true,
   "dependencies": {

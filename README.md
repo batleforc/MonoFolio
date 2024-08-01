@@ -140,6 +140,12 @@ cargo llvm-cov --workspace --open
 - [Git](https://git-scm.com/downloads) => Version control (obviously)
 - [Cocogitto](https://docs.cocogitto.io/) => Git hooks and conventional commit
 
+### Create new rust lib
+
+```bash
+nx generate @monodon/rust:library <lib-name>
+```
+
 ## Nx - Front
 
 ### Start the application
