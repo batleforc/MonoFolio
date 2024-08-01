@@ -2,16 +2,11 @@ use std::collections::HashMap;
 
 use serde::{Deserialize, Serialize};
 
-use super::{content_struct::PageShort, doc_header::DocHeaderParseError, page_database::DbFolder};
+use super::{content_struct::PageShort, page_database::DbFolder};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub struct BlogTimeline {
     pub pages: HashMap<String, PageShort>,
-}
-
-#[derive(Debug)]
-pub enum BlogTimelineGenerationError {
-    MetadataParseError(DocHeaderParseError),
 }
 
 impl Default for BlogTimeline {
