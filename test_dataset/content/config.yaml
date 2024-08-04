@@ -1,0 +1,6 @@
+port: 5437
+content_path: "./content"
+tracing:
+- name: "console"
+  level: 2
+  kind: "Console"

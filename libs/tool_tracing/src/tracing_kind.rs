@@ -16,6 +16,7 @@ pub struct Tracing {
     pub kind: TracingKind,
     pub name: String,
     pub level: VerboseLevel,
+    #[serde(default)]
     pub additional: HashMap<String, String>,
 }
 

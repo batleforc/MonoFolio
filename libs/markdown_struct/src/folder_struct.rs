@@ -89,9 +89,8 @@ mod tests {
         ressources_dir.push(TEST_FOLDER);
         let folder = process_folder_struct(ressources_dir.to_str().unwrap().to_string()).unwrap();
         assert_eq!(folder.name, ressources_dir.to_str().unwrap().to_string());
-        assert_eq!(folder.files.len(), 1);
+        assert_eq!(folder.files.len(), 3);
         assert_eq!(folder.folders.len(), 3);
-        assert_eq!(folder.files[0].name, "index.md");
     }
     #[test]
     fn test_process_folder_path_invalid() {
