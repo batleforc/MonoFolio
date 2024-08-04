@@ -1,10 +1,15 @@
 
 [workspace]
 resolver = '2'
-members = ['apps/back', 'libs/markdown_header', 'libs/tool_tracing']
+members = [
+	'apps/back',
+	'libs/markdown_header',
+	'libs/tool_tracing',
+	'libs/markdown_struct',
+]
 
 [profile.release]
 lto = true
 
 [patch.crates-io]
-tokio-macros = { git = "https://github.com/tokio-rs/tokio", branch = "master" }
+tokio-macros = { git = 'https://github.com/tokio-rs/tokio', branch = 'master' }

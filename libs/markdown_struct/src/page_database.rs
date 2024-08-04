@@ -89,7 +89,7 @@ impl DbFolder {
 
 #[cfg(test)]
 mod tests {
-    use crate::markdown::{doc_header::DocHeader, folder_struct::File};
+    use crate::{doc_header::DocHeader, folder_struct::File};
 
     use super::*;
     use chrono::DateTime;

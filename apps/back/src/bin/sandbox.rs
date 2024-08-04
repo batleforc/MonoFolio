@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use back::markdown::{folder_struct::process_folder_struct, page_database::DbFolder};
+use markdown_struct::{folder_struct::process_folder_struct, page_database::DbFolder};
 extern crate back;
 
 pub fn main() {

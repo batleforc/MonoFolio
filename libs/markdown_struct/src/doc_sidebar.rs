@@ -63,7 +63,7 @@ impl DocCategory {
 mod tests {
 
     use super::*;
-    use crate::markdown::{content_struct::Page, doc_header::DocHeader};
+    use crate::{content_struct::Page, doc_header::DocHeader};
     use chrono::DateTime;
 
     pub fn get_test_doc_header() -> DocHeader {
