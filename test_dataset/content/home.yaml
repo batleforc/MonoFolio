@@ -1,19 +1,9 @@
-name: Maxime Leriche
+name: max truc
 presentation: |
-  Hello, Moi c'est Maxime, je suis un développeur passionné autant par les nouvelles technologies qu'un nouveau projet.
-  J'aime apprendre en permanence et construire ce que j'estime étre ma base de connaissance.
-  Et vous êtes ici sur mon site qui est un savant mélange de mes passions et de mes projets.
-  Alors, bienvenue et bonne visite !
+  Aloha !
 coverTitle:
-- Développeur
-- Passionné
-- Ops
-- Back
-- Front
-- Kube and Co
-- Architecture
-- Too much coffee
-- And lot's more
+- dev
+- ops
 cvUrl: /media/cv.pdf
 url:
 - name: LinkedIn
