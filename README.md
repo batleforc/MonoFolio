@@ -51,10 +51,7 @@
 
 - [BACK] Start the project [2024-07-14]
 - [BACK] First version of the base content [2024-08-05]
-- [BACK] Rewrite path in markdown
-  - [BACK] Broke link if the file doesn't exist
-  - [BACK] Create the link if the file exist and write it
-- [BACK] Create an API
+- [BACK] Create a SWAGGER API
   - [BACK] Serve the home content
   - [BACK] Serve the different blog/project/doc content
   - [BACK] Serve the media content
