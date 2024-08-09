@@ -7,12 +7,20 @@ use tracing::info;
 
 const API_PORT: &str = "API_PORT";
 const CONTENT_PATH: &str = "CONTENT_PATH";
+const ENV: &str = "ENV";
 
 #[derive(Deserialize, Debug, Clone)]
 pub struct Config {
     pub port: u16,
+    pub env: String,
     pub content_path: String,
     pub tracing: Vec<Tracing>,
+}
+
+impl Config {
+    pub fn get_name(&self) -> String {
+        format!("monofolio-back-{}", self.env)
+    }
 }
 
 fn override_config_with_env(config: Config) -> Config {
@@ -21,6 +29,9 @@ fn override_config_with_env(config: Config) -> Config {
         if let Ok(port) = port.parse::<u16>() {
             config.port = port;
         }
+    }
+    if let Ok(env) = std::env::var(ENV) {
+        config.env = env;
     }
     if let Ok(content_path) = std::env::var(CONTENT_PATH) {
         config.content_path = content_path;
@@ -68,16 +79,21 @@ mod tests {
         let config = parse_test_config();
         assert_eq!(config.port, 5437);
         assert_eq!(config.content_path, "./content");
+        assert_eq!(config.get_name(), "monofolio-back-development");
         let config = Config {
             port: 8080,
             content_path: "content".to_string(),
             tracing: vec![],
+            env: "development".to_string(),
         };
         env::set_var(API_PORT, "8081");
         env::set_var(CONTENT_PATH, "content2");
+        env::set_var(ENV, "testing");
         let config = override_config_with_env(config);
         assert_eq!(config.port, 8081);
         assert_eq!(config.content_path, "content2");
+        assert_eq!(config.env, "testing");
+        assert_eq!(config.get_name(), "monofolio-back-testing");
         let _local = parse_local_config();
         assert!(true);
     }

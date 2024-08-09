@@ -1,7 +1,8 @@
 use super::doc_header::DocHeader;
 use serde::{Deserialize, Serialize};
+use utoipa::ToSchema;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct Page {
     pub name: String,
     pub content: String,
@@ -47,7 +48,7 @@ impl TryInto<PageShort> for Page {
     }
 }
 
-#[derive(Debug, PartialEq, Serialize, Deserialize, Clone)]
+#[derive(Debug, PartialEq, Serialize, Deserialize, Clone, ToSchema)]
 pub struct PageShort {
     pub name: String,
     pub path: String,

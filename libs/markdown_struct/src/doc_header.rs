@@ -1,6 +1,7 @@
 use chrono::{DateTime, Utc};
 use markdown_header::parse;
 use serde::{Deserialize, Serialize};
+use utoipa::ToSchema;
 
 fn true_default() -> bool {
     true
@@ -29,7 +30,7 @@ fn empty_doc_header_spec() -> DocHeaderSpec {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct DocHeaderSpec {
     #[serde(default = "false_default")]
     pub blog: bool,
@@ -49,13 +50,13 @@ impl Default for DocHeaderSpec {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct DocHeaderLink {
     pub name: String,
     pub url: String,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct DocHeader {
     pub title: String,
     pub date: DateTime<Utc>,
