@@ -1,4 +1,6 @@
+use super::blog::get_timeline;
 use markdown_struct::{
+    blog_timeline::BlogTimeline,
     content_struct::{Page, PageShort},
     doc_header::{DocHeader, DocHeaderLink, DocHeaderSpec},
 };
@@ -22,8 +24,12 @@ use utoipa::OpenApi;
             Page,
             DocHeader,
             DocHeaderSpec,
-            DocHeaderLink
+            DocHeaderLink,
+            BlogTimeline,
         )
+    ),
+    paths(
+        get_timeline::get_timeline,
     )
 )]
 pub struct ApiDocs;
