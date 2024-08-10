@@ -3,18 +3,21 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "rust:test":"cargo llvm-cov --open --ignore-filename-regex 'init'",
-    "rust:start": "podman compose up -d && cargo run"
+    "rust:test": "cargo llvm-cov --open --ignore-filename-regex 'init'",
+    "rust:start": "podman compose up -d && cargo run",
+    "rust:generate": "cargo run --bin swagger -- ./swagger.json",
+    "vue:gen_api": "npx @hey-api/openapi-ts -i ./swagger.json -o libs/api-client/src/api -c @hey-api/client-axios"
   },
   "private": true,
   "dependencies": {
+    "@hey-api/client-axios": "^0.2.2",
     "tslib": "^2.3.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@nx/devkit": "19.4.3",
     "@monodon/rust": "^2.0.0-beta.1",
     "@nx/cypress": "19.4.3",
+    "@nx/devkit": "19.4.3",
     "@nx/eslint": "19.4.3",
     "@nx/eslint-plugin": "19.4.3",
     "@nx/jest": "19.4.3",

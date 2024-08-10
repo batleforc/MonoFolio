@@ -1,0 +1,479 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MonoFolio",
+    "description": "API documentation for MonoFolio",
+    "license": {
+      "name": ""
+    },
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/blog": {
+      "get": {
+        "tags": [
+          "Blog"
+        ],
+        "summary": "Get the blog timeline",
+        "description": "Get blog timeline with minimal description of each article",
+        "operationId": "get_timeline",
+        "responses": {
+          "200": {
+            "description": "Blog Timeline",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogTimeline"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/doc": {
+      "get": {
+        "tags": [
+          "Doc"
+        ],
+        "summary": "Get doc sidebar",
+        "description": "Get doc sidebar with minimal description of each article",
+        "operationId": "get_doc_sidebar",
+        "responses": {
+          "200": {
+            "description": "Doc Sidebar",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocCategory"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/home": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "summary": "Get home content",
+        "description": "Get home page content",
+        "operationId": "get_home",
+        "responses": {
+          "200": {
+            "description": "Home Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HomeContent"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/media": {
+      "get": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Get media from the media folder",
+        "description": "Get media from the media folder",
+        "operationId": "get_media",
+        "parameters": [
+          {
+            "name": "info",
+            "in": "query",
+            "description": "Page path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/QuerryMedia"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Media content"
+          },
+          "404": {
+            "description": "Page not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/page": {
+      "get": {
+        "tags": [
+          "Page"
+        ],
+        "summary": "Get a page content",
+        "description": "fetch page's content by page path in DbFolder",
+        "operationId": "get_page",
+        "parameters": [
+          {
+            "name": "info",
+            "in": "query",
+            "description": "Page path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/QuerryPage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Page Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Page not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BlogTimeline": {
+        "type": "object",
+        "required": [
+          "pages"
+        ],
+        "properties": {
+          "pages": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PageShort"
+            }
+          }
+        }
+      },
+      "DocCategory": {
+        "type": "object",
+        "required": [
+          "name",
+          "has_index",
+          "sub_categories",
+          "pages"
+        ],
+        "properties": {
+          "has_index": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PageShort"
+            }
+          },
+          "sub_categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocCategory"
+            }
+          }
+        }
+      },
+      "DocHeader": {
+        "type": "object",
+        "required": [
+          "title",
+          "date"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocHeaderLink"
+            }
+          },
+          "spec": {
+            "$ref": "#/components/schemas/DocHeaderSpec"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "techno": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "title": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "DocHeaderLink": {
+        "type": "object",
+        "required": [
+          "name",
+          "url"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "DocHeaderSpec": {
+        "type": "object",
+        "properties": {
+          "blog": {
+            "type": "boolean"
+          },
+          "doc": {
+            "type": "boolean"
+          },
+          "project": {
+            "type": "boolean"
+          }
+        }
+      },
+      "HomeContent": {
+        "type": "object",
+        "required": [
+          "name",
+          "presentation",
+          "coverTitle",
+          "cvUrl",
+          "url",
+          "history"
+        ],
+        "properties": {
+          "coverTitle": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cvUrl": {
+            "type": "string"
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HomeHistory"
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "presentation": {
+            "type": "string"
+          },
+          "url": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HomeUrl"
+            }
+          }
+        }
+      },
+      "HomeHistory": {
+        "type": "object",
+        "required": [
+          "title",
+          "lieux",
+          "date",
+          "weight",
+          "imgUrl",
+          "description"
+        ],
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "imgUrl": {
+            "type": "string"
+          },
+          "lieux": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HomeHistoryUrl"
+            },
+            "nullable": true
+          },
+          "weight": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "HomeHistoryUrl": {
+        "type": "object",
+        "required": [
+          "url",
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "HomeUrl": {
+        "type": "object",
+        "required": [
+          "url",
+          "name",
+          "primaire",
+          "imgUrl"
+        ],
+        "properties": {
+          "imgUrl": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "primaire": {
+            "type": "boolean"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "Page": {
+        "type": "object",
+        "required": [
+          "name",
+          "content",
+          "metadata"
+        ],
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/DocHeader"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "PageShort": {
+        "type": "object",
+        "required": [
+          "name",
+          "path",
+          "metadata"
+        ],
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/DocHeader"
+          },
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "QuerryMedia": {
+        "type": "object",
+        "required": [
+          "path"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "QuerryPage": {
+        "type": "object",
+        "required": [
+          "path"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Home",
+      "description": "Home related endpoints"
+    },
+    {
+      "name": "Blog",
+      "description": "Blog related endpoints"
+    },
+    {
+      "name": "Doc",
+      "description": "Doc related endpoints"
+    },
+    {
+      "name": "Page",
+      "description": "Page related endpoints"
+    },
+    {
+      "name": "Media",
+      "description": "Media related endpoints"
+    }
+  ]
+}

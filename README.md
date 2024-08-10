@@ -51,10 +51,11 @@
 
 - [BACK] Start the project [2024-07-14]
 - [BACK] First version of the base content [2024-08-05]
-- [BACK] Create a SWAGGER API
-  - [BACK] Serve the home content
-  - [BACK] Serve the different blog/project/doc content
-  - [BACK] Serve the media content
+- [BACK] Create a SWAGGER API [2024-08-11]
+  - [BACK] Serve the home content [2024-08-11]
+  - [BACK] Serve the different blog/project/doc content [2024-08-11]
+  - [BACK] Serve the media content [2024-08-11]
+- [FRONT] Generate api call from swagger
 - [FRONT] Render the home page
 - [FRONT] Render the blog page and timeline
 - [FRONT] Render the doc page

@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@portfolio/api-client": ["libs/api-client/src/index.ts"],
       "@portfolio/hook": ["libs/hook/src/index.ts"]
     }
   },

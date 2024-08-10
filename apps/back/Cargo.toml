@@ -38,3 +38,9 @@ test = true
 name = "sandbox"
 path = "src/bin/sandbox.rs"
 test = false
+
+# Code that generate the swagger.json
+[[bin]]
+name = "swagger"
+path = "src/bin/gen_swagger.rs"
+test = false
