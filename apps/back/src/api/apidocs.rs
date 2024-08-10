@@ -1,3 +1,5 @@
+use crate::api::page::get_page::{self, QuerryPage};
+
 use super::blog::get_timeline;
 use markdown_struct::{
     blog_timeline::BlogTimeline,
@@ -16,6 +18,7 @@ use utoipa::OpenApi;
     tags(
         ( name = "Blog", description = "Blog related endpoints"),
         ( name = "Doc", description = "Doc related endpoints"),
+        ( name = "Page", description = "Page related endpoints"),
         ( name = "Media", description = "Media related endpoints")
     ),
     components(
@@ -26,10 +29,12 @@ use utoipa::OpenApi;
             DocHeaderSpec,
             DocHeaderLink,
             BlogTimeline,
+            QuerryPage,
         )
     ),
     paths(
         get_timeline::get_timeline,
+        get_page::get_page,
     )
 )]
 pub struct ApiDocs;

@@ -9,7 +9,7 @@ use tracing_actix_web::{RequestId, TracingLogger};
 use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
 
-use crate::api::{apidocs::ApiDocs, blog::init_blog_api};
+use crate::api::{apidocs::ApiDocs, blog::init_blog_api, page::init_page_api};
 
 #[get("/")]
 async fn hello() -> impl Responder {
@@ -42,6 +42,7 @@ pub async fn init_api(
             .service(
                 Scope::new("/api")
                     .service(init_blog_api())
+                    .service(init_page_api())
                     .service(hello)
                     .wrap_fn(|mut req, srv| {
                         let request_id_asc = req.extract::<RequestId>();

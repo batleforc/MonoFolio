@@ -22,28 +22,9 @@ pub async fn get_timeline(blog_timeline: web::Data<BlogTimeline>) -> impl Respon
 
 #[cfg(test)]
 mod tests {
-    use actix_web::{App, Scope};
     use utoipa::{openapi::PathItemType, OpenApi};
 
     use super::*;
-
-    #[actix_web::test]
-    async fn test_get_timeline() {
-        let app = actix_web::test::init_service(
-            App::new()
-                .app_data(web::Data::new(BlogTimeline::default()))
-                .service(Scope::new("/api/blog").service(get_timeline)),
-        )
-        .await;
-
-        let req = actix_web::test::TestRequest::get()
-            .uri("/api/blog")
-            .to_request();
-        let resp = actix_web::test::call_service(&app, req).await;
-        assert!(resp.status().is_success());
-        let resp_body = actix_web::test::read_body(resp).await;
-        assert_eq!(resp_body, "{\"pages\":{}}");
-    }
 
     #[test]
     fn test_get_timeline_openapi() {

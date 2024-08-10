@@ -73,6 +73,21 @@ pub struct DocHeader {
     pub links: Vec<DocHeaderLink>,
 }
 
+impl Default for DocHeader {
+    fn default() -> Self {
+        DocHeader {
+            title: "".to_string(),
+            date: Utc::now(),
+            description: None,
+            weight: 0,
+            spec: DocHeaderSpec::default(),
+            tags: Vec::new(),
+            techno: Vec::new(),
+            links: Vec::new(),
+        }
+    }
+}
+
 #[derive(Debug)]
 pub enum DocHeaderParseError {
     ParseError(markdown_header::Error),
