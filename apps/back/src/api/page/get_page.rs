@@ -67,7 +67,7 @@ mod tests {
     }
 
     #[test]
-    fn test_get_timeline_openapi() {
+    fn test_get_page_openapi() {
         #[derive(utoipa::OpenApi)]
         #[openapi(
             info(

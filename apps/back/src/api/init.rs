@@ -9,7 +9,13 @@ use tracing_actix_web::{RequestId, TracingLogger};
 use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
 
-use crate::api::{apidocs::ApiDocs, blog::init_blog_api, doc::init_doc_api, page::init_page_api};
+use crate::{
+    api::{
+        apidocs::ApiDocs, blog::init_blog_api, doc::init_doc_api, home::init_home_api,
+        page::init_page_api,
+    },
+    homeprofil::HomeContent,
+};
 
 #[get("/")]
 async fn hello() -> impl Responder {
@@ -21,6 +27,7 @@ pub async fn init_api(
     db_folder: DbFolder,
     blog_timeline: BlogTimeline,
     doc_sidebar: DocCategory,
+    home_content: HomeContent,
 ) -> Result<(), std::io::Error> {
     println!("Initializing API...");
     let mut openapi = ApiDocs::openapi();
@@ -37,6 +44,7 @@ pub async fn init_api(
             .app_data(web::Data::new(db_folder.clone()))
             .app_data(web::Data::new(blog_timeline.clone()))
             .app_data(web::Data::new(doc_sidebar.clone()))
+            .app_data(web::Data::new(home_content.clone()))
             .wrap(cors)
             .service(swagger_ui)
             .service(
@@ -44,6 +52,7 @@ pub async fn init_api(
                     .service(init_blog_api())
                     .service(init_page_api())
                     .service(init_doc_api())
+                    .service(init_home_api())
                     .service(hello)
                     .wrap_fn(|mut req, srv| {
                         let request_id_asc = req.extract::<RequestId>();

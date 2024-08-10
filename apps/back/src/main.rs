@@ -1,4 +1,4 @@
-use back::{api::init::init_api, config};
+use back::{api::init::init_api, config, homeprofil::load_home_content};
 use markdown_struct::{
     blog_timeline::BlogTimeline, doc_sidebar::DocCategory, folder_struct, page_database::DbFolder,
 };
@@ -27,7 +27,14 @@ async fn main() -> std::io::Result<()> {
     };
     let blog_timeline = BlogTimeline::generate_timeline_from_db(db_folder.clone(), "".to_string());
     let doc_sidebar = DocCategory::generate_sidebar_from_db(db_folder.clone(), "".to_string());
-    init_api(config.port, db_folder, blog_timeline, doc_sidebar).await?;
+    let home = match load_home_content(&config.content_path.clone()) {
+        Ok(home) => home,
+        Err(e) => {
+            error!("Error loading home content: {:?}", e);
+            return Ok(());
+        }
+    };
+    init_api(config.port, db_folder, blog_timeline, doc_sidebar, home).await?;
     info!("API stopped {}", config.get_name());
     stop_tracing(config.clone().tracing, config.get_name());
     Ok(())

@@ -1,8 +1,9 @@
 use std::{fs::File, io::Read};
 
 use serde::{Deserialize, Serialize};
+use utoipa::ToSchema;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct HomeContent {
     pub name: String,
@@ -13,7 +14,7 @@ pub struct HomeContent {
     pub history: Vec<HomeHistory>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct HomeUrl {
     pub url: String,
@@ -22,7 +23,7 @@ pub struct HomeUrl {
     pub img_url: String,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct HomeHistory {
     pub title: String,
@@ -34,7 +35,7 @@ pub struct HomeHistory {
     pub url: Option<Vec<HomeHistoryUrl>>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct HomeHistoryUrl {
     pub url: String,
@@ -134,5 +135,17 @@ mod tests {
         let serialized = serde_yaml::to_string(&home).unwrap();
         let deserialized: HomeContent = serde_yaml::from_str(&serialized).unwrap();
         assert_eq!(home, deserialized);
+    }
+
+    #[test]
+    fn test_home_toschema() {
+        let schema_home = HomeContent::schema();
+        let schema_home_url = HomeUrl::schema();
+        let schema_home_history = HomeHistory::schema();
+        let schema_home_history_url = HomeHistoryUrl::schema();
+        assert_eq!(schema_home.0, "HomeContent".to_string());
+        assert_eq!(schema_home_url.0, "HomeUrl".to_string());
+        assert_eq!(schema_home_history.0, "HomeHistory".to_string());
+        assert_eq!(schema_home_history_url.0, "HomeHistoryUrl".to_string());
     }
 }

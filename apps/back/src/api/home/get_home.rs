@@ -1,23 +1,24 @@
 use actix_web::{get, web, HttpResponse, Responder};
-use markdown_struct::doc_sidebar::DocCategory;
 use tracing::instrument;
 
-/// Get doc sidebar
+use crate::homeprofil::HomeContent;
+
+/// Get home content
 ///
-/// Get doc sidebar with minimal description of each article
+/// Get home page content
 #[utoipa::path(
-    tag = "Doc",
-    operation_id = "get_doc_sidebar",
-    path = "/api/doc",
+    tag = "Home",
+    operation_id = "get_home",
+    path = "/api/home",
     responses(
-        (status = 200, description = "Doc Sidebar", body = DocCategory),
+        (status = 200, description = "Home Content", body = HomeContent),
         (status = 500, description = "Internal server error"),
     )
 )]
 #[get("")]
-#[instrument(name = "get_doc_sidebar")]
-pub async fn get_doc_sidebar(doc_sidebar: web::Data<DocCategory>) -> impl Responder {
-    HttpResponse::Ok().json(doc_sidebar)
+#[instrument(name = "get_home")]
+pub async fn get_home(home_content: web::Data<HomeContent>) -> impl Responder {
+    HttpResponse::Ok().json(home_content)
 }
 
 #[cfg(test)]
@@ -27,7 +28,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_get_doc_sidebar_openapi() {
+    fn test_get_timeline_openapi() {
         #[derive(utoipa::OpenApi)]
         #[openapi(
             info(
@@ -42,19 +43,19 @@ mod tests {
             ),
             components(
                 schemas(
-                    DocCategory,
+                    HomeContent,
                 )
             ),
             paths(
-                get_doc_sidebar,
+                get_home,
             )
         )]
         struct ApiDocs;
 
         let openapi = ApiDocs::openapi();
-        let api = openapi.paths.paths.get("/api/doc").unwrap();
+        let api = openapi.paths.paths.get("/api/home").unwrap();
         let ope = api.operations.first_key_value().unwrap();
         assert!(ope.0.eq(&PathItemType::Get));
-        assert!(ope.1.operation_id.eq(&Some("get_doc_sidebar".to_string())));
+        assert!(ope.1.operation_id.eq(&Some("get_home".to_string())));
     }
 }

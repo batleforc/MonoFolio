@@ -1,6 +1,11 @@
-use crate::api::page::get_page::{self, QuerryPage};
+use crate::{
+    api::page::get_page::{self, QuerryPage},
+    homeprofil::{HomeContent, HomeHistory, HomeHistoryUrl, HomeUrl},
+};
 
 use super::blog::get_timeline;
+use super::doc::get_doc_sidebar;
+use super::home::get_home;
 use markdown_struct::{
     blog_timeline::BlogTimeline,
     content_struct::{Page, PageShort},
@@ -16,6 +21,7 @@ use utoipa::OpenApi;
         description = "API documentation for MonoFolio"
     ),
     tags(
+        ( name = "Home", description = "Home related endpoints"),
         ( name = "Blog", description = "Blog related endpoints"),
         ( name = "Doc", description = "Doc related endpoints"),
         ( name = "Page", description = "Page related endpoints"),
@@ -30,11 +36,17 @@ use utoipa::OpenApi;
             DocHeaderLink,
             BlogTimeline,
             QuerryPage,
+            HomeUrl,
+            HomeHistoryUrl,
+            HomeHistory,
+            HomeContent,
         )
     ),
     paths(
         get_timeline::get_timeline,
         get_page::get_page,
+        get_doc_sidebar::get_doc_sidebar,
+        get_home::get_home,
     )
 )]
 pub struct ApiDocs;

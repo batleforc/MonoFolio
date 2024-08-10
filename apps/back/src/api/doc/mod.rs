@@ -14,7 +14,7 @@ mod tests {
     use super::*;
 
     #[actix_web::test]
-    async fn test_get_timeline() {
+    async fn test_get_doc_sidebar() {
         let app = actix_web::test::init_service(
             App::new()
                 .app_data(web::Data::new(DocCategory::default()))
