@@ -33,3 +33,21 @@ use utoipa::OpenApi;
     )
 )]
 pub struct ApiDocs;
+
+#[cfg(test)]
+mod tests {
+    use utoipa::OpenApi;
+
+    use super::*;
+
+    #[test]
+    fn test_api_docs_openapi() {
+        let openapi = ApiDocs::openapi();
+        assert_eq!(openapi.info.version, "0.1.0");
+        assert_eq!(openapi.info.title, "MonoFolio");
+        assert_eq!(
+            openapi.info.description,
+            Some("API documentation for MonoFolio".to_string())
+        );
+    }
+}
