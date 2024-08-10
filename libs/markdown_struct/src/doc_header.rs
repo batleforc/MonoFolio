@@ -273,4 +273,15 @@ THIS IS A TEST
             }
         );
     }
+
+    #[test]
+    fn test_header_schema() {
+        let schema_header_spec = DocHeaderSpec::schema();
+        let schema_header_link = DocHeaderLink::schema();
+        let schema_header = DocHeader::schema();
+
+        assert_eq!(schema_header_spec.0, "DocHeaderSpec");
+        assert_eq!(schema_header_link.0, "DocHeaderLink");
+        assert_eq!(schema_header.0, "DocHeader");
+    }
 }

@@ -130,4 +130,12 @@ mod tests {
         let deserialized: PageShort = serde_json::from_str(&serialized).unwrap();
         assert_eq!(page_short, deserialized);
     }
+
+    #[test]
+    fn test_page_to_schema() {
+        let schema_page = Page::schema();
+        let schema_page_short = PageShort::schema();
+        assert_eq!(schema_page.0, "Page".to_string());
+        assert_eq!(schema_page_short.0, "PageShort".to_string());
+    }
 }
