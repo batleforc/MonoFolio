@@ -34,7 +34,15 @@ async fn main() -> std::io::Result<()> {
             return Ok(());
         }
     };
-    init_api(config.port, db_folder, blog_timeline, doc_sidebar, home).await?;
+    init_api(
+        config.port,
+        db_folder,
+        blog_timeline,
+        doc_sidebar,
+        home,
+        config.clone(),
+    )
+    .await?;
     info!("API stopped {}", config.get_name());
     stop_tracing(config.clone().tracing, config.get_name());
     Ok(())

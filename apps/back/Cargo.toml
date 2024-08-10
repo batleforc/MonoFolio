@@ -24,6 +24,7 @@ utoipa = { version = "4", features = ["actix_extras", "chrono"] }
 utoipa-swagger-ui = { version = "4", features = ["actix-web"] }
 actix-cors = "0.7.0"
 tracing-actix-web = "0.7.11"
+infer = "0.16.0"
 
 
 # Code that handle the CLI

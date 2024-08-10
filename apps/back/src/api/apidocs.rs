@@ -1,5 +1,8 @@
 use crate::{
-    api::page::get_page::{self, QuerryPage},
+    api::{
+        media::get_media::{self, QuerryMedia},
+        page::get_page::{self, QuerryPage},
+    },
     homeprofil::{HomeContent, HomeHistory, HomeHistoryUrl, HomeUrl},
 };
 
@@ -40,6 +43,7 @@ use utoipa::OpenApi;
             HomeHistoryUrl,
             HomeHistory,
             HomeContent,
+            QuerryMedia,
         )
     ),
     paths(
@@ -47,6 +51,7 @@ use utoipa::OpenApi;
         get_page::get_page,
         get_doc_sidebar::get_doc_sidebar,
         get_home::get_home,
+        get_media::get_media,
     )
 )]
 pub struct ApiDocs;
