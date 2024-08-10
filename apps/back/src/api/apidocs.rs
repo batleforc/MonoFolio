@@ -13,6 +13,7 @@ use markdown_struct::{
     blog_timeline::BlogTimeline,
     content_struct::{Page, PageShort},
     doc_header::{DocHeader, DocHeaderLink, DocHeaderSpec},
+    doc_sidebar::DocCategory,
 };
 use utoipa::OpenApi;
 
@@ -44,6 +45,7 @@ use utoipa::OpenApi;
             HomeHistory,
             HomeContent,
             QuerryMedia,
+            DocCategory,
         )
     ),
     paths(

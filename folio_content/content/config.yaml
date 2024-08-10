@@ -1,5 +1,5 @@
 port: 5437
-content_path: "./content"
+content_path: "./folio_content/content"
 env: "development"
 tracing:
 - name: "console"

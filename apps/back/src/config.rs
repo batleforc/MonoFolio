@@ -52,7 +52,7 @@ pub fn parse_config(path_buf: PathBuf) -> Config {
 
 pub fn parse_local_config() -> Config {
     let mut path_buf = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-    path_buf.push("../../content/config.yaml");
+    path_buf.push("../../folio_content/content/config.yaml");
     match dotenv() {
         Ok(_) => info!("Loaded .env file"),
         Err(err) => println!("No .env file found: {:?}", err),
