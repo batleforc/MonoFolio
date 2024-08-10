@@ -8,7 +8,7 @@ use tracing::{error, info};
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
     let config = config::parse_local_config();
-    let agent = init_tracing(config.clone().tracing, config.get_name());
+    init_tracing(config.clone().tracing, config.get_name());
 
     // Init ContentDB
     let folder_struct = match folder_struct::process_folder_struct(config.content_path.clone()) {
@@ -29,6 +29,6 @@ async fn main() -> std::io::Result<()> {
     let doc_sidebar = DocCategory::generate_sidebar_from_db(db_folder.clone(), "".to_string());
     init_api(config.port, db_folder, blog_timeline, doc_sidebar).await?;
     info!("API stopped {}", config.get_name());
-    stop_tracing(config.clone().tracing, config.get_name(), agent);
+    stop_tracing(config.clone().tracing, config.get_name());
     Ok(())
 }
