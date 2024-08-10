@@ -3,6 +3,9 @@ use super::tracing_kind::{Tracing, TracingKind};
 use opentelemetry::KeyValue;
 use opentelemetry_otlp::WithExportConfig;
 use opentelemetry_sdk::{runtime, trace, Resource};
+use pyroscope::pyroscope::PyroscopeAgentRunning;
+use pyroscope::PyroscopeAgent;
+use pyroscope_pprofrs::{pprof_backend, PprofConfig};
 use std::{fs::File, sync::Arc, vec};
 use time::format_description;
 use tracing::level_filters::LevelFilter;
@@ -14,8 +17,12 @@ use tracing_subscriber::prelude::__tracing_subscriber_SubscriberExt;
 use tracing_subscriber::{fmt, EnvFilter, Layer, Registry};
 
 #[cfg_attr(coverage_nightly, coverage(off))]
-pub fn init_tracing(tracing_config: Vec<Tracing>, name: String) {
+pub fn init_tracing(
+    tracing_config: Vec<Tracing>,
+    name: String,
+) -> Option<PyroscopeAgent<PyroscopeAgentRunning>> {
     let mut layers = vec![];
+    let mut super_agent = None;
     for config in tracing_config {
         match config.kind {
             TracingKind::File => {
@@ -74,16 +81,46 @@ pub fn init_tracing(tracing_config: Vec<Tracing>, name: String) {
                 let tele_layer = OpenTelemetryLayer::new(telemetry).with_filter(env_filter);
                 layers.push(tele_layer.boxed());
             }
+            TracingKind::Pprof => {
+                // ERROR ! pprof does not work yet
+                let sample_rate = match config.additional.get("sample_rate") {
+                    Some(sample_rate) => {
+                        sample_rate.parse().expect("sample_rate should be a number")
+                    }
+                    None => 100,
+                };
+                let backend_impl = pprof_backend(PprofConfig::new().sample_rate(sample_rate));
+                let pyro_url = match config.additional.get("pyroscope_url") {
+                    Some(url) => url.to_string(),
+                    None => "http://localhost:4040".to_string(),
+                };
+                let agent = match PyroscopeAgent::builder(pyro_url, name.clone())
+                    .backend(backend_impl)
+                    .build()
+                {
+                    Ok(agent) => agent,
+                    Err(e) => panic!("Failed to create pyroscope agent: {}", e),
+                };
+                super_agent = Some(agent.start().unwrap());
+            }
         }
     }
     subscriber::set_global_default(Registry::default().with(layers))
         .expect("setting default subscriber failed");
+    super_agent
 }
 
 #[cfg_attr(coverage_nightly, coverage(off))]
-pub fn stop_tracing(tracing_config: Vec<Tracing>, _name: String) {
+pub fn stop_tracing(
+    tracing_config: Vec<Tracing>,
+    _name: String,
+    super_agent: Option<PyroscopeAgent<PyroscopeAgentRunning>>,
+) {
     if tracing_config.iter().any(|x| x.kind == TracingKind::Otel) {
         opentelemetry::global::shutdown_tracer_provider();
+    }
+    if tracing_config.iter().any(|x| x.kind == TracingKind::Pprof) {
+        super_agent.unwrap().shutdown();
     }
 }
 
@@ -119,11 +156,11 @@ mod tests {
         tracing_config[2]
             .additional
             .insert("endpoint".to_string(), "http://localhost:4317".to_string());
-        init_tracing(tracing_config.clone(), "test".to_string());
+        let agent = init_tracing(tracing_config.clone(), "test".to_string());
         tracing::info!("test part of test_init_tracing");
         tracing::error!("test part of test_init_tracing");
         tokio::spawn(async {
-            stop_tracing(tracing_config, "test".to_string());
+            stop_tracing(tracing_config, "test".to_string(), agent);
         });
         remove_file("trace.log").unwrap();
     }

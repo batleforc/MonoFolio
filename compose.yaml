@@ -1,0 +1,14 @@
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:${JAEGER_VERSION:-latest}
+    ports:
+      - '16686:16686'
+      - '4318:4318'
+      - '14268:14268'
+      - '4317:4317'
+    environment:
+      - LOG_LEVEL=debug
+  pyroscope:
+    image: 'grafana/pyroscope:latest'
+    ports:
+      - 4040:4040

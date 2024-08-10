@@ -5,3 +5,13 @@ tracing:
 - name: "console"
   level: 2
   kind: "Console"
+- name: "otel"
+  level: 2
+  kind: "Otel"
+  additional:
+    endpoint: "http://localhost:4317"
+# - name: "Pyro"
+#   level: 2
+#   kind: "Pprof"
+#   additional:
+#     endpoint: "http://localhost:4040"

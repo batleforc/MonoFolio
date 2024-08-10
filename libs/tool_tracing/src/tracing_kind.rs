@@ -9,6 +9,7 @@ pub enum TracingKind {
     File,
     Console,
     Otel,
+    Pprof,
 }
 
 #[derive(Serialize, Deserialize, Clone, PartialEq, Debug)]
