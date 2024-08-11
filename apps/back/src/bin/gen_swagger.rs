@@ -7,12 +7,9 @@ extern crate back;
 
 pub fn main() {
     let args: Vec<String> = env::args().collect();
-    match args.len() {
-        1 => {
-            println!("Usage: gen_swagger <output_file>");
-            std::process::exit(1);
-        }
-        _ => {}
+    if args.len() < 2 {
+        println!("Usage: gen_swagger <output_file>");
+        std::process::exit(1);
     }
     let mut openapi = ApiDocs::openapi();
     openapi.info.version = env!("CARGO_PKG_VERSION").to_string();
