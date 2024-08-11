@@ -2,15 +2,15 @@
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
-import { fileURLToPath } from 'url';
-import path from 'path';
+import Components from 'unplugin-vue-components/vite';
+import { PrimeVueResolver } from '@primevue/auto-import-resolver';
 
 export default ({ mode }: { mode: string }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
   process.env.VITE_API_URL =
     process.env.VITE_API_URL || process.env.ENV === 'production'
       ? ''
-      : 'http://localhost:5437/api';
+      : 'http://localhost:5437';
 
   return defineConfig({
     root: __dirname,
@@ -26,7 +26,11 @@ export default ({ mode }: { mode: string }) => {
       host: 'localhost',
     },
 
-    plugins: [vue(), nxViteTsPaths()],
+    plugins: [
+      vue(),
+      nxViteTsPaths(),
+      Components({ resolvers: [PrimeVueResolver()] }),
+    ],
 
     // Uncomment this if you are using workers.
     // worker: {

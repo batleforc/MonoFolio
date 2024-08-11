@@ -19,15 +19,15 @@ url:
 - name: LinkedIn
   url: https://www.linkedin.com/in/maxime-leriche/
   primaire: true
-  imgUrl: /media/linkedin.png
+  imgUrl: ico#linkedin2
 - name: GitHub
   url: https://github.com/batleforc
   primaire: true
-  imgUrl: /media/github.png
+  imgUrl: ico#github
 - name: Git Weebo
   url: https://git.weebo.fr/batleforc
   primaire: true
-  imgUrl: /media/gitea.png
+  imgUrl: ico#gitea
 history:
 - title: Bac STI2D
   lieux: Lycée Marie Curie, Nogent sur Oise
