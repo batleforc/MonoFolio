@@ -13,7 +13,7 @@ let superClassName = `ico ico-${props.icon} ${props.className}`;
 </script>
 
 <template>
-    <svg class="ico-cover" :class="superClassName" focusable="false">
+    <svg :class="superClassName" focusable="false">
         <use :href="`/icon/symbol-defs.svg#ico-${icon}`"></use>
     </svg>
 </template>

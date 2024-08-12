@@ -2,7 +2,14 @@
 import { useIndexStore } from '../../stores';
 import TextRotate from './TextRotate.vue';
 import HeroLink from './HeroLink.vue'
+import { AreWeHome } from '../../helper';
 const indexStore = useIndexStore();
+
+const smoothScroll = (event: MouseEvent) => {
+    if (!event) return;
+    event.preventDefault();
+    document.querySelector(AreWeHome() ? "#about" : "#title")?.scrollIntoView({ behavior: 'smooth' });
+}
 
 </script>
 
@@ -16,9 +23,8 @@ const indexStore = useIndexStore();
                     :link="link.url" className="ico-cover" />
             </div>
         </div>
-        <div>
-            GO DOWN
-        </div>
+        <HeroLink :link="AreWeHome() ? 'about' : 'title'" icon="ico#chevron-down"
+            className="ico-next-content animate-bounce" :func="smoothScroll" />
     </div>
     <div v-else>
         <h1>Loading...</h1>
@@ -72,5 +78,6 @@ const indexStore = useIndexStore();
     margin-right: auto;
     width: 30px;
     font-size: 30px;
+    color: #f2f4f3;
 }
 </style>

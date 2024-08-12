@@ -5,21 +5,17 @@ presentation: |
   Et vous êtes ici sur mon site qui est un savant mélange de mes passions et de mes projets.
   Alors, bienvenue et bonne visite !
 coverTitle:
-- Développeur
-- Passionné
-- Ops
-- Back
-- Front
-- Kube and Co
-- Architecture
-- Too much coffee
-- And lot's more
+- Développeur.
+- Passionné.
+- Ops.
+- Back.
+- Front.
+- Kube and Co.
+- Architecture.
+- Too much coffee.
+- And lot's more.
 cvUrl: /media/cv.pdf
 url:
-- name: LinkedIn
-  url: https://www.linkedin.com/in/maxime-leriche/
-  primaire: true
-  imgUrl: ico#linkedin2
 - name: GitHub
   url: https://github.com/batleforc
   primaire: true
@@ -28,6 +24,10 @@ url:
   url: https://git.weebo.fr/batleforc
   primaire: true
   imgUrl: ico#gitea
+- name: LinkedIn
+  url: https://www.linkedin.com/in/maxime-leriche-weebo/
+  primaire: true
+  imgUrl: ico#linkedin2
 history:
 - title: Bac STI2D
   lieux: Lycée Marie Curie, Nogent sur Oise
