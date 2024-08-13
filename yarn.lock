@@ -1619,12 +1619,26 @@
   dependencies:
     "@nx/jest" "19.4.3"
 
+"@nrwl/jest@19.5.7":
+  version "19.5.7"
+  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-19.5.7.tgz#f9df4a89abe6ce207003a6dcf1bda8a0353fde05"
+  integrity sha512-E0Ii+ybj3UewhElZ4IyElzeA0zY8NiF0kHI06tTYUi8sYsompxT6mkSLmNffn0ouovqnT0/IwYMZVn0BA5lURg==
+  dependencies:
+    "@nx/jest" "19.5.7"
+
 "@nrwl/js@19.4.3":
   version "19.4.3"
   resolved "https://registry.yarnpkg.com/@nrwl/js/-/js-19.4.3.tgz#39c1a2f3d63bc4c5bd7cf7d1dd52c289e37bbc09"
   integrity sha512-eAEX9wCxF51sS1eB4lXvjpwC/vY3Gm8H6EdFbj3zV5ScHE97TtfWR5Py/TbE6lljfUOiSr6EzPGM4YKHKKC4uA==
   dependencies:
     "@nx/js" "19.4.3"
+
+"@nrwl/js@19.5.7":
+  version "19.5.7"
+  resolved "https://registry.yarnpkg.com/@nrwl/js/-/js-19.5.7.tgz#8705e4b80ff8b0c9c003234e22776930ec629c55"
+  integrity sha512-Hb8ZBQYI7X5YsV573jCDm+3rn+htVqf0GEaDJGRmhzPe9PE/rlquti07gO5ao9+SeLcB34g6kAhR8PO+3sz0pw==
+  dependencies:
+    "@nx/js" "19.5.7"
 
 "@nrwl/nx-plugin@19.4.3":
   version "19.4.3"
@@ -1669,6 +1683,13 @@
   integrity sha512-DsimNVxPA3dNMF2iWHV40TPoBxs54Q2xU+R2BfEEZALalqplQ9H3UrZ3KSYRlsIjkRCvH0QL6bOBy5sIbo5QFQ==
   dependencies:
     "@nx/workspace" "19.4.3"
+
+"@nrwl/workspace@19.5.7":
+  version "19.5.7"
+  resolved "https://registry.yarnpkg.com/@nrwl/workspace/-/workspace-19.5.7.tgz#523975109b0a06f7d93b32395933dc078470e876"
+  integrity sha512-VzQmG+de1DvQnmWy2acMkxBrRPxFdvQ06Tja6tThn3UWMB9RwK2wKIEERttRhjBLGjGlr6ARi9Bd8zYTgpW0Lw==
+  dependencies:
+    "@nx/workspace" "19.5.7"
 
 "@nx/cypress@19.4.3":
   version "19.4.3"
@@ -1762,6 +1783,27 @@
     tslib "^2.3.0"
     yargs-parser "21.1.1"
 
+"@nx/jest@19.5.7":
+  version "19.5.7"
+  resolved "https://registry.yarnpkg.com/@nx/jest/-/jest-19.5.7.tgz#46e55cf68f1842deaba1b631dccac1f822dd1a9a"
+  integrity sha512-3WUlLSlhzuunVlYSoJUMRiBsSgmFmPma5GmAT0LhDlU8Gdgrhy/ZPJf9E5gLBaK2r6w/rm0SQ210OQrt8zlntQ==
+  dependencies:
+    "@jest/reporters" "^29.4.1"
+    "@jest/test-result" "^29.4.1"
+    "@nrwl/jest" "19.5.7"
+    "@nx/devkit" "19.5.7"
+    "@nx/js" "19.5.7"
+    "@phenomnomnominal/tsquery" "~5.0.1"
+    chalk "^4.1.0"
+    identity-obj-proxy "3.0.0"
+    jest-config "^29.4.1"
+    jest-resolve "^29.4.1"
+    jest-util "^29.4.1"
+    minimatch "9.0.3"
+    resolve.exports "1.1.0"
+    tslib "^2.3.0"
+    yargs-parser "21.1.1"
+
 "@nx/js@19.4.3":
   version "19.4.3"
   resolved "https://registry.yarnpkg.com/@nx/js/-/js-19.4.3.tgz#e1330a5e69b4093027a80f3541d36df9bd52a8d4"
@@ -1777,6 +1819,41 @@
     "@nrwl/js" "19.4.3"
     "@nx/devkit" "19.4.3"
     "@nx/workspace" "19.4.3"
+    babel-plugin-const-enum "^1.0.1"
+    babel-plugin-macros "^2.8.0"
+    babel-plugin-transform-typescript-metadata "^0.3.1"
+    chalk "^4.1.0"
+    columnify "^1.6.0"
+    detect-port "^1.5.1"
+    fast-glob "3.2.7"
+    fs-extra "^11.1.0"
+    ignore "^5.0.4"
+    js-tokens "^4.0.0"
+    minimatch "9.0.3"
+    npm-package-arg "11.0.1"
+    npm-run-path "^4.0.1"
+    ora "5.3.0"
+    semver "^7.5.3"
+    source-map-support "0.5.19"
+    ts-node "10.9.1"
+    tsconfig-paths "^4.1.2"
+    tslib "^2.3.0"
+
+"@nx/js@19.5.7":
+  version "19.5.7"
+  resolved "https://registry.yarnpkg.com/@nx/js/-/js-19.5.7.tgz#ab0ff7d5235cae045946574454e2c9fe28f5e3a8"
+  integrity sha512-DlZHz6nWIFyr+43T0g/FfISXETfKuLwg22clQGwTlsmal9ShMOt7uTNl18BzK1cnvxE+cwbFUQ8pCL1DcrYKsA==
+  dependencies:
+    "@babel/core" "^7.23.2"
+    "@babel/plugin-proposal-decorators" "^7.22.7"
+    "@babel/plugin-transform-class-properties" "^7.22.5"
+    "@babel/plugin-transform-runtime" "^7.23.2"
+    "@babel/preset-env" "^7.23.2"
+    "@babel/preset-typescript" "^7.22.5"
+    "@babel/runtime" "^7.22.6"
+    "@nrwl/js" "19.5.7"
+    "@nx/devkit" "19.5.7"
+    "@nx/workspace" "19.5.7"
     babel-plugin-const-enum "^1.0.1"
     babel-plugin-macros "^2.8.0"
     babel-plugin-transform-typescript-metadata "^0.3.1"
@@ -1966,6 +2043,19 @@
     chalk "^4.1.0"
     enquirer "~2.3.6"
     nx "19.4.3"
+    tslib "^2.3.0"
+    yargs-parser "21.1.1"
+
+"@nx/workspace@19.5.7":
+  version "19.5.7"
+  resolved "https://registry.yarnpkg.com/@nx/workspace/-/workspace-19.5.7.tgz#4d6e2fe8b803780012e7c96f743b16205fd9be20"
+  integrity sha512-HtyRP0358QxKCpRkEffG0SAvZ9aIWvazMX6vlyHoJt8fkUuxN/wkkR80TTmTurqt87OpJK67ylUx0eOzzzm8Lw==
+  dependencies:
+    "@nrwl/workspace" "19.5.7"
+    "@nx/devkit" "19.5.7"
+    chalk "^4.1.0"
+    enquirer "~2.3.6"
+    nx "19.5.7"
     tslib "^2.3.0"
     yargs-parser "21.1.1"
 
