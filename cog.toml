@@ -19,5 +19,5 @@ authors = [
 [git_hooks.commit-msg]
 script = """#!/bin/sh
 set -e
-nx run-many -t hook
+nx run-many -t hook --verbose
 """

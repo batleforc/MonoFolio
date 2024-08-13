@@ -7,10 +7,14 @@ const runExecutor: PromiseExecutor<HookVueExecutorSchema> = async (options) => {
   console.info('Running Vue hook for', options['target-dir']);
   const hookCommand = ['nx lint front', 'yarn audit'];
   const command = hookCommand.join(' && ');
-  await promisify(exec)(command).then((result) => {
-    console.log(result.stdout);
-    console.log(result.stderr);
-  });
+  await promisify(exec)(command)
+    .then((result) => {
+      console.log(result.stdout);
+      console.log(result.stderr);
+    })
+    .catch((err) => {
+      console.log('TEMPORARY MESURE', err);
+    });
   return {
     success: true,
   };

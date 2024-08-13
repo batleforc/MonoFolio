@@ -3,7 +3,6 @@ import { RouterView } from 'vue-router'
 import { useIndexStore } from '../stores';
 import Hero from '../component/Hero/Hero.vue';
 import NavBar from '../component/NavBar/NavBar.vue';
-console.log('Hello from front');
 
 const indexStore = useIndexStore();
 if (!indexStore.inited && !indexStore.homeLoading) {
@@ -14,6 +13,6 @@ if (!indexStore.inited && !indexStore.homeLoading) {
 
 <template>
   <Hero />
-  <NavBar />
+  <NavBar v-if="indexStore.inited" :link="indexStore.homeContent.url" />
   <RouterView />
 </template>
