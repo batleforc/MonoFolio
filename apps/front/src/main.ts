@@ -1,3 +1,4 @@
+import './styles.scss';
 import { createApp, markRaw } from 'vue';
 import { createPinia } from 'pinia';
 import type { Router } from 'vue-router';
@@ -7,7 +8,6 @@ import Aura from '@primevue/themes/aura';
 import App from './views/App.vue';
 import router from './router';
 import { client } from '@portfolio/api-client';
-import './styles.scss';
 
 client.setConfig({
   baseURL: import.meta.env.VITE_API_URL as string,

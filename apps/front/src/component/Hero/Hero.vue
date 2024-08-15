@@ -26,10 +26,12 @@ const indexStore = useIndexStore();
 </template>
 
 <style lang="scss">
+@import '../../var.scss';
+
 .coverPage {
     height: 100vh;
-    background-color: #1b203a;
-    color: #f2f4f3;
+    background-color: $color-bgCover;
+    color: $color-textCover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,9 +58,9 @@ const indexStore = useIndexStore();
 
 .ico-cover {
     font-size: 38px;
-    color: #f2f4f3;
+    color: $color-textCover;
     border-radius: 50%;
-    border: 1px solid #f2f4f3;
+    border: 1px solid $color-textCover;
     padding: 5px;
     margin: 5px;
 }
@@ -72,6 +74,6 @@ const indexStore = useIndexStore();
     margin-right: auto;
     width: 30px;
     font-size: 30px;
-    color: #f2f4f3;
+    color: $color-textCover;
 }
 </style>
