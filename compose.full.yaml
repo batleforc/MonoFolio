@@ -1,0 +1,36 @@
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:${JAEGER_VERSION:-latest}
+    ports:
+      - '16686:16686'
+      - '4318:4318'
+      - '14268:14268'
+      - '4317:4317'
+    environment:
+      - LOG_LEVEL=debug
+
+  backend:
+    build:
+      context: .
+      dockerfile: build/back/Containerfile
+    ports:
+      - '5437:5437'
+    environment:
+      OTEL_OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4317
+
+  frontend:
+    build:
+      context: .
+      dockerfile: build/front/Containerfile
+    ports:
+      - '8080:8080'
+
+  reverse-proxy:
+    build:
+      context: .
+      dockerfile: build/reverse-proxy/Containerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - frontend
+      - backend

@@ -1,0 +1,54 @@
+FROM registry.hub.docker.com/library/rust:1.80 AS build
+
+WORKDIR /app
+
+# Prepare the build environment and cache dependencies
+RUN mkdir -p libs/markdown_header/src && \
+    mkdir -p libs/markdown_struct/src && \
+    mkdir -p libs/tool_tracing/src && \
+    mkdir -p apps/back/src && \
+    mkdir -p apps/back/src/bin
+
+COPY Cargo.toml .
+COPY ./libs/markdown_header/Cargo.toml ./libs/markdown_header/
+COPY ./libs/markdown_struct/Cargo.toml ./libs/markdown_struct/
+COPY ./libs/tool_tracing/Cargo.toml ./libs/tool_tracing/
+COPY ./apps/back/Cargo.toml ./apps/back/
+COPY .cargo .
+
+RUN echo "pub fn main() {}" > libs/markdown_header/src/lib.rs && \
+    echo "pub fn main() {}" > libs/markdown_struct/src/lib.rs && \
+    echo "pub fn main() {}" > libs/tool_tracing/src/lib.rs && \
+    echo "fn main() {}" > apps/back/src/main.rs && \
+    echo "fn main() {}" > apps/back/src/bin/sandbox.rs && \
+    echo "fn main() {}" > apps/back/src/bin/gen_swagger.rs
+
+RUN cargo build --release
+
+# Build the application
+COPY . .
+RUN touch apps/back/src/main.rs
+RUN cargo build --release
+
+RUN strip dist/target/release/server && \
+    strip dist/target/release/swagger
+
+FROM gcr.io/distroless/cc-debian12
+#FROM registry.hub.docker.com/library/debian:bullseye-slim
+
+WORKDIR /app
+
+COPY --from=build /app/dist/target/release/server .
+COPY --from=build /app/dist/target/release/swagger .
+
+COPY ./folio_content/ .
+
+EXPOSE 5437
+
+ENV API_PORT 5437
+ENV ENV production
+ENV CONFIG_PATH content/config.yaml
+ENV CONTENT_PATH ./content
+
+CMD ["./server"]
+#CMD ["tail", "-f", "/dev/null"]

@@ -1,4 +1,4 @@
-use std::path::PathBuf;
+use std::{env, path::PathBuf};
 
 use dotenvy::dotenv;
 use serde::Deserialize;
@@ -7,6 +7,7 @@ use tracing::info;
 
 const API_PORT: &str = "API_PORT";
 const CONTENT_PATH: &str = "CONTENT_PATH";
+const CONFIG_PATH: &str = "CONFIG_PATH";
 const ENV: &str = "ENV";
 
 #[derive(Deserialize, Debug, Clone)]
@@ -40,7 +41,8 @@ fn override_config_with_env(config: Config) -> Config {
 }
 
 fn parse_config_from_file(path_buf: PathBuf) -> Config {
-    let file = std::fs::File::open(path_buf).expect("file should open read only");
+    let file = std::fs::File::open(path_buf.clone())
+        .unwrap_or_else(|_| panic!("file should open read only {}", path_buf.display()));
     let reader = std::io::BufReader::new(file);
     serde_yaml::from_reader(reader).expect("file should be proper YAML")
 }
@@ -51,8 +53,8 @@ pub fn parse_config(path_buf: PathBuf) -> Config {
 }
 
 pub fn parse_local_config() -> Config {
-    let mut path_buf = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-    path_buf.push("../../folio_content/content/config.yaml");
+    let mut path_buf = env::current_dir().unwrap();
+    path_buf.push(env::var(CONFIG_PATH).unwrap_or("folio_content/content/config.yaml".to_string()));
     match dotenv() {
         Ok(_) => info!("Loaded .env file"),
         Err(err) => println!("No .env file found: {:?}", err),

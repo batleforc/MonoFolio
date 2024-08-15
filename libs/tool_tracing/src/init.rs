@@ -4,6 +4,7 @@ use opentelemetry::KeyValue;
 use opentelemetry_otlp::WithExportConfig;
 use opentelemetry_sdk::trace::Config;
 use opentelemetry_sdk::{runtime, Resource};
+use std::env;
 use std::{fs::File, sync::Arc, vec};
 use time::format_description;
 use tracing::level_filters::LevelFilter;
@@ -53,6 +54,11 @@ pub fn init_tracing(tracing_config: Vec<Tracing>, name: String) {
                     Some(endpoint) => endpoint.to_string(),
                     None => "http://localhost:4317".to_string(),
                 };
+                let endpoint_from_env = env::var(format!(
+                    "{}_OTEL_EXPORTER_OTLP_ENDPOINT",
+                    name.to_uppercase()
+                ))
+                .unwrap_or(endpoint);
                 let pod_name =
                     std::env::var("POD_NAME").unwrap_or_else(|_| "not_a_pod".to_string());
                 let telemetry = opentelemetry_otlp::new_pipeline()
@@ -60,7 +66,7 @@ pub fn init_tracing(tracing_config: Vec<Tracing>, name: String) {
                     .with_exporter(
                         opentelemetry_otlp::new_exporter()
                             .tonic()
-                            .with_endpoint(endpoint),
+                            .with_endpoint(endpoint_from_env),
                     )
                     .with_trace_config(Config::default().with_resource(Resource::new(vec![
                         KeyValue::new("service.name", name.clone()),

@@ -1,0 +1,8 @@
+.nx
+dist
+node_modules
+tmp
+/.github
+/.vscode
+/target
+.env
