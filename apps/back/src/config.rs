@@ -64,7 +64,7 @@ pub fn parse_local_config() -> Config {
 
 #[allow(dead_code)]
 pub fn parse_test_config() -> Config {
-    let mut path_buf = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let mut path_buf = env::current_dir().unwrap();
     path_buf.push("../../test_dataset/content/config.yaml");
     println!("{:?}", path_buf);
     parse_config(path_buf)
@@ -96,7 +96,16 @@ mod tests {
         assert_eq!(config.content_path, "content2");
         assert_eq!(config.env, "testing");
         assert_eq!(config.get_name(), "monofolio-back-testing");
+        env::set_var(CONFIG_PATH, "../../folio_content/content/config.yaml");
         let _local = parse_local_config();
         assert!(true);
+    }
+
+    #[test]
+    #[should_panic]
+    fn test_parse_config_file_invalid() {
+        let mut path_buf = env::current_dir().unwrap();
+        path_buf.push("../../test_dataset/content/config_invalid.yaml");
+        let _config = parse_config(path_buf);
     }
 }
