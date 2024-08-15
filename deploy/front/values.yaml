@@ -1,0 +1,34 @@
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 20m
+    memory: 64Mi
+
+image:
+  repository: ""
+  pullPolicy: Always
+  tag: "main"
+  pullSecret: "harbor-pull"
+
+labels:
+  app.kubernetes.io/name: "monofolio-frontend"
+  app.kubernetes.io/instance: "monofolio-frontend-{{- template \"mychart.name\" . }}"
+  app.kubernetes.io/component: frontend
+  app.kubernetes.io/part-of: "monofolio-{{- template \"mychart.name\" . }}"
+
+annotations:
+  deployment.kubernetes.io/revision: "{{ .Release.Revision }}"
+  deployment.git-branch: "{{ .Values.image.tag }}"
+
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: "haproxy"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  host: '{{- template "mychart.name" . }}.dev.mono-folio.com'
+
+
+env: []
+
+envSecrets: []

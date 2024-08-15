@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Chart.Name }}-{{- template "mychart.name" . -}}"
+  labels:
+    app: "{{ .Chart.Name }}-{{- template "mychart.name" . -}}"
+{{- include "mychart.labels" . | nindent 2 }}
+  annotations:
+{{- include "mychart.annotations" . | nindent 2 }}
+spec:
+  ports:
+    - port: 5437
+      targetPort: 5437
+      name: http
+  selector:
+    app: "{{ .Chart.Name }}-{{- template "mychart.name" . -}}"
+  type: ClusterIP

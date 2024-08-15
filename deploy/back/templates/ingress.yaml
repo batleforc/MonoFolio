@@ -1,0 +1,29 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "{{ .Chart.Name }}-{{- template "mychart.name" . -}}"
+  labels:
+    app: "{{ .Chart.Name }}-{{- template "mychart.name" . -}}"
+{{- include "mychart.labels" . | nindent 2 }}
+  annotations:
+{{- include "mychart.annotations" . | nindent 2 }}
+    {{- if .Values.ingress.annotations }}
+    {{- toYaml .Values.ingress.annotations | nindent 4 }}
+    {{- end }}
+spec:
+  tls:
+    - hosts:
+        - {{ tpl .Values.ingress.host . | quote }}
+      secretName: "{{- template "mychart.name" . -}}-monofolio-tls"
+  rules:
+    - host: {{ tpl .Values.ingress.host . | quote }}
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: "{{ .Chart.Name }}-{{- template "mychart.name" . -}}"
+                port:
+                  number: 5437
