@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useIndexStore } from '../stores';
-import { getMediaApiUrl } from '../helper/index.ts';
+import { getMediaApiUrl } from '../helper/index';
 import IcoOrMedia from '../component/helper/IcoOrMedia.vue';
 const indexStore = useIndexStore();
 </script>
@@ -15,6 +15,28 @@ const indexStore = useIndexStore();
                 Mon CV
                 <IcoOrMedia media="ico#download" className="ml-2" />
             </a>
+        </div>
+        <div>
+            <Timeline :value="indexStore.getHistory" align="alternate" class="w-full p-2">
+                <template #content="slotProps">
+                    <Card>
+                        <template #header>
+                            <div class="flex justify-center">
+                                <img :src="getMediaApiUrl(slotProps.item.imgUrl)" alt="img" class="w-20 h-20" />
+                            </div>
+                        </template>
+                        <template #title>
+                            {{ slotProps.item.title }}, {{ slotProps.item.lieux }}
+                        </template>
+                        <template #subtitle>
+                            {{ slotProps.item.date }}
+                        </template>
+                        <template #content>
+                            <p>{{ slotProps.item.description }}</p>
+                        </template>
+                    </Card>
+                </template>
+            </Timeline>
         </div>
     </div>
 </template>

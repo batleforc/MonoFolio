@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { getHome, HomeContent } from '@portfolio/api-client';
+import { getHome, HomeContent, HomeHistory } from '@portfolio/api-client';
 export interface IndexState {
   inited: boolean;
   homeLoading: boolean;
@@ -13,6 +13,13 @@ export const useIndexStore = defineStore({
     inited: false,
     homeLoading: false,
   }),
+  getters: {
+    getHistory(): HomeHistory[] | undefined {
+      return this.homeContent?.history.sort(
+        (a: HomeHistory, b: HomeHistory) => b.weight - a.weight,
+      );
+    },
+  },
   actions: {
     init() {
       if (this.inited) return;

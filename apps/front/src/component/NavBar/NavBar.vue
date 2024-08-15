@@ -100,6 +100,7 @@ const items = [
 
 .navBarHeader {
     background-color: #1b203a;
+    z-index: 1000;
     @apply rounded-t-none sticky top-0 justify-between;
 
     @media (min-width: 674px) {

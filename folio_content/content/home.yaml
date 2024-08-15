@@ -33,7 +33,7 @@ history:
   lieux: Lycée Marie Curie, Nogent sur Oise
   date: 2015 - 2018
   weight: 1
-  imgUrl: /media/lycee_marie_curie.jpg
+  imgUrl: logoLyceeMarieCurie.png
   description: |
     Bac STI2D option ITEC (Innovation Technologique et Eco-Conception)
     Obtenu avec mention Bien
@@ -43,7 +43,7 @@ history:
   lieux: IUT Amiens, Amiens
   date: 2018 - 2020
   weight: 2
-  imgUrl: /media/iut_amiens.jpg
+  imgUrl: logoIutAmiens.jpg
   description: |
     DUT Informatique
     Découverte de la programmation et des bases nécessaires pour devenir développeur (Java, C, SQL, C#, JS, Python, PHP, etc)
@@ -51,7 +51,7 @@ history:
   lieux: Museomix, Amiens
   date: 2019
   weight: 3
-  imgUrl: /media/museomix.jpg
+  imgUrl: museomixLogo.png
   url:
   - name: Objectif CIAP
     url: https://www.youtube.com/watch?v=fZ8DYxclVvQ
@@ -65,7 +65,7 @@ history:
   lieux: IUT La Rochelle, Niort
   date: 2020 - 2021
   weight: 4
-  imgUrl: /media/iut_la_rochelle.jpg
+  imgUrl: logoIUTLaRochelle.png
   description: |
     Licence Professionnelle Développement Cloud et Mobile
     Découverte des technologies du cloud et de la mobilité
@@ -74,7 +74,7 @@ history:
   lieux: Nexi Conseils, Aigrefeuille d'Aunis
   date: 2020 - 2021
   weight: 5
-  imgUrl: /media/nexi_conseils.jpg
+  imgUrl: nexiConseils.png
   description: |
     Alternance en tant que développeur natif et PWA
     Découverte du développement mobile natif (Android et iOS) et des PWA
@@ -83,7 +83,7 @@ history:
   lieux: Université de La Rochelle, Niort
   date: 2021 - 2023
   weight: 6
-  imgUrl: /media/universite_la_rochelle.jpg
+  imgUrl: logoUniversiteLaRochelle.png
   description: |
     Master Architecte Logiciel
     Découverte de l'architectures logicielles et des bonnes pratiques de développement ainsi que des concepte de recherche universitaire
@@ -92,7 +92,7 @@ history:
   lieux: Macif, Niort
   date: 2021 - 2023
   weight: 7
-  imgUrl: /media/macif.jpg
+  imgUrl: macif.png
   description: |
     Alternance en tant que DevOps et développeur couche d'échange
     Mise en situation réelle des concepts appris en cours et découverte de concepts plus avancés
@@ -102,7 +102,7 @@ history:
   lieux: Macif, Niort
   date: 2023 - Now
   weight: 8
-  imgUrl: /media/macif.jpg
+  imgUrl: macif.png
   description: |
     A la suite de mon alternance, la Macif et plus précisément mon manager m'a fait confiance en me proposant de continuer l'aventure avec eux.
     J'ai donc accepté et je suis maintenant Ingénieur participant a l'évolution de la couche d'échange (principalement) et du socle de fabrication.
