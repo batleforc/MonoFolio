@@ -42,10 +42,14 @@ const smoothScroll = (event: MouseEvent) => {
 </script>
 
 <template>
-    <a :class="linkClassName" @click="(event) => smooth && !link.includes('/') && smoothScroll(event)"
-        :href="link.includes('/') ? link : `#${link}`" :target="link.includes('/') && !internal ? '_blank' : '_self'"
-        rel="noreferrer">
+    <a v-if="!internal || smooth" :class="linkClassName"
+        @click="(event) => smooth && !link.includes('/') && smoothScroll(event)"
+        :href="link.includes('/') ? link : `#${link}`" target="_blank" rel="noreferrer">
         <IcoOrMedia :media="icon" :className="className" />
         <span v-if="label !== undefined" :class="labelClassName">{{ label }}</span>
     </a>
+    <router-link v-else :to="link" :class="linkClassName">
+        <IcoOrMedia :media="icon" :className="className" />
+        <span v-if="label !== undefined" :class="labelClassName">{{ label }}</span>
+    </router-link>
 </template>
