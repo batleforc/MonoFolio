@@ -47,3 +47,16 @@ async fn main() -> std::io::Result<()> {
     stop_tracing(config.clone().tracing, config.get_name());
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use std::env;
+
+    use super::*;
+
+    #[test]
+    fn test_main() {
+        env::set_var("CONFIG_PATH", "../../test_dataset/content/config.yaml");
+        main().unwrap();
+    }
+}
