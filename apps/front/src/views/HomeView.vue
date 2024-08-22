@@ -2,7 +2,9 @@
 import { useIndexStore } from '../stores';
 import { getMediaApiUrl } from '../helper/index';
 import IcoOrMedia from '../component/helper/IcoOrMedia.vue';
+import { useBreakpoints } from '../helper/mediaQuerry';
 const indexStore = useIndexStore();
+const { type } = useBreakpoints();
 </script>
 
 <template>
@@ -17,9 +19,10 @@ const indexStore = useIndexStore();
             </a>
         </div>
         <div>
-            <Timeline :value="indexStore.getHistory" align="alternate" class="w-full p-2">
+            <Timeline :value="indexStore.getHistory" :align="type == 'xs' ? 'left' : 'alternate'"
+                class="w-full px-2 py-5 customized-timeline" :class="type == 'xs' ? 'justify-end' : ''">
                 <template #content="slotProps">
-                    <Card>
+                    <Card class="min-w-64">
                         <template #header>
                             <div class="flex justify-center">
                                 <img :src="getMediaApiUrl(slotProps.item.imgUrl)" alt="img" class="w-20 h-20" />
@@ -56,5 +59,9 @@ const indexStore = useIndexStore();
 
 .homePageCvContainer {
     @apply my-8 flex justify-center;
+}
+
+.p-timeline-event-content {
+    @apply pb-10;
 }
 </style>

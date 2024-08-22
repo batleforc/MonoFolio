@@ -19,5 +19,8 @@ authors = [
 [git_hooks.commit-msg]
 script = """#!/bin/sh
 set -e
+commit_msg=$(cat "${1:?Missing commit message file}")
+echo $commit_msg
+export COMMIT_MSG=$commit_msg
 nx run-many -t hook --verbose
 """
