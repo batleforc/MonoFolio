@@ -9,8 +9,8 @@ const { type } = useBreakpoints();
 
 <template>
     <div v-if="indexStore.inited" class="homePageContainer">
-        <Panel header="Qui suis je ?">
-            <p class="m-0">{{ indexStore.homeContent.presentation }}</p>
+        <Panel class="homePageWhoAmI" header="Qui suis je ?">
+            <p v-for="text in indexStore.getPresentation" :key="text">{{ text }}</p>
         </Panel>
         <div class="homePageCvContainer">
             <a :href="getMediaApiUrl(indexStore.homeContent.cvUrl)" target="_blank" rel="noreferrer" class="homePageCV">
@@ -29,10 +29,10 @@ const { type } = useBreakpoints();
                             </div>
                         </template>
                         <template #title>
-                            {{ slotProps.item.title }}, {{ slotProps.item.lieux }}
+                            {{ slotProps.item.title }}
                         </template>
                         <template #subtitle>
-                            {{ slotProps.item.date }}
+                            {{ slotProps.item.lieux }}, {{ slotProps.item.date }}
                         </template>
                         <template #content>
                             <p>{{ slotProps.item.description }}</p>
@@ -49,6 +49,10 @@ const { type } = useBreakpoints();
 
 .homePageContainer {
     @apply flex justify-center flex-col;
+}
+
+.homePageWhoAmI {
+    @apply my-4 mx-2;
 }
 
 .homePageCV {

@@ -6,7 +6,6 @@ import NavBar from '../component/NavBar/NavBar.vue';
 
 const indexStore = useIndexStore();
 if (!indexStore.inited && !indexStore.homeLoading) {
-  console.log('Init index store');
   indexStore.init();
 }
 </script>

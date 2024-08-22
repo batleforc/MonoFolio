@@ -19,6 +19,9 @@ export const useIndexStore = defineStore({
         (a: HomeHistory, b: HomeHistory) => b.weight - a.weight,
       );
     },
+    getPresentation(): string | undefined {
+      return this.homeContent?.presentation.split('\n');
+    },
   },
   actions: {
     init() {
@@ -29,7 +32,6 @@ export const useIndexStore = defineStore({
           if (body.status === 200) {
             this.homeContent = body.data;
           }
-          console.log(body);
         })
         .catch((err) => {
           console.error(err);
