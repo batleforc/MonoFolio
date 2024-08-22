@@ -35,7 +35,8 @@ const { type } = useBreakpoints();
                             {{ slotProps.item.lieux }}, {{ slotProps.item.date }}
                         </template>
                         <template #content>
-                            <p>{{ slotProps.item.description }}</p>
+                            <p v-for="description in slotProps.item.description.split('\n')" :key="description">{{
+                                description }}</p>
                         </template>
                     </Card>
                 </template>
