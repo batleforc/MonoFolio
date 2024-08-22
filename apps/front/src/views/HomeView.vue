@@ -22,7 +22,7 @@ const { type } = useBreakpoints();
             <Timeline :value="indexStore.getHistory" :align="type == 'xs' ? 'left' : 'alternate'"
                 class="w-full px-2 py-5 customized-timeline" :class="type == 'xs' ? 'justify-end' : ''">
                 <template #content="slotProps">
-                    <Card class="min-w-64">
+                    <Card class="min-w-64 pt-4 text-pretty">
                         <template #header>
                             <div class="flex justify-center">
                                 <img :src="getMediaApiUrl(slotProps.item.imgUrl)" alt="img" class="w-20 h-20" />
@@ -41,11 +41,50 @@ const { type } = useBreakpoints();
                 </template>
             </Timeline>
         </div>
+        <Panel class="" header="Pour aller plus loin">
+            <p>Maintenant que vous avez un peu plus d'informations sur moi, que diriez-vous de découvrir la suite ?</p>
+            <div class="flex justify-around flex-wrap">
+                <RouterLink to="doc">
+                    <Card class="homePageGoFurtherCard">
+                        <template #title>
+                            <h3>Ma doc</h3>
+                        </template>
+                        <template #content>
+                            <p>J'essaye de regrouper progressivement mes documentation ici</p>
+                        </template>
+                    </Card>
+                </RouterLink>
+                <RouterLink to="doc">
+                    <Card class="homePageGoFurtherCard">
+                        <template #title>
+                            <h3>Les Projet</h3>
+                        </template>
+                        <template #content>
+                            <p>J'essaye de r&eacute;f&eacute;rencer mes projet ici</p>
+                        </template>
+                    </Card>
+                </RouterLink>
+                <RouterLink to="blog">
+                    <Card class="homePageGoFurtherCard">
+                        <template #title>
+                            <h3>Mon espace "Blog"</h3>
+                        </template>
+                        <template #content>
+                            <p>Vous retrouverez les dernières informations ici</p>
+                        </template>
+                    </Card>
+                </RouterLink>
+            </div>
+        </Panel>
     </div>
 </template>
 
 <style lang="scss">
 @import '../var.scss';
+
+.homePageGoFurtherCard {
+    @apply w-64 m-2;
+}
 
 .homePageContainer {
     @apply flex justify-center flex-col;

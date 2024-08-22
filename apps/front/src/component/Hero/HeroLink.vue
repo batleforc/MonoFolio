@@ -48,8 +48,8 @@ const smoothScroll = (event: MouseEvent) => {
         <IcoOrMedia :media="icon" :className="className" />
         <span v-if="label !== undefined" :class="labelClassName">{{ label }}</span>
     </a>
-    <router-link v-else :to="link" :class="linkClassName">
+    <RouterLink v-else :to="link" :class="linkClassName">
         <IcoOrMedia :media="icon" :className="className" />
         <span v-if="label !== undefined" :class="labelClassName">{{ label }}</span>
-    </router-link>
+    </RouterLink>
 </template>
