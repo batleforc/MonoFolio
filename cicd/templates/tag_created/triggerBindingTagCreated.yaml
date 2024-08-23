@@ -1,0 +1,13 @@
+# https://docs.github.com/en/webhooks/webhook-events-and-payloads?actionType=synchronize#pull_request
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerBinding
+metadata:
+  name: {{.Values.prefix}}-trigger-binding-tag-created
+spec:
+  params:
+    - name: gitrepositoryurl
+      value: $(body.repository.clone_url)
+    - name: gitrevision
+      value: $(body.head_commit.id)
+    - name: gittag
+      value: $(extensions.tag_name)

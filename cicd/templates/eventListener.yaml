@@ -1,0 +1,87 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: {{.Values.prefix}}-event-listener
+spec:
+  serviceAccountName: {{.Values.prefix}}-sa
+  triggers:
+    {{- range $key, $val := .Values.build }}
+    - name: {{$.Values.prefix}}-trigger-push-{{- $key }}
+      interceptors:
+        - ref:
+            name: "github"
+          params:
+            - name: secretRef
+              value:
+                secretName: {{$.Values.secrets.githubTokenWebhook}}
+                secretKey: secretToken
+            - name: eventTypes
+              value:
+                - push
+            - name: "addChangedFiles"
+              value:
+                enabled: true
+        - ref:
+            name: "cel"
+          params:
+            - name: filter
+              value: "body.ref.startsWith('refs/heads/') && ({{- range $index, $folder := $val.folder }} extensions.changed_files.matches('{{$folder}}') {{- if ne $index (sub ($val.folder | len) 1) }} || {{- end }} {{- end }})"
+            - name: overlays
+              value:
+                - key: branch_name
+                  expression: "body.ref.split('/')[2]"
+      bindings:
+        - ref: {{$.Values.prefix}}-trigger-binding-push
+      template:
+        ref: {{$.Values.prefix}}-pipeline-template-push-{{- $key -}}
+    {{- end }}
+    # - name: {{.Values.prefix}}-trigger-pr
+    #   interceptors:
+    #     - ref:
+    #         name: "github"
+    #       params:
+    #         - name: secretRef
+    #           value:
+    #             secretName: {{.Values.secrets.githubTokenWebhook}}
+    #             secretKey: secretToken
+    #         - name: eventTypes
+    #           value:
+    #             - pull_request
+    #     - ref:
+    #         name: "cel"
+    #       params:
+    #         - name: filter
+    #           value: "body.action == 'synchronize'"
+    #         - name: overlays
+    #           value:
+    #             - key: branch_name
+    #               expression: "body.pull_request.head.ref"
+    #   bindings:
+    #     - ref: {{.Values.prefix}}-trigger-binding-pr
+    #   template:
+    #     ref: {{.Values.prefix}}-pipeline-template-pr
+    # - name: {{.Values.prefix}}-trigger-tag-created
+    #   interceptors:
+    #     - ref:
+    #         name: "github"
+    #       params:
+    #         - name: secretRef
+    #           value:
+    #             secretName: {{.Values.secrets.githubTokenWebhook}}
+    #             secretKey: secretToken
+    #         - name: eventTypes
+    #           value:
+    #             - create
+    #     - ref:
+    #         name: "cel"
+    #       params:
+    #         - name: filter
+    #           value: "body.ref_type == 'tag'"
+    #         - name: overlays
+    #           value:
+    #             - key: tag_name
+    #               expression: "body.ref.split('/')[2]"
+    #   bindings:
+    #     - ref: {{.Values.prefix}}-trigger-binding-tag-created
+    #   template:
+    #     ref: {{.Values.prefix}}-pipeline-template-tag-created

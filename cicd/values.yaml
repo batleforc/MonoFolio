@@ -3,3 +3,36 @@ task:
     baseImage: moby/buildkit:v0.15.2
   helmUpgrade:
     baseImage: alpine/helm:3.15.4
+
+prefix: "cicd-monofolio"
+
+secrets:
+  dockerAuthConfig: "docker-auth-config"
+  kubeconfig: "kubeconfig"
+  githubTokenApi: "github-token"
+  discordWebhook: "discord-webhook"
+  githubTokenWebhook: "github"
+
+build:
+  back:
+    folder:
+    - "apps/back/"
+    - "libs/back/"
+    - "folio_content/"
+    file_path: "build/back/Containerfile"
+    helm: "deploy/back"
+    imageName: "back"
+  front:
+    folder:
+    - "apps/front/"
+    - "libs/front/"
+    file_path: "build/front/Containerfile"
+    helm: "deploy/front"
+    imageName: "front"
+
+
+image:
+  registry: "docker.io/batleforc"
+
+config:
+  domain: '{{- template "mychart.name" . }}.dev.mono-folio.com'

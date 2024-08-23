@@ -1,0 +1,186 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: {{.Values.prefix}}-pipeline-push
+spec:
+  ## TODO https://tekton.dev/docs/pipelines/pipelines/#using-execution-status-of-pipelinetask
+  description: |
+    This pipeline builds batleforc template-rust.
+  params:
+    - name: repo-url
+      type: string
+      description: The git repo URL to clone from.
+    - name: repo-branch
+      type: string
+      default: main
+      description: The git repo branch to clone from.
+    - name: repo-revision
+      type: string
+      default: main
+      description: The git repo revision to clone from.
+    - name: conteneurfile-path
+      type: string
+      default: .
+      description: The path to the conteneurfile to build.
+    - name: image-name
+      type: string
+      default: "docker.io/batleforc/back"
+      description: The name of the image to build.
+    - name: helm-path
+      type: string
+      default: "deploy/back"
+      description: The path to the helm chart to deploy.
+    - name: githubSecretName
+      type: string
+      default: "github-token"
+      description: The name of the secret containing the github token.
+  workspaces:
+    - name: shared-data
+      description: |
+        This workspace contains the cloned repo files, so they can be read by the
+        next task.
+    - name: dockerAuthConfig
+      description: |
+        This workspace contains the docker config.json file, so it can be used by
+        the next task.
+    - name: kubeconfig
+      description: |
+        This workspace contains the kubeconfig file, it define the namespace to rollout.
+    - name: githubTokenApi
+      description: |
+        This workspace contains the github token to use the github api.
+    - name: discordWebhook
+      description: |
+        This workspace contains the discord webhook to send messages.
+  tasks:
+    - name: github-status-pending
+      taskRef:
+        name: github-set-status
+      params:
+        - name: REPO_FULL_NAME
+          value: $(params.repo-url)
+        - name: SHA
+          value: $(params.repo-revision)
+        - name: DESCRIPTION
+          value: Monofolio build and push $(params.image-name)
+        - name: STATE
+          value: pending
+        - name: CONTEXT
+          value: monofolio-ci
+        - name: GITHUB_TOKEN_SECRET_NAME
+          value: $(params.githubSecretName)
+    - name: fetch-source
+      runAfter: ["github-status-pending"]
+      taskRef:
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: shared-data
+      params:
+        - name: url
+          value: $(params.repo-url)
+        - name: revision
+          value: $(params.repo-revision)
+    - name: build-docker
+      runAfter: ["fetch-source"]
+      taskRef:
+        name: build
+      workspaces:
+        - name: shared-data
+          workspace: shared-data
+        - name: dockerconfig
+          workspace: dockerAuthConfig
+      params:
+        - name: path-dockerfile
+          value: $(params.conteneurfile-path)
+        - name: context-dockerfile
+          value: .
+        - name: IMAGE
+          value: $(params.image-name)
+        - name: repo-branch
+          value: $(params.repo-branch)
+    # Directly upgrade the helm chart from the source code
+    # When argocd is ready, we will use it to deploy and upgrade the helm chart
+    - name: helm-upgrade
+      runAfter: ["build-docker"]
+      taskRef:
+        name: helm-upgrade-from-source
+      workspaces:
+        - name: source
+          workspace: shared-data
+        - name: kubeconfig-dir
+          workspace: kubeconfig
+      params:
+        - name: charts_dir
+          value: $(params.helm-path)
+        - name: release_name
+          value: $(params.repo-branch)
+        - name: release_namespace
+          value: {{.Release.Namespace}}
+        - name: overwrite_values
+          value: "image.tag=$(params.repo-branch),ingress.host={{.Values.config.domain}}"
+  finally:
+    - name: github-status-finally-succeeded
+      when:
+        - input: $(tasks.status)
+          operator: in
+          values:
+            - Succeeded
+            - Completed
+      taskRef:
+        name: github-set-status
+      params:
+        - name: REPO_FULL_NAME
+          value: $(params.repo-url)
+        - name: SHA
+          value: $(params.repo-revision)
+        - name: DESCRIPTION
+          value: Monofolio build and push $(params.image-name)
+        - name: CONTEXT
+          value: monofolio-ci
+        - name: GITHUB_TOKEN_SECRET_NAME
+          value: $(params.githubSecretName)
+        - name: STATE
+          value: success
+    - name: github-status-finally-failed
+      when:
+        - input: $(tasks.status)
+          operator: in
+          values:
+            - Failed
+      taskRef:
+        name: github-set-status
+      params:
+        - name: REPO_FULL_NAME
+          value: $(params.repo-url)
+        - name: SHA
+          value: $(params.repo-revision)
+        - name: DESCRIPTION
+          value: Monofolio build and push $(params.image-name)
+        - name: CONTEXT
+          value: monofolio-ci
+        - name: GITHUB_TOKEN_SECRET_NAME
+          value: $(params.githubSecretName)
+        - name: STATE
+          value: failure
+    - name: github-status-finally-error
+      when:
+        - input: $(tasks.status)
+          operator: in
+          values:
+            - None
+      taskRef:
+        name: github-set-status
+      params:
+        - name: REPO_FULL_NAME
+          value: $(params.repo-url)
+        - name: SHA
+          value: $(params.repo-revision)
+        - name: DESCRIPTION
+          value: Monofolio build and push $(params.image-name)
+        - name: CONTEXT
+          value: monofolio-ci
+        - name: GITHUB_TOKEN_SECRET_NAME
+          value: $(params.githubSecretName)
+        - name: STATE
+          value: error
