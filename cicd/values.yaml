@@ -1,0 +1,5 @@
+task:
+  buildImage:
+    baseImage: moby/buildkit:v0.15.2
+  helmUpgrade:
+    baseImage: alpine/helm:3.15.4

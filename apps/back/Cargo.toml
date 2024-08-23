@@ -7,9 +7,9 @@ default-run = "server"
 
 [dependencies]
 chrono = { version = "0.4", features = ["serde"] }
-markdown_header = { path = "../../libs/markdown_header" }
-markdown_struct = { path = "../../libs/markdown_struct" }
-tool_tracing = { path = "../../libs/tool_tracing" }
+markdown_header = { path = "../../libs/back/markdown_header" }
+markdown_struct = { path = "../../libs/back/markdown_struct" }
+tool_tracing = { path = "../../libs/back/tool_tracing" }
 serde = "1.0"
 serde_json = "1.0"
 serde_yaml = "0.9"
