@@ -40,9 +40,12 @@ flowchart TD;
       A([Write code in a new branch]) --> B[Create a Pull Request];
     end
     subgraph "Test flow"
-      B --> C[PR is tested by Github Actions];
-      C -- If Github Action is ok --> D[Run the Test flow];
-      D -- If test nok --> E[PR is locked with information];
+      B --> C{Test Start};
+      C --> GA[Test by Github Actions]
+      C --> TKT[Test flow by Tekton];
+      GA --> D{Test ok?};
+      TKT --> D;
+      D -- If test nok --> E[PR is updated with information];
     end
     subgraph "Release flow"
       D -- If test ok --> F[PR is merged into the `main` branch];
@@ -69,3 +72,9 @@ flowchart TD;
 - [ ] Build the Frontend/Backend
 - [ ] Check if the Frontend/Backend helm chart is Okay <https://hub.tekton.dev/tekton/task/pluto>
 - [ ] Check secret <https://hub.tekton.dev/tekton/task/kube-linter>
+
+## Github Events to listen
+
+- [ ] Pull Request "opened, synchronized"
+- [ ] Push on the `main` branch
+- [ ] Tag created
