@@ -36,3 +36,6 @@ image:
 
 config:
   domain: '{{- template "mychart.name" . }}.dev.mono-folio.com'
+  ingressClass: "haproxy"
+  listenerDomain: "el-{{.Values.config.prefix}}-event-listener.dev.mono-folio.com"
+  name: "batleforc"

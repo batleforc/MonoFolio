@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: '{{.Values.prefix}}-webhook'
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: 'false'
+    haproxy-ingress.github.io/ssl-redirect: 'false'
+    kubernetes.io/ingress.class: '{{.Values.config.ingressClass}}'
+    cert-manager.io/cluster-issuer: 'letsencrypt-prod'
+spec:
+  tls:
+    - hosts:
+        - '{{.Values.config.ingressDomain}}'
+      secretName: listener-tekton-tls
+  rules:
+    - host: '{{.Values.config.ingressDomain}}'
+      http:
+        paths:
+          - path: '/{{.Values.config.name}}/{{.Values.prefix}}'
+            pathType: Exact
+            backend:
+              service:
+                name: 'el-{{.Values.prefix}}-event-listener'
+                port:
+                  number: 8080
