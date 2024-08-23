@@ -69,12 +69,12 @@ mod tests {
     use std::{fs, path::PathBuf};
 
     use super::*;
-    const TEST_FOLDER: &str = "../../test_dataset/content";
+    const TEST_FOLDER: &str = "../../../test_dataset/content";
 
     #[test]
     fn test_process_folder_struct_base_folder_is_a_file() {
         let mut ressources_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-        ressources_dir.push("../../test_dataset/content/index.md");
+        ressources_dir.push("../../../test_dataset/content/index.md");
         let folder = process_folder_struct(ressources_dir.to_str().unwrap().to_string());
         assert!(folder.is_err());
         assert!(matches!(
@@ -105,7 +105,7 @@ mod tests {
     #[test]
     fn test_process_folder_empty_dir() {
         let mut ressources_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-        ressources_dir.push("../../test_dataset/empty");
+        ressources_dir.push("../../../test_dataset/empty");
         fs::create_dir_all(ressources_dir.to_str().unwrap()).unwrap();
         let folder = process_folder_struct(ressources_dir.to_str().unwrap().to_string()).unwrap();
         assert_eq!(folder.name, ressources_dir.to_str().unwrap().to_string());

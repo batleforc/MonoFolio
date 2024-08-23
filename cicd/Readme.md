@@ -3,7 +3,7 @@
 ## Goal
 
 - Create a "beta" version of the Monofolio website that is automatically deployed and is a ref to the `main` branch of the repository.
-- Create a "production" version of the Monofolio website that is automatically deployed and is a ref to a `tag` in the repository.
+- Create a "production" version of the Monofolio website that is automatically deployed and is a ref to a `tag` in the repository. And Link to a Release Note with Changelog.
 - Make sure that the "production" version is tested in depth
 
 ### Deploy flow
@@ -14,6 +14,7 @@
 - Build the Backend if the folder related to the Backend has changed.
   - apps/back
   - libs/back/*
+  - folio_content
 - Push the images to a conteneur registry.
 - Deploy the images to a Kubernetes cluster.
 
@@ -53,3 +54,18 @@ flowchart TD;
     end
 
 ```
+
+## Tasks
+
+- [ ] Update Github with pipeline status <https://hub.tekton.dev/tekton/task/github-set-status>
+- [ ] Generate a Software Bill of Materials (SBOM) <https://hub.tekton.dev/tekton/task/syft>
+- [ ] Analyze the SBOM for vulnerabilities <https://hub.tekton.dev/tekton/task/grype>
+- [ ] Send a notification to discord <https://hub.tekton.dev/tekton/task/send-to-webhook-discord>
+  - When a PR pass the test flow
+  - When a PR is merged
+  - When a new version is deployed (beta or production)
+  - When a vulnerability is found (don't know if it's possible to send the vulnerability from github to discord)
+- [ ] Create a Helm chart for the backend/frontend
+- [ ] Build the Frontend/Backend
+- [ ] Check if the Frontend/Backend helm chart is Okay <https://hub.tekton.dev/tekton/task/pluto>
+- [ ] Check secret <https://hub.tekton.dev/tekton/task/kube-linter>
