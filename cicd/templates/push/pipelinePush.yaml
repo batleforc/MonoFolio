@@ -130,7 +130,7 @@ spec:
         - name: release_namespace
           value: {{.Release.Namespace}}
         - name: overwrite_values
-          value: "image.tag=$(params.image-name):$(params.repo-branch),ingress.host={{.Values.config.domain}}"
+          value: "image.tag=$(params.repo-branch),image.repository=$(params.image-name),ingress.host={{.Values.config.domain}}"
   finally:
     - name: github-status-finally-succeeded
       when:
