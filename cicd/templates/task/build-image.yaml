@@ -15,10 +15,6 @@ spec:
         This workspace contains the docker config.json file, so it can be used by
         the next task.
   params:
-    - name: registrydns
-      type: string
-      description: The registry dns name.
-      default: docker.io
     - name: buildctl_tcp
       type: string
       description: The buildctl tcp address.
@@ -51,6 +47,6 @@ spec:
       workingDir: $(workspaces.shared-data.path)
       script: |
         #!/usr/bin/env ash
-        buildctl --addr $(params.buildctl_tcp) build --progress=plain --frontend dockerfile.v0 --local context=$(params.context-dockerfile) --local dockerfile=$(params.path-dockerfile) --opt filename=$(params.DOCKERFILE) --output type=image,name=$(params.registrydns)/$(params.IMAGE):$(params.repo-branch),push=true
+        buildctl --addr $(params.buildctl_tcp) build --progress=plain --frontend dockerfile.v0 --local context=$(params.context-dockerfile) --local dockerfile=$(params.path-dockerfile) --opt filename=$(params.DOCKERFILE) --output type=image,name=$(params.IMAGE):$(params.repo-branch),push=true
 
 # https://tekton.dev/docs/pipelines/tasks/#specifying-workspaces
