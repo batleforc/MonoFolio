@@ -8,11 +8,24 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      meta: {
+        hero: true,
+      },
     },
     {
       path: '/doc',
-      name: 'doc',
-      component: () => import('../views/DocView.vue'),
+      children: [
+        {
+          name: 'doc',
+          path: '',
+          component: () => import('../views/DocHomeView.vue'),
+        },
+        {
+          name: 'doccontent',
+          path: ':page+',
+          component: () => import('../views/DocView.vue'),
+        },
+      ],
     },
     {
       path: '/blog',

@@ -22,7 +22,7 @@
 
 - Run Code Coverage tests on the Backend
 - Run E2E tests on the Frontend
-- Run Lighthouse tests on the Frontend
+- Run Lighthouse tests on the Frontend/backend <https://github.com/jenkins-x/lighthouse/blob/main/docs/install_lighthouse_with_tekton.md>
 - Run Security tests on both the Backend and the Frontend
 
 ### Deployment flow
@@ -60,7 +60,7 @@ flowchart TD;
 
 ## Tasks
 
-- [ ] Update Github with pipeline status <https://hub.tekton.dev/tekton/task/github-set-status>
+- [x] Update Github with pipeline status <https://hub.tekton.dev/tekton/task/github-set-status>
 - [ ] Generate a Software Bill of Materials (SBOM) <https://hub.tekton.dev/tekton/task/syft>
 - [ ] Analyze the SBOM for vulnerabilities <https://hub.tekton.dev/tekton/task/grype>
 - [ ] Send a notification to discord <https://hub.tekton.dev/tekton/task/send-to-webhook-discord>
@@ -68,13 +68,13 @@ flowchart TD;
   - When a PR is merged
   - When a new version is deployed (beta or production)
   - When a vulnerability is found (don't know if it's possible to send the vulnerability from github to discord)
-- [ ] Create a Helm chart for the backend/frontend
-- [ ] Build the Frontend/Backend
+- [x] Create a Helm chart for the backend/frontend
+- [x] Build the Frontend/Backend
 - [ ] Check if the Frontend/Backend helm chart is Okay <https://hub.tekton.dev/tekton/task/pluto>
 - [ ] Check secret <https://hub.tekton.dev/tekton/task/kube-linter>
 
 ## Github Events to listen
 
 - [ ] Pull Request "opened, synchronized"
-- [ ] Push on the `main` branch
+- [x] Push on the `main` branch
 - [ ] Tag created

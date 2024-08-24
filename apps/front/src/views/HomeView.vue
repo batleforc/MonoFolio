@@ -43,7 +43,9 @@ const { type } = useBreakpoints();
             </Timeline>
         </div>
         <Panel class="" header="Pour aller plus loin">
-            <p>Maintenant que vous avez un peu plus d'informations sur moi, que diriez-vous de découvrir la suite ?</p>
+            <p>Maintenant que vous avez un peu plus d'informations sur mon historique, que diriez-vous de découvrir la
+                suite ?
+            </p>
             <div class="flex justify-around flex-wrap">
                 <RouterLink to="doc">
                     <Card class="homePageGoFurtherCard">
