@@ -18,6 +18,7 @@
 {{- range $key, $value := . }}
   {{ $key }}: {{ tpl $value $ | quote }}
 {{- end }}
+  rollme: {{ randAlphaNum 5 | quote }}
 {{- end }}
 {{- end }}
 
