@@ -62,7 +62,7 @@ spec:
         name: github-set-status
       params:
         - name: REPO_FULL_NAME
-          value: $(params.repo-url)
+          value: $(params.repo-small-path)
         - name: SHA
           value: $(params.repo-revision)
         - name: DESCRIPTION
@@ -137,7 +137,7 @@ spec:
         name: github-set-status
       params:
         - name: REPO_FULL_NAME
-          value: $(params.repo-url)
+          value: $(params.repo-small-path)
         - name: SHA
           value: $(params.repo-revision)
         - name: DESCRIPTION
@@ -160,7 +160,7 @@ spec:
         name: github-set-status
       params:
         - name: REPO_FULL_NAME
-          value: $(params.repo-url)
+          value: $(params.repo-small-path)
         - name: SHA
           value: $(params.repo-revision)
         - name: DESCRIPTION
@@ -183,7 +183,7 @@ spec:
         name: github-set-status
       params:
         - name: REPO_FULL_NAME
-          value: $(params.repo-url)
+          value: $(params.repo-small-path)
         - name: SHA
           value: $(params.repo-revision)
         - name: DESCRIPTION
