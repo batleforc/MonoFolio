@@ -3,22 +3,22 @@ FROM registry.hub.docker.com/library/rust:1.80 AS build
 WORKDIR /app
 
 # Prepare the build environment and cache dependencies
-RUN mkdir -p libs/markdown_header/src && \
-    mkdir -p libs/markdown_struct/src && \
-    mkdir -p libs/tool_tracing/src && \
+RUN mkdir -p libs/back/markdown_header/src && \
+    mkdir -p libs/back/markdown_struct/src && \
+    mkdir -p libs/back/tool_tracing/src && \
     mkdir -p apps/back/src && \
     mkdir -p apps/back/src/bin
 
 COPY Cargo.toml .
-COPY ./libs/markdown_header/Cargo.toml ./libs/markdown_header/
-COPY ./libs/markdown_struct/Cargo.toml ./libs/markdown_struct/
-COPY ./libs/tool_tracing/Cargo.toml ./libs/tool_tracing/
+COPY ./libs/back/markdown_header/Cargo.toml ./libs/back/markdown_header/
+COPY ./libs/back/markdown_struct/Cargo.toml ./libs/back/markdown_struct/
+COPY ./libs/back/tool_tracing/Cargo.toml ./libs/back/tool_tracing/
 COPY ./apps/back/Cargo.toml ./apps/back/
 COPY .cargo .
 
-RUN echo "pub fn main() {}" > libs/markdown_header/src/lib.rs && \
-    echo "pub fn main() {}" > libs/markdown_struct/src/lib.rs && \
-    echo "pub fn main() {}" > libs/tool_tracing/src/lib.rs && \
+RUN echo "pub fn main() {}" > libs/back/markdown_header/src/lib.rs && \
+    echo "pub fn main() {}" > libs/back/markdown_struct/src/lib.rs && \
+    echo "pub fn main() {}" > libs/back/tool_tracing/src/lib.rs && \
     echo "fn main() {}" > apps/back/src/main.rs && \
     echo "fn main() {}" > apps/back/src/bin/sandbox.rs && \
     echo "fn main() {}" > apps/back/src/bin/gen_swagger.rs
