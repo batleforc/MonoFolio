@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import { useDocStore } from '../stores/doc';
 
+const docStore = useDocStore();
+if (!docStore.inited && !docStore.docLoading) {
+    docStore.init();
+}
 </script>
 
 <template>
