@@ -22,7 +22,7 @@ build:
     - "Cargo.toml"
     - "build/back/"
     - "deploy/back/"
-    file_path: "build/back/Containerfile"
+    file_path: "build/back"
     helm: "deploy/back"
     imageName: "back"
   front:
@@ -33,7 +33,7 @@ build:
     - "yarn.lock"
     - "build/front/"
     - "deploy/front/"
-    file_path: "build/front/Containerfile"
+    file_path: "build/front"
     helm: "deploy/front"
     imageName: "front"
 
