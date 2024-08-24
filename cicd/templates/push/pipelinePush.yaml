@@ -69,6 +69,8 @@ spec:
           value: monofolio-ci
         - name: GITHUB_TOKEN_SECRET_NAME
           value: $(params.githubSecretName)
+        - name: TARGET_URL
+          value: {{.Values.config.baseUrl}}/$(context.pipelineRun.name)
     - name: fetch-source
       runAfter: ["github-status-pending"]
       taskRef:
@@ -142,6 +144,8 @@ spec:
           value: $(params.githubSecretName)
         - name: STATE
           value: success
+        - name: TARGET_URL
+          value: {{.Values.config.baseUrl}}/$(context.pipelineRun.name)
     - name: github-status-finally-failed
       when:
         - input: $(tasks.status)
@@ -163,6 +167,8 @@ spec:
           value: $(params.githubSecretName)
         - name: STATE
           value: failure
+        - name: TARGET_URL
+          value: {{.Values.config.baseUrl}}/$(context.pipelineRun.name)
     - name: github-status-finally-error
       when:
         - input: $(tasks.status)
@@ -184,3 +190,5 @@ spec:
           value: $(params.githubSecretName)
         - name: STATE
           value: error
+        - name: TARGET_URL
+          value: {{.Values.config.baseUrl}}/$(context.pipelineRun.name)

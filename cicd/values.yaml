@@ -46,3 +46,4 @@ config:
   ingressClass: "haproxy"
   listenerDomain: "el-{{.Values.config.prefix}}-event-listener.dev.mono-folio.com"
   name: "batleforc"
+  baseUrl: "https://{{.Values.config.domain}}/"
