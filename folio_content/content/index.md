@@ -9,4 +9,4 @@ spec:
 
 This is the home of the documentation. Here you will find everything that I've learned and that I'm learning.
 
-The whole WebSite is a WIP
+The whole WebSite is a WIP, and i'm working on the CICD
