@@ -17,6 +17,8 @@ spec:
     metadata:
       labels:
         app: "{{ .Chart.Name }}-{{- template "mychart.name" . -}}"
+      annotations:
+{{- include "mychart.annotations" . | nindent 8 }}
     spec:
       {{- with .Values.image.pullSecret }}
       imagePullSecrets:
