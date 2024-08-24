@@ -19,6 +19,7 @@ build:
     - "apps/back/"
     - "libs/back/"
     - "folio_content/"
+    - "Cargo.toml"
     file_path: "build/back/Containerfile"
     helm: "deploy/back"
     imageName: "back"
@@ -26,6 +27,8 @@ build:
     folder:
     - "apps/front/"
     - "libs/front/"
+    - "package.json"
+    - "yarn.lock"
     file_path: "build/front/Containerfile"
     helm: "deploy/front"
     imageName: "front"
