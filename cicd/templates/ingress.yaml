@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - '{{.Values.config.ingressDomain}}'
+        - '{{.Values.config.listenerDomain}}'
       secretName: listener-tekton-tls
   rules:
-    - host: '{{.Values.config.ingressDomain}}'
+    - host: '{{.Values.config.listenerDomain}}'
       http:
         paths:
           - path: '/{{.Values.config.name}}/{{.Values.prefix}}'
