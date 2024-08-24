@@ -38,6 +38,10 @@ spec:
       type: string
       default: "github-token"
       description: The name of the secret containing the github token.
+    - name: release-name
+      type: string
+      default: "back"
+      description: The name of the helm release.
   workspaces:
     - name: shared-data
       description: |
@@ -122,7 +126,7 @@ spec:
         - name: charts_dir
           value: $(params.helm-path)
         - name: release_name
-          value: $(params.repo-branch)
+          value: $(params.repo-branch)-$(params.release-name)
         - name: release_namespace
           value: {{.Release.Namespace}}
         - name: overwrite_values
