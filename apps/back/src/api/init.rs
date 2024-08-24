@@ -1,5 +1,6 @@
 use actix_web::{
-    dev::Service, get, http::header, web, App, HttpResponse, HttpServer, Responder, Scope,
+    dev::Service, get, http::header, middleware::Compress, web, App, HttpResponse, HttpServer,
+    Responder, Scope,
 };
 use markdown_struct::{
     blog_timeline::BlogTimeline, doc_sidebar::DocCategory, page_database::DbFolder,
@@ -49,6 +50,7 @@ pub async fn init_api(
             .app_data(web::Data::new(home_content.clone()))
             .app_data(web::Data::new(config.clone()))
             .wrap(cors)
+            .wrap(Compress::default())
             .service(swagger_ui)
             .service(
                 Scope::new("/api")
