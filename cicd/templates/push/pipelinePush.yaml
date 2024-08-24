@@ -84,7 +84,7 @@ spec:
     - name: build-docker
       runAfter: ["fetch-source"]
       taskRef:
-        name: build
+        name: build-image
       workspaces:
         - name: shared-data
           workspace: shared-data
