@@ -104,7 +104,7 @@ spec:
     - name: helm-upgrade
       runAfter: ["build-docker"]
       taskRef:
-        name: helm-upgrade-from-source
+        name: helm-upgrade
       workspaces:
         - name: source
           workspace: shared-data
