@@ -18,6 +18,10 @@ spec:
       type: string
       default: main
       description: The git repo revision to clone from.
+    - name: repo-small-path
+      type: string
+      default: batleforc/monofolio
+      description: The git repo small path to clone from.
     - name: conteneurfile-path
       type: string
       default: .
@@ -62,7 +66,7 @@ spec:
         - name: SHA
           value: $(params.repo-revision)
         - name: DESCRIPTION
-          value: Monofolio build and push $(params.image-name)
+          value: Monofolio build and push $(params.conteneurfile-path)
         - name: STATE
           value: pending
         - name: CONTEXT
@@ -137,7 +141,7 @@ spec:
         - name: SHA
           value: $(params.repo-revision)
         - name: DESCRIPTION
-          value: Monofolio build and push $(params.image-name)
+          value: Monofolio build and push $(params.conteneurfile-path)
         - name: CONTEXT
           value: monofolio-ci
         - name: GITHUB_TOKEN_SECRET_NAME
@@ -160,7 +164,7 @@ spec:
         - name: SHA
           value: $(params.repo-revision)
         - name: DESCRIPTION
-          value: Monofolio build and push $(params.image-name)
+          value: Monofolio build and push $(params.conteneurfile-path)
         - name: CONTEXT
           value: monofolio-ci
         - name: GITHUB_TOKEN_SECRET_NAME
@@ -183,7 +187,7 @@ spec:
         - name: SHA
           value: $(params.repo-revision)
         - name: DESCRIPTION
-          value: Monofolio build and push $(params.image-name)
+          value: Monofolio build and push $(params.conteneurfile-path)
         - name: CONTEXT
           value: monofolio-ci
         - name: GITHUB_TOKEN_SECRET_NAME
