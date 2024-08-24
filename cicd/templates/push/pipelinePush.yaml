@@ -100,7 +100,7 @@ spec:
         - name: path-dockerfile
           value: $(params.conteneurfile-path)
         - name: DOCKERFILE
-          value: Conteneurfile
+          value: Containerfile
         - name: context-dockerfile
           value: .
         - name: IMAGE
