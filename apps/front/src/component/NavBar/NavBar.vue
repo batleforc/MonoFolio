@@ -48,7 +48,7 @@ const items = [
     <Menubar id="navbar" breakpoint="674px" class="navBarHeader" :model="items" @focus="() => { }">
         <template #start>
             <HeroLink :link="'/'" :icon="'ico#home'" className="ico-navBarHeader " :smooth="false" :internal="true"
-                :label="'Home'" labelClassName="navBarHeaderLabel"
+                label="Maxime Leriche" labelClassName="navBarHeaderLabel"
                 linkClassName="flex items-center navBarHeaderHome navBarHeaderItem" />
         </template>
         <template #item="{ item }">
