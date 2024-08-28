@@ -25,7 +25,7 @@ spec:
             name: "cel"
           params:
             - name: filter
-              value: "body.ref.startsWith('refs/heads/') && ({{- range $index, $folder := $val.folder }} extensions.changed_files.matches('{{$folder}}') {{- if ne $index (sub ($val.folder | len) 1) }} || {{- end }} {{- end }})"
+              value: "body.ref.startsWith('refs/heads/main') && ({{- range $index, $folder := $val.folder }} extensions.changed_files.matches('{{$folder}}') {{- if ne $index (sub ($val.folder | len) 1) }} || {{- end }} {{- end }})"
             - name: overlays
               value:
                 - key: branch_name
