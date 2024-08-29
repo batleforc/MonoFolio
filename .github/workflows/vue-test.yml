@@ -4,7 +4,8 @@ on:
   push:
     branches: ['main', '*']
     paths:
-      - '**/front/**/*.{vue, ts}'
+      - '**/front/**/*'
+      #- 'libs/front/**/*'
       - 'folio_content/**/*'
   pull_request:
     # The branches below must be a subset of the branches above
