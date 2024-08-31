@@ -4,6 +4,8 @@ presentation: |
   Moi c'est Maxime, je suis un développeur passionné autant par les nouvelles technologies qu'un nouveau projet.
   J'aime apprendre en permanence et construire ce que j'estime être ma base de connaissance.
   Et vous êtes ici sur mon site qui est un savant mélange de mes passions et de mes projets.
+  Malgré le fait que je sois un développeur, je suis aussi un passionné d'architecture et capable de passer du Software au Hardware.
+  Principalement autodidacte, j'ai beaucoup appris en effectuant des projects personnels et a travers mes différentes expériences.
   Alors, bienvenue et bonne visite !
 coverTitle:
 - Développeur.
@@ -56,6 +58,8 @@ history:
   description: |
     Stage de fin d'étude BAC+2
     Développements d'applications en PHP sur un Framework propre à l'entreprise.
+    En + : découverte depuis de nombreuses années des métiers de l'informatique,
+    beaucoup de mes connaissances sont certe autodidactes mais aussi issues de nombreuses heure de question et de G I Y F (Merci Papa).
 - title: Codeur
   lieux: Museomix, Amiens
   date: 2019
