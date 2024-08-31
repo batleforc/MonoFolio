@@ -30,7 +30,7 @@ ingress:
 
 
 env:
-- name: "OTEL_OTEL_EXPORTER_OTLP_ENDPOINT"
-  value: "http://tempo.monitoring.svc.cluster.local:4317"
+  OTEL_OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo.monitoring.svc.cluster.local:4317
+
 
 envSecrets: []
