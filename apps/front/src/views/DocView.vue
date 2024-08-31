@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { useDocStore } from '../stores/doc';
+import DocSidebar from '../component/Doc/DocSidebar.vue';
+import { computed } from 'vue';
 
 const route = useRoute();
 
-let path = Array.isArray(route.params.page) ? route.params.page.join("/") : route.params.page;
+let pathReactive = computed(() => {
+    return Array.isArray(route.params.page) ? route.params.page : [route.params.page];
+});
 
 
 const docStore = useDocStore();
@@ -16,14 +20,9 @@ if (!docStore.inited && !docStore.docLoading) {
 
 <template>
     <div id="title" class="docContainer" v-if="docStore.inited">
-        <div class="docSidebar">
-            <p>Doc Sidebar</p>
-            <p v-for="sidebar in docStore.docContent.sub_categories" :key="sidebar.name">
-                {{ sidebar.name }}
-            </p>
-        </div>
+        <DocSidebar />
         <div class="docContent">
-            <p>{{ path }}</p>
+            <p>{{ pathReactive }}</p>
             <p>Doc content</p>
         </div>
     </div>
@@ -31,7 +30,7 @@ if (!docStore.inited && !docStore.docLoading) {
 
 <style lang="scss">
 .docContainer {
-    @apply flex;
+    @apply flex h-dvh;
 }
 
 .docContent {

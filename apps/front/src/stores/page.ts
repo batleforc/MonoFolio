@@ -16,13 +16,13 @@ export const usePageStore = defineStore({
   }),
   actions: {
     fetchPage(path: string) {
-      if (this.pageLoading) return;
+      if (this.pageLoading) return new Promise<void>((resolve) => resolve());
       this.pageLoading = true;
       if (this.pagePath === path) {
         this.pageLoading = false;
-        return;
+        return new Promise<void>((resolve) => resolve());
       }
-      getPage({ query: { info: { path } } })
+      return getPage({ query: { path } })
         .then((body) => {
           if (body.status === 200) {
             this.page = body.data;

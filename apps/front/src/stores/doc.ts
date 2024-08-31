@@ -16,13 +16,14 @@ export const useDocStore = defineStore({
   }),
   actions: {
     init() {
-      if (this.inited) return;
+      if (this.inited) return Promise.reject();
       this.docLoading = true;
-      getDocSidebar()
+      return getDocSidebar()
         .then((body) => {
           if (body.status === 200) {
             this.docContent = body.data;
           }
+          return body.data;
         })
         .catch((err) => {
           console.error(err);
