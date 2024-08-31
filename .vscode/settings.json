@@ -3,5 +3,6 @@
   "editor.fontFamily": "'FiraCode Nerd Font','Droid Sans Mono', 'monospace', monospace",
   "editor.fontLigatures": true,
   "rust-analyzer.linkedProjects": ["./Cargo.toml"],
-  "eslint.validate": ["json"]
+  "eslint.validate": ["json"],
+  "css.customData": [".vscode/tailwind.json"]
 }
