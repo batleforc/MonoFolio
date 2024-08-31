@@ -27,16 +27,16 @@
 {{- with .Values.env }}
 {{- range $key, $value := . }}
     - name: {{ $key }}
-        value: {{ tpl $value $ | quote }}
+      value: {{ tpl $value $ | quote }}
 {{- end }}
 {{- end }}
 {{- with .Values.envSecrets}}
 {{- range $key, $value := . }}
     - name: {{ $key }}
-        valueFrom:
-            secretKeyRef:
-                name: {{ tpl $value.secretName $ | quote }}
-                key: {{ tpl $value.secretKey $ | quote }}
+      valueFrom:
+        secretKeyRef:
+          name: {{ tpl $value.secretName $ | quote }}
+          key: {{ tpl $value.secretKey $ | quote }}
 {{- end }}
 {{- end }}
 {{- end }}

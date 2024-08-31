@@ -36,7 +36,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
-            {{- include "mychart.env" . | nindent 12 }}
+            {{- include "mychart.env" . | nindent 8 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           livenessProbe:
