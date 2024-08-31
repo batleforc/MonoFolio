@@ -29,6 +29,8 @@ ingress:
   host: '{{- template "mychart.name" . }}.dev.mono-folio.com'
 
 
-env: []
+env:
+- name: "OTEL_OTEL_EXPORTER_OTLP_ENDPOINT"
+  value: "http://tempo.monitoring.svc.cluster.local:4317"
 
 envSecrets: []
