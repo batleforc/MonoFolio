@@ -45,7 +45,7 @@ const items = [
 </script>
 
 <template>
-    <Menubar id="navbar" breakpoint="674px" class="navBarHeader" :model="items" @focus="() => { }">
+    <Menubar id="navbar" breakpoint="740px" class="navBarHeader" :model="items" @focus="() => { }">
         <template #start>
             <HeroLink :link="'/'" :icon="'ico#home'" className="ico-navBarHeader " :smooth="false" :internal="true"
                 label="Maxime Leriche" labelClassName="navBarHeaderLabel"
@@ -61,14 +61,16 @@ const items = [
 
 
 <style lang="scss">
+@import "../../var.scss";
+
 .navBarHeaderItem:hover {
-    background-color: #2c3045;
+    background-color: $color-bgCoverLighter;
     @apply rounded-lg;
 }
 
 .p-menubar-button {
-    background-color: #1b203a;
-    color: #f2f4f3;
+    background-color: $color-bgCover;
+    color: $color-textCover;
     @apply h-10 w-10;
 
     .p-icon {
@@ -76,34 +78,34 @@ const items = [
     }
 
     svg:hover {
-        background-color: #2c3045;
+        background-color: $color-bgCoverLighter;
     }
 }
 
 .p-menubar-item.p-focus>.p-menubar-item-content {
-    background-color: #2c3045;
+    background-color: $color-bgCoverLighter;
 }
 
 .p-menubar-item:not(.p-disabled)>.p-menubar-item-content:hover {
-    background-color: #2c3045;
+    background-color: $color-bgCoverLighter;
 }
 
 .p-menubar-root-list {
-    background-color: #1b203a;
+    background-color: $color-bgCover;
     @apply p-0.5 rounded-b-lg;
 
-    :focus {
+    &:focus {
         @apply focus:outline-none;
-        background-color: #2c3045;
+        background-color: $color-bgCoverLighter;
     }
 }
 
 .navBarHeader {
-    background-color: #1b203a;
-    z-index: 1000;
-    @apply rounded-t-none sticky top-0 justify-between;
+    background-color: $color-bgCover;
+    z-index: 2000;
+    @apply rounded-none sticky top-0 justify-between h-16;
 
-    @media (min-width: 674px) {
+    @media (min-width: 740px) {
         @apply justify-center;
     }
 
@@ -112,7 +114,7 @@ const items = [
     }
 
     .p-focus:hover {
-        background-color: #2c3045;
+        background-color: $color-bgCoverLighter;
     }
 }
 
@@ -122,12 +124,12 @@ const items = [
 
 .navBarHeaderLabel {
     @apply ml-2;
-    color: #f2f4f3;
+    color: $color-textCover;
 }
 
 .ico-navBarHeader {
     font-size: 38px;
-    color: #f2f4f3;
+    color: $color-textCover;
 
 }
 </style>

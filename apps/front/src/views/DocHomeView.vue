@@ -20,24 +20,23 @@ if (docStore.inited && docStore.docContent.has_index && pageStore.pageLoading ==
 <template>
     <div id="title" class="docContainer" v-if="docStore.inited">
         <DocSidebar />
-        <div v-if="docStore.docContent.has_index && pageStore.page !== undefined" class="docContent">
-            <h1>Doc home page</h1>
-            <p>{{ pageStore.page.metadata }}</p>
-            <div v-html="pageStore.page.content"></div>
-        </div>
-        <div v-if="!docStore.docContent.has_index" class="docContent">
-            <h1>Doc home page</h1>
-            <p>There is no index page for this documentation</p>
+        <div class="docContent">
+            <div v-if="docStore.docContent.has_index && pageStore.page !== undefined">
+                <h1>Doc home page</h1>
+                <p>{{ pageStore.page.metadata }}</p>
+                <div v-html="pageStore.page.content"></div>
+            </div>
+            <div v-if="!docStore.docContent.has_index">
+                <h1>Doc home page</h1>
+                <p>There is no index page for this documentation</p>
+            </div>
+            <footer>
+                <p>Made with love and too much coffee @Batleforc - {{ new Date().getFullYear() }}</p>
+            </footer>
         </div>
     </div>
 </template>
 
 <style lang="scss">
-.docContainer {
-    @apply flex grow;
-}
-
-.docContent {
-    @apply grow;
-}
+@import "../styles/DocView.scss";
 </style>

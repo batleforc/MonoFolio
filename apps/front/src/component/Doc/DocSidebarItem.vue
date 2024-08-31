@@ -40,7 +40,7 @@ const sidebarOpen = ref(fromOpen.value);
 
 <template>
     <div class="docSidebarItem">
-        <p @click="sidebarOpen = !sidebarOpen" class="docSidebarTitle">
+        <p @click="sidebarOpen = !sidebarOpen" class="docSidebarTitle docSidebarContentItem">
             <template v-if="!props.docContent.has_index">
                 {{ props.docContent.name }}
             </template>
@@ -52,7 +52,7 @@ const sidebarOpen = ref(fromOpen.value);
                 icon="chevron-down" />
         </p>
         <div :class="sidebarOpen ? 'docSidebarOpen' : ''" class="docSidebarContent">
-            <RouterLink v-for="page in pageFiltered" :key="page.name"
+            <RouterLink class="docSidebarContentItem" v-for="page in pageFiltered" :key="page.name"
                 :to="{ name: 'doccontent', params: { page: page.path.split('/') } }">
                 {{ page.name }}
             </RouterLink>
@@ -66,8 +66,18 @@ const sidebarOpen = ref(fromOpen.value);
 </template>
 
 <style lang="scss">
+@import "../../var.scss";
+
 .docSidebarTitle {
-    cursor: pointer;
+    @apply cursor-pointer flex justify-between;
+}
+
+.docSidebarContentItem {
+    @apply cursor-pointer p-1;
+
+    &:hover {
+        background-color: $color-bgCoverLighter;
+    }
 }
 
 .docSidebarOpen.docSidebarTitleChevron {
@@ -80,7 +90,7 @@ const sidebarOpen = ref(fromOpen.value);
 }
 
 .docSidebarContent {
-    @apply overflow-hidden opacity-0 h-0 px-2;
+    @apply overflow-hidden opacity-0 h-0 pl-2;
     display: none;
     animation: dropdown 200ms linear forwards;
 

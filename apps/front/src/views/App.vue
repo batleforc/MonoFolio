@@ -12,7 +12,7 @@ if (!indexStore.inited && !indexStore.homeLoading) {
 
 <template>
   <Hero v-if="$route.meta.hero" />
-  <div class="flex flex-col h-full">
+  <div class="flex flex-col min-h-full">
     <NavBar v-if="indexStore.inited" :link="indexStore.homeContent.url" />
     <RouterView />
   </div>

@@ -11,19 +11,19 @@ let path = Array.isArray(route.params.page) ? route.params.page : [route.params.
 </script>
 
 <template>
-    <div class="docSidebar">
+    <aside class="docSidebar">
         <RouterLink :to="{ name: 'doc' }">Doc Home</RouterLink>
         <DocSidebarItem :path="path" v-for="categorie in docStore.docContent.sub_categories" v-bind:key="categorie.name"
             :docContent="categorie" />
-    </div>
+    </aside>
 </template>
 
 <style lang="scss">
 @import "../../var.scss";
 
 .docSidebar {
-    @apply border-r-2 min-w-48 px-4 py-2 hidden md:flex flex-col;
-    background-color: $color-textCoverDarker;
-
+    @apply border-r-2 min-w-48 px-4 py-2 hidden md:flex flex-col sticky;
+    background-color: $color-bgCover;
+    color: $color-textCover;
 }
 </style>
