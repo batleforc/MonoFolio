@@ -22,7 +22,7 @@ let path = Array.isArray(route.params.page) ? route.params.page : [route.params.
 @import "../../var.scss";
 
 .docSidebar {
-    @apply border-r-2 h-full min-w-48 px-4 py-2 hidden md:flex flex-col;
+    @apply border-r-2 min-w-48 px-4 py-2 hidden md:flex flex-col;
     background-color: $color-textCoverDarker;
 
 }

@@ -47,7 +47,7 @@ const { type } = useBreakpoints();
                 suite ?
             </p>
             <div class="flex justify-around flex-wrap">
-                <RouterLink to="doc">
+                <RouterLink :to="{ name: 'doc' }">
                     <Card class="homePageGoFurtherCard">
                         <template #title>
                             <h3>Ma doc</h3>
@@ -57,7 +57,7 @@ const { type } = useBreakpoints();
                         </template>
                     </Card>
                 </RouterLink>
-                <RouterLink to="doc">
+                <RouterLink :to="{ name: 'doccontent', params: { page: ['project'] } }">
                     <Card class="homePageGoFurtherCard">
                         <template #title>
                             <h3>Les Projet</h3>
@@ -67,7 +67,7 @@ const { type } = useBreakpoints();
                         </template>
                     </Card>
                 </RouterLink>
-                <RouterLink to="blog">
+                <RouterLink :to="{ name: 'blog' }">
                     <Card class="homePageGoFurtherCard">
                         <template #title>
                             <h3>Mon espace "Blog"</h3>

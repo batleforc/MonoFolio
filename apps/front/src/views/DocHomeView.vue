@@ -34,7 +34,7 @@ if (docStore.inited && docStore.docContent.has_index && pageStore.pageLoading ==
 
 <style lang="scss">
 .docContainer {
-    @apply flex h-dvh;
+    @apply flex;
 }
 
 .docContent {

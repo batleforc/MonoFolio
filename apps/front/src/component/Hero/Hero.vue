@@ -29,7 +29,7 @@ const indexStore = useIndexStore();
 @import '../../var.scss';
 
 .coverPage {
-    height: 100vh;
+    @apply h-full grow;
     background-color: $color-bgCover;
     color: $color-textCover;
     display: flex;

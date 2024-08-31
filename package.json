@@ -7,7 +7,8 @@
     "rust:test": "cargo llvm-cov --open --ignore-filename-regex 'init'",
     "rust:start": "podman compose up -d && nx run back:run",
     "rust:generate": "cargo run --bin swagger -- ./swagger.json",
-    "vue:gen_api": "npx @hey-api/openapi-ts -i ./swagger.json -o libs/front/api-client/src/api -c @hey-api/client-axios"
+    "vue:gen_api": "npx @hey-api/openapi-ts -i ./swagger.json -o libs/front/api-client/src/api -c @hey-api/client-axios",
+    "vue:test": "vitest run --coverage"
   },
   "private": true,
   "dependencies": {

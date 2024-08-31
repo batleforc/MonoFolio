@@ -19,18 +19,24 @@ if (!docStore.inited && !docStore.docLoading) {
 </script>
 
 <template>
-    <div id="title" class="docContainer" v-if="docStore.inited">
-        <DocSidebar />
-        <div class="docContent">
-            <p>{{ pathReactive }}</p>
-            <p>Doc content</p>
+    <div class="docTest">
+        <div id="title" class="docContainer" v-if="docStore.inited">
+            <DocSidebar />
+            <div class="docContent">
+                <p>{{ pathReactive }}</p>
+                <p>Doc content</p>
+            </div>
         </div>
     </div>
 </template>
 
 <style lang="scss">
+.docTest {
+    @apply flex grow;
+}
+
 .docContainer {
-    @apply flex h-dvh;
+    @apply flex grow;
 }
 
 .docContent {

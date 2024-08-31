@@ -12,6 +12,9 @@ if (!indexStore.inited && !indexStore.homeLoading) {
 
 <template>
   <Hero v-if="$route.meta.hero" />
-  <NavBar v-if="indexStore.inited" :link="indexStore.homeContent.url" />
-  <RouterView />
+  <div class="flex flex-col h-full">
+    <NavBar v-if="indexStore.inited" :link="indexStore.homeContent.url" />
+    <RouterView />
+  </div>
+
 </template>

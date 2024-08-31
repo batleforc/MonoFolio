@@ -1,0 +1,39 @@
+comment:
+  layout: "header, diff, components"
+
+component_management:
+  default_rules:
+    statuses:
+    - type: "project"
+      target: "auto"
+      branches:
+      - "!main"
+  individual_components:
+  - component_id: "apps_back"
+    name: Backend
+    paths:
+    - apps/back/**
+    statuses:
+    - type: project
+      target: 95%
+    - type: patch
+      target: 100%
+  - component_id: "apps_front"
+    name: Frontend
+    paths:
+    - apps/front/**
+    statuses:
+    - type: project
+      target: 50%
+  - component_id: "lib_back_tracing"
+    name: Lib ToolTracing
+    paths:
+    - libs/back/tool_tracing/**
+  - component_id: "lib_back_md_header"
+    name: Lib MarkdownHeader
+    paths:
+    - libs/back/markdown_header/**
+  - component_id: "lib_back_md_struct"
+    name: Lib Markdown struct
+    paths:
+    - libs/back/markdown_struct/**
