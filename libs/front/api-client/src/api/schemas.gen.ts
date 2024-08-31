@@ -239,23 +239,3 @@ export const $PageShort = {
         }
     }
 } as const;
-
-export const $QuerryMedia = {
-    type: 'object',
-    required: ['path'],
-    properties: {
-        path: {
-            type: 'string'
-        }
-    }
-} as const;
-
-export const $QuerryPage = {
-    type: 'object',
-    required: ['path'],
-    properties: {
-        path: {
-            type: 'string'
-        }
-    }
-} as const;

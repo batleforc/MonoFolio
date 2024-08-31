@@ -2,9 +2,9 @@ use actix_web::{get, web, HttpResponse, Responder};
 use markdown_struct::page_database::DbFolder;
 use serde::{Deserialize, Serialize};
 use tracing::instrument;
-use utoipa::ToSchema;
+use utoipa::IntoParams;
 
-#[derive(Debug, Deserialize, Serialize, ToSchema)]
+#[derive(Debug, Deserialize, Serialize, IntoParams)]
 pub struct QuerryPage {
     pub path: String,
 }
@@ -22,7 +22,7 @@ pub struct QuerryPage {
         (status = 500, description = "Internal server error"),
     ),
     params(
-        ("info" = QuerryPage, Query,  description = "Page path"),
+        QuerryPage,
     )
 )]
 #[get("")]

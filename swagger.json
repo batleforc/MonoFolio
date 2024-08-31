@@ -94,12 +94,11 @@
         "operationId": "get_media",
         "parameters": [
           {
-            "name": "info",
+            "name": "path",
             "in": "query",
-            "description": "Page path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/QuerryMedia"
+              "type": "string"
             }
           }
         ],
@@ -126,12 +125,11 @@
         "operationId": "get_page",
         "parameters": [
           {
-            "name": "info",
+            "name": "path",
             "in": "query",
-            "description": "Page path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/QuerryPage"
+              "type": "string"
             }
           }
         ],
@@ -425,28 +423,6 @@
           "name": {
             "type": "string"
           },
-          "path": {
-            "type": "string"
-          }
-        }
-      },
-      "QuerryMedia": {
-        "type": "object",
-        "required": [
-          "path"
-        ],
-        "properties": {
-          "path": {
-            "type": "string"
-          }
-        }
-      },
-      "QuerryPage": {
-        "type": "object",
-        "required": [
-          "path"
-        ],
-        "properties": {
           "path": {
             "type": "string"
           }

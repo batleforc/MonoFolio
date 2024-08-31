@@ -1,7 +1,7 @@
 use crate::{
     api::{
-        media::get_media::{self, QuerryMedia},
-        page::get_page::{self, QuerryPage},
+        media::get_media::{self},
+        page::get_page::{self},
     },
     homeprofil::{HomeContent, HomeHistory, HomeHistoryUrl, HomeUrl},
 };
@@ -39,12 +39,10 @@ use utoipa::OpenApi;
             DocHeaderSpec,
             DocHeaderLink,
             BlogTimeline,
-            QuerryPage,
             HomeUrl,
             HomeHistoryUrl,
             HomeHistory,
             HomeContent,
-            QuerryMedia,
             DocCategory,
         )
     ),

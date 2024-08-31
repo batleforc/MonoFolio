@@ -15,7 +15,7 @@ export type DocCategory = {
 
 export type DocHeader = {
     date: string;
-    description?: string | null;
+    description?: (string) | null;
     links?: Array<DocHeaderLink>;
     spec?: DocHeaderSpec;
     tags?: Array<(string)>;
@@ -78,131 +78,34 @@ export type PageShort = {
     path: string;
 };
 
-export type QuerryMedia = {
-    path: string;
-};
+export type GetTimelineResponse = (BlogTimeline);
 
-export type QuerryPage = {
-    path: string;
-};
+export type GetTimelineError = (unknown);
 
-export type GetTimelineResponse = BlogTimeline;
+export type GetDocSidebarResponse = (DocCategory);
 
-export type GetTimelineError = unknown;
+export type GetDocSidebarError = (unknown);
 
-export type GetDocSidebarResponse = DocCategory;
+export type GetHomeResponse = (HomeContent);
 
-export type GetDocSidebarError = unknown;
-
-export type GetHomeResponse = HomeContent;
-
-export type GetHomeError = unknown;
+export type GetHomeError = (unknown);
 
 export type GetMediaData = {
     query: {
-        /**
-         * Page path
-         */
-        info: QuerryMedia;
+        path: string;
     };
 };
 
-export type GetMediaResponse = unknown;
+export type GetMediaResponse = (unknown);
 
-export type GetMediaError = unknown;
+export type GetMediaError = (unknown);
 
 export type GetPageData = {
     query: {
-        /**
-         * Page path
-         */
-        info: QuerryPage;
+        path: string;
     };
 };
 
-export type GetPageResponse = Page;
+export type GetPageResponse = (Page);
 
-export type GetPageError = unknown;
-
-export type $OpenApiTs = {
-    '/api/blog': {
-        get: {
-            res: {
-                /**
-                 * Blog Timeline
-                 */
-                '200': BlogTimeline;
-                /**
-                 * Internal server error
-                 */
-                '500': unknown;
-            };
-        };
-    };
-    '/api/doc': {
-        get: {
-            res: {
-                /**
-                 * Doc Sidebar
-                 */
-                '200': DocCategory;
-                /**
-                 * Internal server error
-                 */
-                '500': unknown;
-            };
-        };
-    };
-    '/api/home': {
-        get: {
-            res: {
-                /**
-                 * Home Content
-                 */
-                '200': HomeContent;
-                /**
-                 * Internal server error
-                 */
-                '500': unknown;
-            };
-        };
-    };
-    '/api/media': {
-        get: {
-            req: GetMediaData;
-            res: {
-                /**
-                 * Media content
-                 */
-                '200': unknown;
-                /**
-                 * Page not found
-                 */
-                '404': unknown;
-                /**
-                 * Internal server error
-                 */
-                '500': unknown;
-            };
-        };
-    };
-    '/api/page': {
-        get: {
-            req: GetPageData;
-            res: {
-                /**
-                 * Page Content
-                 */
-                '200': Page;
-                /**
-                 * Page not found
-                 */
-                '404': unknown;
-                /**
-                 * Internal server error
-                 */
-                '500': unknown;
-            };
-        };
-    };
-};
+export type GetPageError = (unknown);

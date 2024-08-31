@@ -3,11 +3,11 @@ use std::{fs, path::PathBuf};
 use actix_web::{get, http::StatusCode, web, HttpResponse, Responder};
 use serde::{Deserialize, Serialize};
 use tracing::{info, instrument};
-use utoipa::ToSchema;
+use utoipa::IntoParams;
 
 use crate::config::Config;
 
-#[derive(Debug, Deserialize, Serialize, ToSchema)]
+#[derive(Debug, Deserialize, Serialize, IntoParams)]
 pub struct QuerryMedia {
     pub path: String,
 }
@@ -25,11 +25,11 @@ pub struct QuerryMedia {
         (status = 500, description = "Internal server error"),
     ),
     params(
-        ("info" = QuerryMedia, Query,  description = "Page path"),
+        QuerryMedia,
     )
 )]
 #[get("")]
-#[instrument(name = "get_media")]
+#[instrument(name = "get_media", skip(config))]
 pub async fn get_media(info: web::Query<QuerryMedia>, config: web::Data<Config>) -> impl Responder {
     let info_parsed = info.path.replace("../", "");
     if info_parsed.starts_with("/") {
@@ -77,11 +77,6 @@ mod tests {
                 (name = "Blog", description = "Blog related endpoints"),
                 (name = "Doc", description = "Doc related endpoints"),
                 (name = "Media", description = "Media related endpoints")
-            ),
-            components(
-                schemas(
-                    QuerryMedia,
-                )
             ),
             paths(
                 get_media,
