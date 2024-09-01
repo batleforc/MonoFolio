@@ -1,4 +1,26 @@
-# Monofolio CICD
+---
+date: 2024-08-09T22:51:00Z
+title: "Monofolio-CICD"
+description: |
+    Monofolio CICD
+spec:
+  blog: false
+  project: true
+  doc: true
+tags:
+ - project
+ - Kube
+ - continuous-update
+ - GitOps
+techno:
+  - Kubernetes
+  - ArgoCD
+  - Helm
+  - Terraform
+  - Gitea
+  - Tekton
+  - Kustomize
+---
 
 ## Goal
 
@@ -33,6 +55,10 @@
 - If both the Test flow and the PR checks pass, the PR is merged into the `main` branch.
 - The Release flow is executed and the `beta` version is deployed.
 - If the `beta` version is stable, a new tag is created and the `production` version is deployed.
+
+#### Test
+
+test 12345
 
 ```mermaid
 flowchart TD;
