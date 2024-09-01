@@ -40,7 +40,7 @@ impl DocCategory {
     pub fn generate_sidebar_from_db(db_folder: DbFolder, path: String) -> DocCategory {
         let mut doc_category = DocCategory::new(db_folder.name.clone());
         for page in db_folder.pages {
-            if page.metadata.spec.blog {
+            if !page.metadata.spec.doc && !page.metadata.spec.project {
                 continue;
             }
             let path: String = {
