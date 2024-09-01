@@ -2,11 +2,13 @@ export enum BlockType {
   string = 'string',
   title = 'title',
   startEndCodeBlock = 'startEndCodeBlock',
+  checkbox = 'checkbox',
 }
 
 export type Block = {
   type: BlockType;
   value: string;
+  additionalValue?: string;
 };
 
 export class TitleBlock {
@@ -42,6 +44,7 @@ export class TitleBlock {
 export const transformContent = (content: string): TitleBlock[] => {
   const titleBlocks: TitleBlock[] = [];
   const lines = content.split('\n');
+  let codeBlock: string[] = [];
   lines.forEach((line) => {
     // Title
     if (line.trim() === '') return;
@@ -61,12 +64,26 @@ export const transformContent = (content: string): TitleBlock[] => {
         value: line,
       };
       if (line.startsWith('```')) {
-        block.type = BlockType.startEndCodeBlock;
+        if (codeBlock.length > 0) {
+          block.type = BlockType.startEndCodeBlock;
+          block.additionalValue = codeBlock[0].replace('```', '');
+          codeBlock.shift();
+          block.value = codeBlock.join('\n');
+          codeBlock = [];
+        } else codeBlock.push(line);
+      } else if (codeBlock.length > 0) {
+        codeBlock.push(line);
+      } else if (line.startsWith('- [ ]') || line.startsWith('- [x]')) {
+        block.type = BlockType.checkbox;
+        if (line.startsWith('- [x]')) block.additionalValue = 'checked';
+        else block.additionalValue = 'unchecked';
+        block.value = line.replace('- [ ]', '').replace('- [x]', '').trim();
       }
       if (titleBlocks.length === 0) {
         titleBlocks.push(new TitleBlock(''));
       }
-      titleBlocks[titleBlocks.length - 1].appendBlock(block);
+      if (codeBlock.length === 0)
+        titleBlocks[titleBlocks.length - 1].appendBlock(block);
     }
   });
   console.log(titleBlocks);

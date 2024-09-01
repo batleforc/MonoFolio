@@ -1,10 +1,12 @@
 import './styles.scss';
+import 'highlight.js/styles/github-dark.css';
 import { createApp, markRaw } from 'vue';
 import { createPinia } from 'pinia';
 import type { Router } from 'vue-router';
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
-
+import 'highlight.js/lib/common';
+import hljsVue from '@highlightjs/vue-plugin';
 import App from './views/App.vue';
 import router from './router';
 import { client } from '@portfolio/api-client';
@@ -44,5 +46,7 @@ app.use(PrimeVue, {
     },
   },
 });
+
+app.use(hljsVue);
 
 app.mount('#root');
