@@ -39,7 +39,7 @@
     "@primevue/auto-import-resolver": "^4.0.4",
     "@swc-node/register": "^1.10.9",
     "@swc/cli": "~0.4.0",
-    "@swc/core": "~1.5.7",
+    "@swc/core": "~1.7.22",
     "@swc/helpers": "~0.5.11",
     "@types/jest": "29.5.12",
     "@types/node": "22.5.0",
