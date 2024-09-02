@@ -34,5 +34,28 @@ export const useDocStore = defineStore({
           this.inited = true;
         });
     },
+    searchCategory(path: string): DocCategory | undefined {
+      if (!this.docContent) return;
+      return this.searchCategoryRecursive(`content/${path}`, this.docContent);
+    },
+    searchCategoryRecursive(
+      path: string,
+      category: DocCategory,
+    ): DocCategory | undefined {
+      const path_split = path.split('/');
+      if (path_split.length === 1 && category.name === path_split[0]) {
+        return category;
+      }
+      for (const subCategory of category.sub_categories) {
+        if (subCategory.name === path_split[1]) {
+          const found = this.searchCategoryRecursive(
+            path_split.slice(1).join('/'),
+            subCategory,
+          );
+          if (found) return found;
+        }
+      }
+      return;
+    },
   },
 });

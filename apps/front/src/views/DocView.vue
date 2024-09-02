@@ -16,9 +16,11 @@ let pathReactive = computed(() => {
 const docStore = useDocStore();
 const pageStore = usePageStore();
 if (!docStore.inited && !docStore.docLoading) {
-    docStore.init()
+    docStore.init().then(() => {
+        pageStore.fetchPage(pathReactive.value);
+    });
 }
-if (pageStore.pageLoading === false && pageStore.pagePath !== pathReactive.value) {
+else if (pageStore.pageLoading === false && pageStore.pagePath !== pathReactive.value) {
     pageStore.fetchPage(pathReactive.value);
 }
 

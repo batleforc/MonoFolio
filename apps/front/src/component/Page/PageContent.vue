@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { BlockType, TitleBlock } from '../../markdown';
 import PageTitle from './PageTitle.vue';
-
+import VueMermaidString from 'vue-mermaid-string';
 
 
 defineProps<{
@@ -14,6 +14,9 @@ defineProps<{
         <PageTitle :value="content.value" :level="content.level" />
         <div v-for="line in content.subBlocks" :key="line.value">
             <p class="whitespace-pre" v-if="line.type === BlockType.string">{{ line.value }}</p>
+            <VueMermaidString class="py-2 pageCodeMermaid"
+                v-else-if="line.type === BlockType.startEndCodeBlock && line.additionalValue === 'mermaid'"
+                :value="line.value" />
             <highlightjs class="py-2" v-else-if="line.type === BlockType.startEndCodeBlock" autodetect
                 :code="line.value" />
             <div class="flex space-x-2" v-else-if="line.type === BlockType.checkbox">
