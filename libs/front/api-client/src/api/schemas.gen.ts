@@ -77,6 +77,9 @@ export const $DocHeader = {
         weight: {
             type: 'integer',
             format: 'int32'
+        },
+        writter: {
+            '$ref': '#/components/schemas/DocHeaderWritter'
         }
     }
 } as const;
@@ -105,6 +108,22 @@ export const $DocHeaderSpec = {
         },
         project: {
             type: 'boolean'
+        }
+    }
+} as const;
+
+export const $DocHeaderWritter = {
+    type: 'object',
+    required: ['name', 'url', 'avatar'],
+    properties: {
+        avatar: {
+            type: 'string'
+        },
+        name: {
+            type: 'string'
+        },
+        url: {
+            type: 'string'
         }
     }
 } as const;

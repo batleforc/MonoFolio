@@ -78,6 +78,7 @@ mod tests {
                 .unwrap()
                 .into(),
             description: None,
+            writter: Default::default(),
             weight: 0,
             spec: Default::default(),
             tags: vec![],

@@ -12,7 +12,7 @@ use super::home::get_home;
 use markdown_struct::{
     blog_timeline::BlogTimeline,
     content_struct::{Page, PageShort},
-    doc_header::{DocHeader, DocHeaderLink, DocHeaderSpec},
+    doc_header::{DocHeader, DocHeaderLink, DocHeaderSpec, DocHeaderWritter},
     doc_sidebar::DocCategory,
 };
 use utoipa::OpenApi;
@@ -38,6 +38,7 @@ use utoipa::OpenApi;
             DocHeader,
             DocHeaderSpec,
             DocHeaderLink,
+            DocHeaderWritter,
             BlogTimeline,
             HomeUrl,
             HomeHistoryUrl,

@@ -22,6 +22,7 @@ export type DocHeader = {
     techno?: Array<(string)>;
     title: string;
     weight?: number;
+    writter?: DocHeaderWritter;
 };
 
 export type DocHeaderLink = {
@@ -33,6 +34,12 @@ export type DocHeaderSpec = {
     blog?: boolean;
     doc?: boolean;
     project?: boolean;
+};
+
+export type DocHeaderWritter = {
+    avatar: string;
+    name: string;
+    url: string;
 };
 
 export type HomeContent = {

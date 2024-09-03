@@ -86,6 +86,5 @@ export const transformContent = (content: string): TitleBlock[] => {
         titleBlocks[titleBlocks.length - 1].appendBlock(block);
     }
   });
-  console.log(titleBlocks);
   return titleBlocks;
 };

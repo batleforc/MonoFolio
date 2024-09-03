@@ -2,11 +2,17 @@
 import { useRoute } from 'vue-router';
 import { useDocStore } from '../../stores/doc';
 import DocSidebarItem from './DocSidebarItem.vue';
+import { ref, watch } from 'vue';
 
 const route = useRoute();
 const docStore = useDocStore();
+let path = ref(Array.isArray(route.params.page) ? route.params.page : [route.params.page]);
 
-let path = Array.isArray(route.params.page) ? route.params.page : [route.params.page];
+watch(() => route.params.page, (newValue, oldValue) => {
+    if (newValue !== oldValue) {
+        path.value = Array.isArray(newValue) ? newValue : [newValue];
+    }
+});
 
 </script>
 

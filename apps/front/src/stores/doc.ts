@@ -1,4 +1,4 @@
-import { DocCategory, getDocSidebar } from '@portfolio/api-client';
+import { DocCategory, getDocSidebar, PageShort } from '@portfolio/api-client';
 import { defineStore } from 'pinia';
 
 export interface DocState {
@@ -54,6 +54,25 @@ export const useDocStore = defineStore({
           );
           if (found) return found;
         }
+      }
+      return;
+    },
+    technoExists(techno: string): PageShort | undefined {
+      if (!this.docContent) return;
+      return this.technoExistsRecursive(techno, this.docContent);
+    },
+    technoExistsRecursive(
+      techno: string,
+      category: DocCategory,
+    ): PageShort | undefined {
+      for (const page of category.pages) {
+        if (page.name.toLowerCase() === techno.toLowerCase()) {
+          return page;
+        }
+      }
+      for (const subCategory of category.sub_categories) {
+        const found = this.technoExistsRecursive(techno, subCategory);
+        if (found) return found;
       }
       return;
     },

@@ -30,6 +30,10 @@ fn empty_doc_header_spec() -> DocHeaderSpec {
     }
 }
 
+fn default_doc_header_writter() -> DocHeaderWritter {
+    Default::default()
+}
+
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct DocHeaderSpec {
     #[serde(default = "false_default")]
@@ -57,10 +61,29 @@ pub struct DocHeaderLink {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
+pub struct DocHeaderWritter {
+    pub name: String,
+    pub url: String,
+    pub avatar: String,
+}
+
+impl Default for DocHeaderWritter {
+    fn default() -> Self {
+        DocHeaderWritter {
+            name: "Maxime".to_string(),
+            url: "https://maxleriche.net".to_string(),
+            avatar: "https://avatars.githubusercontent.com/u/24699592?s=80".to_string(),
+        }
+    }
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct DocHeader {
     pub title: String,
     pub date: DateTime<Utc>,
     pub description: Option<String>,
+    #[serde(default = "default_doc_header_writter")]
+    pub writter: DocHeaderWritter,
     #[serde(default = "default_weight")]
     pub weight: i32,
     #[serde(default = "empty_doc_header_spec")]
@@ -79,6 +102,11 @@ impl Default for DocHeader {
             title: "".to_string(),
             date: Utc::now(),
             description: None,
+            writter: DocHeaderWritter {
+                name: "".to_string(),
+                url: "".to_string(),
+                avatar: "".to_string(),
+            },
             weight: 0,
             spec: DocHeaderSpec::default(),
             tags: Vec::new(),
@@ -294,9 +322,11 @@ THIS IS A TEST
         let schema_header_spec = DocHeaderSpec::schema();
         let schema_header_link = DocHeaderLink::schema();
         let schema_header = DocHeader::schema();
+        let schema_writter = DocHeaderWritter::schema();
 
         assert_eq!(schema_header_spec.0, "DocHeaderSpec");
         assert_eq!(schema_header_link.0, "DocHeaderLink");
         assert_eq!(schema_header.0, "DocHeader");
+        assert_eq!(schema_writter.0, "DocHeaderWritter");
     }
 }
