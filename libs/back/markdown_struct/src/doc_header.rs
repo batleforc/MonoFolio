@@ -94,6 +94,7 @@ pub struct DocHeader {
     pub techno: Vec<String>,
     #[serde(default = "empty_vec_doc_header_link")]
     pub links: Vec<DocHeaderLink>,
+    pub image: Option<String>,
 }
 
 impl Default for DocHeader {
@@ -112,6 +113,7 @@ impl Default for DocHeader {
             tags: Vec::new(),
             techno: Vec::new(),
             links: Vec::new(),
+            image: None,
         }
     }
 }

@@ -9,4 +9,4 @@ spec:
 
 This is the home of the documentation. Here you will find everything that I've learned and that I'm learning.
 
-The whole WebSite is a WIP, and i'm working on the CICD and it's not working well yet é_è
+This website is still under construction, so please be patient. It will be updated progressively.

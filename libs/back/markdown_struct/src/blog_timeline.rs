@@ -73,13 +73,7 @@ mod tests {
             date: DateTime::parse_from_rfc3339("2024-07-16T22:51:00Z")
                 .unwrap()
                 .into(),
-            description: None,
-            writter: Default::default(),
-            weight: 0,
-            spec: Default::default(),
-            tags: vec![],
-            techno: vec![],
-            links: vec![],
+            ..Default::default()
         }
     }
 
@@ -118,13 +112,7 @@ mod tests {
                 date: DateTime::parse_from_rfc3339("2024-07-16T22:51:00Z")
                     .unwrap()
                     .into(),
-                description: None,
-                writter: Default::default(),
-                weight: 0,
-                spec: Default::default(),
-                tags: vec![],
-                techno: vec![],
-                links: vec![],
+                ..Default::default()
             },
         );
         blog_timeline.add_page(page.to_short("test_page".to_string()));
@@ -142,13 +130,7 @@ mod tests {
                 date: DateTime::parse_from_rfc3339("2024-07-16T22:51:00Z")
                     .unwrap()
                     .into(),
-                description: None,
-                writter: Default::default(),
-                weight: 0,
-                spec: Default::default(),
-                tags: vec![],
-                techno: vec![],
-                links: vec![],
+                ..Default::default()
             },
         );
         blog_timeline.add_page(page.to_short("test_page".to_string()));

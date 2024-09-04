@@ -4,5 +4,7 @@
   "editor.fontLigatures": true,
   "rust-analyzer.linkedProjects": ["./Cargo.toml"],
   "eslint.validate": ["json"],
-  "css.customData": [".vscode/tailwind.json"]
+  "css.customData": [".vscode/tailwind.json"],
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false
 }

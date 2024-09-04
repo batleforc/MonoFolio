@@ -16,6 +16,7 @@ export type DocCategory = {
 export type DocHeader = {
     date: string;
     description?: (string) | null;
+    image?: (string) | null;
     links?: Array<DocHeaderLink>;
     spec?: DocHeaderSpec;
     tags?: Array<(string)>;

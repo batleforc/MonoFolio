@@ -214,6 +214,10 @@
             "type": "string",
             "nullable": true
           },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
           "links": {
             "type": "array",
             "items": {

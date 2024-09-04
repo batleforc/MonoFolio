@@ -100,13 +100,7 @@ mod tests {
             date: DateTime::parse_from_rfc3339("2024-07-16T22:51:00Z")
                 .unwrap()
                 .into(),
-            description: None,
-            writter: Default::default(),
-            weight: 0,
-            spec: Default::default(),
-            tags: Vec::new(),
-            techno: Vec::new(),
-            links: Vec::new(),
+            ..Default::default()
         }
     }
 
