@@ -3,6 +3,7 @@ import { useRoute } from 'vue-router';
 import { useDocStore } from '../../stores/doc';
 import DocSidebarItem from './DocSidebarItem.vue';
 import { ref, watch } from 'vue';
+import IcoMoonSVG from '../helper/IcoMoonSVG.vue';
 
 const route = useRoute();
 const docStore = useDocStore();
@@ -14,14 +15,21 @@ watch(() => route.params.page, (newValue, oldValue) => {
     }
 });
 
+let showMobileSidebar = ref(false);
+
 </script>
 
 <template>
-    <aside class="docSidebar">
+    <aside class="docSidebar" :class="showMobileSidebar ? 'docSidebarShowMobile' : ''">
         <RouterLink :to="{ name: 'doc' }">Doc Home</RouterLink>
         <DocSidebarItem :path="path" v-for="categorie in docStore.docContent.sub_categories" v-bind:key="categorie.name"
             :docContent="categorie" />
     </aside>
+    <div class="docSidebarMobile">
+        <button @click="showMobileSidebar = !showMobileSidebar">
+            <IcoMoonSVG icon="burger" />
+        </button>
+    </div>
 </template>
 
 <style lang="scss">
@@ -31,5 +39,19 @@ watch(() => route.params.page, (newValue, oldValue) => {
     @apply border-r-2 min-w-48 px-4 py-2 hidden md:flex flex-col sticky;
     background-color: $color-bgCover;
     color: $color-textCover;
+}
+
+.docSidebarShowMobile {
+    @apply flex;
+}
+
+.docSidebarMobile {
+    @apply md:hidden fixed bottom-0 right-0 p-2 m-2;
+    background-color: $color-bgCover;
+    color: $color-textCover;
+
+    .ico-burger {
+        @apply text-2xl;
+    }
 }
 </style>

@@ -13,7 +13,7 @@ defineProps<{
     <div class="pageContent">
         <PageTitle :value="content.value" :level="content.level" />
         <div v-for="line in content.subBlocks" :key="line.value">
-            <p class="whitespace-pre" v-if="line.type === BlockType.string">{{ line.value }}</p>
+            <p v-if="line.type === BlockType.string">{{ line.value }}</p>
             <VueMermaidString class="py-2 pageCodeMermaid"
                 v-else-if="line.type === BlockType.startEndCodeBlock && line.additionalValue === 'mermaid'"
                 :value="line.value" />
