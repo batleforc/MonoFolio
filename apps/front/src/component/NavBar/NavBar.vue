@@ -31,13 +31,13 @@ const items = [
         internal: true,
         smooth: false,
     },
-    {
-        icon: 'ico#newspaper',
-        label: 'Blog',
-        to: '/blog',
-        internal: true,
-        smooth: false,
-    },
+    // {
+    //     icon: 'ico#newspaper',
+    //     label: 'Blog',
+    //     to: '/blog',
+    //     internal: true,
+    //     smooth: false,
+    // },
     ...link_swap
 ]
 
