@@ -28,7 +28,7 @@ jobs:
           cache: 'yarn'
       - name: Install ESLint
         run: |
-          npm install @microsoft/eslint-formatter-sarif
+          yarn add @microsoft/eslint-formatter-sarif -D
 
       - name: Run ESLint
         run: npx nx run front:lint --
