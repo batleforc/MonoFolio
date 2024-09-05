@@ -10,6 +10,8 @@ image: "ico#java"
 links:
   - name: "Java"
     url: "https://www.java.com/"
+  - name: "sdkman"
+    url: "https://sdkman.io/"
 tags:
   - "Systems Programming"
   - "Java"
