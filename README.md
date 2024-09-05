@@ -17,14 +17,15 @@
   - GitLeaks should block commit
   - Test should block if error and display a warn if warning
 - Create a CI/CD that will trigger subsequent task depending on the code change (If possible in tekton and if not in github)
-  - If front change
+  - [DONE] If front change
     - Build in it's own container (nginx)
     - Redeploy container (Helm chart)
-    - Sonar scann
-  - If back change
+    - [TODO] Lighthouse scann
+    - [TODO] Sonar scann
+  - [DONE] If back change
     - Build in it's own container (including all bin ? follow the Dockerfile from Sandbox bot discord)
     - Redeploy container (Helm chart with every sub component)
-    - Sonar scann
+    - Go though a different linting process (cargo fmt, cargo clippy, cargo test)
   - Translate [github ci workflow](https://github.com/batleforc/NeoNet/tree/main/.github/workflows)
 - Create a doc regarding the good practice that should be followed in order to work on this project
 
