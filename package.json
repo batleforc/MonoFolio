@@ -8,7 +8,8 @@
     "rust:start": "podman compose up -d && nx run back:run",
     "rust:generate": "cargo run --bin swagger -- ./swagger.json",
     "vue:gen_api": "npx @hey-api/openapi-ts -i ./swagger.json -o libs/front/api-client/src/api -c @hey-api/client-axios",
-    "vue:test": "vitest run --coverage"
+    "vue:test": "vitest run --coverage",
+    "rust:api-lint": "spectral lint -f sarif -o ./spectral-report.sarif ./swagger.json"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +38,8 @@
     "@nx/web": "19.6.5",
     "@nx/workspace": "19.6.5",
     "@primevue/auto-import-resolver": "^4.0.4",
+    "@stoplight/spectral-cli": "^6.11.1",
+    "@stoplight/spectral-documentation": "^1.3.1",
     "@swc-node/register": "^1.10.9",
     "@swc/cli": "~0.4.0",
     "@swc/core": "~1.7.22",

@@ -12,6 +12,7 @@ const runExecutor: PromiseExecutor<HookRustExecutorSchema> = async (
     'cargo fmt -v --all --check',
     'cargo clippy',
     'gitleaks protect --verbose --redact --staged',
+    'yarn run rust:generate'
   ];
   const command = hookCommand.join(' && ');
   await promisify(exec)(command)
