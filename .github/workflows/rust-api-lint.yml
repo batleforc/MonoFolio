@@ -34,7 +34,8 @@ jobs:
         with:
           toolchain: stable
           components: clippy, rustfmt
-
+      - name: Install dependencies
+        run: yarn install
       - name: Build swagger
         run: yarn run rust:generate
       - name: Spectral lint
