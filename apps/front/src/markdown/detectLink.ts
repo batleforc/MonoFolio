@@ -14,16 +14,14 @@ export const detectLink = (text: string) => {
   }
   const urlMdRegex2 = /<(\?'text'[^\]]+)>/g;
   // eslint-disable-next-line no-constant-condition
-  while (true) {
-    const matched = urlMdRegex2.exec(text);
-    if (!matched) break;
-    textUrlArray.push({
-      text: matched[1],
-      url: matched[1],
-    });
-    const splitText = text.split(`<${matched[1]}>`);
-    textUrlArray.push(splitText[0]);
+  const matched = urlMdRegex2.exec(text);
+  if (!matched) return;
+  textUrlArray.push({
+    text: matched[1],
+    url: matched[1],
+  });
+  const splitText = text.split(`<${matched[1]}>`);
+  textUrlArray.push(splitText[0]);
 
-    text = splitText.slice(1).join('');
-  }
+  text = splitText.slice(1).join('');
 };

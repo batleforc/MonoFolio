@@ -19,13 +19,11 @@ export const detectTextSpec = (text: string) => {
   }
   const urlMdRegex2 = /<(\?'text'[^\]]+)>/g;
   // eslint-disable-next-line no-constant-condition
-  while (true) {
-    text.search(urlMdRegex2);
-    const matched = urlMdRegex2.exec(text);
-    if (!matched) break;
-    const splitText = text.split(`<${matched[1]}>`);
-    textUrlArray;
+  text.search(urlMdRegex2);
+  const matched = urlMdRegex2.exec(text);
+  if (!matched) return;
+  const splitText = text.split(`<${matched[1]}>`);
+  textUrlArray;
 
-    text = splitText.slice(1).join('');
-  }
+  text = splitText.slice(1).join('');
 };
