@@ -5,14 +5,14 @@ use crate::homeprofil::HomeContent;
 
 /// Get home content
 ///
-/// Get home page content
+/// Get the content meant for the home page.
 #[utoipa::path(
     tag = "Home",
     operation_id = "get_home",
     path = "/api/home",
     responses(
-        (status = 200, description = "Home Content", body = HomeContent),
-        (status = 500, description = "Internal server error"),
+        (status = 200, description = "Content of the home page.", body = HomeContent),
+        (status = 500, description = "Internal server error."),
     )
 )]
 #[get("")]

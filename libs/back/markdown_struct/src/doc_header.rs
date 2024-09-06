@@ -34,6 +34,7 @@ fn default_doc_header_writter() -> DocHeaderWritter {
     Default::default()
 }
 
+/// Specification of the header of a markdown file, include the information if a Header is a blog/project/doc.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct DocHeaderSpec {
     #[serde(default = "false_default")]
@@ -54,12 +55,14 @@ impl Default for DocHeaderSpec {
     }
 }
 
+/// Link present in the header of a markdown file.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct DocHeaderLink {
     pub name: String,
     pub url: String,
 }
 
+/// Writer present in the header of a markdown file.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct DocHeaderWritter {
     pub name: String,
@@ -77,6 +80,7 @@ impl Default for DocHeaderWritter {
     }
 }
 
+/// Header of a markdown file.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct DocHeader {
     pub title: String,

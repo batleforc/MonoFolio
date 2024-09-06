@@ -2,6 +2,7 @@
 
 export const BlogTimelineSchema = {
     type: 'object',
+    description: 'Timeline of the blog space, contain the short representation of the pages.',
     required: ['pages'],
     properties: {
         pages: {
@@ -15,6 +16,7 @@ export const BlogTimelineSchema = {
 
 export const DocCategorySchema = {
     type: 'object',
+    description: 'The recursive structure of the sidebar containing the pages and sub-categories of the documentation.',
     required: ['name', 'has_index', 'sub_categories', 'pages'],
     properties: {
         has_index: {
@@ -40,6 +42,7 @@ export const DocCategorySchema = {
 
 export const DocHeaderSchema = {
     type: 'object',
+    description: 'Header of a markdown file.',
     required: ['title', 'date'],
     properties: {
         date: {
@@ -90,6 +93,7 @@ export const DocHeaderSchema = {
 
 export const DocHeaderLinkSchema = {
     type: 'object',
+    description: 'Link present in the header of a markdown file.',
     required: ['name', 'url'],
     properties: {
         name: {
@@ -103,6 +107,7 @@ export const DocHeaderLinkSchema = {
 
 export const DocHeaderSpecSchema = {
     type: 'object',
+    description: 'Specification of the header of a markdown file, include the information if a Header is a blog/project/doc.',
     properties: {
         blog: {
             type: 'boolean'
@@ -118,6 +123,7 @@ export const DocHeaderSpecSchema = {
 
 export const DocHeaderWritterSchema = {
     type: 'object',
+    description: 'Writer present in the header of a markdown file.',
     required: ['name', 'url', 'avatar'],
     properties: {
         avatar: {
@@ -134,6 +140,7 @@ export const DocHeaderWritterSchema = {
 
 export const HomeContentSchema = {
     type: 'object',
+    description: 'Content of the home page.',
     required: ['name', 'presentation', 'coverTitle', 'cvUrl', 'url', 'history'],
     properties: {
         coverTitle: {
@@ -168,6 +175,7 @@ export const HomeContentSchema = {
 
 export const HomeHistorySchema = {
     type: 'object',
+    description: 'History of the home page, contain a part of the history of Max Batleforc.',
     required: ['title', 'lieux', 'date', 'weight', 'imgUrl', 'description'],
     properties: {
         date: {
@@ -201,6 +209,7 @@ export const HomeHistorySchema = {
 
 export const HomeHistoryUrlSchema = {
     type: 'object',
+    description: 'Url that should be present on the history.',
     required: ['url', 'name'],
     properties: {
         name: {
@@ -214,6 +223,7 @@ export const HomeHistoryUrlSchema = {
 
 export const HomeUrlSchema = {
     type: 'object',
+    description: 'Url that should be present on the home page.',
     required: ['url', 'name', 'primaire', 'imgUrl'],
     properties: {
         imgUrl: {
@@ -233,6 +243,7 @@ export const HomeUrlSchema = {
 
 export const PageSchema = {
     type: 'object',
+    description: 'A page containing the content, metadata and name of the page.',
     required: ['name', 'content', 'metadata'],
     properties: {
         content: {
@@ -249,6 +260,7 @@ export const PageSchema = {
 
 export const PageShortSchema = {
     type: 'object',
+    description: 'Short representation of a page, containing only the metadata and the path to the page.',
     required: ['name', 'path', 'metadata'],
     properties: {
         metadata: {

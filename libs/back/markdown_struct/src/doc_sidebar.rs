@@ -3,6 +3,7 @@ use utoipa::ToSchema;
 
 use super::{content_struct::PageShort, doc_header::DocHeaderParseError, page_database::DbFolder};
 
+/// The recursive structure of the sidebar containing the pages and sub-categories of the documentation.
 #[derive(Debug, PartialEq, Serialize, Deserialize, Clone, ToSchema)]
 pub struct DocCategory {
     pub name: String,

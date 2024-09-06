@@ -4,22 +4,24 @@ use serde::{Deserialize, Serialize};
 use tracing::instrument;
 use utoipa::IntoParams;
 
+/// Querry to get a page content.
 #[derive(Debug, Deserialize, Serialize, IntoParams)]
 pub struct QuerryPage {
+    /// Path to the markdown page.
     pub path: String,
 }
 
 /// Get a page content
 ///
-/// fetch page's content by page path in DbFolder
+/// Fetch page's content by page path in DbFolder.
 #[utoipa::path(
     tag = "Page",
     operation_id = "get_page",
     path = "/api/page",
     responses(
-        (status = 200, description = "Page Content", body = Page),
-        (status = 404, description = "Page not found"),
-        (status = 500, description = "Internal server error"),
+        (status = 200, description = "Content of a full page if found.", body = Page),
+        (status = 404, description = "Page not found or path invalid."),
+        (status = 500, description = "Internal server error."),
     ),
     params(
         QuerryPage,

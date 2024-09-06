@@ -7,22 +7,24 @@ use utoipa::IntoParams;
 
 use crate::config::Config;
 
+/// Querry to get media from the media folder.
 #[derive(Debug, Deserialize, Serialize, IntoParams)]
 pub struct QuerryMedia {
+    /// Path to the media asset.
     pub path: String,
 }
 
 /// Get media from the media folder
 ///
-/// Get media from the media folder
+/// Get the media asset from the media folder.
 #[utoipa::path(
     tag = "Media",
     operation_id = "get_media",
     path = "/api/media",
     responses(
-        (status = 200, description = "Media content"),
-        (status = 404, description = "Page not found"),
-        (status = 500, description = "Internal server error"),
+        (status = 200, description = "Media content if found."),
+        (status = 404, description = "Page not found inside of the Media folder or path invalid."),
+        (status = 500, description = "Internal server error."),
     ),
     params(
         QuerryMedia,

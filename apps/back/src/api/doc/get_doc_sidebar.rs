@@ -4,14 +4,14 @@ use tracing::instrument;
 
 /// Get doc sidebar
 ///
-/// Get doc sidebar with minimal description of each article
+/// Get doc sidebar with minimal description of each article.
 #[utoipa::path(
     tag = "Doc",
     operation_id = "get_doc_sidebar",
     path = "/api/doc",
     responses(
-        (status = 200, description = "Doc Sidebar", body = DocCategory),
-        (status = 500, description = "Internal server error"),
+        (status = 200, description = "Doc category sidebar.", body = DocCategory),
+        (status = 500, description = "Internal server error."),
     )
 )]
 #[get("")]

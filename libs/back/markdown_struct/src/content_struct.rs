@@ -2,6 +2,7 @@ use super::doc_header::DocHeader;
 use serde::{Deserialize, Serialize};
 use utoipa::ToSchema;
 
+/// A page containing the content, metadata and name of the page.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct Page {
     pub name: String,
@@ -48,6 +49,7 @@ impl TryInto<PageShort> for Page {
     }
 }
 
+/// Short representation of a page, containing only the metadata and the path to the page.
 #[derive(Debug, PartialEq, Serialize, Deserialize, Clone, ToSchema)]
 pub struct PageShort {
     pub name: String,

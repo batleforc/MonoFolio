@@ -5,6 +5,7 @@ use utoipa::ToSchema;
 
 use super::{content_struct::PageShort, page_database::DbFolder};
 
+/// Timeline of the blog space, contain the short representation of the pages.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct BlogTimeline {
     pub pages: HashMap<String, PageShort>,

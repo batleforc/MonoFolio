@@ -7,7 +7,7 @@ export const client = createClient(createConfig());
 
 /**
  * Get the blog timeline
- * Get blog timeline with minimal description of each article
+ * Get blog timeline with minimal description of each article.
  */
 export const getTimeline = <ThrowOnError extends boolean = false>(options?: Options<unknown, ThrowOnError>) => { return (options?.client ?? client).get<GetTimelineResponse, GetTimelineError, ThrowOnError>({
     ...options,
@@ -16,7 +16,7 @@ export const getTimeline = <ThrowOnError extends boolean = false>(options?: Opti
 
 /**
  * Get doc sidebar
- * Get doc sidebar with minimal description of each article
+ * Get doc sidebar with minimal description of each article.
  */
 export const getDocSidebar = <ThrowOnError extends boolean = false>(options?: Options<unknown, ThrowOnError>) => { return (options?.client ?? client).get<GetDocSidebarResponse, GetDocSidebarError, ThrowOnError>({
     ...options,
@@ -25,7 +25,7 @@ export const getDocSidebar = <ThrowOnError extends boolean = false>(options?: Op
 
 /**
  * Get home content
- * Get home page content
+ * Get the content meant for the home page.
  */
 export const getHome = <ThrowOnError extends boolean = false>(options?: Options<unknown, ThrowOnError>) => { return (options?.client ?? client).get<GetHomeResponse, GetHomeError, ThrowOnError>({
     ...options,
@@ -34,7 +34,7 @@ export const getHome = <ThrowOnError extends boolean = false>(options?: Options<
 
 /**
  * Get media from the media folder
- * Get media from the media folder
+ * Get the media asset from the media folder.
  */
 export const getMedia = <ThrowOnError extends boolean = false>(options: Options<GetMediaData, ThrowOnError>) => { return (options?.client ?? client).get<GetMediaResponse, GetMediaError, ThrowOnError>({
     ...options,
@@ -43,7 +43,7 @@ export const getMedia = <ThrowOnError extends boolean = false>(options: Options<
 
 /**
  * Get a page content
- * fetch page's content by page path in DbFolder
+ * Fetch page's content by page path in DbFolder.
  */
 export const getPage = <ThrowOnError extends boolean = false>(options: Options<GetPageData, ThrowOnError>) => { return (options?.client ?? client).get<GetPageResponse, GetPageError, ThrowOnError>({
     ...options,

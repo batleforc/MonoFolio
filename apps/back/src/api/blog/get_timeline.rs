@@ -4,14 +4,14 @@ use tracing::instrument;
 
 /// Get the blog timeline
 ///
-/// Get blog timeline with minimal description of each article
+/// Get blog timeline with minimal description of each article.
 #[utoipa::path(
     tag = "Blog",
     operation_id = "get_timeline",
     path = "/api/blog",
     responses(
-        (status = 200, description = "Blog Timeline", body = BlogTimeline),
-        (status = 500, description = "Internal server error"),
+        (status = 200, description = "Content of the blog timeline ordered by date.", body = BlogTimeline),
+        (status = 500, description = "Internal server error."),
     )
 )]
 #[get("")]

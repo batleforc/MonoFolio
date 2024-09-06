@@ -3,6 +3,7 @@ use std::{fs::File, io::Read};
 use serde::{Deserialize, Serialize};
 use utoipa::ToSchema;
 
+/// Content of the home page.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct HomeContent {
@@ -14,6 +15,7 @@ pub struct HomeContent {
     pub history: Vec<HomeHistory>,
 }
 
+/// Url that should be present on the home page.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct HomeUrl {
@@ -23,6 +25,7 @@ pub struct HomeUrl {
     pub img_url: String,
 }
 
+/// History of the home page, contain a part of the history of Max Batleforc.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct HomeHistory {
@@ -35,6 +38,7 @@ pub struct HomeHistory {
     pub url: Option<Vec<HomeHistoryUrl>>,
 }
 
+/// Url that should be present on the history.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct HomeHistoryUrl {
