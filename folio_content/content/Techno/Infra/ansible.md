@@ -18,7 +18,7 @@ tags:
   - "Infrastructure as Code"
 ---
 
-## Ansiible
+## Ansible
 
 Ansible is an automation tool that allows you to automate the configuration of your servers. It's based on Yaml files that you can put in your repository. It's a pretty simple way to setup configuration like installing packages, configuring services, etc.
 
