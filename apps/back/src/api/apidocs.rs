@@ -81,7 +81,7 @@ mod tests {
         assert_eq!(openapi.info.title, "MonoFolio");
         assert_eq!(
             openapi.info.description,
-            Some("API documentation for MonoFolio".to_string())
+            Some("This is the API that serves the content of the MonoFolio website to the front end, the MonoFolio idea is to have the Portfolio Front and Backend in a single repository.".to_string())
         );
     }
 }
