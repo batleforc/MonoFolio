@@ -157,7 +157,8 @@ mod tests {
             .get("2024-07-16-22h51-Test_Title")
             .unwrap();
         assert_eq!(short_page.name, "test_page");
-        let full_page = db_folder.get_page_in_sub_folder_by_path(short_page.path.clone());
+        let full_page =
+            db_folder.get_page_in_sub_folder_by_path(short_page.path.clone().to_lowercase());
         assert!(full_page.is_some());
         let full_page = full_page.unwrap();
         assert_eq!(full_page.name, short_page.name);
