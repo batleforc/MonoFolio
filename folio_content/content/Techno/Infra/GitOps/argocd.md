@@ -1,6 +1,6 @@
 ---
 date: 2024-07-16T22:51:00Z
-title: "argocd"
+title: "ArgoCD"
 description: "ArgoCD - Declarative GitOps CD for Kubernetes"
 spec:
   blog: false

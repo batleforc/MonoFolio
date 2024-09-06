@@ -36,7 +36,7 @@ pub async fn get_page(
     if info.path.is_empty() {
         return HttpResponse::NotFound().finish();
     }
-    if let Some(page) = db_folder.get_page_in_sub_folder_by_path(info.path.clone()) {
+    if let Some(page) = db_folder.get_page_in_sub_folder_by_path(info.path.clone().to_lowercase()) {
         return HttpResponse::Ok().json(page);
     } else {
         return HttpResponse::NotFound().finish();

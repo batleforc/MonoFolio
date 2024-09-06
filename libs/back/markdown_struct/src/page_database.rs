@@ -34,11 +34,14 @@ impl DbFolder {
     }
 
     pub fn add_sub_folder(&mut self, folder: DbFolder) {
-        self.sub_folders.insert(folder.name.clone(), folder);
+        self.sub_folders
+            .insert(folder.name.clone().to_lowercase(), folder);
     }
 
     pub fn get_page(&self, name: &str) -> Option<&Page> {
-        self.pages.iter().find(|p| p.name == name)
+        self.pages
+            .iter()
+            .find(|p| p.name.to_lowercase() == name.to_lowercase())
     }
 
     pub fn get_page_in_sub_folder_by_path(&self, path: String) -> Option<&Page> {

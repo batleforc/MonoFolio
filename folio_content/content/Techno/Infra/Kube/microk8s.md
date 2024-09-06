@@ -1,6 +1,6 @@
 ---
 date: 2024-07-16T22:51:00Z
-title: "microk8s"
+title: "Microk8s"
 description: "MicroK8S - Canonical Kubernetes"
 spec:
   blog: false
