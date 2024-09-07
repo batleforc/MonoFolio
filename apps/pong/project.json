@@ -1,0 +1,76 @@
+{
+  "name": "pong",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/pong/src",
+  "targets": {
+    "build": {
+      "cache": true,
+      "executor": "@monodon/rust:build",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "dist/target/pong"
+      },
+      "configurations": {
+        "production": {
+          "release": true
+        }
+      }
+    },
+    "test": {
+      "cache": true,
+      "executor": "@monodon/rust:test",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "dist/target/pong"
+      },
+      "configurations": {
+        "production": {
+          "release": true
+        }
+      }
+    },
+    "lint": {
+      "cache": true,
+      "executor": "@monodon/rust:lint",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "dist/target/pong"
+      }
+    },
+    "run": {
+      "executor": "@monodon/rust:run",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "dist/target/pong"
+      },
+      "configurations": {
+        "production": {
+          "release": true
+        }
+      }
+    },
+    "hook": {
+      "executor": "@portfolio/hook:hook-rust",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "apps/back"
+      }
+    },
+    "bump": {
+      "executor": "@portfolio/hook:pre-bump-rust",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "apps/back"
+      }
+    },
+    "coverage":{
+      "executor": "@portfolio/hook:coverage-rust",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "apps/back"
+      }
+    }
+  },
+  "tags": []
+}

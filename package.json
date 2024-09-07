@@ -9,7 +9,8 @@
     "rust:generate": "cargo run --bin swagger -- ./swagger.json",
     "vue:gen_api": "npx @hey-api/openapi-ts -i ./swagger.json -o libs/front/api-client/src/api -c @hey-api/client-axios",
     "vue:test": "vitest run --coverage",
-    "rust:api-lint": "spectral lint -f sarif -o ./spectral-report.sarif ./swagger.json"
+    "rust:api-lint": "spectral lint -f sarif -o ./spectral-report.sarif ./swagger.json",
+    "rust:pong": "cargo run --bin pong --target wasm32-unknown-unknown"
   },
   "private": true,
   "dependencies": {

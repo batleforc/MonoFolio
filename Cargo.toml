@@ -2,10 +2,11 @@
 [workspace]
 resolver = '2'
 members = [
-	'apps/back',
-	'libs/back/markdown_header',
-	'libs/back/tool_tracing',
-	'libs/back/markdown_struct',
+  'apps/back',
+  'libs/back/markdown_header',
+  'libs/back/tool_tracing',
+  'libs/back/markdown_struct',
+  'apps/pong',
 ]
 
 [profile.release]
