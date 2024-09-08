@@ -22,6 +22,7 @@ build:
     - "Cargo.toml"
     - "build/back/"
     - "deploy/back/"
+    - "apps/pong/"
     file_path: "build/back"
     helm: "deploy/back"
     imageName: "back"
