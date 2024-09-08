@@ -61,6 +61,11 @@ pub fn init_tracing(tracing_config: Vec<Tracing>, name: String) {
                 .unwrap_or(endpoint);
                 let pod_name =
                     std::env::var("POD_NAME").unwrap_or_else(|_| "not_a_pod".to_string());
+                println!(
+                    "Connecting to endpoint: {} with ENV {}",
+                    endpoint_from_env.clone(),
+                    format!("{}_OTEL_EXPORTER_OTLP_ENDPOINT", name.to_uppercase())
+                );
                 let telemetry = opentelemetry_otlp::new_pipeline()
                     .tracing()
                     .with_exporter(
