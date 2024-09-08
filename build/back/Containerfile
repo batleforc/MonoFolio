@@ -26,12 +26,12 @@ RUN echo "pub fn main() {}" > libs/back/markdown_header/src/lib.rs && \
   echo "fn main() {}" > apps/back/src/bin/gen_swagger.rs && \
   echo "fn main() {}" > apps/pong/src/main.rs
 
-RUN cargo build --release
+RUN cargo build --release --exclude pong
 
 # Build the application
 COPY . .
 RUN touch apps/back/src/main.rs
-RUN cargo build --release
+RUN cargo build --release --exclude pong
 
 RUN strip dist/target/release/server && \
   strip dist/target/release/swagger
