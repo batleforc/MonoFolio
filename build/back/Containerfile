@@ -60,7 +60,7 @@ COPY --from=build_back /app/dist/target/release/swagger .
 
 COPY ./folio_content/ .
 
-COPY --from=build_wasm /app/dist/target/wasm32-unknown-unknown/release/pong-opt.wasm ./content/pong.wasm
+COPY --from=build_wasm /app/dist/target/wasm32-unknown-unknown/release/pong-opt.wasm ./media/pong.wasm
 
 EXPOSE 5437
 
