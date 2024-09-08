@@ -3,7 +3,8 @@ FROM registry.hub.docker.com/library/rust:1.80 AS build_base
 WORKDIR /app
 
 RUN rustup target install wasm32-unknown-unknown && \
-  cargo install wasm-opt --locked
+  cargo install wasm-opt --locked && \
+  cargo install -f wasm-bindgen-cli
 
 
 # Prepare the build environment and cache dependencies

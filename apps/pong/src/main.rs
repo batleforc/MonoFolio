@@ -1,6 +1,9 @@
 use bevy::{
     app::{App, Startup, Update},
-    prelude::{default, Camera, Camera2dBundle, Commands, IntoSystemConfigs, Query, Transform},
+    prelude::{
+        default, Camera, Camera2dBundle, Commands, IntoSystemConfigs, PluginGroup, Query, Transform,
+    },
+    window::{Window, WindowPlugin},
     DefaultPlugins,
 };
 use pong::model::{
@@ -32,7 +35,13 @@ fn project_positions(mut positionables: Query<(&mut Transform, &Position)>) {
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                canvas: Some("#pong-bevy".into()),
+                ..default()
+            }),
+            ..default()
+        }))
         .init_resource::<Score>()
         .add_event::<Scored>()
         .add_systems(

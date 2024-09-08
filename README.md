@@ -6,6 +6,8 @@
 
 - Define the content of the portfolio
 - Reproduce existing portfolio or re-start from zero ? Make pros and cons
+- Look at [wasm-bindgen](https://github.com/rustwasm/wasm-bindgen)
+- For future Multiplayer game, look at [Web-RTC](https://webrtc.org/) and [matchbox](https://github.com/johanhelsing/matchbox) and [extreme-bevy](https://www.reddit.com/r/bevy/comments/104xv16/how_to_add_networking_for_2_player_game/)
 
 ### Archi
 
