@@ -1,8 +1,9 @@
 use bevy::{
     asset::Assets,
     color::Color,
+    input::ButtonInput,
     math::Vec2,
-    prelude::{Bundle, Commands, Component, Mesh, Query, Rectangle, ResMut},
+    prelude::{Bundle, Commands, Component, KeyCode, Mesh, Query, Rectangle, Res, ResMut, With},
     sprite::{ColorMaterial, MaterialMesh2dBundle},
     window::Window,
 };
@@ -11,11 +12,11 @@ const USER_ROW_SPEED: f32 = 1.;
 const USER_ROW_WIDTH: f32 = 10.;
 const USER_ROW_HEIGHT: f32 = 50.;
 
-use super::{Position, Shape, Velocity};
+use super::{gutter::GUTTER_HEIGHT, Position, Scorer, Shape, Velocity};
 
 #[derive(Component)]
 pub struct UserRow {
-    pub name: String,
+    pub name: Scorer,
     pub points: u32,
 }
 
@@ -28,7 +29,7 @@ pub struct UserRowBundle {
 }
 
 impl UserRowBundle {
-    pub fn new(name: String, x: f32, y: f32) -> Self {
+    pub fn new(name: Scorer, x: f32, y: f32) -> Self {
         UserRowBundle {
             user_row: UserRow { name, points: 0 },
             position: Position(Vec2::new(x, y)),
@@ -55,7 +56,7 @@ pub fn spawn_user_row(
         let mesh_handle = meshes.add(mesh);
 
         commands.spawn((
-            UserRowBundle::new("User1".to_string(), right_paddle_x, 0.),
+            UserRowBundle::new(Scorer::Player1, right_paddle_x, 0.),
             MaterialMesh2dBundle {
                 mesh: mesh_handle.clone().into(),
                 material: materials.add(ColorMaterial::from(Color::srgb(0., 1., 0.))),
@@ -64,12 +65,48 @@ pub fn spawn_user_row(
         ));
 
         commands.spawn((
-            UserRowBundle::new("User2".to_string(), left_paddle_x, 0.),
+            UserRowBundle::new(Scorer::Player2, left_paddle_x, 0.),
             MaterialMesh2dBundle {
                 mesh: mesh_handle.into(),
                 material: materials.add(ColorMaterial::from(Color::srgb(0., 0., 1.))),
                 ..Default::default()
             },
         ));
+    }
+}
+
+pub fn handle_player_input(
+    keyboard_input: Res<ButtonInput<KeyCode>>,
+    mut paddle: Query<(&mut Velocity, &UserRow), With<UserRow>>,
+) {
+    for (mut velocity, user_row) in &mut paddle {
+        if (user_row.name == Scorer::Player1 && keyboard_input.pressed(KeyCode::ArrowUp))
+            || (user_row.name == Scorer::Player2 && keyboard_input.pressed(KeyCode::KeyW))
+        {
+            velocity.0.y = 1.;
+        } else if (user_row.name == Scorer::Player1 && keyboard_input.pressed(KeyCode::ArrowDown))
+            || (user_row.name == Scorer::Player2 && keyboard_input.pressed(KeyCode::KeyS))
+        {
+            velocity.0.y = -1.;
+        } else {
+            velocity.0.y = 0.;
+        }
+    }
+}
+
+pub fn move_paddles(
+    mut paddle: Query<(&mut Position, &Velocity), With<UserRow>>,
+    window: Query<&Window>,
+) {
+    if let Ok(window) = window.get_single() {
+        let window_height = window.resolution.height();
+        let max_y = window_height / 2. - GUTTER_HEIGHT - USER_ROW_HEIGHT / 2.;
+
+        for (mut position, velocity) in &mut paddle {
+            let new_position = position.0 + velocity.0 * USER_ROW_SPEED;
+            if new_position.y.abs() < max_y {
+                position.0 = new_position;
+            }
+        }
     }
 }

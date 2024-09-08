@@ -43,7 +43,6 @@ pub fn handle_collisions(
     other_things: Query<(&Position, &Shape), Without<Ball>>,
 ) {
     if let Ok((mut ball_velocity, ball_position, ball_shape)) = ball.get_single_mut() {
-        println!("Handling collisions");
         for (postion, shape) in &other_things {
             if let Some(collision) = collide_with_side(
                 BoundingCircle::new(ball_position.0, ball_shape.0.x),

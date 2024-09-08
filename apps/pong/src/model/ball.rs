@@ -46,7 +46,7 @@ pub fn spawn_ball(
     let material_handle = materials.add(material);
 
     commands.spawn((
-        BallBundle::new(1., 0.),
+        BallBundle::new(1., 1.),
         MaterialMesh2dBundle {
             mesh: mesh_handle.into(),
             material: material_handle,
