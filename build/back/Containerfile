@@ -15,6 +15,7 @@ COPY ./libs/back/markdown_header/Cargo.toml ./libs/back/markdown_header/
 COPY ./libs/back/markdown_struct/Cargo.toml ./libs/back/markdown_struct/
 COPY ./libs/back/tool_tracing/Cargo.toml ./libs/back/tool_tracing/
 COPY ./apps/back/Cargo.toml ./apps/back/
+COPY ./apps/pong/Cargo.toml ./apps/pong/
 COPY .cargo .
 
 RUN echo "pub fn main() {}" > libs/back/markdown_header/src/lib.rs && \

@@ -20,3 +20,36 @@ jobs:
       - uses: rustsec/audit-check@v1.4.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+  audit-scout:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      checks: write
+      contents: read
+      security-events: write
+      actions: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+          components: clippy, rustfmt
+
+      - name: Install required cargo
+        run: cargo install cargo-dylint dylint-link
+
+      - name: Run install cargo scout
+        run: cargo install cargo-scout-audit
+
+      - name: Run rust-clippy
+        run: cargo scout-audit --output-format=sarif --output-path=rust-audit-results.sarif
+        continue-on-error: true
+
+      - name: Upload analysis results to GitHub
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: rust-audit-results.sarif
+          wait-for-processing: true
