@@ -1,6 +1,10 @@
-FROM registry.hub.docker.com/library/rust:1.80 AS build
+FROM registry.hub.docker.com/library/rust:1.80 AS build_base
 
 WORKDIR /app
+
+RUN rustup target install wasm32-unknown-unknown && \
+  cargo install wasm-opt --locked
+
 
 # Prepare the build environment and cache dependencies
 RUN mkdir -p libs/back/markdown_header/src && \
@@ -28,23 +32,35 @@ RUN echo "pub fn main() {}" > libs/back/markdown_header/src/lib.rs && \
 
 RUN cargo build --release --exclude pong --workspace
 
-# Build the application
 COPY . .
+
+# Build the application
+FROM build_base AS build_back
+
 RUN touch apps/back/src/main.rs
 RUN cargo build --release --exclude pong --workspace
 
 RUN strip dist/target/release/server && \
   strip dist/target/release/swagger
 
+# Build the wasm
+FROM build_base AS build_wasm
+
+RUN touch apps/pong/src/main.rs
+RUN cargo build --release --bin pong --target wasm32-unknown-unknown
+RUN wasm-opt -O -ol 100 -s 100 dist/target/wasm32-unknown-unknown/release/pong.wasm -o dist/target/wasm32-unknown-unknown/release/pong-opt.wasm
+
 FROM gcr.io/distroless/cc-debian12
 #FROM registry.hub.docker.com/library/debian:bullseye-slim
 
 WORKDIR /app
 
-COPY --from=build /app/dist/target/release/server .
-COPY --from=build /app/dist/target/release/swagger .
+COPY --from=build_back /app/dist/target/release/server .
+COPY --from=build_back /app/dist/target/release/swagger .
 
 COPY ./folio_content/ .
+
+COPY --from=build_wasm /app/dist/target/wasm32-unknown-unknown/release/pong-opt.wasm ./content/pong.wasm
 
 EXPOSE 5437
 
