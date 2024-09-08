@@ -45,8 +45,7 @@ jobs:
         run: cargo install cargo-scout-audit
 
       - name: Run rust-clippy
-        run: cargo scout-audit --output-format=sarif --output-path=rust-audit-results.sarif
-        continue-on-error: true
+        run: cargo scout-audit --output-formats=sarif --output-path=rust-audit-results.sarif
 
       - name: Upload analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v3
