@@ -10,6 +10,8 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     permissions:
+      issues: write
+      checks: write
       contents: read
       security-events: write
       actions: read

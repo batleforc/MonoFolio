@@ -4,10 +4,11 @@ WORKDIR /app
 
 # Prepare the build environment and cache dependencies
 RUN mkdir -p libs/back/markdown_header/src && \
-    mkdir -p libs/back/markdown_struct/src && \
-    mkdir -p libs/back/tool_tracing/src && \
-    mkdir -p apps/back/src && \
-    mkdir -p apps/back/src/bin
+  mkdir -p libs/back/markdown_struct/src && \
+  mkdir -p libs/back/tool_tracing/src && \
+  mkdir -p apps/back/src && \
+  mkdir -p apps/back/src/bin && \
+  mkdir -p apps/pong/src
 
 COPY Cargo.toml .
 COPY ./libs/back/markdown_header/Cargo.toml ./libs/back/markdown_header/
@@ -17,11 +18,12 @@ COPY ./apps/back/Cargo.toml ./apps/back/
 COPY .cargo .
 
 RUN echo "pub fn main() {}" > libs/back/markdown_header/src/lib.rs && \
-    echo "pub fn main() {}" > libs/back/markdown_struct/src/lib.rs && \
-    echo "pub fn main() {}" > libs/back/tool_tracing/src/lib.rs && \
-    echo "fn main() {}" > apps/back/src/main.rs && \
-    echo "fn main() {}" > apps/back/src/bin/sandbox.rs && \
-    echo "fn main() {}" > apps/back/src/bin/gen_swagger.rs
+  echo "pub fn main() {}" > libs/back/markdown_struct/src/lib.rs && \
+  echo "pub fn main() {}" > libs/back/tool_tracing/src/lib.rs && \
+  echo "fn main() {}" > apps/back/src/main.rs && \
+  echo "fn main() {}" > apps/back/src/bin/sandbox.rs && \
+  echo "fn main() {}" > apps/back/src/bin/gen_swagger.rs && \
+  echo "fn main() {}" > apps/pong/src/main.rs
 
 RUN cargo build --release
 
@@ -31,7 +33,7 @@ RUN touch apps/back/src/main.rs
 RUN cargo build --release
 
 RUN strip dist/target/release/server && \
-    strip dist/target/release/swagger
+  strip dist/target/release/swagger
 
 FROM gcr.io/distroless/cc-debian12
 #FROM registry.hub.docker.com/library/debian:bullseye-slim
