@@ -8,7 +8,11 @@ export interface WasmState {
 }
 
 const getUrl = (moduleName: string, extension: string) => {
-  const url = new URL('/api/media', import.meta.env.VITE_API_URL);
+  const baseUrl =
+    import.meta.env.VITE_API_URL === ''
+      ? undefined
+      : import.meta.env.VITE_API_URL;
+  const url = new URL('/api/media', baseUrl);
   url.searchParams.append(
     'path',
     `${moduleName}/${moduleName}${extension === 'wasm' ? '_bg' : ''}.${extension}`,
