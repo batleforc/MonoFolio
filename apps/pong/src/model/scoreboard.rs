@@ -54,6 +54,42 @@ pub fn spawn_scoreboard(mut commands: Commands) {
         Player1Scoreboard,
     ));
 
+    commands.spawn(
+        TextBundle::from_section(
+            "Z/S - Player 1",
+            TextStyle {
+                font_size: 31.0,
+                color: Color::WHITE,
+                ..default()
+            },
+        )
+        .with_text_justify(JustifyText::Center)
+        .with_style(Style {
+            position_type: PositionType::Absolute,
+            top: Val::Px(75.0),
+            left: Val::Px(15.0),
+            ..default()
+        }),
+    );
+
+    commands.spawn(
+        TextBundle::from_section(
+            "UP/DOWN - Player 2",
+            TextStyle {
+                font_size: 31.0,
+                color: Color::WHITE,
+                ..default()
+            },
+        )
+        .with_text_justify(JustifyText::Center)
+        .with_style(Style {
+            position_type: PositionType::Absolute,
+            top: Val::Px(75.0),
+            right: Val::Px(15.0),
+            ..default()
+        }),
+    );
+
     // Then we do it again for the AI score
     commands.spawn((
         TextBundle::from_section(
