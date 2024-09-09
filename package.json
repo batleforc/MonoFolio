@@ -11,7 +11,7 @@
     "vue:test": "vitest run --coverage",
     "rust:api-lint": "spectral lint -f sarif -o ./spectral-report.sarif ./swagger.json",
     "rust:pong": "cargo run --bin pong --target wasm32-unknown-unknown",
-    "rust:pong-build": "cargo build --release --bin pong --target wasm32-unknown-unknown && wasm-bindgen --target web --out-dir ./out/ --out-name 'pong' ./dist/target/wasm32-unknown-unknown/release/pong.wasm "
+    "rust:pong-build": "cargo build --release --bin pong --target wasm32-unknown-unknown && wasm-bindgen --target web --out-dir ./folio_content/media/pong --out-name 'pong' ./dist/target/wasm32-unknown-unknown/release/pong.wasm "
   },
   "private": true,
   "dependencies": {

@@ -56,7 +56,7 @@ pub fn init_tracing(tracing_config: Vec<Tracing>, name: String) {
                 };
                 let endpoint_from_env = env::var(format!(
                     "{}_OTEL_EXPORTER_OTLP_ENDPOINT",
-                    name.to_uppercase()
+                    config.name.to_uppercase()
                 ))
                 .unwrap_or(endpoint);
                 let pod_name =
@@ -64,7 +64,7 @@ pub fn init_tracing(tracing_config: Vec<Tracing>, name: String) {
                 println!(
                     "Connecting to endpoint: {} with ENV {}",
                     endpoint_from_env.clone(),
-                    format!("{}_OTEL_EXPORTER_OTLP_ENDPOINT", name.to_uppercase())
+                    format!("{}_OTEL_EXPORTER_OTLP_ENDPOINT", config.name.to_uppercase())
                 );
                 let telemetry = opentelemetry_otlp::new_pipeline()
                     .tracing()

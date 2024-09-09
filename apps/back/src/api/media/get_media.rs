@@ -56,7 +56,17 @@ pub async fn get_media(info: web::Query<QuerryMedia>, config: web::Data<Config>)
         Some(kind) => HttpResponse::Ok()
             .content_type(kind.mime_type().to_string())
             .body(file),
-        None => HttpResponse::Ok().body(file),
+        None => {
+            let ext = path.extension().unwrap().to_str().unwrap();
+            match ext {
+                "js" => {
+                    return HttpResponse::Ok()
+                        .content_type("application/javascript")
+                        .body(file);
+                }
+                _ => HttpResponse::Ok().body(file),
+            }
+        }
     }
 }
 

@@ -8,10 +8,12 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Avatar: typeof import('primevue/avatar')['default']
+    Button: typeof import('primevue/button')['default']
     Card: typeof import('primevue/card')['default']
     Checkbox: typeof import('primevue/checkbox')['default']
     Chip: typeof import('primevue/chip')['default']
     Panel: typeof import('primevue/panel')['default']
+    ProgressSpinner: typeof import('primevue/progressspinner')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Timeline: typeof import('primevue/timeline')['default']

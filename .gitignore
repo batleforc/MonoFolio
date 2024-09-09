@@ -97,3 +97,4 @@ yarn-error.log
 
 trace.log
 *.sarif
+out/
