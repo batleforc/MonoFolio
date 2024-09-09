@@ -62,8 +62,6 @@ COPY --from=build_back /app/dist/target/release/swagger .
 
 COPY ./folio_content/ .
 
-RUN mkdir -p media/pong/
-
 COPY --from=build_wasm /app/out/ ./media/pong/
 
 EXPOSE 5437
