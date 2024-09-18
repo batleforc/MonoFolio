@@ -6,5 +6,6 @@
   "eslint.validate": ["json"],
   "css.customData": [".vscode/tailwind.json"],
   "editor.tabSize": 2,
-  "editor.detectIndentation": false
+  "editor.detectIndentation": false,
+  "sarif-viewer.connectToGithubCodeScanning": "off"
 }
