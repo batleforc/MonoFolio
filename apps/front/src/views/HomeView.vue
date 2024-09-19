@@ -57,7 +57,7 @@ const { type } = useBreakpoints();
             </template>
           </Card>
         </RouterLink>
-        <RouterLink :to="{ name: 'doccontent', params: { page: ['techno'] } }">
+        <RouterLink :to="{ name: 'doccontent', params: { page: ['Techno'] } }">
           <Card class="homePageGoFurtherCard">
             <template #title>
               <h3>Les techno</h3>
@@ -69,7 +69,7 @@ const { type } = useBreakpoints();
             </template>
           </Card>
         </RouterLink>
-        <RouterLink :to="{ name: 'doccontent', params: { page: ['project'] } }">
+        <RouterLink :to="{ name: 'doccontent', params: { page: ['Project'] } }">
           <Card class="homePageGoFurtherCard">
             <template #title>
               <h3>Les Projet</h3>
