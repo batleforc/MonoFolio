@@ -1,5 +1,6 @@
 #![cfg_attr(coverage_nightly, feature(coverage_attribute))]
 use super::tracing_kind::{Tracing, TracingKind};
+use opentelemetry::global::ObjectSafeTracerProvider;
 use opentelemetry::KeyValue;
 use opentelemetry_otlp::WithExportConfig;
 use opentelemetry_sdk::trace::Config;
@@ -83,8 +84,10 @@ pub fn init_tracing(tracing_config: Vec<Tracing>, name: String) {
                     .with_default_directive(LevelFilter::from(config.level).into())
                     .from_env()
                     .unwrap();
-                let tele_layer = OpenTelemetryLayer::new(telemetry).with_filter(env_filter);
-                layers.push(tele_layer.boxed());
+                //let tele_layer = OpenTelemetryLayer::new(telemetry).with_filter(env_filter);
+                let tracer = telemetry.boxed_tracer()
+                let tele_layer = tracing_opentelemetry::layer().with_tracer(telemetry);
+                layers.push(tele_layer);
             }
         }
     }

@@ -18,7 +18,7 @@ tracing = "0.1"
 
 # Api Dependencies
 
-tokio = { version = "1.39", features = ["rt-multi-thread"] }
+tokio = { version = "1", features = ["rt-multi-thread"] }
 actix-web = "4"
 utoipa = { version = "4", features = ["actix_extras", "chrono"] }
 utoipa-swagger-ui = { version = "7", features = ["actix-web"] }
