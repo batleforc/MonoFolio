@@ -18,7 +18,7 @@ defineProps<{
             <p class="font-bold text-2xl">{{ metadata.writter.name }}</p>
           </a>
           <div>
-            <p>{{ metadata.date }}</p>
+            <p>{{ new Date(metadata.date).toLocaleString() }}</p>
           </div>
         </div>
       </template>

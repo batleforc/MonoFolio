@@ -42,6 +42,8 @@ export const usePageStore = defineStore({
         .catch((err) => {
           console.error(err);
           this.loadingError = 'Failed to load page';
+          this.pagePath = '';
+          this.page = undefined;
         })
         .finally(() => {
           this.pageLoading = false;

@@ -1,6 +1,6 @@
 ---
 date: 2024-07-16T22:51:00Z
-title: "kubernetes"
+title: "Kubernetes"
 description: "Kubernetes - Container Orchestration"
 spec:
   blog: false

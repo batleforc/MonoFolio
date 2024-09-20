@@ -65,8 +65,17 @@ export const useDocStore = defineStore({
       techno: string,
       category: DocCategory,
     ): PageShort | undefined {
+      if (
+        category.name.toLowerCase() === techno.toLowerCase() &&
+        category.has_index
+      ) {
+        return category.pages.find((page) => page.name === 'index');
+      }
       for (const page of category.pages) {
-        if (page.name.toLowerCase() === techno.toLowerCase()) {
+        if (
+          page.name.toLowerCase() === techno.toLowerCase() ||
+          page.metadata.title.toLowerCase() === techno.toLowerCase()
+        ) {
           return page;
         }
       }
