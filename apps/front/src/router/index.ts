@@ -29,8 +29,18 @@ const router = createRouter({
     },
     {
       path: '/blog',
-      name: 'blog',
-      component: () => import('../views/BlogView.vue'),
+      children: [
+        {
+          name: 'blog',
+          path: '',
+          component: () => import('../views/BlogHomeView.vue'),
+        },
+        {
+          name: 'blogcontent',
+          path: ':page+',
+          component: () => import('../views/BlogView.vue'),
+        },
+      ],
     },
     {
       path: '/pong',

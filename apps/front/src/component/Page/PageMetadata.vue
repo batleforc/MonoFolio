@@ -4,6 +4,7 @@ import PageTechnoChip from './PageTechnoChip.vue';
 import IcoOrMedia from '../helper/IcoOrMedia.vue';
 defineProps<{
   metadata: DocHeader;
+  defaultCollapsed?: boolean;
 }>();
 
 </script>
@@ -33,23 +34,29 @@ defineProps<{
         <p>{{ metadata.description }}</p>
       </template>
       <template #content>
-        <Panel v-if="metadata.techno !== undefined && metadata.techno.length > 0" toggleable header="Techno">
+        <Panel v-if="metadata.techno !== undefined && metadata.techno.length > 0"
+          :collapsed="defaultCollapsed ? defaultCollapsed : false" toggleable header="Techno">
           <div class="pageHeaderTechno">
             <PageTechnoChip v-for="techno in metadata.techno" :key="techno" :technoName="techno" />
           </div>
         </Panel>
-        <Panel v-if="metadata.tags !== undefined && metadata.tags.length > 0" toggleable header="Tag">
+        <Panel v-if="metadata.tags !== undefined && metadata.tags.length > 0"
+          :collapsed="defaultCollapsed ? defaultCollapsed : false" toggleable header="Tag">
           <div class="pageHeaderTag">
             <Chip v-for="tag in metadata.tags" :key="tag" :label="tag" />
           </div>
         </Panel>
-        <Panel v-if="metadata.links !== undefined && metadata.links.length > 0" toggleable header="Link">
+        <Panel v-if="metadata.links !== undefined && metadata.links.length > 0"
+          :collapsed="defaultCollapsed ? defaultCollapsed : false" toggleable header="Link">
           <div class="pageHeaderLink">
             <a v-for="link in metadata.links" :key="link.url" :href="link.url" target="_blank">
               <Chip :label="link.name" />
             </a>
           </div>
         </Panel>
+        <div>
+          <slot name="footer"> </slot>
+        </div>
       </template>
     </Card>
   </div>
