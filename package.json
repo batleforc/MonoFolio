@@ -22,7 +22,7 @@
     "pinia": "^2.2.1",
     "primevue": "^4.0.4",
     "tslib": "^2.3.0",
-    "vue": "^3.5.3",
+    "vue": "^3.5.8",
     "vue-mermaid-string": "^6.0.0",
     "vue-router": "^4.4.3"
   },
