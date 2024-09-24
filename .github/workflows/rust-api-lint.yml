@@ -36,6 +36,9 @@ jobs:
           components: clippy, rustfmt
       - name: Install dependencies
         run: yarn install
+      - name: Install spectral lint
+        run: |
+          yarn add @stoplight/spectral-cli -D
       - name: Build swagger
         run: yarn run rust:generate
       - name: Spectral lint

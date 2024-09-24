@@ -18,11 +18,11 @@ if (!blogStore.inited && !blogStore.blogLoading) {
 </script>
 
 <template>
-  <div id="title" class="container">
-    <div v-if="blogStore.inited && !blogStore.blogLoading && blogStore.getBlogContent !== undefined">
-      <h2>Blog posts</h2>
-      <ul>
-        <li class="py-2" v-for="post in blogStore.getBlogContent" :key="post[0]">
+  <div id="title">
+    <div class="flex flex-row justify-center"
+      v-if="blogStore.inited && !blogStore.blogLoading && blogStore.getBlogContent !== undefined">
+      <ul class="flex flex-col w-full">
+        <li class="p-2" v-for="post in blogStore.getBlogContent" :key="post[0]">
           <PageMetadata :default-collapsed="true" :metadata="post[1].metadata">
             <template #footer>
               <div class="flex flex-col place-items-end	">

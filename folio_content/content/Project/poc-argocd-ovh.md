@@ -29,7 +29,7 @@ links:
 
 ## Poc ArgoCD OVH
 
-This project is a proof of concept that will be used to test at the same time the integration of ArgoCD with OVH Kubernetes Engine and the Public Cloud of OVH.
+This project is a proof of concept that will be used to test at the same time the integration of **ArgoCD** with OVH Kubernetes Engine and the Public Cloud of OVH.
 
 The goal of this project is to have a basic infrastructure (3 node) with a load balancer (MetalLB X Ovh) and a GitOps system (ArgoCD) that will deploy a simple stack.
 
