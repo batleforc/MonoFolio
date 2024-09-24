@@ -2,8 +2,8 @@
   "name": "@portfolio/api-client",
   "version": "0.0.1",
   "dependencies": {
-    "tslib": "^2.3.0",
-    "@hey-api/client-axios": "^0.2.2"
+    "tslib": "^2.7.0",
+    "@hey-api/client-axios": "^0.2.5"
   },
   "type": "commonjs",
   "main": "./src/index.js",

@@ -48,6 +48,13 @@
   - Include dotenv
 - DDD based on sub-lib ?
 
+### Game ?
+
+- <https://cbournhonesque.github.io/lightyear/book/tutorial/setup.html>
+- <https://github.com/naia-lib/naia>
+
+Objectif ? faire un mini jeu multijoueur voir possiblement juste le pong en multi
+
 ## Idea
 
 ### Milestone
