@@ -27,12 +27,10 @@ pub fn collide_with_side(ball: BoundingCircle, wall: Aabb2d) -> Option<Collision
         } else {
             Collision::Left
         }
+    } else if offset.y > 0. {
+        Collision::Top
     } else {
-        if offset.y > 0. {
-            Collision::Top
-        } else {
-            Collision::Bottom
-        }
+        Collision::Bottom
     };
 
     Some(side)
