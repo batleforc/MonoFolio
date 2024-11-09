@@ -22,6 +22,6 @@ spec:
   owner: WeeboDev
   system: infra
   dependencyOf:
-  - Monofolio-Front
+  - component:Monofolio-Front
   providesApis:
-  - component:folio-api
+  - folio-api
