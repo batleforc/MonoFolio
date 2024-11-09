@@ -21,5 +21,7 @@ spec:
   lifecycle: production
   owner: WeeboDev
   system: infra
+  dependencyOf:
+  - Monofolio-Front
   providesApis:
   - folio-api

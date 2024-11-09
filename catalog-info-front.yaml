@@ -23,3 +23,5 @@ spec:
   system: infra
   consumesApis:
   - folio-api
+  dependsOn:
+  - Monofolio-Back
