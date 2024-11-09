@@ -11,6 +11,9 @@ metadata:
   - url: https://github.com/batleforc/Monofolio
     title: Repo
     icon: github
+  - url: https://che.weebo.fr#https://github.com/batleforc/Monofolio
+    title: Eclipse Che (VS Code)
+    icon: web
   annotations:
     backstage.io/managed-by-location: url:https://github.com/batleforc/Monofolio/blob/main/catalog-info-back.yaml
     backstage.io/source-location: url:https://github.com/batleforc/Monofolio/blob/main/
