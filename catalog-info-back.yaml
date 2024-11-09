@@ -24,4 +24,4 @@ spec:
   dependencyOf:
   - Monofolio-Front
   providesApis:
-  - folio-api
+  - component:folio-api

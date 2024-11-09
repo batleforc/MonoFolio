@@ -24,4 +24,4 @@ spec:
   consumesApis:
   - folio-api
   dependsOn:
-  - Monofolio-Back
+  - component:Monofolio-Back
