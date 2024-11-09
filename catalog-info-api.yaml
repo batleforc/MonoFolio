@@ -4,7 +4,7 @@ metadata:
   name: folio-api
   description: Provide content of the portfolio
   annotations:
-    backstage.io/spectral-ruleset-url: https://github.com/batleforc/Monofolio/blob/main/.spectral.yaml
+    backstage.io/spectral-ruleset-url: https://raw.githubusercontent.com/batleforc/Monofolio/refs/heads/main/.spectral.yaml
 spec:
   type: openapi
   lifecycle: production
