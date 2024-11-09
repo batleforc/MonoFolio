@@ -16,6 +16,7 @@ metadata:
     backstage.io/managed-by-location: url:https://github.com/batleforc/Monofolio/blob/main/catalog-info-front.yaml
     backstage.io/source-location: url:https://github.com/batleforc/Monofolio/blob/main/
     github.com/project-slug: batleforc/Monofolio
+    endoflife.date/products: node@21
 spec:
   type: website
   lifecycle: production
