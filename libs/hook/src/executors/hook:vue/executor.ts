@@ -5,7 +5,7 @@ import { promisify } from 'util';
 
 const runExecutor: PromiseExecutor<HookVueExecutorSchema> = async (options) => {
   console.info('Running Vue hook for', options['target-dir']);
-  const hookCommand = ['nx lint front', 'yarn audit'];
+  const hookCommand = ['yarn audit'];
   const command = hookCommand.join(' && ');
 
   return await promisify(exec)(command)

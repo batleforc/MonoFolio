@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Monofolio Front
+  description: Max's new portfolio
+  tags:
+  - portfolio
+  - nodejs
+  - vuejs
+  - markdown
+  links:
+  - url: https://github.com/batleforc/Monofolio
+    title: Repo
+    icon: github
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/batleforc/Monofolio/blob/main/catalog-info-front.yaml
+    backstage.io/source-location: url:https://github.com/batleforc/Monofolio/blob/main/
+    github.com/project-slug: batleforc/Monofolio
+spec:
+  type: website
+  lifecycle: production
+  owner: WeeboDev
+  system: infra
+  consumesApis:
+  - folio-api

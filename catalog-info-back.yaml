@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Monofolio Back
+  description: Max's new portfolio
+  tags:
+  - portfolio
+  - rust
+  - markdown
+  links:
+  - url: https://github.com/batleforc/Monofolio
+    title: Repo
+    icon: github
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/batleforc/Monofolio/blob/main/catalog-info-back.yaml
+    backstage.io/source-location: url:https://github.com/batleforc/Monofolio/blob/main/
+    github.com/project-slug: batleforc/Monofolio
+    backstage.io/spectral-ruleset-url: https://github.com/batleforc/Monofolio/blob/main/swagger.json
+spec:
+  type: service
+  lifecycle: production
+  owner: WeeboDev
+  system: infra
+  providesApis:
+  - folio-api
