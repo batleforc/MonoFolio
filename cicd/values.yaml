@@ -15,7 +15,7 @@ secrets:
 
 annotations:
   common:
-    "app.kubernetes.io/name": Monofolio
+    app.kubernetes.io/name: Monofolio
 
 build:
   back:

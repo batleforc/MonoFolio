@@ -2,9 +2,9 @@ apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
   name: {{.Values.prefix}}-event-listener
-  {{- if .Values.annotations.common -}}
   annotations:
-    {{ toYaml .Values.annotations.common | nindent 4 }}
+  {{- with .Values.annotations.common }}
+    {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
   serviceAccountName: {{.Values.prefix}}-sa
