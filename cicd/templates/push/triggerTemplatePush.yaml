@@ -23,7 +23,19 @@ spec:
         pipelineRef:
           name: {{$.Values.prefix}}-pipeline-push
         taskRunSpecs:
-          - pipelineTaskName: github-set-status
+          - pipelineTaskName: github-status-finally-succeeded
+            metadata:
+              annotations:
+              {{- with $.Values.annotations.common }}
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
+          - pipelineTaskName: github-status-finally-error
+            metadata:
+              annotations:
+              {{- with $.Values.annotations.common }}
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
+          - pipelineTaskName: github-status-finally-failed
             metadata:
               annotations:
               {{- with $.Values.annotations.common }}
