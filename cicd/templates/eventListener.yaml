@@ -2,12 +2,17 @@ apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
   name: {{.Values.prefix}}-event-listener
-  annotations:
-  {{- with .Values.annotations.common }}
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
 spec:
   serviceAccountName: {{.Values.prefix}}-sa
+  resources:
+    kubernetesResource:
+      spec:
+        template:
+          metadata:
+            annotations:
+              {{- with .Values.annotations.common }}
+                {{- toYaml . | nindent 14 }}
+              {{- end }}
   triggers:
     {{- range $key, $val := .Values.build }}
     - name: {{$.Values.prefix}}-trigger-push-{{- $key }}
