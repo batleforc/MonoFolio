@@ -22,6 +22,15 @@ spec:
       spec:
         pipelineRef:
           name: {{$.Values.prefix}}-pipeline-push
+        {{- if .Values.annotations.common -}}
+        taskRunSpecs:
+          - pipelineTaskName: github-set-status
+            metadata:
+              annotations:
+                {{- range $key, $val := .Values.annotations.common }}
+                {{ $key }}: {{ $val }}
+                {{- end }}
+        {{- end }}
         workspaces:
           - name: shared-data
             volumeClaimTemplate:

@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: 'false'
     haproxy-ingress.github.io/ssl-redirect: 'false'
     kubernetes.io/ingress.class: '{{.Values.config.ingressClass}}'
-    cert-manager.io/cluster-issuer: 'letsencrypt-prod'
+    cert-manager.io/cluster-issuer: 'prod-letsencrypt-issuer'
 spec:
   tls:
     - hosts:

@@ -13,6 +13,10 @@ secrets:
   discordWebhook: "discord-webhook"
   githubTokenWebhook: "github"
 
+annotations:
+  common:
+    "app.kubernetes.io/name": Monofolio
+
 build:
   back:
     folder:
@@ -38,13 +42,12 @@ build:
     helm: "deploy/front"
     imageName: "front"
 
-
 image:
   registry: "docker.io/batleforc"
 
 config:
   domain: '{{- template "mychart.name" . }}.dev.mono-folio.com'
-  ingressClass: "haproxy"
+  ingressClass: "traefik"
   listenerDomain: "el-{{.Values.config.prefix}}-event-listener.dev.mono-folio.com"
   name: "batleforc"
   baseUrl: "https://{{.Values.config.domain}}/"

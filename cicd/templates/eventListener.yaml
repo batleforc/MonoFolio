@@ -2,6 +2,12 @@ apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
   name: {{.Values.prefix}}-event-listener
+  {{- if .Values.annotations.common -}}
+  annotations:
+    {{- range $key, $val := .Values.annotations.common }}
+    {{ $key }}: {{ $val }}
+    {{- end }}
+  {{- end }}
 spec:
   serviceAccountName: {{.Values.prefix}}-sa
   triggers:
