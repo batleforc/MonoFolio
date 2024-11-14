@@ -22,12 +22,12 @@ spec:
       spec:
         pipelineRef:
           name: {{$.Values.prefix}}-pipeline-push
-        {{- if .Values.annotations.common -}}
+        {{- if $.Values.annotations.common -}}
         taskRunSpecs:
           - pipelineTaskName: github-set-status
             metadata:
               annotations:
-                {{ .Values.annotations.common | toYaml | nindent 16 }}
+                {{ $.Values.annotations.common | toYaml | nindent 16 }}
         {{- end }}
         workspaces:
           - name: shared-data
