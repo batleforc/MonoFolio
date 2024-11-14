@@ -10,7 +10,7 @@ image:
   repository: ""
   pullPolicy: Always
   tag: "main"
-  pullSecret: "harbor-pull"
+  pullSecret: "harbor-auth"
 
 labels:
   app.kubernetes.io/name: "monofolio-frontend"
@@ -27,7 +27,6 @@ ingress:
     kubernetes.io/ingress.class: "haproxy"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
   host: '{{- template "mychart.name" . }}.dev.mono-folio.com'
-
 
 env: []
 
