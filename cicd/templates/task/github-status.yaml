@@ -46,6 +46,11 @@ spec:
         The name of the kubernetes secret that contains the GitHub token, default: github
       type: string
       default: github
+    - name: GITHUB_KEY
+      description: |
+        The GitHub token to use for authentication.
+      type: string
+      default: ''
 
     - name: GITHUB_TOKEN_SECRET_KEY
       description: |
@@ -122,6 +127,8 @@ spec:
           value: $(params.GITHUB_TOKEN_SECRET_NAME)
         - name: GITHUB_TOKEN_SECRET_KEY
           value: $(params.GITHUB_TOKEN_SECRET_KEY)
+        - name: GITHUB_KEY
+          value: $(params.GITHUB_KEY)
         - name: SHA
           value: $(params.SHA)
         - name: TARGET_URL
@@ -148,9 +155,12 @@ spec:
         import sys
         import http.client
 
-        github_token_filename = "/etc/github-set-status/" + \
-            os.getenv("GITHUB_TOKEN_SECRET_KEY")
-        github_token = open(github_token_filename, "r").read()
+        github_token = os.getenv("GITHUB_KEY")
+
+        if github_token == "":
+          github_token_filename = "/etc/github-set-status/" + \
+              os.getenv("GITHUB_TOKEN_SECRET_KEY")
+          github_token = open(github_token_filename, "r").read()
 
         status_url = os.getenv("API_PATH_PREFIX") + "/repos/" + \
             os.getenv("REPO_FULL_NAME") + "/statuses/" + os.getenv("SHA")

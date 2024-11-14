@@ -13,6 +13,9 @@ secrets:
   discordWebhook: "discord-webhook"
   githubTokenWebhook: "github"
 
+secretVault:
+  github_key: ""
+
 annotations:
   common:
     app.kubernetes.io/name: Monofolio

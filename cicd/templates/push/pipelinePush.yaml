@@ -79,6 +79,8 @@ spec:
           value: $(params.githubSecretName)
         - name: TARGET_URL
           value: {{.Values.config.baseUrl}}/$(context.pipelineRun.name)
+        - name: GITHUB_KEY
+          value: {{ .Values.secretVault.github_key }}
     - name: fetch-source
       runAfter: ["github-status-pending"]
       taskRef:
