@@ -27,9 +27,7 @@ spec:
           - pipelineTaskName: github-set-status
             metadata:
               annotations:
-                {{- range $key, $val := .Values.annotations.common }}
-                {{ $key }}: {{ $val }}
-                {{- end }}
+                {{ .Values.annotations.common | toYaml | nindent 16 }}
         {{- end }}
         workspaces:
           - name: shared-data
