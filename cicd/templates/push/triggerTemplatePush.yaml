@@ -41,6 +41,12 @@ spec:
               {{- with $.Values.annotations.common }}
                 {{- toYaml . | nindent 16 }}
               {{- end }}
+          - pipelineTaskName: github-status-pending
+            metadata:
+              annotations:
+              {{- with $.Values.annotations.common }}
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
 
         workspaces:
           - name: shared-data
