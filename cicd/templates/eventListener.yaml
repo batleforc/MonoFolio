@@ -4,9 +4,7 @@ metadata:
   name: {{.Values.prefix}}-event-listener
   {{- if .Values.annotations.common -}}
   annotations:
-    {{- range $key, $val := .Values.annotations.common }}
-    {{ $key }}: {{ $val }}
-    {{- end }}
+    {{ toYaml .Values.annotations.common | nindent 4 }}
   {{- end }}
 spec:
   serviceAccountName: {{.Values.prefix}}-sa
