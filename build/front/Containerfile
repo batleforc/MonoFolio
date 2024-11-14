@@ -1,4 +1,4 @@
-FROM registry.hub.docker.com/library/node:21 AS build
+FROM registry.hub.docker.com/library/node:23 AS build
 WORKDIR /app
 ENV ENV production
 COPY package.json ./
