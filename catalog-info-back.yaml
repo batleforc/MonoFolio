@@ -20,6 +20,7 @@ metadata:
     github.com/project-slug: batleforc/Monofolio
     backstage.io/spectral-ruleset-url: https://github.com/batleforc/Monofolio/blob/main/swagger.json
     endoflife.date/products: rust@1.80
+    backstage.io/kubernetes-namespace: portfolio
 spec:
   type: service
   lifecycle: production

@@ -20,6 +20,7 @@ metadata:
     backstage.io/source-location: url:https://github.com/batleforc/Monofolio/blob/main/
     github.com/project-slug: batleforc/Monofolio
     endoflife.date/products: nodejs@21
+    backstage.io/kubernetes-namespace: portfolio
 spec:
   type: website
   lifecycle: production
