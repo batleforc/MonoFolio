@@ -17,6 +17,7 @@ labels:
   app.kubernetes.io/instance: "monofolio-backend-{{- template \"mychart.name\" . }}"
   app.kubernetes.io/component: backend
   app.kubernetes.io/part-of: "monofolio-{{- template \"mychart.name\" . }}"
+  backstage.io/kubernetes-id: 'monofolio'
 
 annotations:
   deployment.kubernetes.io/revision: "{{ .Release.Revision }}"
