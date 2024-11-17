@@ -6,9 +6,7 @@ metadata:
   name: "{{$.Values.prefix}}-pipeline-template-push-{{- $key -}}"
   labels:
     app.kubernetes.io/name: '{{$.Values.prefix}}-webhook'
-    app.kubernetes.io/instance: '{{$.Values.prefix}}-webhook-{{- template "mychart.name" $ }}'
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/part-of: '{{$.Values.prefix}}-{{- template "mychart.name" $ }}'
     backstage.io/kubernetes-id: '{{$.Values.prefix}}'
 spec:
   params:
@@ -27,9 +25,7 @@ spec:
         generateName: {{$.Values.prefix}}-pipeline-push-{{- $key -}}-run-
         labels:
           app.kubernetes.io/name: '{{$.Values.prefix}}-webhook'
-          app.kubernetes.io/instance: '{{$.Values.prefix}}-webhook-{{- template "mychart.name" $ }}'
           app.kubernetes.io/component: webhook
-          app.kubernetes.io/part-of: '{{$.Values.prefix}}-{{- template "mychart.name" $ }}'
           backstage.io/kubernetes-id: '{{$.Values.prefix}}'
       spec:
         pipelineRef:

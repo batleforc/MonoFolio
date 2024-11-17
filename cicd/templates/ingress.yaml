@@ -9,9 +9,7 @@ metadata:
     cert-manager.io/cluster-issuer: 'prod-letsencrypt-issuer'
   labels:
     app.kubernetes.io/name: '{{.Values.prefix}}-webhook'
-    app.kubernetes.io/instance: '{{.Values.prefix}}-webhook-{{- template "mychart.name" . }}'
     app.kubernetes.io/component: webhook
-    app.kubernetes.io/part-of: '{{.Values.prefix}}-{{- template "mychart.name" . }}'
     backstage.io/kubernetes-id: '{{.Values.prefix}}'
 spec:
   tls:
