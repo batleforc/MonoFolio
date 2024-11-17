@@ -21,6 +21,7 @@ metadata:
     github.com/project-slug: batleforc/Monofolio
     endoflife.date/products: nodejs@21
     backstage.io/kubernetes-namespace: portfolio
+    janus-idp.io/tekton: monofolio
 spec:
   type: website
   lifecycle: production
