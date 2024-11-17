@@ -22,6 +22,7 @@ metadata:
     endoflife.date/products: rust@1.80
     backstage.io/kubernetes-namespace: portfolio
     janus-idp.io/tekton: monofolio
+    backstage.io/kubernetes-id: monofolio
 spec:
   type: service
   lifecycle: production
