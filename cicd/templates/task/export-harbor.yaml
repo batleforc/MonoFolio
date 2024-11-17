@@ -1,0 +1,71 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: export-harbor
+  annotations:
+    tekton.dev/tags: "harbor"
+    task.output.location: "results"
+    task.results.format: "application/json"
+    task.results.type: external-link
+    task.results.key: LINK_TO_SBOM
+spec:
+  description: Export Harbor image primary metadata
+  params:
+  - name: project
+    type: string
+    description: The project name in Harbor
+  - name: repository
+    type: string
+    description: The repository name in Harbor
+  - name: tag
+    type: string
+    description: The tag of the image
+  - name: harbor_endpoint
+    type: string
+    description: The Harbor endpoint
+  workspaces:
+  - name: dockerconfig
+    description: |
+      This workspace contains the docker config.json file, so it can be used by
+      the next task.
+  results:
+  - name: VULN_OUTPUT
+    description: The output of the vulnerability scan
+  - name: LINK_TO_SBOM
+    description: The URL of the SBOM
+  - name: VULN_URL
+    description: The URL of the vulnerability report
+  steps:
+  - env:
+    - name: DOCKER_CONFIG
+      value: $(workspaces.dockerconfig.path)
+    image: gcr.io/batleforc/weebodevimage/alpine-jqcurl:latest
+    name: fetch-data
+    script: |
+      #!/bin/ash
+      set +x
+
+      # Create auth header
+      AUTH_HEADER=$(cat $(workspaces.dockerconfig.path)/config.json | jq -r '.auths."$(params.harbor_endpoint)".auth' | base64 -d)
+
+      # Escape the slash in the repo name
+      REPO=$(echo $(params.repository) | sed 's/\//%2F/g')
+
+      BODY=$(curl -X 'GET' \
+        '$(params.harbor_endpoint)/api/v2.0/projects/$(params.project)/repositories/$REPO/artifacts?page=1&page_size=10&with_tag=true&with_label=false&with_scan_overview=true&with_sbom_overview=true&with_signature=false&with_immutable_status=false&with_accessory=false' \
+        -H 'accept: application/json' \
+        -H 'X-Accept-Vulnerabilities: application/vnd.security.vulnerability.report; version=1.1, application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' \
+        -H 'Authorization: Basic $AUTH_HEADER' \
+        | jq '.[] | select(.tags!=null) | select(.tags[].name == "$(params.tag)")')
+
+      echo $BODY | jq -rce \
+        "{vulnerabilities:{
+        critical: (.scan_overview.security_vulnerabilities.critical),
+        high: (.scan_overview.security_vulnerabilities.high),
+        medium: (.scan_overview.security_vulnerabilities.medium),
+        low: (.scan_overview.security_vulnerabilities.low)
+        }}" | tee $(results.VULN_OUTPUT.path)
+
+      echo $BODY | jq -rce "$(params.harbor_endpoint)(.addition_lings.sboms.href)" | tee $(results.LINK_TO_SBOM.path)
+
+      echo $BODY | jq -rce "$(params.harbor_endpoint)(.addition_lings.vulnerabilities.href)" | tee $(results.VULN_URL.path)
