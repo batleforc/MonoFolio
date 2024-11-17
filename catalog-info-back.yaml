@@ -23,7 +23,7 @@ metadata:
     backstage.io/kubernetes-namespace: portfolio
     janus-idp.io/tekton: monofolio
     backstage.io/kubernetes-id: monofolio
-    argocd/app-selector: portfolio
+    argocd/app-selector: app=portfolio
 spec:
   type: service
   lifecycle: production
