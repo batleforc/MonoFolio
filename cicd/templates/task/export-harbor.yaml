@@ -60,6 +60,7 @@ spec:
           -H 'accept: application/json' \
           -H 'X-Accept-Vulnerabilities: application/vnd.security.vulnerability.report; version=1.1, application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' \
           -H 'Authorization: Basic $AUTH_HEADER')
+        echo $BODY
         if [ -z "$BODY" ]; then
           echo "Waiting for the image to be scanned..."
           sleep 5
