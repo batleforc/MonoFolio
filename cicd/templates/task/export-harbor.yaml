@@ -49,7 +49,7 @@ spec:
       AUTH_HEADER=$(cat $(workspaces.dockerconfig.path)/config.json | jq -r '.auths."$(params.harbor_endpoint)".auth' | base64 -d)
 
       # Escape the slash in the repo name
-      REPO=$(echo $(params.repository) | sed 's/\//%2F/g')
+      REPO=$(echo "$(params.repository)" | sed 's/\//%2F/g')
 
       for i in {1..60}
       do
@@ -73,12 +73,12 @@ spec:
 
       body=$(echo $BODY | jq '.[] | select(.tags!=null) | select(.tags[].name == "$(params.tag)")')
 
-      echo $BODY | jq -rce \
+      echo $BODY | jq .scan_overview.["application/vnd.security.vulnerability.report; version=1.1"] | jq -rce \
         "{vulnerabilities:{
-        critical: (.scan_overview.security_vulnerabilities.critical),
-        high: (.scan_overview.security_vulnerabilities.high),
-        medium: (.scan_overview.security_vulnerabilities.medium),
-        low: (.scan_overview.security_vulnerabilities.low)
+        critical: (.summary.summary.critical),
+        high: (.summary.summary.high),
+        medium: (.summary.summary.medium),
+        low: (.summary.summary.low)
         }}" | tee $(results.VULN_OUTPUT.path)
 
       echo $BODY | jq -rce "$(params.harbor_endpoint)(.addition_lings.sboms.href)" | tee $(results.LINK_TO_SBOM.path)
