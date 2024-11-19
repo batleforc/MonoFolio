@@ -39,7 +39,7 @@ spec:
   - env:
     - name: DOCKER_CONFIG
       value: $(workspaces.dockerconfig.path)
-    image: gcr.io/batleforc/weebodevimage/alpine-jqcurl:latest
+    image: ghcr.io/batleforc/weebodevimage/alpine-jqcurl:main
     name: fetch-data
     script: |
       #!/bin/ash
