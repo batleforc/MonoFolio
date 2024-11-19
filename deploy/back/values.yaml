@@ -10,7 +10,7 @@ image:
   repository: ""
   pullPolicy: Always
   tag: "main"
-  pullSecret: "harbor-auth"
+  pullSecret: "harbor-pull"
 
 labels:
   app.kubernetes.io/name: "monofolio-backend"
