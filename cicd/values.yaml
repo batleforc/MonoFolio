@@ -47,6 +47,10 @@ build:
 
 image:
   registry: "docker.io/batleforc"
+  harbor:
+    project: "batleforc"
+    image: monofolio
+    endpoint: "harbor.dev.mono-folio.com"
 
 config:
   domain: '{{- template "mychart.name" . }}.dev.mono-folio.com'

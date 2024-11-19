@@ -51,12 +51,27 @@ spec:
       # Escape the slash in the repo name
       REPO=$(echo $(params.repository) | sed 's/\//%2F/g')
 
-      BODY=$(curl -X 'GET' \
-        '$(params.harbor_endpoint)/api/v2.0/projects/$(params.project)/repositories/$REPO/artifacts?page=1&page_size=10&with_tag=true&with_label=false&with_scan_overview=true&with_sbom_overview=true&with_signature=false&with_immutable_status=false&with_accessory=false' \
-        -H 'accept: application/json' \
-        -H 'X-Accept-Vulnerabilities: application/vnd.security.vulnerability.report; version=1.1, application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' \
-        -H 'Authorization: Basic $AUTH_HEADER' \
-        | jq '.[] | select(.tags!=null) | select(.tags[].name == "$(params.tag)")')
+      for i in {1..60}
+      do
+        BODY=$(curl -X 'GET' \
+          '$(params.harbor_endpoint)/api/v2.0/projects/$(params.project)/repositories/$REPO/artifacts?page=1&page_size=10&with_tag=true&with_label=false&with_scan_overview=true&with_sbom_overview=true&with_signature=false&with_immutable_status=false&with_accessory=false' \
+          -H 'accept: application/json' \
+          -H 'X-Accept-Vulnerabilities: application/vnd.security.vulnerability.report; version=1.1, application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' \
+          -H 'Authorization: Basic $AUTH_HEADER')
+        if [ -z "$BODY" ]; then
+          echo "Waiting for the image to be scanned..."
+          sleep 5
+        else
+          break
+        fi
+      done
+
+      if [ -z "$BODY" ]; then
+        echo "The image was not scanned in time"
+        exit 1
+      fi
+
+      body=$(echo $BODY | jq '.[] | select(.tags!=null) | select(.tags[].name == "$(params.tag)")')
 
       echo $BODY | jq -rce \
         "{vulnerabilities:{

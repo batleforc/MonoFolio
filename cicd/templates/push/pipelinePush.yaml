@@ -137,6 +137,32 @@ spec:
           value: {{.Release.Namespace}}
         - name: overwrite_values
           value: "image.tag=$(params.repo-branch),image.repository=$(params.image-name),ingress.host={{.Values.config.domain}}"
+    - name: scan-image
+      runAfter: ["build-docker"]
+      taskRef:
+        name: export-harbor
+      workspaces:
+        - name: dockerconfig
+          workspace: dockerAuthConfig
+      params:
+        - name: project
+          value: {{.Values.image.harbor.project}}
+        - name: repository
+          value: {{.Values.image.harbor.image}}/$(params.release-name)
+        - name: tag
+          value: $(params.repo-branch)
+        - name: harbor_endpoint
+          value: {{.Values.image.harbor.endpoint}}
+  results:
+    - name: HARBOR_VULN_SCAN_OUTPUT
+      description: The output of the vulnerability scan
+      value: $(tasks.scan-image.results.VULN_OUTPUT)
+    - name: HARBOR_VULN_SCAN_URL
+      description: The URL of the vulnerability report
+      value: $(tasks.scan-image.results.VULN_URL)
+    - name: HARBOR_SBOM_URL
+      description: The URL of the SBOM
+      value: $(tasks.scan-image.results.LINK_TO_SBOM)
   finally:
     - name: github-status-finally-succeeded
       when:
