@@ -46,7 +46,7 @@ spec:
       set +x
 
       # Create auth header
-      AUTH_HEADER=$(cat $(workspaces.dockerconfig.path)/config.json | jq -r '.auths."$(params.harbor_endpoint)".auth')
+      AUTH_HEADER=$(cat $DOCKER_CONFIG/config.json | jq -r '.auths."$(params.harbor_endpoint)".auth')
 
       # Escape the slash in the repo name
       REPO=$(echo "$(params.repository)" | sed 's/\//%2F/g')
