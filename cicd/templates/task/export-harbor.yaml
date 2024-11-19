@@ -51,6 +51,8 @@ spec:
       # Escape the slash in the repo name
       REPO=$(echo "$(params.repository)" | sed 's/\//%2F/g')
 
+      echo "Fetching the image metadata from Harbor: $(params.harbor_endpoint)/api/v2.0/projects/$(params.project)/repositories/$REPO/artifacts?page=1&page_size=10&with_tag=true&with_label=false&with_scan_overview=true&with_sbom_overview=true&with_signature=false&with_immutable_status=false&with_accessory=false'"
+
       for i in {1..60}
       do
         BODY=$(curl -X 'GET' \
