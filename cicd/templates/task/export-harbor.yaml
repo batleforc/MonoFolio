@@ -52,7 +52,7 @@ spec:
       REPO=$(echo "$(params.repository)" | sed 's/\//%2F/g')
 
       echo "Fetching the image metadata from Harbor: $(params.harbor_endpoint)/api/v2.0/projects/$(params.project)/repositories/$REPO/artifacts?page=1&page_size=10&with_tag=true&with_label=false&with_scan_overview=true&with_sbom_overview=true&with_signature=false&with_immutable_status=false&with_accessory=false'"
-
+      echo "Harbor auth header: $AUTH_HEADER"
       for i in {1..60}
       do
         BODY=$(curl -X 'GET' \
@@ -84,6 +84,6 @@ spec:
         low: (.summary.summary.low)
         }}" | tee $(results.VULN_OUTPUT.path)
 
-      echo $BODY | jq -rce "$(params.harbor_endpoint)(.addition_lings.sboms.href)" | tee $(results.LINK_TO_SBOM.path)
+      echo $BODY | jq -rce "$(params.harbor_endpoint)(.addition_links.sboms.href)" | tee $(results.LINK_TO_SBOM.path)
 
-      echo $BODY | jq -rce "$(params.harbor_endpoint)(.addition_lings.vulnerabilities.href)" | tee $(results.VULN_URL.path)
+      echo $BODY | jq -rce "$(params.harbor_endpoint)(.addition_links.vulnerabilities.href)" | tee $(results.VULN_URL.path)
