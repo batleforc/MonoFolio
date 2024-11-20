@@ -48,6 +48,7 @@ spec:
       # Create auth header
       AUTH_HEADER=$(cat $DOCKER_CONFIG/config.json | jq -r '.auths."$(params.harbor_endpoint)".auth')
       ls -la $DOCKER_CONFIG
+      cat $DOCKER_CONFIG/config.json
       # Escape the slash in the repo name
       REPO=$(echo "$(params.repository)" | sed 's/\//%2F/g')
 
