@@ -76,7 +76,7 @@ spec:
       fi
 
       BODY=$(echo $BODY | jq '.[] | select(.tags!=null) | select(.tags[].name == "$(params.tag)")')
-
+      echo $BODY | jq '.scan_overview.["application/vnd.security.vulnerability.report; version=1.1"]'
       echo $BODY | jq '.scan_overview.["application/vnd.security.vulnerability.report; version=1.1"]' | jq -rce \
         "{vulnerabilities:{
         critical: (.summary.summary.Critical),
