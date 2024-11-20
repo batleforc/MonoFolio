@@ -85,6 +85,10 @@ spec:
         low: (.summary.summary.Low)
         }}" | tee $(results.VULN_OUTPUT.path)
 
-      echo $BODY | jq -rce "$(params.harbor_endpoint)(.addition_links.sboms.href)" | tee $(results.LINK_TO_SBOM.path)
+      sbom=$(echo $BODY | jq -rce ".addition_links.sboms.href")
 
-      echo $BODY | jq -rce "$(params.harbor_endpoint)(.addition_links.vulnerabilities.href)" | tee $(results.VULN_URL.path)
+      echo "$(params.harbor_endpoint)${sbom}" | tee $(results.LINK_TO_SBOM.path)
+
+      vuln=$(echo $BODY | jq -rce ".addition_links.vulnerabilities.href")
+
+      echo "$(params.harbor_endpoint)${vuln}" | tee $(results.VULN_URL.path)
