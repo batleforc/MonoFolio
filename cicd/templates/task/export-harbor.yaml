@@ -79,10 +79,10 @@ spec:
 
       echo $BODY | jq '.scan_overview.["application/vnd.security.vulnerability.report; version=1.1"]' | jq -rce \
         "{vulnerabilities:{
-        critical: (.summary.summary.critical),
-        high: (.summary.summary.high),
-        medium: (.summary.summary.medium),
-        low: (.summary.summary.low)
+        critical: (.summary.summary.Critical),
+        high: (.summary.summary.High),
+        medium: (.summary.summary.Medium),
+        low: (.summary.summary.Low)
         }}" | tee $(results.VULN_OUTPUT.path)
 
       echo $BODY | jq -rce "$(params.harbor_endpoint)(.addition_links.sboms.href)" | tee $(results.LINK_TO_SBOM.path)
