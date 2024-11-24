@@ -93,7 +93,7 @@ spec:
             - name: overlays
               value:
                 - key: tag_name
-                  expression: "body.ref.split('/')[2]"
+                  expression: "body.ref"
       bindings:
         - ref: {{.Values.prefix}}-trigger-binding-tag-created
       template:
