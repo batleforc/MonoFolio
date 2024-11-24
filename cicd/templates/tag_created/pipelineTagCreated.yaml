@@ -66,7 +66,7 @@ spec:
         - name: STATE
           value: pending
         - name: CONTEXT
-          value: monofolio-ci-$(params.release-name)
+          value: monofolio-ci-tag
         - name: GITHUB_TOKEN_SECRET_NAME
           value: $(params.githubSecretName)
         - name: TARGET_URL
@@ -206,7 +206,7 @@ spec:
         - name: DESCRIPTION
           value: Monofolio build and push
         - name: CONTEXT
-          value: monofolio-ci-$(params.release-name)
+          value: monofolio-ci-tag
         - name: GITHUB_TOKEN_SECRET_NAME
           value: $(params.githubSecretName)
         - name: STATE
@@ -229,9 +229,9 @@ spec:
         - name: SHA
           value: $(params.repo-revision)
         - name: DESCRIPTION
-          value: Monofolio build and push 
+          value: Monofolio build and push
         - name: CONTEXT
-          value: monofolio-ci-$(params.release-name)
+          value: monofolio-ci-tag
         - name: GITHUB_TOKEN_SECRET_NAME
           value: $(params.githubSecretName)
         - name: STATE
@@ -256,7 +256,7 @@ spec:
         - name: DESCRIPTION
           value: Monofolio build and push
         - name: CONTEXT
-          value: monofolio-ci-$(params.release-name)
+          value: monofolio-ci-tag
         - name: GITHUB_TOKEN_SECRET_NAME
           value: $(params.githubSecretName)
         - name: STATE
