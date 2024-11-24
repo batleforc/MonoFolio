@@ -103,7 +103,7 @@ spec:
         name: build-image
       workspaces:
         - name: shared-data
-          workspace: shared-data
+          workspace: shared-data-front
         - name: dockerconfig
           workspace: dockerAuthConfig
       params:
@@ -123,7 +123,7 @@ spec:
         name: build-image
       workspaces:
         - name: shared-data
-          workspace: shared-data
+          workspace: shared-data-back
         - name: dockerconfig
           workspace: dockerAuthConfig
       params:
