@@ -1,0 +1,92 @@
+---
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: "{{$.Values.prefix}}-pipeline-template-tag-created"
+  labels:
+    app.kubernetes.io/name: '{{$.Values.prefix}}-webhook'
+    app.kubernetes.io/component: webhook
+    backstage.io/kubernetes-id: '{{$.Values.prefix}}'
+spec:
+  params:
+    - name: gitrevision
+      description: The git revision (SHA)
+      default: master
+    - name: gitbranch
+      description: The git branch
+      default: master
+    - name: gitrepositoryurl
+      description: The git repository url ("https://github.com/batleforc/rust-template")
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        generateName: "{{$.Values.prefix}}-pipeline-tag-run-"
+        labels:
+          app.kubernetes.io/name: "{{$.Values.prefix}}-webhook"
+          app.kubernetes.io/component: webhook
+          backstage.io/kubernetes-id: "{{$.Values.prefix}}"
+      spec:
+        pipelineRef:
+          name: "{{$.Values.prefix}}-pipeline-tag-created"
+        taskRunSpecs:
+          - pipelineTaskName: github-status-finally-succeeded
+            metadata:
+              annotations:
+              {{- with $.Values.annotations.common }}
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
+          - pipelineTaskName: github-status-finally-error
+            metadata:
+              annotations:
+              {{- with $.Values.annotations.common }}
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
+          - pipelineTaskName: github-status-finally-failed
+            metadata:
+              annotations:
+              {{- with $.Values.annotations.common }}
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
+          - pipelineTaskName: github-status-pending
+            metadata:
+              annotations:
+              {{- with $.Values.annotations.common }}
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
+
+        workspaces:
+          - name: shared-data-front
+            volumeClaimTemplate:
+              spec:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 5Gi
+                storageClassName: local-path
+          - name: shared-data-back
+            volumeClaimTemplate:
+              spec:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 5Gi
+                storageClassName: local-path
+          {{- range $key, $value := $.Values.secrets }}
+          {{- if ne $key "githubTokenWebhook" }}
+          - name: {{ $key }}
+            secret:
+              secretName: {{ $value }}
+          {{- end }}
+          {{- end }}
+        params:
+          - name: repo-revision
+            value: $(tt.params.gitrevision)
+          - name: repo-branch
+            value: $(tt.params.gitbranch)
+          - name: repo-url
+            value: $(tt.params.gitrepositoryurl)
+          - name: githubSecretName
+            value: "{{ $.Values.secrets.githubTokenApi }}"

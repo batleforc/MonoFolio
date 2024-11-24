@@ -1,13 +1,13 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
-  name: {{.Values.prefix}}-event-listener
+  name: "{{.Values.prefix}}-event-listener"
   labels:
-    app.kubernetes.io/name: '{{.Values.prefix}}-webhook'
+    app.kubernetes.io/name: "{{.Values.prefix}}-webhook"
     app.kubernetes.io/component: webhook
-    backstage.io/kubernetes-id: '{{.Values.prefix}}'
+    backstage.io/kubernetes-id: "{{.Values.prefix}}"
 spec:
-  serviceAccountName: {{.Values.prefix}}-sa
+  serviceAccountName: "{{.Values.prefix}}-sa"
   resources:
     kubernetesResource:
       spec:
@@ -19,14 +19,14 @@ spec:
               {{- end }}
   triggers:
     {{- range $key, $val := .Values.build }}
-    - name: {{$.Values.prefix}}-trigger-push-{{- $key }}
+    - name: "{{$.Values.prefix}}-trigger-push-{{- $key }}"
       interceptors:
         - ref:
             name: "github"
           params:
             - name: secretRef
               value:
-                secretName: {{$.Values.secrets.githubTokenWebhook}}
+                secretName: "{{$.Values.secrets.githubTokenWebhook}}"
                 secretKey: secretToken
             - name: eventTypes
               value:
@@ -44,9 +44,9 @@ spec:
                 - key: branch_name
                   expression: "body.ref.split('/')[2]"
       bindings:
-        - ref: {{$.Values.prefix}}-trigger-binding-push
+        - ref: "{{$.Values.prefix}}-trigger-binding-push"
       template:
-        ref: {{$.Values.prefix}}-pipeline-template-push-{{- $key -}}
+        ref: "{{$.Values.prefix}}-pipeline-template-push-{{- $key -}}"
     {{- end }}
     # - name: {{.Values.prefix}}-trigger-pr
     #   interceptors:
@@ -73,28 +73,28 @@ spec:
     #     - ref: {{.Values.prefix}}-trigger-binding-pr
     #   template:
     #     ref: {{.Values.prefix}}-pipeline-template-pr
-    # - name: {{.Values.prefix}}-trigger-tag-created
-    #   interceptors:
-    #     - ref:
-    #         name: "github"
-    #       params:
-    #         - name: secretRef
-    #           value:
-    #             secretName: {{.Values.secrets.githubTokenWebhook}}
-    #             secretKey: secretToken
-    #         - name: eventTypes
-    #           value:
-    #             - create
-    #     - ref:
-    #         name: "cel"
-    #       params:
-    #         - name: filter
-    #           value: "body.ref_type == 'tag'"
-    #         - name: overlays
-    #           value:
-    #             - key: tag_name
-    #               expression: "body.ref.split('/')[2]"
-    #   bindings:
-    #     - ref: {{.Values.prefix}}-trigger-binding-tag-created
-    #   template:
-    #     ref: {{.Values.prefix}}-pipeline-template-tag-created
+    - name: {{.Values.prefix}}-trigger-tag-created
+      interceptors:
+        - ref:
+            name: "github"
+          params:
+            - name: secretRef
+              value:
+                secretName: {{.Values.secrets.githubTokenWebhook}}
+                secretKey: secretToken
+            - name: eventTypes
+              value:
+                - create
+        - ref:
+            name: "cel"
+          params:
+            - name: filter
+              value: "body.ref_type == 'tag'"
+            - name: overlays
+              value:
+                - key: tag_name
+                  expression: "body.ref.split('/')[2]"
+      bindings:
+        - ref: {{.Values.prefix}}-trigger-binding-tag-created
+      template:
+        ref: {{.Values.prefix}}-pipeline-template-tag-created

@@ -1,0 +1,267 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: {{.Values.prefix}}-pipeline-tag-created
+  labels:
+    app.kubernetes.io/name: '{{.Values.prefix}}-webhook'
+    app.kubernetes.io/component: webhook
+    backstage.io/kubernetes-id: '{{.Values.prefix}}'
+spec:
+  ## TODO https://tekton.dev/docs/pipelines/pipelines/#using-execution-status-of-pipelinetask
+  description: |
+    This pipeline builds batleforc template-rust in case of tag.
+  params:
+    - name: repo-url
+      type: string
+      description: The git repo URL to clone from.
+    - name: repo-branch
+      type: string
+      default: main
+      description: The git repo branch to clone from.
+    - name: repo-revision
+      type: string
+      default: main
+      description: The git repo revision to clone from.
+    - name: repo-small-path
+      type: string
+      default: batleforc/monofolio
+      description: The git repo small path to clone from.
+    - name: githubSecretName
+      type: string
+      default: "github-token"
+      description: The name of the secret containing the github token.
+  workspaces:
+    - name: shared-data-front
+      description: |
+        This workspace contains the cloned repo files, so they can be read by the
+        next task.
+    - name: shared-data-back
+      description: |
+        This workspace contains the cloned repo files, so they can be read by the
+        next task.
+    - name: dockerAuthConfig
+      description: |
+        This workspace contains the docker config.json file, so it can be used by
+        the next task.
+    - name: kubeconfig
+      description: |
+        This workspace contains the kubeconfig file, it define the namespace to rollout.
+    - name: githubTokenApi
+      description: |
+        This workspace contains the github token to use the github api.
+    - name: discordWebhook
+      description: |
+        This workspace contains the discord webhook to send messages.
+  tasks:
+    - name: github-status-pending
+      taskRef:
+        name: github-set-status
+      params:
+        - name: REPO_FULL_NAME
+          value: $(params.repo-small-path)
+        - name: SHA
+          value: $(params.repo-revision)
+        - name: DESCRIPTION
+          value: Monofolio build and push $(params.conteneurfile-path)
+        - name: STATE
+          value: pending
+        - name: CONTEXT
+          value: monofolio-ci-$(params.release-name)
+        - name: GITHUB_TOKEN_SECRET_NAME
+          value: $(params.githubSecretName)
+        - name: TARGET_URL
+          value: {{.Values.config.baseUrl}}/$(context.pipelineRun.name)
+        - name: GITHUB_KEY
+          value: {{ .Values.secretVault.github_key }}
+    - name: fetch-source-front
+      runAfter: ["github-status-pending"]
+      taskRef:
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: shared-data-front
+      params:
+        - name: url
+          value: $(params.repo-url)
+        - name: revision
+          value: $(params.repo-revision)
+    - name: fetch-source-back
+      runAfter: ["github-status-pending"]
+      taskRef:
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: shared-data-back
+      params:
+        - name: url
+          value: $(params.repo-url)
+        - name: revision
+          value: $(params.repo-revision)
+    - name: build-docker-front
+      runAfter: ["fetch-source-front"]
+      taskRef:
+        name: build-image
+      workspaces:
+        - name: shared-data
+          workspace: shared-data
+        - name: dockerconfig
+          workspace: dockerAuthConfig
+      params:
+        - name: path-dockerfile
+          value: {{ .Values.front.file_path }}
+        - name: DOCKERFILE
+          value: Containerfile
+        - name: context-dockerfile
+          value: .
+        - name: IMAGE
+          value: {{ $.Values.image.registry }}/{{ .Values.front.imageName }}
+        - name: repo-branch
+          value: $(params.repo-branch)
+    - name: build-docker-back
+      runAfter: ["fetch-source-back"]
+      taskRef:
+        name: build-image
+      workspaces:
+        - name: shared-data
+          workspace: shared-data
+        - name: dockerconfig
+          workspace: dockerAuthConfig
+      params:
+        - name: path-dockerfile
+          value: "{{ .Values.back.file_path }}"
+        - name: DOCKERFILE
+          value: Containerfile
+        - name: context-dockerfile
+          value: .
+        - name: IMAGE
+          value: "{{ $.Values.image.registry }}/{{ $.Values.back.imageName }}"
+        - name: repo-branch
+          value: $(params.repo-branch)
+    - name: scan-image-front
+      runAfter: ["build-docker-front"]
+      taskRef:
+        name: export-harbor
+      workspaces:
+        - name: dockerconfig
+          workspace: dockerAuthConfig
+      params:
+        - name: project
+          value: {{.Values.image.harbor.project}}
+        - name: repository
+          value: "{{.Values.image.harbor.image}}/{{ $.Values.front.imageName }}"
+        - name: tag
+          value: $(params.repo-branch)
+        - name: harbor_endpoint
+          value: {{.Values.image.harbor.endpoint}}
+    - name: scan-image-back
+      runAfter: ["build-docker-back"]
+      taskRef:
+        name: export-harbor
+      workspaces:
+        - name: dockerconfig
+          workspace: dockerAuthConfig
+      params:
+        - name: project
+          value: {{.Values.image.harbor.project}}
+        - name: repository
+          value: "{{.Values.image.harbor.image}}/{{ $.Values.back.imageName }}"
+        - name: tag
+          value: $(params.repo-branch)
+        - name: harbor_endpoint
+          value: {{.Values.image.harbor.endpoint}}
+  results:
+    - name: HARBOR_FRONT_VULN_SCAN_OUTPUT
+      description: The output of the vulnerability scan
+      value: $(tasks.scan-image-front.results.VULN_OUTPUT)
+    - name: HARBOR_BACK_VULN_SCAN_OUTPUT
+      description: The output of the vulnerability scan
+      value: $(tasks.scan-image-back.results.VULN_OUTPUT)
+    - name: HARBOR_FRONT_VULN_SCAN_URL
+      description: The URL of the vulnerability report
+      value: $(tasks.scan-image-front.results.VULN_URL)
+    - name: HARBOR_FRONT_SBOM_URL
+      description: The URL of the SBOM
+      value: $(tasks.scan-image-front.results.LINK_TO_SBOM)
+    - name: HARBOR_BACK_VULN_SCAN_URL
+      description: The URL of the vulnerability report
+      value: $(tasks.scan-image-back.results.VULN_URL)
+    - name: HARBOR_FRONT_SBOM_URL
+      description: The URL of the SBOM
+      value: $(tasks.scan-image-back.results.LINK_TO_SBOM)
+  finally:
+    - name: github-status-finally-succeeded
+      when:
+        - input: $(tasks.status)
+          operator: in
+          values:
+            - Succeeded
+            - Completed
+      taskRef:
+        name: github-set-status
+      params:
+        - name: REPO_FULL_NAME
+          value: $(params.repo-small-path)
+        - name: SHA
+          value: $(params.repo-revision)
+        - name: DESCRIPTION
+          value: Monofolio build and push $(params.conteneurfile-path)
+        - name: CONTEXT
+          value: monofolio-ci-$(params.release-name)
+        - name: GITHUB_TOKEN_SECRET_NAME
+          value: $(params.githubSecretName)
+        - name: STATE
+          value: success
+        - name: TARGET_URL
+          value: {{.Values.config.baseUrl}}/$(context.pipelineRun.name)
+        - name: GITHUB_KEY
+          value: {{ .Values.secretVault.github_key }}
+    - name: github-status-finally-failed
+      when:
+        - input: $(tasks.status)
+          operator: in
+          values:
+            - Failed
+      taskRef:
+        name: github-set-status
+      params:
+        - name: REPO_FULL_NAME
+          value: $(params.repo-small-path)
+        - name: SHA
+          value: $(params.repo-revision)
+        - name: DESCRIPTION
+          value: Monofolio build and push $(params.conteneurfile-path)
+        - name: CONTEXT
+          value: monofolio-ci-$(params.release-name)
+        - name: GITHUB_TOKEN_SECRET_NAME
+          value: $(params.githubSecretName)
+        - name: STATE
+          value: failure
+        - name: TARGET_URL
+          value: {{.Values.config.baseUrl}}/$(context.pipelineRun.name)
+        - name: GITHUB_KEY
+          value: {{ .Values.secretVault.github_key }}
+    - name: github-status-finally-error
+      when:
+        - input: $(tasks.status)
+          operator: in
+          values:
+            - None
+      taskRef:
+        name: github-set-status
+      params:
+        - name: REPO_FULL_NAME
+          value: $(params.repo-small-path)
+        - name: SHA
+          value: $(params.repo-revision)
+        - name: DESCRIPTION
+          value: Monofolio build and push $(params.conteneurfile-path)
+        - name: CONTEXT
+          value: monofolio-ci-$(params.release-name)
+        - name: GITHUB_TOKEN_SECRET_NAME
+          value: $(params.githubSecretName)
+        - name: STATE
+          value: error
+        - name: TARGET_URL
+          value: {{.Values.config.baseUrl}}/$(context.pipelineRun.name)
+        - name: GITHUB_KEY
+          value: {{ .Values.secretVault.github_key }}
