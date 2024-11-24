@@ -108,13 +108,13 @@ spec:
           workspace: dockerAuthConfig
       params:
         - name: path-dockerfile
-          value: {{ .Values.front.file_path }}
+          value: "{{ .Values.build.front.file_path }}"
         - name: DOCKERFILE
           value: Containerfile
         - name: context-dockerfile
           value: .
         - name: IMAGE
-          value: {{ $.Values.image.registry }}/{{ .Values.front.imageName }}
+          value: "{{ $.Values.image.registry }}/{{ .Values.build.front.imageName }}"
         - name: repo-branch
           value: $(params.repo-branch)
     - name: build-docker-back
@@ -128,13 +128,13 @@ spec:
           workspace: dockerAuthConfig
       params:
         - name: path-dockerfile
-          value: "{{ .Values.back.file_path }}"
+          value: "{{ .Values.build.back.file_path }}"
         - name: DOCKERFILE
           value: Containerfile
         - name: context-dockerfile
           value: .
         - name: IMAGE
-          value: "{{ $.Values.image.registry }}/{{ $.Values.back.imageName }}"
+          value: "{{ $.Values.image.registry }}/{{ $.Values.build.back.imageName }}"
         - name: repo-branch
           value: $(params.repo-branch)
     - name: scan-image-front
@@ -148,7 +148,7 @@ spec:
         - name: project
           value: {{.Values.image.harbor.project}}
         - name: repository
-          value: "{{.Values.image.harbor.image}}/{{ $.Values.front.imageName }}"
+          value: "{{.Values.image.harbor.image}}/{{ $.Values.build.front.imageName }}"
         - name: tag
           value: $(params.repo-branch)
         - name: harbor_endpoint
@@ -164,7 +164,7 @@ spec:
         - name: project
           value: {{.Values.image.harbor.project}}
         - name: repository
-          value: "{{.Values.image.harbor.image}}/{{ $.Values.back.imageName }}"
+          value: "{{.Values.image.harbor.image}}/{{ $.Values.build.back.imageName }}"
         - name: tag
           value: $(params.repo-branch)
         - name: harbor_endpoint
