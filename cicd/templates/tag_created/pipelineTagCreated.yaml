@@ -115,7 +115,7 @@ spec:
         - name: IMAGE
           value: "{{ $.Values.image.registry }}/{{ .Values.build.front.imageName }}"
         - name: repo-branch
-          value: $(params.repo-branch)
+          value: $(params.repo-revision)
     - name: build-docker-back
       runAfter: ["fetch-source-back"]
       taskRef:
@@ -135,7 +135,7 @@ spec:
         - name: IMAGE
           value: "{{ $.Values.image.registry }}/{{ $.Values.build.back.imageName }}"
         - name: repo-branch
-          value: $(params.repo-branch)
+          value: $(params.repo-revision)
     - name: scan-image-front
       runAfter: ["build-docker-front"]
       taskRef:
@@ -149,7 +149,7 @@ spec:
         - name: repository
           value: "{{.Values.image.harbor.image}}/{{ $.Values.build.front.imageName }}"
         - name: tag
-          value: $(params.repo-branch)
+          value: $(params.repo-revision)
         - name: harbor_endpoint
           value: {{.Values.image.harbor.endpoint}}
     - name: scan-image-back
@@ -165,7 +165,7 @@ spec:
         - name: repository
           value: "{{.Values.image.harbor.image}}/{{ $.Values.build.back.imageName }}"
         - name: tag
-          value: $(params.repo-branch)
+          value: $(params.repo-revision)
         - name: harbor_endpoint
           value: {{.Values.image.harbor.endpoint}}
   results:
