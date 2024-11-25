@@ -53,14 +53,26 @@ spec:
       description: |
         This workspace contains the discord webhook to send messages.
   tasks:
+    - name: fetch-source-front
+      taskRef:
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: shared-data-front
+      params:
+        - name: url
+          value: $(params.repo-url)
+        - name: revision
+          value: $(params.repo-revision)
     - name: github-status-pending
+      runAfter: ["fetch-source-front"]
       taskRef:
         name: github-set-status
       params:
         - name: REPO_FULL_NAME
           value: $(params.repo-small-path)
         - name: SHA
-          value: $(params.repo-revision)
+          value: $(tasks.fetch-source-front.results.commit)
         - name: DESCRIPTION
           value: Monofolio build and push
         - name: STATE
@@ -73,20 +85,7 @@ spec:
           value: {{.Values.config.baseUrl}}/$(context.pipelineRun.name)
         - name: GITHUB_KEY
           value: {{ .Values.secretVault.github_key }}
-    - name: fetch-source-front
-      runAfter: ["github-status-pending"]
-      taskRef:
-        name: git-clone
-      workspaces:
-        - name: output
-          workspace: shared-data-front
-      params:
-        - name: url
-          value: $(params.repo-url)
-        - name: revision
-          value: $(params.repo-revision)
     - name: fetch-source-back
-      runAfter: ["github-status-pending"]
       taskRef:
         name: git-clone
       workspaces:
@@ -202,7 +201,7 @@ spec:
         - name: REPO_FULL_NAME
           value: $(params.repo-small-path)
         - name: SHA
-          value: $(params.repo-revision)
+          value: $(tasks.fetch-source-front.results.commit)
         - name: DESCRIPTION
           value: Monofolio build and push
         - name: CONTEXT
@@ -227,7 +226,7 @@ spec:
         - name: REPO_FULL_NAME
           value: $(params.repo-small-path)
         - name: SHA
-          value: $(params.repo-revision)
+          value: $(tasks.fetch-source-front.results.commit)
         - name: DESCRIPTION
           value: Monofolio build and push
         - name: CONTEXT
@@ -252,7 +251,7 @@ spec:
         - name: REPO_FULL_NAME
           value: $(params.repo-small-path)
         - name: SHA
-          value: $(params.repo-revision)
+          value: $(tasks.fetch-source-front.results.commit)
         - name: DESCRIPTION
           value: Monofolio build and push
         - name: CONTEXT
