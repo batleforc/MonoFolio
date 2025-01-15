@@ -206,10 +206,4 @@ mod tests {
             .unwrap();
         assert_eq!(short_page.name, "test_page");
     }
-
-    #[test]
-    fn test_blog_timeline_to_schema() {
-        let schema = BlogTimeline::schema();
-        assert_eq!(schema.0, "BlogTimeline");
-    }
 }

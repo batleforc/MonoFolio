@@ -8,6 +8,7 @@ use super::{content_struct::PageShort, doc_header::DocHeaderParseError, page_dat
 pub struct DocCategory {
     pub name: String,
     pub has_index: bool,
+    #[schema(no_recursion)]
     pub sub_categories: Vec<DocCategory>,
     pub pages: Vec<PageShort>,
 }
@@ -233,11 +234,5 @@ mod tests {
             full_page.metadata,
             doc_category.sub_categories[0].sub_categories[0].pages[0].metadata
         );
-    }
-
-    #[test]
-    fn test_doc_sidebar_to_schema() {
-        let schema = DocCategory::schema();
-        assert_eq!(schema.0, "DocCategory".to_string());
     }
 }

@@ -8,6 +8,7 @@ use markdown_struct::{
 use tracing::info;
 use tracing_actix_web::{RequestId, TracingLogger};
 use utoipa::OpenApi;
+use utoipa_scalar::{Scalar, Servable};
 use utoipa_swagger_ui::SwaggerUi;
 
 use crate::{
@@ -52,6 +53,7 @@ pub async fn init_api(
             .wrap(cors)
             .wrap(Compress::default())
             .service(swagger_ui)
+            .service(Scalar::with_url("/api/scalar", openapi.clone()))
             .service(
                 Scope::new("/api")
                     .service(init_blog_api())

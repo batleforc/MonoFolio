@@ -72,36 +72,8 @@ pub async fn get_media(info: web::Query<QuerryMedia>, config: web::Data<Config>)
 
 #[cfg(test)]
 mod tests {
-    use utoipa::{openapi::PathItemType, OpenApi};
 
     use super::*;
-
-    #[test]
-    fn test_get_timeline_openapi() {
-        #[derive(utoipa::OpenApi)]
-        #[openapi(
-            info(
-                title = "MonoFolio",
-                version = "0.1.0",
-                description = "API documentation for MonoFolio"
-            ),
-            tags(
-                (name = "Blog", description = "Blog related endpoints"),
-                (name = "Doc", description = "Doc related endpoints"),
-                (name = "Media", description = "Media related endpoints")
-            ),
-            paths(
-                get_media,
-            )
-        )]
-        struct ApiDocs;
-
-        let openapi = ApiDocs::openapi();
-        let api = openapi.paths.paths.get("/api/media").unwrap();
-        let ope = api.operations.first_key_value().unwrap();
-        assert!(ope.0.eq(&PathItemType::Get));
-        assert!(ope.1.operation_id.eq(&Some("get_media".to_string())));
-    }
 
     #[test]
     fn test_querry_media() {

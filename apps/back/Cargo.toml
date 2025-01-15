@@ -21,11 +21,12 @@ tracing = { workspace = true }
 tokio = { workspace = true }
 actix-web = "4"
 utoipa = { workspace = true, features = ["actix_extras"] }
-utoipa-swagger-ui = { version = "7", features = ["actix-web"] }
+utoipa-swagger-ui = { version = "8", features = ["actix-web"] }
 actix-cors = "0.7"
 tracing-actix-web = "0.7"
 infer = "0.16"
 
+utoipa-scalar = { version = "0.2", features = ["actix-web"] }
 
 # Code that handle the CLI
 [[bin]]

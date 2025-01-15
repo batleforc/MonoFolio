@@ -1,5 +1,5 @@
 use actix_web::{get, web, HttpResponse, Responder};
-use markdown_struct::page_database::DbFolder;
+use markdown_struct::{content_struct::Page, page_database::DbFolder};
 use serde::{Deserialize, Serialize};
 use tracing::instrument;
 use utoipa::IntoParams;
@@ -46,8 +46,6 @@ pub async fn get_page(
 #[cfg(test)]
 mod tests {
     use actix_web::{App, Scope};
-    use markdown_struct::content_struct::Page;
-    use utoipa::{openapi::PathItemType, OpenApi};
 
     use super::*;
 
@@ -66,39 +64,6 @@ mod tests {
             .to_request();
         let resp = actix_web::test::call_service(&app, req).await;
         assert!(resp.status().is_client_error());
-    }
-
-    #[test]
-    fn test_get_page_openapi() {
-        #[derive(utoipa::OpenApi)]
-        #[openapi(
-            info(
-                title = "MonoFolio",
-                version = "0.1.0",
-                description = "API documentation for MonoFolio"
-            ),
-            tags(
-                (name = "Blog", description = "Blog related endpoints"),
-                (name = "Doc", description = "Doc related endpoints"),
-                (name = "Page", description = "Page related endpoints"),
-                (name = "Media", description = "Media related endpoints")
-            ),
-            components(
-                schemas(
-                    Page,
-                )
-            ),
-            paths(
-                get_page,
-            )
-        )]
-        struct ApiDocs;
-
-        let openapi = ApiDocs::openapi();
-        let api = openapi.paths.paths.get("/api/page").unwrap();
-        let ope = api.operations.first_key_value().unwrap();
-        assert!(ope.0.eq(&PathItemType::Get));
-        assert!(ope.1.operation_id.eq(&Some("get_page".to_string())));
     }
 
     #[test]

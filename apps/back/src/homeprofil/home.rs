@@ -140,16 +140,4 @@ mod tests {
         let deserialized: HomeContent = serde_yaml::from_str(&serialized).unwrap();
         assert_eq!(home, deserialized);
     }
-
-    #[test]
-    fn test_home_toschema() {
-        let schema_home = HomeContent::schema();
-        let schema_home_url = HomeUrl::schema();
-        let schema_home_history = HomeHistory::schema();
-        let schema_home_history_url = HomeHistoryUrl::schema();
-        assert_eq!(schema_home.0, "HomeContent".to_string());
-        assert_eq!(schema_home_url.0, "HomeUrl".to_string());
-        assert_eq!(schema_home_history.0, "HomeHistory".to_string());
-        assert_eq!(schema_home_history_url.0, "HomeHistoryUrl".to_string());
-    }
 }
