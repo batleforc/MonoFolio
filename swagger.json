@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "MonoFolio",
     "description": "This is the API that serves the content of the MonoFolio website to the front end, the MonoFolio idea is to have the Portfolio Front and Backend in a single repository.",
@@ -188,6 +188,9 @@
             "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/PageShort"
+            },
+            "propertyNames": {
+              "type": "string"
             }
           }
         }
@@ -235,12 +238,16 @@
             "format": "date-time"
           },
           "description": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "image": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "links": {
             "type": "array",
@@ -395,11 +402,13 @@
             "type": "string"
           },
           "url": {
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "items": {
               "$ref": "#/components/schemas/HomeHistoryUrl"
-            },
-            "nullable": true
+            }
           },
           "weight": {
             "type": "integer",
