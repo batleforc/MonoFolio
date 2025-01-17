@@ -19,7 +19,7 @@ metadata:
     backstage.io/managed-by-location: url:https://github.com/batleforc/Monofolio/blob/main/catalog-info-front.yaml
     backstage.io/source-location: url:https://github.com/batleforc/Monofolio/blob/main/
     github.com/project-slug: batleforc/Monofolio
-    endoflife.date/products: nodejs@21
+    endoflife.date/products: nodejs@23
     backstage.io/kubernetes-namespace: portfolio
     janus-idp.io/tekton: monofolio
     backstage.io/kubernetes-id: monofolio

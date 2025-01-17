@@ -1,4 +1,4 @@
-FROM registry.hub.docker.com/library/rust:1.82 AS build_base
+FROM registry.hub.docker.com/library/rust:1.84 AS build_base
 
 WORKDIR /app
 

@@ -19,7 +19,7 @@ metadata:
     backstage.io/source-location: url:https://github.com/batleforc/Monofolio/blob/main/
     github.com/project-slug: batleforc/Monofolio
     backstage.io/spectral-ruleset-url: https://github.com/batleforc/Monofolio/blob/main/swagger.json
-    endoflife.date/products: rust@1.80
+    endoflife.date/products: rust@1.84
     backstage.io/kubernetes-namespace: portfolio
     janus-idp.io/tekton: monofolio
     backstage.io/kubernetes-id: monofolio
