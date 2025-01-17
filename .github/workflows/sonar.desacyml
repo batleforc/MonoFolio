@@ -1,0 +1,63 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# rust-clippy is a tool that runs a bunch of lints to catch common
+# mistakes in your Rust code and help improve your Rust code.
+# More details at https://github.com/rust-lang/rust-clippy
+# and https://rust-lang.github.io/rust-clippy/
+
+name: sonar
+
+on:
+  push:
+    branches: ['main', '*']
+    paths:
+      - '**/back/**/*.rs'
+      - 'folio_content/**/*'
+      - '**/pong/**/*.rs'
+      - '**/front/**/*'
+      - 'libs/front/**/*'
+      - 'folio_content/**/*'
+  schedule:
+    - cron: '50 23 * * *'
+
+jobs:
+  rust-pre-analyze:
+    name: Run rust sonar pre analyze
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+          components: clippy, rustfmt
+
+      - name: Install required cargo
+        run: cargo install cargo-audit cargo-sonar && cargo install --locked cargo-outdated
+
+      - name: Run rust-clippy
+        run: cargo clippy --all-features --message-format=json > clippy-report.json
+        continue-on-error: true
+
+      - name: Run audit
+        run: cargo audit --json > audit-report.json
+        continue-on-error: true
+      - name: Run outdated
+        run: cargo outdated --format json --depth 1 > outdated-report.json
+        continue-on-error: true
+      - name: Make report
+        run: cargo sonar --clippy --audit --outdated --clippy-path clippy-report.json --audit-path audit-report.json --outdated-path outdated-report.json
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: sonar-report
+          path: sonar-issues.json
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_KEY }}
+          SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
