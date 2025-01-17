@@ -66,7 +66,7 @@ const sidebarOpen = ref(fromOpen.value);
 </template>
 
 <style lang="scss">
-@import "../../var.scss";
+@use "../../var.scss" as *;
 
 .docSidebarTitle {
   @apply cursor-pointer flex justify-between;

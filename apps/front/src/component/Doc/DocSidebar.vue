@@ -10,9 +10,9 @@ const docStore = useDocStore();
 let path = ref(Array.isArray(route.params.page) ? route.params.page : [route.params.page]);
 
 watch(() => route.params.page, (newValue, oldValue) => {
-    if (newValue !== oldValue) {
-        path.value = Array.isArray(newValue) ? newValue : [newValue];
-    }
+  if (newValue !== oldValue) {
+    path.value = Array.isArray(newValue) ? newValue : [newValue];
+  }
 });
 
 let showMobileSidebar = ref(false);
@@ -20,38 +20,38 @@ let showMobileSidebar = ref(false);
 </script>
 
 <template>
-    <aside class="docSidebar" :class="showMobileSidebar ? 'docSidebarShowMobile' : ''">
-        <RouterLink :to="{ name: 'doc' }">Doc Home</RouterLink>
-        <DocSidebarItem :path="path" v-for="categorie in docStore.docContent.sub_categories" v-bind:key="categorie.name"
-            :docContent="categorie" />
-    </aside>
-    <div class="docSidebarMobile">
-        <button @click="showMobileSidebar = !showMobileSidebar">
-            <IcoMoonSVG icon="burger" />
-        </button>
-    </div>
+  <aside class="docSidebar" :class="showMobileSidebar ? 'docSidebarShowMobile' : ''">
+    <RouterLink :to="{ name: 'doc' }">Doc Home</RouterLink>
+    <DocSidebarItem :path="path" v-for="categorie in docStore.docContent.sub_categories" v-bind:key="categorie.name"
+      :docContent="categorie" />
+  </aside>
+  <div class="docSidebarMobile">
+    <button @click="showMobileSidebar = !showMobileSidebar">
+      <IcoMoonSVG icon="burger" />
+    </button>
+  </div>
 </template>
 
 <style lang="scss">
-@import "../../var.scss";
+@use "../../var.scss" as *;
 
 .docSidebar {
-    @apply border-r-2 min-w-48 px-4 py-2 hidden md:flex flex-col sticky;
-    background-color: $color-bgCover;
-    color: $color-textCover;
+  @apply border-r-2 min-w-48 px-4 py-2 hidden md:flex flex-col sticky;
+  background-color: $color-bgCover;
+  color: $color-textCover;
 }
 
 .docSidebarShowMobile {
-    @apply flex;
+  @apply flex;
 }
 
 .docSidebarMobile {
-    @apply md:hidden fixed bottom-0 right-0 p-2 m-2;
-    background-color: $color-bgCover;
-    color: $color-textCover;
+  @apply md:hidden fixed bottom-0 right-0 p-2 m-2;
+  background-color: $color-bgCover;
+  color: $color-textCover;
 
-    .ico-burger {
-        @apply text-2xl;
-    }
+  .ico-burger {
+    @apply text-2xl;
+  }
 }
 </style>

@@ -1,4 +1,4 @@
-@import "../var.scss";
+@use "../var.scss" as *;
 
 .docContainer {
     @apply flex grow h-full absolute top-0 w-full pt-16;
