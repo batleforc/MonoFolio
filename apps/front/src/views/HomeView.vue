@@ -95,7 +95,7 @@ const { type } = useBreakpoints();
 </template>
 
 <style lang="scss">
-@import '../var.scss';
+@use '../var.scss' as *;
 
 .homePageGoFurtherCard {
   @apply w-64 m-2;

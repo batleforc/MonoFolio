@@ -1,4 +1,4 @@
-@import './var.scss';
+@use './var.scss' as *;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

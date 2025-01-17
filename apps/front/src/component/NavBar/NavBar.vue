@@ -53,7 +53,7 @@ const items = [
     </template>
     <template #item="{ item }">
       <HeroLink :link="item.to" :icon="item.icon" className="ico-navBarHeader" :smooth="item.smooth"
-        :internal="item.internal" :label="item.label" labelClassName="navBarHeaderLabel"
+        :internal="item.internal" :label="String(item.label)" labelClassName="navBarHeaderLabel"
         linkClassName="flex items-center navBarHeaderItem" />
     </template>
   </Menubar>
@@ -61,7 +61,7 @@ const items = [
 
 
 <style lang="scss">
-@import "../../var.scss";
+@use "../../var.scss" as *;
 
 .navBarHeaderItem:hover {
   background-color: $color-bgCoverLighter;

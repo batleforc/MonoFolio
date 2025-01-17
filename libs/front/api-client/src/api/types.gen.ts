@@ -24,12 +24,12 @@ export type DocCategory = {
  */
 export type DocHeader = {
     date: string;
-    description?: (string) | null;
-    image?: (string) | null;
+    description?: string | null;
+    image?: string | null;
     links?: Array<DocHeaderLink>;
     spec?: DocHeaderSpec;
-    tags?: Array<(string)>;
-    techno?: Array<(string)>;
+    tags?: Array<string>;
+    techno?: Array<string>;
     title: string;
     weight?: number;
     writter?: DocHeaderWritter;
@@ -65,7 +65,7 @@ export type DocHeaderWritter = {
  * Content of the home page.
  */
 export type HomeContent = {
-    coverTitle: Array<(string)>;
+    coverTitle: Array<string>;
     cvUrl: string;
     history: Array<HomeHistory>;
     name: string;
@@ -122,40 +122,133 @@ export type PageShort = {
     path: string;
 };
 
-export type GetTimelineResponse = (BlogTimeline);
+export type GetTimelineData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/api/blog';
+};
 
-export type GetTimelineError = (unknown);
+export type GetTimelineErrors = {
+    /**
+     * Internal server error.
+     */
+    500: unknown;
+};
 
-export type GetDocSidebarResponse = (DocCategory);
+export type GetTimelineResponses = {
+    /**
+     * Content of the blog timeline ordered by date.
+     */
+    200: BlogTimeline;
+};
 
-export type GetDocSidebarError = (unknown);
+export type GetTimelineResponse = GetTimelineResponses[keyof GetTimelineResponses];
 
-export type GetHomeResponse = (HomeContent);
+export type GetDocSidebarData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/api/doc';
+};
 
-export type GetHomeError = (unknown);
+export type GetDocSidebarErrors = {
+    /**
+     * Internal server error.
+     */
+    500: unknown;
+};
+
+export type GetDocSidebarResponses = {
+    /**
+     * Doc category sidebar.
+     */
+    200: DocCategory;
+};
+
+export type GetDocSidebarResponse = GetDocSidebarResponses[keyof GetDocSidebarResponses];
+
+export type GetHomeData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/api/home';
+};
+
+export type GetHomeErrors = {
+    /**
+     * Internal server error.
+     */
+    500: unknown;
+};
+
+export type GetHomeResponses = {
+    /**
+     * Content of the home page.
+     */
+    200: HomeContent;
+};
+
+export type GetHomeResponse = GetHomeResponses[keyof GetHomeResponses];
 
 export type GetMediaData = {
+    body?: never;
+    path?: never;
     query: {
         /**
          * Path to the media asset.
          */
         path: string;
     };
+    url: '/api/media';
 };
 
-export type GetMediaResponse = (unknown);
+export type GetMediaErrors = {
+    /**
+     * Page not found inside of the Media folder or path invalid.
+     */
+    404: unknown;
+    /**
+     * Internal server error.
+     */
+    500: unknown;
+};
 
-export type GetMediaError = (unknown);
+export type GetMediaResponses = {
+    /**
+     * Media content if found.
+     */
+    200: unknown;
+};
 
 export type GetPageData = {
+    body?: never;
+    path?: never;
     query: {
         /**
          * Path to the markdown page.
          */
         path: string;
     };
+    url: '/api/page';
 };
 
-export type GetPageResponse = (Page);
+export type GetPageErrors = {
+    /**
+     * Page not found or path invalid.
+     */
+    404: unknown;
+    /**
+     * Internal server error.
+     */
+    500: unknown;
+};
 
-export type GetPageError = (unknown);
+export type GetPageResponses = {
+    /**
+     * Content of a full page if found.
+     */
+    200: Page;
+};
+
+export type GetPageResponse = GetPageResponses[keyof GetPageResponses];
