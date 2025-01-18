@@ -9,6 +9,7 @@ members = [
   'apps/pong',
 ]
 
+
 [profile.release]
 lto = true
 
