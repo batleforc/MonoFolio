@@ -39,6 +39,10 @@ jobs:
           path: .
           artifact-name: sbom.json
           format: json
+      - name: Download math result for job 2
+        uses: actions/download-artifact@v4
+        with:
+          name: sbom.json
       - name: Push to DepTrack
         uses: DependencyTrack/gh-upload-sbom@v3
         with:
