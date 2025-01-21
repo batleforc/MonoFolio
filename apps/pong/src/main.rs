@@ -1,8 +1,6 @@
 use bevy::{
     app::{App, Startup, Update},
-    prelude::{
-        default, Camera, Camera2dBundle, Commands, IntoSystemConfigs, PluginGroup, Query, Transform,
-    },
+    prelude::{default, Camera2d, Commands, IntoSystemConfigs, PluginGroup, Query, Transform},
     window::{Window, WindowPlugin},
     DefaultPlugins,
 };
@@ -18,13 +16,7 @@ use pong::model::{
 
 fn add_cam(mut commands: Commands) {
     println!("Spawning Camera");
-    commands.spawn(Camera2dBundle {
-        camera: Camera {
-            hdr: true,
-            ..default()
-        },
-        ..default()
-    });
+    commands.spawn(Camera2d);
 }
 
 fn project_positions(mut positionables: Query<(&mut Transform, &Position)>) {

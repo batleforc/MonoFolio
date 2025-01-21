@@ -3,8 +3,10 @@ use bevy::{
     color::Color,
     input::ButtonInput,
     math::Vec2,
-    prelude::{Bundle, Commands, Component, KeyCode, Mesh, Query, Rectangle, Res, ResMut, With},
-    sprite::{ColorMaterial, MaterialMesh2dBundle},
+    prelude::{
+        Bundle, Commands, Component, KeyCode, Mesh, Mesh2d, Query, Rectangle, Res, ResMut, With,
+    },
+    sprite::{ColorMaterial, MeshMaterial2d},
     window::Window,
 };
 
@@ -57,20 +59,14 @@ pub fn spawn_user_row(
 
         commands.spawn((
             UserRowBundle::new(Scorer::Player1, right_paddle_x, 0.),
-            MaterialMesh2dBundle {
-                mesh: mesh_handle.clone().into(),
-                material: materials.add(ColorMaterial::from(Color::srgb(0., 1., 0.))),
-                ..Default::default()
-            },
+            Mesh2d(mesh_handle.clone()),
+            MeshMaterial2d(materials.add(ColorMaterial::from(Color::srgb(0., 1., 0.)))),
         ));
 
         commands.spawn((
             UserRowBundle::new(Scorer::Player2, left_paddle_x, 0.),
-            MaterialMesh2dBundle {
-                mesh: mesh_handle.into(),
-                material: materials.add(ColorMaterial::from(Color::srgb(0., 0., 1.))),
-                ..Default::default()
-            },
+            Mesh2d(mesh_handle.clone()),
+            MeshMaterial2d(materials.add(ColorMaterial::from(Color::srgb(0., 0., 1.)))),
         ));
     }
 }

@@ -2,8 +2,8 @@ use bevy::{
     asset::Assets,
     color::Color,
     math::Vec2,
-    prelude::{default, Bundle, Commands, Component, Mesh, Query, Rectangle, ResMut},
-    sprite::{ColorMaterial, MaterialMesh2dBundle},
+    prelude::{Bundle, Commands, Component, Mesh, Mesh2d, Query, Rectangle, ResMut},
+    sprite::{ColorMaterial, MeshMaterial2d},
     window::Window,
 };
 
@@ -55,20 +55,14 @@ pub fn spawn_gutters(
 
         commands.spawn((
             top_gutter,
-            MaterialMesh2dBundle {
-                mesh: mesh_handle.clone().into(),
-                material: material_handle.clone(),
-                ..default()
-            },
+            Mesh2d(mesh_handle.clone()),
+            MeshMaterial2d(material_handle.clone()),
         ));
 
         commands.spawn((
             bottom_gutter,
-            MaterialMesh2dBundle {
-                mesh: mesh_handle.into(),
-                material: material_handle.clone(),
-                ..default()
-            },
+            Mesh2d(mesh_handle.clone()),
+            MeshMaterial2d(material_handle.clone()),
         ));
     }
 }

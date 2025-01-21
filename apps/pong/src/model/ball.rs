@@ -2,8 +2,8 @@ use bevy::{
     asset::Assets,
     color::Color,
     math::Vec2,
-    prelude::{default, Bundle, Circle, Commands, Component, Mesh, Query, ResMut, With},
-    sprite::{ColorMaterial, MaterialMesh2dBundle},
+    prelude::{Bundle, Circle, Commands, Component, Mesh, Mesh2d, Query, ResMut, With},
+    sprite::{ColorMaterial, MeshMaterial2d},
 };
 
 use super::{Position, Shape, Velocity};
@@ -47,11 +47,8 @@ pub fn spawn_ball(
 
     commands.spawn((
         BallBundle::new(1., 1.),
-        MaterialMesh2dBundle {
-            mesh: mesh_handle.into(),
-            material: material_handle,
-            ..default()
-        },
+        Mesh2d(mesh_handle.clone()),
+        MeshMaterial2d(material_handle.clone()),
     ));
 }
 
