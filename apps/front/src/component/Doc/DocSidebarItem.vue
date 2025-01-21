@@ -90,7 +90,7 @@ const sidebarOpen = ref(fromOpen.value);
 }
 
 .docSidebarContent {
-  @apply overflow-hidden opacity-0 h-0 pl-2;
+  @apply overflow-hidden opacity-0 h-0 ml-2;
   display: none;
   animation: dropdown 200ms linear forwards;
 

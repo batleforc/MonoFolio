@@ -3,12 +3,19 @@ export enum BlockType {
   title = 'title',
   startEndCodeBlock = 'startEndCodeBlock',
   checkbox = 'checkbox',
+  list = 'list',
+}
+
+export interface additionalValue {
+  code?: string;
+  checked?: string;
+  indent?: number;
 }
 
 export type Block = {
   type: BlockType;
   value: string;
-  additionalValue?: string;
+  additionalValue?: additionalValue;
 };
 
 export class TitleBlock {
@@ -66,18 +73,30 @@ export const transformContent = (content: string): TitleBlock[] => {
       if (line.startsWith('```')) {
         if (codeBlock.length > 0) {
           block.type = BlockType.startEndCodeBlock;
-          block.additionalValue = codeBlock[0].replace('```', '');
+          block.additionalValue = {};
+          block.additionalValue.code = codeBlock[0].replace('```', '');
           codeBlock.shift();
           block.value = codeBlock.join('\n');
           codeBlock = [];
         } else codeBlock.push(line);
       } else if (codeBlock.length > 0) {
         codeBlock.push(line);
-      } else if (line.startsWith('- [ ]') || line.startsWith('- [x]')) {
+      } else if (
+        new RegExp('\\s{0,}-\\s\\[[x,X,\\s]\\]\\s[A-z]{0,}').test(line) ||
+        line.startsWith('- [ ]') ||
+        line.startsWith('- [x]')
+      ) {
         block.type = BlockType.checkbox;
-        if (line.startsWith('- [x]')) block.additionalValue = 'checked';
-        else block.additionalValue = 'unchecked';
+        block.additionalValue = {};
+        block.additionalValue.indent = line.split('- ')[0].length + 1;
+        if (line.startsWith('- [x]')) block.additionalValue.checked = 'checked';
+        else block.additionalValue.checked = 'unchecked';
         block.value = line.replace('- [ ]', '').replace('- [x]', '').trim();
+      } else if (new RegExp('\\s{0,}-\\s[A-z]{0,}').test(line)) {
+        block.type = BlockType.list;
+        block.value = line.replace('- ', '').trim();
+        block.additionalValue = {};
+        block.additionalValue.indent = line.split('- ')[0].length + 1;
       }
       if (titleBlocks.length === 0) {
         titleBlocks.push(new TitleBlock(''));
