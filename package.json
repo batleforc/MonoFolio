@@ -36,7 +36,7 @@
     "@nx/js": "20.3.2",
     "@nx/plugin": "20.3.2",
     "@nx/vite": "20.3.2",
-    "@nx/vue": "20.3.2",
+    "@nx/vue": "20.3.3",
     "@nx/web": "20.3.2",
     "@nx/workspace": "20.3.2",
     "@primevue/auto-import-resolver": "^4.0.4",
