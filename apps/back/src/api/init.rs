@@ -9,12 +9,15 @@ use tracing::info;
 use tracing_actix_web::{RequestId, TracingLogger};
 use utoipa::OpenApi;
 use utoipa_scalar::{Scalar, Servable};
-use utoipa_swagger_ui::SwaggerUi;
 
 use crate::{
     api::{
-        apidocs::ApiDocs, blog::init_blog_api, doc::init_doc_api, home::init_home_api,
-        media::init_media_api, page::init_page_api,
+        apidocs::ApiDocs,
+        blog::init_blog_api,
+        doc::init_doc_api,
+        home::init_home_api,
+        media::init_media_api,
+        page::{init_page_api, init_page_v2_api},
     },
     config::Config,
     homeprofil::HomeContent,
@@ -42,8 +45,6 @@ pub async fn init_api(
             .allow_any_origin()
             .allow_any_method()
             .allow_any_header();
-        let swagger_ui =
-            SwaggerUi::new("/api/docs/{_:.*}").url("/api/docs/docs.json", openapi.clone());
         App::new()
             .app_data(web::Data::new(db_folder.clone()))
             .app_data(web::Data::new(blog_timeline.clone()))
@@ -52,10 +53,10 @@ pub async fn init_api(
             .app_data(web::Data::new(config.clone()))
             .wrap(cors)
             .wrap(Compress::default())
-            .service(swagger_ui)
-            .service(Scalar::with_url("/api/scalar", openapi.clone()))
+            .service(Scalar::with_url("/api/docs", openapi.clone()))
             .service(
                 Scope::new("/api")
+                    .service(Scope::new("/v2").service(init_page_v2_api()))
                     .service(init_blog_api())
                     .service(init_page_api())
                     .service(init_doc_api())

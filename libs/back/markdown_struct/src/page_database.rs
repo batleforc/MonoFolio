@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use super::{
-    content_struct::Page,
+    content_struct::PageV2,
     doc_header::{DocHeader, DocHeaderParseError},
     folder_struct::Folder,
 };
@@ -11,7 +11,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub struct DbFolder {
     pub name: String,
-    pub pages: Vec<Page>,
+    pub pages: Vec<PageV2>,
     pub sub_folders: HashMap<String, DbFolder>,
 }
 
@@ -29,7 +29,7 @@ impl DbFolder {
         }
     }
 
-    pub fn add_page(&mut self, page: Page) {
+    pub fn add_page(&mut self, page: PageV2) {
         self.pages.push(page);
     }
 
@@ -38,13 +38,18 @@ impl DbFolder {
             .insert(folder.name.clone().to_lowercase(), folder);
     }
 
-    pub fn get_page(&self, name: &str) -> Option<&Page> {
-        self.pages
+    pub fn get_page(&self, name: &str) -> Option<&PageV2> {
+        match self
+            .pages
             .iter()
             .find(|p| p.name.to_lowercase() == name.to_lowercase())
+        {
+            Some(page) => Some(page),
+            None => None,
+        }
     }
 
-    pub fn get_page_in_sub_folder_by_path(&self, path: String) -> Option<&Page> {
+    pub fn get_page_in_sub_folder_by_path(&self, path: String) -> Option<&PageV2> {
         let path = path.split('/').collect::<Vec<&str>>();
         if path.len() == 1 {
             return self.get_page(path[0]);
@@ -83,7 +88,7 @@ impl DbFolder {
                     Ok((metadata, content)) => (metadata, content),
                     Err(e) => return Err(DbFolderGenerationError::MetadataParseError(e)),
                 };
-                db_folder.add_page(Page::new(file.name.replace(".md", ""), content, metadata));
+                db_folder.add_page(PageV2::new(file.name.replace(".md", ""), content, metadata));
             }
         }
         Ok(db_folder)
@@ -107,8 +112,8 @@ mod tests {
         }
     }
 
-    pub fn get_test_page() -> Page {
-        Page::new(
+    pub fn get_test_page() -> PageV2 {
+        PageV2::new(
             "Test Page".to_string(),
             "Test Content".to_string(),
             get_test_doc_header(),
@@ -117,7 +122,7 @@ mod tests {
 
     pub fn get_test_db_folder() -> DbFolder {
         let mut folder = DbFolder::new("Test Folder".to_string());
-        folder.add_page(get_test_page());
+        folder.add_page(get_test_page().into());
         folder
     }
 

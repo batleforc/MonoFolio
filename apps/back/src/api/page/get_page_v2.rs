@@ -1,5 +1,5 @@
 use actix_web::{get, web, HttpResponse, Responder};
-use markdown_struct::{content_struct::Page, page_database::DbFolder};
+use markdown_struct::{content_struct::PageV2, page_database::DbFolder};
 use serde::{Deserialize, Serialize};
 use tracing::instrument;
 use utoipa::IntoParams;
@@ -11,15 +11,15 @@ pub struct QuerryPage {
     pub path: String,
 }
 
-/// Get a page content
+/// Get a page content in V2
 ///
-/// Fetch page's content by page path in DbFolder.
+/// Fetch page's content by page path in DbFolder, return page in the V2 format.
 #[utoipa::path(
     tag = "Page",
-    operation_id = "get_page",
-    path = "/api/page",
+    operation_id = "get_page_v2",
+    path = "/api/v2/page",
     responses(
-        (status = 200, description = "Content of a full page if found.", body = Page),
+        (status = 200, description = "Content of a full page if found.", body = PageV2),
         (status = 404, description = "Page not found or path invalid."),
         (status = 500, description = "Internal server error."),
     ),
@@ -28,8 +28,8 @@ pub struct QuerryPage {
     )
 )]
 #[get("")]
-#[instrument(name = "get_page")]
-pub async fn get_page(
+#[instrument(name = "get_page_v2")]
+pub async fn get_page_v2(
     db_folder: web::Data<DbFolder>,
     info: web::Query<QuerryPage>,
 ) -> impl Responder {
@@ -37,7 +37,7 @@ pub async fn get_page(
         return HttpResponse::NotFound().finish();
     }
     if let Some(page) = db_folder.get_page_in_sub_folder_by_path(info.path.clone().to_lowercase()) {
-        return HttpResponse::Ok().json(Page::from(page));
+        return HttpResponse::Ok().json(page);
     } else {
         return HttpResponse::NotFound().finish();
     }
@@ -55,7 +55,7 @@ mod tests {
         let app = actix_web::test::init_service(
             App::new()
                 .app_data(web::Data::new(db_folder.clone()))
-                .service(Scope::new("/api/page").service(get_page)),
+                .service(Scope::new("/api/page").service(get_page_v2)),
         )
         .await;
 

@@ -1,7 +1,10 @@
 use crate::{
     api::{
         media::get_media::{self},
-        page::get_page::{self},
+        page::{
+            get_page::{self},
+            get_page_v2::{self},
+        },
     },
     homeprofil::{HomeContent, HomeHistory, HomeHistoryUrl, HomeUrl},
 };
@@ -64,6 +67,7 @@ use utoipa::OpenApi;
         get_doc_sidebar::get_doc_sidebar,
         get_home::get_home,
         get_media::get_media,
+        get_page_v2::get_page_v2
     )
 )]
 pub struct ApiDocs;

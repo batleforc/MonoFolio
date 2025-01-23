@@ -1,4 +1,7 @@
+use crate::mdast_to_schema::Node;
+
 use super::doc_header::DocHeader;
+use markdown::ParseOptions;
 use serde::{Deserialize, Serialize};
 use utoipa::ToSchema;
 
@@ -8,6 +11,91 @@ pub struct Page {
     pub name: String,
     pub content: String,
     pub metadata: DocHeader,
+}
+
+/// V2 of the page struct, containing the metadata, path and commonmark content.
+#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
+pub struct PageV2 {
+    pub name: String,
+    content: String,
+    pub metadata: DocHeader,
+    pub parsed_content: Node,
+}
+
+impl From<Page> for PageV2 {
+    fn from(page: Page) -> Self {
+        PageV2 {
+            name: page.name,
+            content: page.content.clone(),
+            metadata: page.metadata,
+            parsed_content: markdown::to_mdast(&page.content, &ParseOptions::gfm())
+                .unwrap()
+                .into(),
+        }
+    }
+}
+
+impl From<PageV2> for Page {
+    fn from(page: PageV2) -> Self {
+        Page {
+            name: page.name,
+            content: page.content,
+            metadata: page.metadata,
+        }
+    }
+}
+
+impl From<&Page> for PageV2 {
+    fn from(page: &Page) -> Self {
+        PageV2 {
+            name: page.name.clone(),
+            content: page.content.clone(),
+            metadata: page.metadata.clone(),
+            parsed_content: markdown::to_mdast(&page.content, &ParseOptions::gfm())
+                .unwrap()
+                .into(),
+        }
+    }
+}
+
+impl From<&PageV2> for Page {
+    fn from(page: &PageV2) -> Self {
+        Page {
+            name: page.name.clone(),
+            content: page.content.clone(),
+            metadata: page.metadata.clone(),
+        }
+    }
+}
+
+impl PageV2 {
+    pub fn new(name: String, content: String, metadata: DocHeader) -> Self {
+        PageV2 {
+            name,
+            content: content.clone(),
+            metadata,
+            parsed_content: markdown::to_mdast(&content, &ParseOptions::gfm())
+                .unwrap()
+                .into(),
+        }
+    }
+
+    pub fn url_encode_name(&self) -> String {
+        format!(
+            "{}-{}",
+            self.metadata.date.format("%Y-%m-%d-%Hh%M"),
+            self.metadata.title
+        )
+        .replace(' ', "_")
+    }
+
+    pub fn to_short(&self, path: String) -> PageShort {
+        PageShort {
+            name: self.name.clone(),
+            path,
+            metadata: self.metadata.clone(),
+        }
+    }
 }
 
 impl Page {

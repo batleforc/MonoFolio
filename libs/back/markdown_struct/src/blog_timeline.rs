@@ -65,7 +65,10 @@ impl BlogTimeline {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::{content_struct::Page, doc_header::DocHeader};
+    use crate::{
+        content_struct::{Page, PageV2},
+        doc_header::DocHeader,
+    };
     use chrono::DateTime;
 
     pub fn get_test_doc_header() -> DocHeader {
@@ -78,8 +81,8 @@ mod tests {
         }
     }
 
-    pub fn get_test_page() -> Page {
-        Page::new(
+    pub fn get_test_page() -> PageV2 {
+        PageV2::new(
             "test_page".to_string(),
             "test_content".to_string(),
             get_test_doc_header(),

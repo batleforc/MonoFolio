@@ -15,18 +15,17 @@ serde_json = { workspace = true }
 serde_yaml = { workspace = true }
 dotenvy = "0.15"
 tracing = { workspace = true }
-
+markdown = { workspace = true }
 # Api Dependencies
 
 tokio = { workspace = true }
 actix-web = "4"
 utoipa = { workspace = true, features = ["actix_extras"] }
-utoipa-swagger-ui = { version = "9", features = ["actix-web"] }
 actix-cors = "0.7"
 tracing-actix-web = "0.7"
 infer = "0.16"
-
 utoipa-scalar = { version = "0.3", features = ["actix-web"] }
+
 
 # Code that handle the CLI
 [[bin]]
