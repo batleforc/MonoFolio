@@ -173,10 +173,135 @@
           }
         }
       }
+    },
+    "/api/v2/page": {
+      "get": {
+        "tags": [
+          "Page"
+        ],
+        "summary": "Get a page content in V2",
+        "description": "Fetch page's content by page path in DbFolder, return page in the V2 format.",
+        "operationId": "get_page_v2",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "query",
+            "description": "Path to the markdown page.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content of a full page if found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageV2"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Page not found or path invalid."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "AlignKind": {
+        "type": "string",
+        "enum": [
+          "Left",
+          "Right",
+          "Center",
+          "None"
+        ]
+      },
+      "AttributeContent": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "Expression"
+            ],
+            "properties": {
+              "Expression": {
+                "$ref": "#/components/schemas/MdxJsxExpressionAttribute"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Property"
+            ],
+            "properties": {
+              "Property": {
+                "$ref": "#/components/schemas/MdxJsxAttribute"
+              }
+            }
+          }
+        ]
+      },
+      "AttributeValue": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "Expression"
+            ],
+            "properties": {
+              "Expression": {
+                "$ref": "#/components/schemas/AttributeValueExpression"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Literal"
+            ],
+            "properties": {
+              "Literal": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "AttributeValueExpression": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "Blockquote": {
+        "type": "object",
+        "required": [
+          "children"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          }
+        }
+      },
       "BlogTimeline": {
         "type": "object",
         "description": "Timeline of the blog space, contain the short representation of the pages.",
@@ -191,6 +316,73 @@
             },
             "propertyNames": {
               "type": "string"
+            }
+          }
+        }
+      },
+      "Break": {
+        "type": "object"
+      },
+      "Code": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "lang": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "meta": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "Definition": {
+        "type": "object",
+        "required": [
+          "url",
+          "identifier"
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string"
+          },
+          "label": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "Delete": {
+        "type": "object",
+        "required": [
+          "children"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
             }
           }
         }
@@ -333,6 +525,81 @@
           }
         }
       },
+      "Emphasis": {
+        "type": "object",
+        "required": [
+          "children"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          }
+        }
+      },
+      "FootnoteDefinition": {
+        "type": "object",
+        "required": [
+          "children",
+          "identifier"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          },
+          "identifier": {
+            "type": "string"
+          },
+          "label": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "FootnoteReference": {
+        "type": "object",
+        "required": [
+          "identifier"
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string"
+          },
+          "label": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "Heading": {
+        "type": "object",
+        "required": [
+          "children",
+          "depth"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          },
+          "depth": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          }
+        }
+      },
       "HomeContent": {
         "type": "object",
         "description": "Content of the home page.",
@@ -456,6 +723,706 @@
           }
         }
       },
+      "Html": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "Image": {
+        "type": "object",
+        "required": [
+          "alt",
+          "url"
+        ],
+        "properties": {
+          "alt": {
+            "type": "string"
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "ImageReference": {
+        "type": "object",
+        "required": [
+          "alt",
+          "referenceType",
+          "identifier"
+        ],
+        "properties": {
+          "alt": {
+            "type": "string"
+          },
+          "identifier": {
+            "type": "string"
+          },
+          "label": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "referenceType": {
+            "$ref": "#/components/schemas/ReferenceKind"
+          }
+        }
+      },
+      "InlineCode": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "InlineMath": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "Link": {
+        "type": "object",
+        "required": [
+          "children",
+          "url"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "LinkReference": {
+        "type": "object",
+        "required": [
+          "children",
+          "referenceType",
+          "identifier"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          },
+          "identifier": {
+            "type": "string"
+          },
+          "label": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "referenceType": {
+            "$ref": "#/components/schemas/ReferenceKind"
+          }
+        }
+      },
+      "List": {
+        "type": "object",
+        "required": [
+          "children",
+          "ordered",
+          "spread"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "spread": {
+            "type": "boolean"
+          },
+          "start": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32",
+            "minimum": 0
+          }
+        }
+      },
+      "ListItem": {
+        "type": "object",
+        "required": [
+          "children",
+          "spread"
+        ],
+        "properties": {
+          "checked": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          },
+          "spread": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Math": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "meta": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "MdxFlowExpression": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "MdxJsxAttribute": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/AttributeValue"
+              }
+            ]
+          }
+        }
+      },
+      "MdxJsxExpressionAttribute": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "Value."
+          }
+        }
+      },
+      "MdxJsxFlowElement": {
+        "type": "object",
+        "required": [
+          "children",
+          "attributes"
+        ],
+        "properties": {
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeContent"
+            }
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "MdxJsxTextElement": {
+        "type": "object",
+        "required": [
+          "children",
+          "attributes"
+        ],
+        "properties": {
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeContent"
+            }
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "MdxTextExpression": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "MdxjsEsm": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "Root"
+            ],
+            "properties": {
+              "Root": {
+                "$ref": "#/components/schemas/Root"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Blockquote"
+            ],
+            "properties": {
+              "Blockquote": {
+                "$ref": "#/components/schemas/Blockquote"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "FootnoteDefinition"
+            ],
+            "properties": {
+              "FootnoteDefinition": {
+                "$ref": "#/components/schemas/FootnoteDefinition"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "MdxJsxFlowElement"
+            ],
+            "properties": {
+              "MdxJsxFlowElement": {
+                "$ref": "#/components/schemas/MdxJsxFlowElement"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "List"
+            ],
+            "properties": {
+              "List": {
+                "$ref": "#/components/schemas/List"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "MdxjsEsm"
+            ],
+            "properties": {
+              "MdxjsEsm": {
+                "$ref": "#/components/schemas/MdxjsEsm"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Toml"
+            ],
+            "properties": {
+              "Toml": {
+                "$ref": "#/components/schemas/Toml"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Yaml"
+            ],
+            "properties": {
+              "Yaml": {
+                "$ref": "#/components/schemas/Yaml"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Break"
+            ],
+            "properties": {
+              "Break": {
+                "$ref": "#/components/schemas/Break"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "InlineCode"
+            ],
+            "properties": {
+              "InlineCode": {
+                "$ref": "#/components/schemas/InlineCode"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "InlineMath"
+            ],
+            "properties": {
+              "InlineMath": {
+                "$ref": "#/components/schemas/InlineMath"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Delete"
+            ],
+            "properties": {
+              "Delete": {
+                "$ref": "#/components/schemas/Delete"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Emphasis"
+            ],
+            "properties": {
+              "Emphasis": {
+                "$ref": "#/components/schemas/Emphasis"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "MdxTextExpression"
+            ],
+            "properties": {
+              "MdxTextExpression": {
+                "$ref": "#/components/schemas/MdxTextExpression"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "FootnoteReference"
+            ],
+            "properties": {
+              "FootnoteReference": {
+                "$ref": "#/components/schemas/FootnoteReference"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Html"
+            ],
+            "properties": {
+              "Html": {
+                "$ref": "#/components/schemas/Html"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Image"
+            ],
+            "properties": {
+              "Image": {
+                "$ref": "#/components/schemas/Image"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "ImageReference"
+            ],
+            "properties": {
+              "ImageReference": {
+                "$ref": "#/components/schemas/ImageReference"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "MdxJsxTextElement"
+            ],
+            "properties": {
+              "MdxJsxTextElement": {
+                "$ref": "#/components/schemas/MdxJsxTextElement"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Link"
+            ],
+            "properties": {
+              "Link": {
+                "$ref": "#/components/schemas/Link"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "LinkReference"
+            ],
+            "properties": {
+              "LinkReference": {
+                "$ref": "#/components/schemas/LinkReference"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Strong"
+            ],
+            "properties": {
+              "Strong": {
+                "$ref": "#/components/schemas/Strong"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Text"
+            ],
+            "properties": {
+              "Text": {
+                "$ref": "#/components/schemas/Text"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Code"
+            ],
+            "properties": {
+              "Code": {
+                "$ref": "#/components/schemas/Code"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Math"
+            ],
+            "properties": {
+              "Math": {
+                "$ref": "#/components/schemas/Math"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "MdxFlowExpression"
+            ],
+            "properties": {
+              "MdxFlowExpression": {
+                "$ref": "#/components/schemas/MdxFlowExpression"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Heading"
+            ],
+            "properties": {
+              "Heading": {
+                "$ref": "#/components/schemas/Heading"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Table"
+            ],
+            "properties": {
+              "Table": {
+                "$ref": "#/components/schemas/Table"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "ThematicBreak"
+            ],
+            "properties": {
+              "ThematicBreak": {
+                "$ref": "#/components/schemas/ThematicBreak"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "TableRow"
+            ],
+            "properties": {
+              "TableRow": {
+                "$ref": "#/components/schemas/TableRow"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "TableCell"
+            ],
+            "properties": {
+              "TableCell": {
+                "$ref": "#/components/schemas/TableCell"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "ListItem"
+            ],
+            "properties": {
+              "ListItem": {
+                "$ref": "#/components/schemas/ListItem"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Definition"
+            ],
+            "properties": {
+              "Definition": {
+                "$ref": "#/components/schemas/Definition"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "Paragraph"
+            ],
+            "properties": {
+              "Paragraph": {
+                "$ref": "#/components/schemas/Paragraph"
+              }
+            }
+          }
+        ]
+      },
       "Page": {
         "type": "object",
         "description": "A page containing the content, metadata and name of the page.",
@@ -492,6 +1459,165 @@
             "type": "string"
           },
           "path": {
+            "type": "string"
+          }
+        }
+      },
+      "PageV2": {
+        "type": "object",
+        "description": "V2 of the page struct, containing the metadata, path and commonmark content.",
+        "required": [
+          "name",
+          "content",
+          "metadata",
+          "parsed_content"
+        ],
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/DocHeader"
+          },
+          "name": {
+            "type": "string"
+          },
+          "parsed_content": {
+            "$ref": "#/components/schemas/Node"
+          }
+        }
+      },
+      "Paragraph": {
+        "type": "object",
+        "required": [
+          "children"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          }
+        }
+      },
+      "ReferenceKind": {
+        "type": "string",
+        "enum": [
+          "Shortcut",
+          "Collapsed",
+          "Full"
+        ]
+      },
+      "Root": {
+        "type": "object",
+        "required": [
+          "children"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          }
+        }
+      },
+      "Strong": {
+        "type": "object",
+        "required": [
+          "children"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          }
+        }
+      },
+      "Table": {
+        "type": "object",
+        "required": [
+          "children",
+          "align"
+        ],
+        "properties": {
+          "align": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AlignKind"
+            }
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          }
+        }
+      },
+      "TableCell": {
+        "type": "object",
+        "required": [
+          "children"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          }
+        }
+      },
+      "TableRow": {
+        "type": "object",
+        "required": [
+          "children"
+        ],
+        "properties": {
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Node"
+            }
+          }
+        }
+      },
+      "Text": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "ThematicBreak": {
+        "type": "object"
+      },
+      "Toml": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "Yaml": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
             "type": "string"
           }
         }
