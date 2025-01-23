@@ -218,6 +218,7 @@
     "schemas": {
       "AlignKind": {
         "type": "string",
+        "description": "Alignment kind in the markdown AST.",
         "enum": [
           "Left",
           "Right",
@@ -249,7 +250,8 @@
               }
             }
           }
-        ]
+        ],
+        "description": "Attribute content in the markdown AST."
       },
       "AttributeValue": {
         "oneOf": [
@@ -275,10 +277,12 @@
               }
             }
           }
-        ]
+        ],
+        "description": "Attribute value in the markdown AST."
       },
       "AttributeValueExpression": {
         "type": "object",
+        "description": "Attribute value expression in the markdown AST.",
         "required": [
           "value"
         ],
@@ -290,6 +294,7 @@
       },
       "Blockquote": {
         "type": "object",
+        "description": "Blockquote node in the markdown AST.",
         "required": [
           "children"
         ],
@@ -321,10 +326,12 @@
         }
       },
       "Break": {
-        "type": "object"
+        "type": "object",
+        "description": "Break node in the markdown AST."
       },
       "Code": {
         "type": "object",
+        "description": "Code node in the markdown AST.",
         "required": [
           "value"
         ],
@@ -348,6 +355,7 @@
       },
       "Definition": {
         "type": "object",
+        "description": "Definition node in the markdown AST.",
         "required": [
           "url",
           "identifier"
@@ -375,6 +383,7 @@
       },
       "Delete": {
         "type": "object",
+        "description": "Delete node in the markdown AST.",
         "required": [
           "children"
         ],
@@ -527,6 +536,7 @@
       },
       "Emphasis": {
         "type": "object",
+        "description": "Emphasis node in the markdown AST.",
         "required": [
           "children"
         ],
@@ -541,6 +551,7 @@
       },
       "FootnoteDefinition": {
         "type": "object",
+        "description": "Footnote definition node in the markdown AST.",
         "required": [
           "children",
           "identifier"
@@ -565,6 +576,7 @@
       },
       "FootnoteReference": {
         "type": "object",
+        "description": "Footnote reference node in the markdown AST.",
         "required": [
           "identifier"
         ],
@@ -582,6 +594,7 @@
       },
       "Heading": {
         "type": "object",
+        "description": "Heading node in the markdown AST.",
         "required": [
           "children",
           "depth"
@@ -725,6 +738,7 @@
       },
       "Html": {
         "type": "object",
+        "description": "HTML node in the markdown AST.",
         "required": [
           "value"
         ],
@@ -736,6 +750,7 @@
       },
       "Image": {
         "type": "object",
+        "description": "Image node in the markdown AST.",
         "required": [
           "alt",
           "url"
@@ -757,6 +772,7 @@
       },
       "ImageReference": {
         "type": "object",
+        "description": "Image reference node in the markdown AST.",
         "required": [
           "alt",
           "referenceType",
@@ -782,6 +798,7 @@
       },
       "InlineCode": {
         "type": "object",
+        "description": "Inline code node in the markdown AST.",
         "required": [
           "value"
         ],
@@ -793,6 +810,7 @@
       },
       "InlineMath": {
         "type": "object",
+        "description": "Inline math node in the markdown AST.",
         "required": [
           "value"
         ],
@@ -804,6 +822,7 @@
       },
       "Link": {
         "type": "object",
+        "description": "Link node in the markdown AST.",
         "required": [
           "children",
           "url"
@@ -828,6 +847,7 @@
       },
       "LinkReference": {
         "type": "object",
+        "description": "Link reference node in the markdown AST.",
         "required": [
           "children",
           "referenceType",
@@ -856,6 +876,7 @@
       },
       "List": {
         "type": "object",
+        "description": "List node in the markdown AST.",
         "required": [
           "children",
           "ordered",
@@ -886,6 +907,7 @@
       },
       "ListItem": {
         "type": "object",
+        "description": "List item node in the markdown AST.",
         "required": [
           "children",
           "spread"
@@ -910,6 +932,7 @@
       },
       "Math": {
         "type": "object",
+        "description": "Math node in the markdown AST.",
         "required": [
           "value"
         ],
@@ -927,6 +950,7 @@
       },
       "MdxFlowExpression": {
         "type": "object",
+        "description": "MDX flow expression node in the markdown AST.",
         "required": [
           "value"
         ],
@@ -938,6 +962,7 @@
       },
       "MdxJsxAttribute": {
         "type": "object",
+        "description": "JSX attribute in the markdown AST.",
         "required": [
           "name"
         ],
@@ -959,6 +984,7 @@
       },
       "MdxJsxExpressionAttribute": {
         "type": "object",
+        "description": "JSX expression attribute in the markdown AST.",
         "required": [
           "value"
         ],
@@ -971,6 +997,7 @@
       },
       "MdxJsxFlowElement": {
         "type": "object",
+        "description": "JSX flow element node in the markdown AST.",
         "required": [
           "children",
           "attributes"
@@ -998,6 +1025,7 @@
       },
       "MdxJsxTextElement": {
         "type": "object",
+        "description": "JSX text element node in the markdown AST.",
         "required": [
           "children",
           "attributes"
@@ -1025,6 +1053,7 @@
       },
       "MdxTextExpression": {
         "type": "object",
+        "description": "MDX text expression node in the markdown AST.",
         "required": [
           "value"
         ],
@@ -1036,6 +1065,7 @@
       },
       "MdxjsEsm": {
         "type": "object",
+        "description": "ESM node in the markdown AST.",
         "required": [
           "value"
         ],
@@ -1421,7 +1451,8 @@
               }
             }
           }
-        ]
+        ],
+        "description": "Main kind of node in the markdown AST."
       },
       "Page": {
         "type": "object",
@@ -1489,6 +1520,7 @@
       },
       "Paragraph": {
         "type": "object",
+        "description": "Paragraph node in the markdown AST.",
         "required": [
           "children"
         ],
@@ -1503,6 +1535,7 @@
       },
       "ReferenceKind": {
         "type": "string",
+        "description": "Reference kind in the markdown AST.",
         "enum": [
           "Shortcut",
           "Collapsed",
@@ -1511,6 +1544,7 @@
       },
       "Root": {
         "type": "object",
+        "description": "Root node of the markdown AST.",
         "required": [
           "children"
         ],
@@ -1525,6 +1559,7 @@
       },
       "Strong": {
         "type": "object",
+        "description": "Strong node in the markdown AST.",
         "required": [
           "children"
         ],
@@ -1539,6 +1574,7 @@
       },
       "Table": {
         "type": "object",
+        "description": "Table node in the markdown AST.",
         "required": [
           "children",
           "align"
@@ -1560,6 +1596,7 @@
       },
       "TableCell": {
         "type": "object",
+        "description": "Table cell node in the markdown AST.",
         "required": [
           "children"
         ],
@@ -1574,6 +1611,7 @@
       },
       "TableRow": {
         "type": "object",
+        "description": "Table row node in the markdown AST.",
         "required": [
           "children"
         ],
@@ -1588,6 +1626,7 @@
       },
       "Text": {
         "type": "object",
+        "description": "Text node in the markdown AST.",
         "required": [
           "value"
         ],
@@ -1598,10 +1637,12 @@
         }
       },
       "ThematicBreak": {
-        "type": "object"
+        "type": "object",
+        "description": "Thematic break node in the markdown AST."
       },
       "Toml": {
         "type": "object",
+        "description": "TOML node in the markdown AST.",
         "required": [
           "value"
         ],
@@ -1613,6 +1654,7 @@
       },
       "Yaml": {
         "type": "object",
+        "description": "YAML node in the markdown AST.",
         "required": [
           "value"
         ],

@@ -2,6 +2,7 @@ use markdown::mdast;
 use serde::{Deserialize, Serialize};
 use utoipa::ToSchema;
 
+/// Main kind of node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub enum Node {
     Root(Root),
@@ -40,6 +41,7 @@ pub enum Node {
     Paragraph(Paragraph),
 }
 
+/// Root node of the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Root {
     #[schema(no_recursion)]
@@ -113,6 +115,7 @@ impl From<mdast::Root> for Root {
     }
 }
 
+/// Blockquote node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Blockquote {
     #[schema(no_recursion)]
@@ -127,6 +130,7 @@ impl From<mdast::Blockquote> for Blockquote {
     }
 }
 
+/// Footnote definition node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct FootnoteDefinition {
     #[schema(no_recursion)]
@@ -150,6 +154,7 @@ impl From<mdast::FootnoteDefinition> for FootnoteDefinition {
     }
 }
 
+/// JSX flow element node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct MdxJsxFlowElement {
     #[schema(no_recursion)]
@@ -177,6 +182,7 @@ impl From<mdast::MdxJsxFlowElement> for MdxJsxFlowElement {
     }
 }
 
+/// Attribute content in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub enum AttributeContent {
     Expression(MdxJsxExpressionAttribute),
@@ -196,6 +202,7 @@ impl From<mdast::AttributeContent> for AttributeContent {
     }
 }
 
+/// JSX expression attribute in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct MdxJsxExpressionAttribute {
     /// Value.
@@ -210,6 +217,7 @@ impl From<mdast::MdxJsxExpressionAttribute> for MdxJsxExpressionAttribute {
     }
 }
 
+/// JSX attribute in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct MdxJsxAttribute {
     pub name: String,
@@ -226,6 +234,7 @@ impl From<mdast::MdxJsxAttribute> for MdxJsxAttribute {
     }
 }
 
+/// Attribute value in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub enum AttributeValue {
     Expression(AttributeValueExpression),
@@ -243,6 +252,7 @@ impl From<mdast::AttributeValue> for AttributeValue {
     }
 }
 
+/// Attribute value expression in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct AttributeValueExpression {
     pub value: String,
@@ -256,6 +266,7 @@ impl From<mdast::AttributeValueExpression> for AttributeValueExpression {
     }
 }
 
+/// List node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct List {
     #[schema(no_recursion)]
@@ -277,6 +288,7 @@ impl From<mdast::List> for List {
     }
 }
 
+/// ESM node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct MdxjsEsm {
     pub value: String,
@@ -290,6 +302,7 @@ impl From<mdast::MdxjsEsm> for MdxjsEsm {
     }
 }
 
+/// TOML node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Toml {
     pub value: String,
@@ -301,6 +314,7 @@ impl From<mdast::Toml> for Toml {
     }
 }
 
+/// YAML node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Yaml {
     pub value: String,
@@ -312,6 +326,7 @@ impl From<mdast::Yaml> for Yaml {
     }
 }
 
+/// Break node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Break {}
 
@@ -321,6 +336,7 @@ impl From<mdast::Break> for Break {
     }
 }
 
+/// Inline code node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct InlineCode {
     pub value: String,
@@ -334,6 +350,7 @@ impl From<mdast::InlineCode> for InlineCode {
     }
 }
 
+/// Inline math node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct InlineMath {
     pub value: String,
@@ -347,6 +364,7 @@ impl From<mdast::InlineMath> for InlineMath {
     }
 }
 
+/// Delete node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Delete {
     #[schema(no_recursion)]
@@ -361,6 +379,7 @@ impl From<mdast::Delete> for Delete {
     }
 }
 
+/// Emphasis node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Emphasis {
     #[schema(no_recursion)]
@@ -375,6 +394,7 @@ impl From<mdast::Emphasis> for Emphasis {
     }
 }
 
+/// MDX text expression node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct MdxTextExpression {
     pub value: String,
@@ -388,6 +408,7 @@ impl From<mdast::MdxTextExpression> for MdxTextExpression {
     }
 }
 
+/// Footnote reference node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct FootnoteReference {
     pub identifier: String,
@@ -404,6 +425,7 @@ impl From<mdast::FootnoteReference> for FootnoteReference {
     }
 }
 
+/// HTML node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Html {
     pub value: String,
@@ -415,6 +437,7 @@ impl From<mdast::Html> for Html {
     }
 }
 
+/// Image node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Image {
     pub alt: String,
@@ -433,6 +456,7 @@ impl From<mdast::Image> for Image {
     }
 }
 
+/// Image reference node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct ImageReference {
     pub alt: String,
@@ -454,6 +478,7 @@ impl From<mdast::ImageReference> for ImageReference {
     }
 }
 
+/// JSX text element node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct MdxJsxTextElement {
     #[schema(no_recursion)]
@@ -482,6 +507,7 @@ impl From<mdast::MdxJsxTextElement> for MdxJsxTextElement {
     }
 }
 
+/// Link node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Link {
     #[schema(no_recursion)]
@@ -501,6 +527,7 @@ impl From<mdast::Link> for Link {
     }
 }
 
+/// Reference kind in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub enum ReferenceKind {
     Shortcut,
@@ -518,6 +545,7 @@ impl From<mdast::ReferenceKind> for ReferenceKind {
     }
 }
 
+/// Link reference node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct LinkReference {
     #[schema(no_recursion)]
@@ -544,6 +572,7 @@ impl From<mdast::LinkReference> for LinkReference {
     }
 }
 
+/// Strong node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Strong {
     #[schema(no_recursion)]
@@ -558,6 +587,7 @@ impl From<mdast::Strong> for Strong {
     }
 }
 
+/// Text node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Text {
     pub value: String,
@@ -569,6 +599,7 @@ impl From<mdast::Text> for Text {
     }
 }
 
+/// Code node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Code {
     pub value: String,
@@ -588,6 +619,7 @@ impl From<mdast::Code> for Code {
     }
 }
 
+/// Math node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Math {
     pub value: String,
@@ -604,6 +636,7 @@ impl From<mdast::Math> for Math {
     }
 }
 
+/// MDX flow expression node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct MdxFlowExpression {
     pub value: String,
@@ -617,6 +650,7 @@ impl From<mdast::MdxFlowExpression> for MdxFlowExpression {
     }
 }
 
+/// Heading node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Heading {
     #[schema(no_recursion)]
@@ -633,6 +667,7 @@ impl From<mdast::Heading> for Heading {
     }
 }
 
+/// Table node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Table {
     #[schema(no_recursion)]
@@ -649,6 +684,7 @@ impl From<mdast::Table> for Table {
     }
 }
 
+/// Alignment kind in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub enum AlignKind {
     Left,
@@ -668,6 +704,7 @@ impl From<mdast::AlignKind> for AlignKind {
     }
 }
 
+/// Thematic break node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct ThematicBreak {}
 
@@ -677,6 +714,7 @@ impl From<mdast::ThematicBreak> for ThematicBreak {
     }
 }
 
+/// Table row node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct TableRow {
     #[schema(no_recursion)]
@@ -691,12 +729,12 @@ impl From<mdast::TableRow> for TableRow {
     }
 }
 
+/// Table cell node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct TableCell {
     #[schema(no_recursion)]
     pub children: Vec<Node>,
 }
-
 impl From<mdast::TableCell> for TableCell {
     fn from(table_cell: mdast::TableCell) -> Self {
         TableCell {
@@ -705,6 +743,7 @@ impl From<mdast::TableCell> for TableCell {
     }
 }
 
+/// List item node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct ListItem {
     #[schema(no_recursion)]
@@ -724,6 +763,7 @@ impl From<mdast::ListItem> for ListItem {
     }
 }
 
+/// Definition node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Definition {
     pub url: String,
@@ -745,6 +785,7 @@ impl From<mdast::Definition> for Definition {
     }
 }
 
+/// Paragraph node in the markdown AST.
 #[derive(Clone, Eq, PartialEq, Debug, Serialize, Deserialize, ToSchema)]
 pub struct Paragraph {
     #[schema(no_recursion)]
