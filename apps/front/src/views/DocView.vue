@@ -49,7 +49,3 @@ watch(pathReactive, (newVal) => {
   </div>
 
 </template>
-
-<style>
-@import "../styles/DocView.css";
-</style>

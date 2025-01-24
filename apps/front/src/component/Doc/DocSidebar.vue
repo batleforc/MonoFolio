@@ -31,27 +31,3 @@ let showMobileSidebar = ref(false);
     </button>
   </div>
 </template>
-
-<style>
-@import "../../var.css";
-
-.docSidebar {
-  @apply border-r-2 min-w-48 px-4 py-2 hidden md:flex flex-col sticky;
-  background-color: var(--color-bgCover);
-  color: var(--color-textCover);
-}
-
-.docSidebarShowMobile {
-  @apply flex;
-}
-
-.docSidebarMobile {
-  @apply md:hidden fixed bottom-0 right-0 p-2 m-2;
-  background-color: var(--color-bgCover);
-  color: var(--color-textCover);
-
-  .ico-burger {
-    @apply text-2xl;
-  }
-}
-</style>

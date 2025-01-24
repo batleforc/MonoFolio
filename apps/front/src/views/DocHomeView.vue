@@ -35,7 +35,3 @@ if (docStore.inited && docStore.docContent.has_index && pageStore.pageLoading ==
     </div>
   </div>
 </template>
-
-<style>
-@import "../styles/DocView.css";
-</style>

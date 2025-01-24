@@ -4,6 +4,8 @@
 @import './styles/DocView.css';
 @import './styles/NavBar.css';
 @import './styles/Hero.css';
+@import './styles/BlogView.css';
+@import './styles/DocSidebar.css';
 
 html,
 body,

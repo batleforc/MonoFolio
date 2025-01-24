@@ -1,0 +1,60 @@
+.docSidebar {
+  @apply border-r-2 min-w-48 px-4 py-2 hidden md:flex flex-col sticky;
+  background-color: var(--color-bgCover);
+  color: var(--color-textCover);
+}
+
+.docSidebarShowMobile {
+  @apply flex;
+}
+
+.docSidebarMobile {
+  @apply md:hidden fixed bottom-0 right-0 p-2 m-2;
+  background-color: var(--color-bgCover);
+  color: var(--color-textCover);
+
+  .ico-burger {
+    @apply text-2xl;
+  }
+}
+
+.docSidebarTitle {
+  @apply cursor-pointer flex justify-between;
+}
+
+.docSidebarContentItem {
+  @apply cursor-pointer p-1;
+
+  &:hover {
+    background-color: var(--color-bgCoverLighter);
+  }
+}
+
+.docSidebarOpen.docSidebarTitleChevron {
+  transform: rotate(0deg);
+}
+
+.docSidebarTitleChevron {
+  transform: rotate(-90deg);
+  transition: 0.3s ease;
+}
+
+.docSidebarContent {
+  @apply overflow-hidden opacity-0 h-0 ml-2;
+  display: none;
+  animation: dropdown 200ms linear forwards;
+
+  &.docSidebarOpen {
+    @apply flex flex-col opacity-100 h-fit;
+  }
+}
+
+@keyframes dropdown {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}

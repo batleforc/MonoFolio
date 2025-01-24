@@ -38,9 +38,3 @@ if (!blogStore.inited && !blogStore.blogLoading) {
     </div>
   </div>
 </template>
-
-<style>
-.blogHomeView {
-  @apply text-4xl;
-}
-</style>
