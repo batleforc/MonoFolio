@@ -1,0 +1,19 @@
+.pageBlockTitleH {
+  @apply m-2 tracking-wide;
+}
+
+.pageBlockTitleH1 {
+  @apply font-bold text-5xl;
+}
+
+.pageBlockTitleH2 {
+  @apply font-bold text-4xl;
+}
+
+.pageBlockTitleH3 {
+  @apply font-semibold text-3xl;
+}
+
+.pageBlockTitleH4 {
+  @apply font-medium text-2xl;
+}

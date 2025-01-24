@@ -1,0 +1,5 @@
+.pageHeaderTechno,
+.pageHeaderTag,
+.pageHeaderLink {
+  @apply flex flex-wrap gap-2;
+}

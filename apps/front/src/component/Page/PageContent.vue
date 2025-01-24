@@ -46,13 +46,3 @@ defineProps<{
     </div>
   </div>
 </template>
-
-<style>
-.pageHljs code {
-  @apply rounded-xl;
-}
-
-.pageContentIndent {
-  @apply w-1;
-}
-</style>

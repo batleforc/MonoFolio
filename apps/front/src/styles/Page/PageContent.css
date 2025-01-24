@@ -1,0 +1,7 @@
+.pageHljs code {
+  @apply rounded-xl;
+}
+
+.pageContentIndent {
+  @apply w-1;
+}

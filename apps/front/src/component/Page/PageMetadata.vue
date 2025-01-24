@@ -61,13 +61,3 @@ defineProps<{
     </Card>
   </div>
 </template>
-
-<style>
-@import '../../var.css';
-
-.pageHeaderTechno,
-.pageHeaderTag,
-.pageHeaderLink {
-  @apply flex flex-wrap gap-2;
-}
-</style>

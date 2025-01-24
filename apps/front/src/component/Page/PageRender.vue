@@ -26,9 +26,3 @@ watch(() => props.page.content, (newValue, oldValue) => {
     </div>
   </div>
 </template>
-
-<style scoped>
-.pageView {
-  @apply px-2;
-}
-</style>
