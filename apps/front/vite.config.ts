@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import Components from 'unplugin-vue-components/vite';
 import { PrimeVueResolver } from '@primevue/auto-import-resolver';
+import tailwindcss from '@tailwindcss/vite';
 
 export default ({ mode }: { mode: string }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
@@ -27,6 +28,7 @@ export default ({ mode }: { mode: string }) => {
     },
 
     plugins: [
+      tailwindcss(),
       vue(),
       nxViteTsPaths(),
       Components({ resolvers: [PrimeVueResolver()] }),

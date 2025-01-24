@@ -1,4 +1,4 @@
-import './styles.scss';
+import './styles.css';
 import 'highlight.js/styles/github-dark.css';
 import { createApp, markRaw } from 'vue';
 import { createPinia } from 'pinia';
@@ -40,7 +40,7 @@ app.use(PrimeVue, {
     options: {
       cssLayer: {
         name: 'primevue',
-        order: 'tailwind-base, primevue, tailwind-utilities',
+        order: 'base, primevue, utilities',
       },
       darkModeSelector: '.dark-mode',
     },

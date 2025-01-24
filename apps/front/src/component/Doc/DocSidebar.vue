@@ -32,13 +32,13 @@ let showMobileSidebar = ref(false);
   </div>
 </template>
 
-<style lang="scss">
-@use "../../var.scss" as *;
+<style>
+@import "../../var.css";
 
 .docSidebar {
   @apply border-r-2 min-w-48 px-4 py-2 hidden md:flex flex-col sticky;
-  background-color: $color-bgCover;
-  color: $color-textCover;
+  background-color: var(--color-bgCover);
+  color: var(--color-textCover);
 }
 
 .docSidebarShowMobile {
@@ -47,8 +47,8 @@ let showMobileSidebar = ref(false);
 
 .docSidebarMobile {
   @apply md:hidden fixed bottom-0 right-0 p-2 m-2;
-  background-color: $color-bgCover;
-  color: $color-textCover;
+  background-color: var(--color-bgCover);
+  color: var(--color-textCover);
 
   .ico-burger {
     @apply text-2xl;

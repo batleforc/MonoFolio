@@ -11,4 +11,4 @@ defineProps<{
   <div class="pageString" v-html="content.value" />
 </template>
 
-<style lang="scss"></style>
+<style></style>

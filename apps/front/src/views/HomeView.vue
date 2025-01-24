@@ -93,33 +93,3 @@ const { type } = useBreakpoints();
     </Panel>
   </div>
 </template>
-
-<style lang="scss">
-@use '../var.scss' as *;
-
-.homePageGoFurtherCard {
-  @apply w-64 m-2;
-}
-
-.homePageContainer {
-  @apply flex justify-center flex-col;
-}
-
-.homePageWhoAmI {
-  @apply my-4 mx-2;
-}
-
-.homePageCV {
-  @apply border-2 rounded-full px-5 py-2;
-  background-color: $color-bgCover;
-  color: $color-textCover;
-}
-
-.homePageCvContainer {
-  @apply my-8 flex justify-center;
-}
-
-.p-timeline-event-content {
-  @apply pb-10;
-}
-</style>

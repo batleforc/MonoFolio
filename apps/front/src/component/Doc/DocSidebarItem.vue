@@ -65,8 +65,8 @@ const sidebarOpen = ref(fromOpen.value);
   </div>
 </template>
 
-<style lang="scss">
-@use "../../var.scss" as *;
+<style>
+@import "../../var.css";
 
 .docSidebarTitle {
   @apply cursor-pointer flex justify-between;
@@ -76,7 +76,7 @@ const sidebarOpen = ref(fromOpen.value);
   @apply cursor-pointer p-1;
 
   &:hover {
-    background-color: $color-bgCoverLighter;
+    background-color: var(--color-bgCoverLighter);
   }
 }
 

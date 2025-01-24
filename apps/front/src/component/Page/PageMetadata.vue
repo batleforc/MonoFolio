@@ -62,8 +62,8 @@ defineProps<{
   </div>
 </template>
 
-<style lang="scss">
-@use '../../var.scss' as *;
+<style>
+@import '../../var.css';
 
 .pageHeaderTechno,
 .pageHeaderTag,

@@ -50,6 +50,6 @@ watch(pathReactive, (newVal) => {
 
 </template>
 
-<style lang="scss">
-@use "../styles/DocView.scss";
+<style>
+@import "../styles/DocView.css";
 </style>

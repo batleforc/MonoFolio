@@ -47,7 +47,7 @@ defineProps<{
   </div>
 </template>
 
-<style lang="scss">
+<style>
 .pageHljs code {
   @apply rounded-xl;
 }

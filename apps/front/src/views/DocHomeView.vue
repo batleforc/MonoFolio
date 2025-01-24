@@ -36,6 +36,6 @@ if (docStore.inited && docStore.docContent.has_index && pageStore.pageLoading ==
   </div>
 </template>
 
-<style lang="scss">
-@use "../styles/DocView.scss";
+<style>
+@import "../styles/DocView.css";
 </style>
