@@ -7,8 +7,7 @@ export interface IndexState {
   homeContent?: HomeContent;
 }
 
-export const useIndexStore = defineStore({
-  id: 'index',
+export const useIndexStore = defineStore('index', {
   state: (): IndexState => ({
     inited: false,
     homeLoading: false,

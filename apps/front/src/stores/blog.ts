@@ -8,8 +8,7 @@ export interface BlogState {
   blogContent: BlogTimeline;
 }
 
-export const useBlogStore = defineStore({
-  id: 'blog',
+export const useBlogStore = defineStore('blog', {
   state: (): BlogState => ({
     inited: false,
     blogLoading: false,

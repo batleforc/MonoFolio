@@ -20,8 +20,7 @@ const getUrl = (moduleName: string, extension: string) => {
   return url.toString();
 };
 
-export const useWasmStore = defineStore({
-  id: 'wasm',
+export const useWasmStore = defineStore('wasm', {
   state: (): WasmState => ({
     wasmLoading: false,
   }),

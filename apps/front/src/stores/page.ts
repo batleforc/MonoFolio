@@ -1,4 +1,4 @@
-import { getPage, Page } from '@portfolio/api-client';
+import { getPage, getPageV2, Page, PageV2 } from '@portfolio/api-client';
 import { defineStore } from 'pinia';
 import { useDocStore } from './doc';
 
@@ -6,17 +6,17 @@ export interface PageState {
   pageLoading: boolean;
   loadingError?: string;
   page?: Page;
+  pageV2?: PageV2;
   pagePath: string;
 }
 
-export const usePageStore = defineStore({
-  id: 'page',
+export const usePageStore = defineStore('page', {
   state: (): PageState => ({
     pageLoading: false,
     pagePath: '',
   }),
   actions: {
-    fetchPage(path: string) {
+    fetchPage(path: string, v2 = false) {
       if (this.pageLoading) return new Promise<void>((resolve) => resolve());
 
       if (this.pagePath === path) {
@@ -32,10 +32,17 @@ export const usePageStore = defineStore({
       if (category && category.has_index) {
         path = `${path}/index`;
       }
-      return getPage({ query: { path } })
+      const getPagefunc = v2 ? getPageV2 : getPage;
+      return getPagefunc({ query: { path } })
         .then((body) => {
           if (body.status === 200) {
-            this.page = body.data;
+            if (v2) {
+              this.pageV2 = body.data;
+              this.page = undefined;
+            } else {
+              this.pageV2 = undefined;
+              this.page = body.data;
+            }
             this.pagePath = path;
           }
         })

@@ -8,8 +8,7 @@ export interface DocState {
   docContent?: DocCategory;
 }
 
-export const useDocStore = defineStore({
-  id: 'doc',
+export const useDocStore = defineStore('doc', {
   state: (): DocState => ({
     inited: false,
     docLoading: false,
