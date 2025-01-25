@@ -444,7 +444,6 @@ export type PageShort = {
  * V2 of the page struct, containing the metadata, path and commonmark content.
  */
 export type PageV2 = {
-    content: string;
     metadata: DocHeader;
     name: string;
     parsed_content: Node;

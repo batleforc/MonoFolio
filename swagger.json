@@ -1499,14 +1499,10 @@
         "description": "V2 of the page struct, containing the metadata, path and commonmark content.",
         "required": [
           "name",
-          "content",
           "metadata",
           "parsed_content"
         ],
         "properties": {
-          "content": {
-            "type": "string"
-          },
           "metadata": {
             "$ref": "#/components/schemas/DocHeader"
           },

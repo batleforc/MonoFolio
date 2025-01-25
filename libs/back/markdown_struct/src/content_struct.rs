@@ -17,6 +17,7 @@ pub struct Page {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
 pub struct PageV2 {
     pub name: String,
+    #[serde(skip_serializing)]
     content: String,
     pub metadata: DocHeader,
     pub parsed_content: Node,
