@@ -1,0 +1,339 @@
+# Changelog
+All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
+
+- - -
+## [0.0.1](https://github.com/MonoFolio/batleforc/compare/e440bb0f6fcac1daa5ad78d28f3698b6668d63e0..0.0.1) - 2025-01-25
+#### Bug Fixes
+- test - ([9340660](https://github.com/MonoFolio/batleforc/commit/93406608b5e121854fd390738375757304c3b2da)) - Max batleforc
+- style miss shape - ([7416cf2](https://github.com/MonoFolio/batleforc/commit/7416cf2f077dac0ef9eac5cb5d49c12a3949ed3b)) - Max batleforc
+- patch unplugin that now follow Epoch Semver ++ patch vite moderate - ([7685bb6](https://github.com/MonoFolio/batleforc/commit/7685bb65bce08ed8d1a6ace39226679bc5c2e6b4)) - Max batleforc
+- remove @import who is deprecated - ([c6ff8b4](https://github.com/MonoFolio/batleforc/commit/c6ff8b46abdb086a286a0301e3f94a18d8117a47)) - Max batleforc
+- upgrade tracing [HOOK FAIL OK] - ([a24bfa9](https://github.com/MonoFolio/batleforc/commit/a24bfa98050c722dcdc5a595c68c37b88ddad312)) - Max batleforc
+- adapt deploy to new infra - ([8d59355](https://github.com/MonoFolio/batleforc/commit/8d59355088d9b2fe6af9e511f99f24d7d0e383e2)) - Max batleforc
+- pipelineTaskName - ([b4e753e](https://github.com/MonoFolio/batleforc/commit/b4e753ef8674a4a9962327d6b1b4ddad7d30f43e)) - Max batleforc
+- remove spectral dep in yarn [HOOK FAIL OK] - ([3ee0558](https://github.com/MonoFolio/batleforc/commit/3ee05587d769f8fbf2afaf1ece89dacb22505b15)) - Max batleforc
+- products [HOOK FAIL OK] - ([db87166](https://github.com/MonoFolio/batleforc/commit/db871660e65436842700f18740582a6dc3142029)) - Max batleforc
+- hey api version - ([e4a8fad](https://github.com/MonoFolio/batleforc/commit/e4a8fad87510ff078ad8c277c7159d79a1f36e1b)) - Max batleforc
+- repare Project link - ([259b074](https://github.com/MonoFolio/batleforc/commit/259b0744a24af2d821cebb986bc2ef42c57db276)) - Max batleforc
+- wrong base url - ([6c1348e](https://github.com/MonoFolio/batleforc/commit/6c1348e6325a3bd440ec6fae888cc05a2272b316)) - Max batleforc
+- wrong base url - ([eb868d5](https://github.com/MonoFolio/batleforc/commit/eb868d538e5411da85569b003005b9e7b4d5ac56)) - Max batleforc
+- implement all the good practice in the Sarif - ([038827b](https://github.com/MonoFolio/batleforc/commit/038827b2c7a5294b260828f406543caee1759a96)) - Max batleforc
+- implement all the good practice in the Sarif - ([a6a70de](https://github.com/MonoFolio/batleforc/commit/a6a70de9ab34dfbc89a993d20b1708f98c49229c)) - Max batleforc
+- eslint first report - ([5c56698](https://github.com/MonoFolio/batleforc/commit/5c5669861d5c829f49bc32e0c81bc89aef6f848d)) - Max batleforc
+- correcte blog filter - ([0f5e221](https://github.com/MonoFolio/batleforc/commit/0f5e221a3ae499f003f7122fa66424c6007f3a17)) - Max batleforc
+- handle the style of the DocView in full to have a fully working setup - ([7112625](https://github.com/MonoFolio/batleforc/commit/7112625a8cde73e616ab346aee5754446a8e2d1a)) - Max batleforc
+- deployt backend - ([e5b4cf3](https://github.com/MonoFolio/batleforc/commit/e5b4cf341bc3b5a2f09f3fae83ccc88b9cc609be)) - Max batleforc
+- deployt backend - ([81e9735](https://github.com/MonoFolio/batleforc/commit/81e9735ba8b5365a44147a271d59a2c30e173ed9)) - Max batleforc
+- deployt backend - ([413d178](https://github.com/MonoFolio/batleforc/commit/413d178d1a3b5aea47a05ecc9f9e5f061af1644e)) - Max batleforc
+- hero doesn't fill the page - ([94d1010](https://github.com/MonoFolio/batleforc/commit/94d1010050c07da15ce0a40873d13cc153975e0b)) - Max batleforc
+- hero doesn't fill the page - ([ca1fa4d](https://github.com/MonoFolio/batleforc/commit/ca1fa4d1c8df1cdd3a47a684471f5ed610c0a278)) - Max batleforc
+- create a vscode conf that allow the scss to recognise tailwind @ rule - ([1f82adf](https://github.com/MonoFolio/batleforc/commit/1f82adf26cfe60a3d703bb9d82c53c96e1db4bbe)) - Max batleforc
+- create a vscode conf that allow the scss to recognise tailwind @ rule - ([b610b8c](https://github.com/MonoFolio/batleforc/commit/b610b8c4efc4f757c369c67ca0b24c9f9f361472)) - Max batleforc
+- set the otlp url for the helm chart - ([14ac9c0](https://github.com/MonoFolio/batleforc/commit/14ac9c0cc6e138742786ac419594f369932768e0)) - Max batleforc
+- js api doesn't handle correctly the querry param if given with toSchema, replace the toSchema to intoParam - ([1f86075](https://github.com/MonoFolio/batleforc/commit/1f860751ebbd15c5c618de03bb99665c93cc5e01)) - Max batleforc
+- try to fix rollme - ([a39c1bb](https://github.com/MonoFolio/batleforc/commit/a39c1bbfd44c7ec883b0a67d9be179d4df023dc2)) - Max batleforc
+- force rollout - ([2504bc4](https://github.com/MonoFolio/batleforc/commit/2504bc4f27aa52e429f8851c16c67515169717b6)) - Max batleforc
+- name in github of the action - ([cbf5bd6](https://github.com/MonoFolio/batleforc/commit/cbf5bd65947def666034796c5c234136c7bc694d)) - Max batleforc
+- wrong probe - ([524a71b](https://github.com/MonoFolio/batleforc/commit/524a71bf11de84712c2e154fade9438471a8ef35)) - Max batleforc
+- wrong image name - ([d42165e](https://github.com/MonoFolio/batleforc/commit/d42165ee6a6e908b1402957a5069709b4d42dc38)) - Max batleforc
+- wrong image name - ([d6ca82a](https://github.com/MonoFolio/batleforc/commit/d6ca82a794da8ca5568601bece34849a2c8018b3)) - Max batleforc
+- wrong image name - ([5f5f43d](https://github.com/MonoFolio/batleforc/commit/5f5f43d404f4159d31e703d0417429b7cbd89bf6)) - Max batleforc
+- wrong image name - ([27859fd](https://github.com/MonoFolio/batleforc/commit/27859fd3da151b091a86afbd6ff7f1a1e4a47d90)) - Max batleforc
+- wrong image name - ([8aeb3cf](https://github.com/MonoFolio/batleforc/commit/8aeb3cf68b4bf4f139e8e69e7001708c052c5e76)) - Max batleforc
+- task build prefix with dockerhub - ([ab81aff](https://github.com/MonoFolio/batleforc/commit/ab81affe41ada71bdcd43ebbbcad5283f6778e3b)) - Max batleforc
+- containerfile doesnt use the new path - ([2a51c58](https://github.com/MonoFolio/batleforc/commit/2a51c58e2bcee0676410f5ebab75a1395a1577f2)) - Max batleforc
+- containerfile doesnt use the new path - ([8d22c70](https://github.com/MonoFolio/batleforc/commit/8d22c70932515e8568e42c1898174e6a5e1d5085)) - Max batleforc
+- task param - ([76eeaa7](https://github.com/MonoFolio/batleforc/commit/76eeaa73f71dcf8d98de044ec52a2f6c8d366cd6)) - Max batleforc
+- task param - ([f0810df](https://github.com/MonoFolio/batleforc/commit/f0810dff30792c14a50ab920debcb8577a8e6e60)) - Max batleforc
+- task param - ([300ea0e](https://github.com/MonoFolio/batleforc/commit/300ea0e13bca3bbdd5bb58004193d87f57932083)) - Max batleforc
+- task param - ([02fa019](https://github.com/MonoFolio/batleforc/commit/02fa019b842652ad0055d98fd0a3031a944b8211)) - Max batleforc
+- task param - ([7a31358](https://github.com/MonoFolio/batleforc/commit/7a31358dec01c749d69fb8f9bd0dd5fe399098f1)) - Max batleforc
+- task param - ([ace1833](https://github.com/MonoFolio/batleforc/commit/ace1833a128c15dbb6a9df995c871f33984deb4d)) - Max batleforc
+- task param - ([4e9ca27](https://github.com/MonoFolio/batleforc/commit/4e9ca27877e02f61d3e911174a1e3b61a9b4a53b)) - Max batleforc
+- task param - ([d0e4f00](https://github.com/MonoFolio/batleforc/commit/d0e4f004de7d4c60ed78b1744bcca5e8839f8570)) - Max batleforc
+- task param - ([e1b1632](https://github.com/MonoFolio/batleforc/commit/e1b1632d8d0e181a13b91064d48eec962aec78b1)) - Max batleforc
+- task param - ([b420f8e](https://github.com/MonoFolio/batleforc/commit/b420f8eceeeb656526be2c97fffa67d1b050f138)) - Max batleforc
+- name of task - ([64394ca](https://github.com/MonoFolio/batleforc/commit/64394ca537448aabe820595450155f8de888f8af)) - Max batleforc
+- name of task - ([8592ed9](https://github.com/MonoFolio/batleforc/commit/8592ed957504ac4cacdafdaf1c3f0337661cbb03)) - Max batleforc
+- name of task - ([a5f8453](https://github.com/MonoFolio/batleforc/commit/a5f8453d73729bb121badb68846d0d25b96da81d)) - Max batleforc
+- name of task - ([f59acb1](https://github.com/MonoFolio/batleforc/commit/f59acb12b91b048caf857e49ccc524e9b3155c95)) - Max batleforc
+- add file to the watched list - ([5604063](https://github.com/MonoFolio/batleforc/commit/560406319fef00decde48d624c0dddb4b898ad51)) - Max batleforc
+- add file to the watched list - ([3644dfd](https://github.com/MonoFolio/batleforc/commit/3644dfdd5c245ac2d7880a1259715b3197dc23fc)) - Max batleforc
+- add file to the watched list - ([e241d27](https://github.com/MonoFolio/batleforc/commit/e241d27f278be4bd945b7e58b0b7d4e5184f6e1d)) - Max batleforc
+- add file to the watched list - ([fa2ca3a](https://github.com/MonoFolio/batleforc/commit/fa2ca3a7da139cbf6af88d40cd5b63db9213ec80)) - Max batleforc
+- add ingress and rbac - ([ce74f26](https://github.com/MonoFolio/batleforc/commit/ce74f26976761f2567d37fb680236722cbf22836)) - Max batleforc
+- add ingress and rbac - ([86f3087](https://github.com/MonoFolio/batleforc/commit/86f30873a184d45caf53b9628655ff1e020b0772)) - Max batleforc
+- add ingress and rbac - ([da9698d](https://github.com/MonoFolio/batleforc/commit/da9698dca8a4911ef274d3c74c77eb7eef83a82a)) - Max batleforc
+-  upgrade micromatch - ([ff8493d](https://github.com/MonoFolio/batleforc/commit/ff8493db83c5f0b2fd9a05411a5ac2549e94f8f8)) - Max batleforc
+- test with move folder [HOOK FAIL OK] - ([d2f9976](https://github.com/MonoFolio/batleforc/commit/d2f997639f7d0cf642c6ac3028e6e03fb914c43e)) - Max batleforc
+- Correction ~ orthographe, Correction style timeline, ajout panel pour aller plus loin [HOOK FAIL OK] - ([35b37d5](https://github.com/MonoFolio/batleforc/commit/35b37d5772c205b24b75435b89d6bb8c2a7a217b)) - Max batleforc
+- Correction ~ orthographe, Correction style timeline, ajout panel pour aller plus loin [HOOK FAIL OK] - ([8573411](https://github.com/MonoFolio/batleforc/commit/85734118e2d720bfdfae8a5ec88b619119112049)) - Max batleforc
+- mise en place deploy folder with front and back helm chart - ([754e6f4](https://github.com/MonoFolio/batleforc/commit/754e6f4280d39eac6dfec50f86b177cb77104500)) - Max batleforc
+- test doesn't find the folio content by default - ([95273a6](https://github.com/MonoFolio/batleforc/commit/95273a6283152f6dabbae55583f2fad0a8b3f24c)) - Max batleforc
+- test doesn't find the folio content by default - ([9a89c96](https://github.com/MonoFolio/batleforc/commit/9a89c96541b12808cd9e4938604bbbaaf9eac068)) - Max batleforc
+- clippy gen swagger - ([291b52f](https://github.com/MonoFolio/batleforc/commit/291b52f0cc7e2b967f37b59dd0770d04856ec038)) - Max batleforc
+- code coverage - ([49a1f8a](https://github.com/MonoFolio/batleforc/commit/49a1f8a99d765beccfa4e8362413bb088a6e43aa)) - Max batleforc
+- code coverage - ([93ef1a6](https://github.com/MonoFolio/batleforc/commit/93ef1a6564e7391d06106afae348a1b39ee42b0b)) - Max batleforc
+- sub lib clippy - ([b931df5](https://github.com/MonoFolio/batleforc/commit/b931df5f30735ed04a95ed7b0546dab5c6305b54)) - Max batleforc
+- sub lib clippy - ([d871e75](https://github.com/MonoFolio/batleforc/commit/d871e751e1479cbc768ca036e06244a2084b1394)) - Max batleforc
+- sub lib clippy - ([4086828](https://github.com/MonoFolio/batleforc/commit/4086828a6d17ae8b65d124eba461ce920c4fd942)) - Max batleforc
+#### Build system
+- **(deps)** bump mermaid from 10.9.1 to 10.9.3 - ([51e715a](https://github.com/MonoFolio/batleforc/commit/51e715a185794b121e23ec7d644bddd933fffb49)) - dependabot[bot]
+- **(deps-dev)** bump @types/node from 22.5.0 to 22.9.0 - ([d06f795](https://github.com/MonoFolio/batleforc/commit/d06f795b8691b8caacea9c3ce47af9da46f4825c)) - dependabot[bot]
+#### Features
+- wip 2 - ([01e6a4b](https://github.com/MonoFolio/batleforc/commit/01e6a4b2e38b49bc0214028b22e69239a02ab4dd)) - Max batleforc
+- wip - ([31dbefa](https://github.com/MonoFolio/batleforc/commit/31dbefaf208e26d7f1cc1dde79e6bac1f5dc9be8)) - Max batleforc
+- compile time error and test - ([f2366a2](https://github.com/MonoFolio/batleforc/commit/f2366a2f658a9949c9c46dcdb038006c835903e6)) - Max batleforc
+- remove content field from PageV2 - ([0804619](https://github.com/MonoFolio/batleforc/commit/08046192bfaf17628ae297e677218ab751d5aca0)) - Max batleforc
+- Rework Page - ([74af9e1](https://github.com/MonoFolio/batleforc/commit/74af9e1ed9f87e4795509e3dba8e29fa482a6018)) - Max batleforc
+- WIP tailwind 4 - ([fd0dbe4](https://github.com/MonoFolio/batleforc/commit/fd0dbe466628dba5bfbbbd79c2be5ecb2d0d52f3)) - Max batleforc
+- MAKE TAILWIND 4 WORK !!! - ([8a221ea](https://github.com/MonoFolio/batleforc/commit/8a221ea48a71d1452947920449303a25bf775a16)) - Max batleforc
+- Upgrade js - ([74c3e47](https://github.com/MonoFolio/batleforc/commit/74c3e47a76ba493d011f5b6c616ea644999cec4b)) - Max batleforc
+- add comment to each model - ([dc7a07d](https://github.com/MonoFolio/batleforc/commit/dc7a07dc1a47021e1fc903b149534e1aaef77bc4)) - Max batleforc
+- generate js api based on the new swagger - ([2254e0e](https://github.com/MonoFolio/batleforc/commit/2254e0e8dbf42baf4921ff327de41de400702740)) - Max batleforc
+- add new swagger.json - ([4aa044a](https://github.com/MonoFolio/batleforc/commit/4aa044a77e97fedaf3d9a2e4894a7777c3d8499b)) - Max batleforc
+- Remove swagger ui and create a new api route to get PageV2 - ([61149f2](https://github.com/MonoFolio/batleforc/commit/61149f2dc266c16e7a668066bd495feb831df35d)) - Max batleforc
+- upgrade package - ([0984121](https://github.com/MonoFolio/batleforc/commit/0984121308d64020009d1cad999bf0a6cdc6e5c2)) - Max batleforc
+- Working liste of item - ([d9ad779](https://github.com/MonoFolio/batleforc/commit/d9ad77948bcf55023c90bf2a5759a64c2ca3f15f)) - Max batleforc
+- Upgrade both package.json and migrate pong from 14 to 15 - ([2a30c4c](https://github.com/MonoFolio/batleforc/commit/2a30c4c4c4a7afc85c71bea053fd7de7dbc8145e)) - Max batleforc
+- with the good format - ([c718706](https://github.com/MonoFolio/batleforc/commit/c718706dc77451f58b6adc73b4f7f382c2edf3ba)) - Max batleforc
+- WIP - ([9a47209](https://github.com/MonoFolio/batleforc/commit/9a47209f22c5e5fa5b72e8b340767933d6862cfd)) - Max batleforc
+- wip sbom - ([b42b874](https://github.com/MonoFolio/batleforc/commit/b42b874911b976feb010c6900efbd06007a32b7b)) - Max batleforc
+- upgrade package - ([4196a62](https://github.com/MonoFolio/batleforc/commit/4196a62d6f326fc748d07489cbf82b78001cf5b5)) - Max batleforc
+- upgrade katex - ([ad6084f](https://github.com/MonoFolio/batleforc/commit/ad6084f0d017569ccb355900691f7d3f6394fbc4)) - Max batleforc
+- add sbom - ([a8d6262](https://github.com/MonoFolio/batleforc/commit/a8d6262973b82774f90068147a43514e90f3b5e9)) - Max batleforc
+- upgrade utoipa swagger ui et scalar - ([da71e4b](https://github.com/MonoFolio/batleforc/commit/da71e4b5980ff98aef6c308064fe405c812fe935)) - Max batleforc
+- WIP upgrading the whole folio - ([ccf3c20](https://github.com/MonoFolio/batleforc/commit/ccf3c2085da59c7bb899ba14ead55130d3b18d5f)) - Max batleforc
+- Upgrade api ++ WIP sass 2.0.0 - ([bbe7b34](https://github.com/MonoFolio/batleforc/commit/bbe7b341fb164728236530e0306712cb985e8c68)) - Max batleforc
+- upgrade package in img - ([e50dd23](https://github.com/MonoFolio/batleforc/commit/e50dd2315b59cd42711c3c0504484c094555e421)) - Max batleforc
+- Upgrade package - ([9ea1340](https://github.com/MonoFolio/batleforc/commit/9ea1340e103cde38d10097cb80113a0643dc319c)) - Max batleforc
+- upgrade image [HOOK FAIL OK] - ([9a42dc0](https://github.com/MonoFolio/batleforc/commit/9a42dc0eac598c3de2202a569ab92eb90df2a797)) - Max batleforc
+- Upgrade Utoipa and add scalar api ui [HOOK FAIL OK] - ([bddc581](https://github.com/MonoFolio/batleforc/commit/bddc58169a5a293cd841cafd380db20fcabe5a1f)) - Max batleforc
+- WIP CICD WRONG PARAM - ([b75af90](https://github.com/MonoFolio/batleforc/commit/b75af90305a04be5420924b337a98435d0b67ccf)) - Max batleforc
+- WIP CI/CD - ([786488a](https://github.com/MonoFolio/batleforc/commit/786488af95579b0b89846d5a286cb5d1df2edfb8)) - Max batleforc
+- WIP CI/CD - ([f809210](https://github.com/MonoFolio/batleforc/commit/f809210edec2c263d97e0b1ef1696b22b3c9c8e7)) - Max batleforc
+- WIP CICD fix condition - ([b8d84bc](https://github.com/MonoFolio/batleforc/commit/b8d84bc99a2303d15613e139b3ea9bca78facd2c)) - Max batleforc
+- WIP ci/cd - ([c9e3fd7](https://github.com/MonoFolio/batleforc/commit/c9e3fd7c07ef7319062d293ec6313b305760d46e)) - Max batleforc
+- WIP CICD - ([0cca1ec](https://github.com/MonoFolio/batleforc/commit/0cca1ecf90f0f9e755740b00e352f446c40a8ae3)) - Max batleforc
+- WIP wrong shared data - ([916439c](https://github.com/MonoFolio/batleforc/commit/916439c3a95cf690525de50f296e87aad211f6cb)) - Max batleforc
+- WIP fix cicd path - ([f268505](https://github.com/MonoFolio/batleforc/commit/f268505f4146ad2aec329c912a9d8ecb9eff7d97)) - Max batleforc
+- WIP new CI/CD step - ([284d76b](https://github.com/MonoFolio/batleforc/commit/284d76b7bef87df159a575c2bd23d28c6f65cf3a)) - Max batleforc
+- FEAT - ([08d05d6](https://github.com/MonoFolio/batleforc/commit/08d05d6f1ffa7966c64dee933479b219b2994a60)) - Max batleforc
+- test - ([136bd2b](https://github.com/MonoFolio/batleforc/commit/136bd2b33cc4281b0ca409dd9adde03550213b32)) - Max batleforc
+- Upgrade - ([f91bb25](https://github.com/MonoFolio/batleforc/commit/f91bb256feb61439a53f1ff5e7fe9728d21a91a7)) - Max batleforc
+- feat - ([4d8667f](https://github.com/MonoFolio/batleforc/commit/4d8667f18977771a2642d4d31e934361ddd57571)) - Max batleforc
+- feat - ([c161962](https://github.com/MonoFolio/batleforc/commit/c161962e8f81387a9d5181085e91e733729ccefc)) - Max batleforc
+- feat - ([540929f](https://github.com/MonoFolio/batleforc/commit/540929fa12d9fce89d637666204434903ccb18b8)) - Max batleforc
+- feat - ([2cef49f](https://github.com/MonoFolio/batleforc/commit/2cef49f8e04f4e0388752f71355f770899e402d5)) - Max batleforc
+- feat - ([ac57817](https://github.com/MonoFolio/batleforc/commit/ac5781731d9f88e24d3c3c25ba3781d6f75df5c8)) - Max batleforc
+- OH HELL YEAH - ([4d6eaa9](https://github.com/MonoFolio/batleforc/commit/4d6eaa9809b9b27b08c3f83aab59b265de31f584)) - Max batleforc
+- truc - ([295e584](https://github.com/MonoFolio/batleforc/commit/295e5848e2e75e5d117d2a80e0498561364078d9)) - Max batleforc
+- replace - ([6a83b3e](https://github.com/MonoFolio/batleforc/commit/6a83b3e7c01260b4c2dbda077457e71378c7ed3d)) - Max batleforc
+- feat - ([fd4bed5](https://github.com/MonoFolio/batleforc/commit/fd4bed5852ca367d95cf4beb0f6d02ff87c19921)) - Max batleforc
+- truc - ([ba973f0](https://github.com/MonoFolio/batleforc/commit/ba973f02b5eb58e7337e7c1785e0197f2372a1be)) - Max batleforc
+- wip - ([9204614](https://github.com/MonoFolio/batleforc/commit/9204614710764e0a952154b475265b9f9d1313f9)) - Max batleforc
+- upgrade - ([7b7c55f](https://github.com/MonoFolio/batleforc/commit/7b7c55fd4c7718c4bf93410210604f7e002dd49a)) - Max batleforc
+- wip - ([8cd1b11](https://github.com/MonoFolio/batleforc/commit/8cd1b1114dce14f408f70f2534cc79dac0b4c26b)) - Max batleforc
+- WIP - ([830c71a](https://github.com/MonoFolio/batleforc/commit/830c71a0beaac53316af54943bd0efa8b5b435ab)) - Max batleforc
+- ls - ([eebbad6](https://github.com/MonoFolio/batleforc/commit/eebbad6988b16700034e23337bd26dd74fc9bca5)) - Max batleforc
+- WIP - ([32ffce2](https://github.com/MonoFolio/batleforc/commit/32ffce26c4697a6a4d482cd733281f4059d310e7)) - Max batleforc
+- WIP - ([c687268](https://github.com/MonoFolio/batleforc/commit/c68726895645fe2773e96775ab773b689c6b8a9c)) - Max batleforc
+- CICD - ([e75766a](https://github.com/MonoFolio/batleforc/commit/e75766afd78e4f81cacb918d0e13001f3273aee0)) - Max batleforc
+- feat - ([2d69fe2](https://github.com/MonoFolio/batleforc/commit/2d69fe255325abf1f7dd132f6066d1876e1aaa5f)) - Max batleforc
+- UPGRADE - ([e00012b](https://github.com/MonoFolio/batleforc/commit/e00012b024d378accf4491c84f9cd6c7cc12050d)) - Max batleforc
+- I HAVE THE DEMON - ([e14aaba](https://github.com/MonoFolio/batleforc/commit/e14aababb3f3b848c6a5a24bf0fc5954e5639250)) - Max batleforc
+- upgrade - ([21120c9](https://github.com/MonoFolio/batleforc/commit/21120c90b648c5ad1f1ae20c2e484a171c638d49)) - Max batleforc
+- shouldn't decode - ([32a17e6](https://github.com/MonoFolio/batleforc/commit/32a17e6c471f892f05b0ad40717ee9b92202ceb1)) - Max batleforc
+- WIP CICD - ([d0bb822](https://github.com/MonoFolio/batleforc/commit/d0bb8224aa57db32b4b05491200bba40c715bc93)) - Max batleforc
+- WIP - ([ae16f0f](https://github.com/MonoFolio/batleforc/commit/ae16f0f0f8df99e6073244a1ca2ff7898cddcc05)) - Max batleforc
+- upgrade - ([9eee5e5](https://github.com/MonoFolio/batleforc/commit/9eee5e58d19047fa32becdc9f4523d2291a8c595)) - Max batleforc
+- Upgrade - ([4ae25e9](https://github.com/MonoFolio/batleforc/commit/4ae25e9c04461fdf8785dca8d577aa79891c5fd3)) - Max batleforc
+- WIP - ([bc0068e](https://github.com/MonoFolio/batleforc/commit/bc0068ed28789b669d6fea1c572a1fe7f83e65b4)) - Max batleforc
+- upgrade 2 - ([6955cf3](https://github.com/MonoFolio/batleforc/commit/6955cf3390bf1ddda93688b9fe8ddfe6a8783e2e)) - Max batleforc
+- should be better - ([23c73eb](https://github.com/MonoFolio/batleforc/commit/23c73eb2dcd5d5145a98f135b6c5b6ab7418d37c)) - Max batleforc
+- Update - ([a66ad46](https://github.com/MonoFolio/batleforc/commit/a66ad4662e40892a2fc9ec22ab74e52ebf3d7005)) - Max batleforc
+- wrong image - ([c162956](https://github.com/MonoFolio/batleforc/commit/c162956e7579ce2ed05ef3cf7521ce75efb66ac0)) - Max batleforc
+- UPGRADE - ([1950f6e](https://github.com/MonoFolio/batleforc/commit/1950f6eff3c153075ed3bc3220f3e525f32305c0)) - Max batleforc
+- new cicd and patch cve - ([16068c2](https://github.com/MonoFolio/batleforc/commit/16068c2b7cc85bf98049d21c3f0ec4eed4ce84d5)) - Max batleforc
+- change devfile base image - ([fc0d57c](https://github.com/MonoFolio/batleforc/commit/fc0d57c5d25e2cc6937bde61b50a07bc3a992618)) - Maxime
+- include has text - ([81574d0](https://github.com/MonoFolio/batleforc/commit/81574d013fc8930d0026aa43fcc1a2648772985f)) - Max batleforc
+- start working on task export data from harbor - ([383557e](https://github.com/MonoFolio/batleforc/commit/383557e41cf266be135ac250c528bd41dbdb2764)) - Max batleforc
+- WIP CICD - ([df7977e](https://github.com/MonoFolio/batleforc/commit/df7977e4a312954282549b21f65193e8dfd88274)) - Max batleforc
+- WIP CICD - ([20a82c1](https://github.com/MonoFolio/batleforc/commit/20a82c1462ab33ee7c3b4cd110ad58de254dd4cd)) - Max batleforc
+- WIP CICD - ([e6dd39e](https://github.com/MonoFolio/batleforc/commit/e6dd39e0fc951c2185ea2de4751b361a794aff29)) - Max batleforc
+- WIP CICD - ([ef19e40](https://github.com/MonoFolio/batleforc/commit/ef19e40cf385c6c21bd13dd2c8ec5983f7119805)) - Max batleforc
+- WIP CICD - ([1fa3fa1](https://github.com/MonoFolio/batleforc/commit/1fa3fa17f88c084639c07cc639574327c2255210)) - Max batleforc
+- test - ([d3a55d0](https://github.com/MonoFolio/batleforc/commit/d3a55d0689a36b722f5ed6da753774bca949c1df)) - Max batleforc
+- test - ([c9549f4](https://github.com/MonoFolio/batleforc/commit/c9549f4d6676c90c5cd842e5e2cee76ab32fd1a0)) - Max batleforc
+- test - ([555fa24](https://github.com/MonoFolio/batleforc/commit/555fa24273e7557b6b616efdabdf0d57c56c1587)) - Max batleforc
+- should be better - ([39edeba](https://github.com/MonoFolio/batleforc/commit/39edeba079614cc9d845492a0cf81aa302bead66)) - Max batleforc
+- only one - ([7aaa4ce](https://github.com/MonoFolio/batleforc/commit/7aaa4ce5b3d0ee37fce463bdd76c5b029c9d9ec0)) - Max batleforc
+- feat - ([7b66f30](https://github.com/MonoFolio/batleforc/commit/7b66f3081fc4b2d095d51a24d9ec34bf85558ab0)) - Max batleforc
+- fix - ([b46b454](https://github.com/MonoFolio/batleforc/commit/b46b454ddd4e0a46b204dd4d95395b89686588df)) - Max batleforc
+- fix - ([20504df](https://github.com/MonoFolio/batleforc/commit/20504df1c04cbd0ddb5b7d6c1da13b654fe70876)) - Max batleforc
+- WIP CICD - ([75c4c78](https://github.com/MonoFolio/batleforc/commit/75c4c786e42816461a7d10302871a1b2b0daf92b)) - Max batleforc
+- WIP CI/CD - ([9a3dddb](https://github.com/MonoFolio/batleforc/commit/9a3dddbe1c50d8965042b3a53f9a683369b8d935)) - Max batleforc
+- WIP CI/CD - ([224f2c4](https://github.com/MonoFolio/batleforc/commit/224f2c459f84404b034d2a9ac185b0f2fd9e5610)) - Max batleforc
+- WIP CI/CD - ([f7baa93](https://github.com/MonoFolio/batleforc/commit/f7baa93774f9bdf7b78252f795e8f1c954f3f225)) - Max batleforc
+- upgrade cross-spawn - ([2494031](https://github.com/MonoFolio/batleforc/commit/24940319d12b34e7856f5a886be2a7d07cd48112)) - Max batleforc
+- add janus idp - ([efbb034](https://github.com/MonoFolio/batleforc/commit/efbb034bf32dd37fb7ec410baaac92351f188649)) - Max batleforc
+- identify ns - ([0860265](https://github.com/MonoFolio/batleforc/commit/086026537fec3a1ead0c50ecf78b96ae0a711692)) - Max batleforc
+- upgarde - ([0928eae](https://github.com/MonoFolio/batleforc/commit/0928eaeb22f31a72fcbd0679d42cbf7a30fdfa89)) - Max batleforc
+- harbor auth - ([a051a07](https://github.com/MonoFolio/batleforc/commit/a051a07503b4fb9549e74cb73160145ea3b7889b)) - Max batleforc
+- fixxxx - ([cd9a25b](https://github.com/MonoFolio/batleforc/commit/cd9a25bfc3c32b9c65fbf3d33c7d0ab096ce027e)) - Max batleforc
+- test ? - ([103987c](https://github.com/MonoFolio/batleforc/commit/103987cfb2a394676fc16b4de628fdbd5a3c8a4a)) - Max batleforc
+- pending - ([c20a279](https://github.com/MonoFolio/batleforc/commit/c20a279814179f41f0ebe34293e534519341e005)) - Max batleforc
+- upgrade - ([41c0ad2](https://github.com/MonoFolio/batleforc/commit/41c0ad224628a8724e6515e855958f11859131ac)) - Max batleforc
+- annotations - ([8ce7c41](https://github.com/MonoFolio/batleforc/commit/8ce7c41d1d296767f63d19a1fec68ed4f77827f9)) - Max batleforc
+- feait - ([3c026dd](https://github.com/MonoFolio/batleforc/commit/3c026dd1c934b629a5fdf17bef8636636b97077e)) - Max batleforc
+- anno - ([04b1b4a](https://github.com/MonoFolio/batleforc/commit/04b1b4ac13b60c008fec5cfa370b3c1b612f1ba2)) - Max batleforc
+- feat ? - ([6de047a](https://github.com/MonoFolio/batleforc/commit/6de047a3d7a9672495cb04e192c476183caa9fdb)) - Max batleforc
+- fix ? - ([a09ffbe](https://github.com/MonoFolio/batleforc/commit/a09ffbea2a7b168287404037d1297629c1fc0b8c)) - Max batleforc
+- it's a yaml - ([bc0bc1b](https://github.com/MonoFolio/batleforc/commit/bc0bc1bffb102d44b42f0fcbf4242854d1b40391)) - Max batleforc
+- .... nut - ([e1b80b4](https://github.com/MonoFolio/batleforc/commit/e1b80b4205b48bb0092933dd05cc2358714c90e4)) - Max batleforc
+- ? - ([0b8c065](https://github.com/MonoFolio/batleforc/commit/0b8c065e1c5a52ca28f3e0f924da46a89c23e7bc)) - Max batleforc
+- fix ? - ([432273b](https://github.com/MonoFolio/batleforc/commit/432273bef7c00a8feee99e437bb83bfc3ca5a04e)) - Max batleforc
+- upgrade package - ([5397ad8](https://github.com/MonoFolio/batleforc/commit/5397ad8eda22948377d15a93c6786180b965d19d)) - Max batleforc
+- add spectral to api dev [HOOK FAIL OK] - ([fdd42d6](https://github.com/MonoFolio/batleforc/commit/fdd42d69e5d3beceba0d6f79b9e49bca7b1a1b2b)) - Max batleforc
+- add spectral to api dev [HOOK FAIL OK] - ([cab2ae9](https://github.com/MonoFolio/batleforc/commit/cab2ae936982256cf9cf9e41350b867a8433cc2a)) - Max batleforc
+- add spectral to api dev [HOOK FAIL OK] - ([d16df7c](https://github.com/MonoFolio/batleforc/commit/d16df7c234b14f8904adc06fda18afa45573aaeb)) - Max batleforc
+- add spectral to api dev [HOOK FAIL OK] - ([4ac39bc](https://github.com/MonoFolio/batleforc/commit/4ac39bc5ad65825cabe3e650153ee34597fe7223)) - Max batleforc
+- add endoflife [HOOK FAIL OK] - ([0e83880](https://github.com/MonoFolio/batleforc/commit/0e838803b01b715802a2d4ae9ae41a143707c6a1)) - Max batleforc
+- package [HOOK FAIL OK] - ([0db8ebe](https://github.com/MonoFolio/batleforc/commit/0db8ebe08162d563174f9991fdcec2a39c9b8655)) - Max batleforc
+- package [HOOK FAIL OK] - ([67f59da](https://github.com/MonoFolio/batleforc/commit/67f59da6232f8a1220e3338956d8bd78efa7f0a7)) - Max batleforc
+- package [HOOK FAIL OK] - ([fcbc821](https://github.com/MonoFolio/batleforc/commit/fcbc821a24e70d3791e1b52af2afa4fb1a90dcb2)) - Max batleforc
+- package [HOOK FAIL OK] - ([1cdd759](https://github.com/MonoFolio/batleforc/commit/1cdd7593965bf79f5d4fa55378f04e17c7490050)) - Max batleforc
+- package [HOOK FAIL OK] - ([52d3b0c](https://github.com/MonoFolio/batleforc/commit/52d3b0c727c0ba9490eef41576fdf964c49cbd12)) - Max batleforc
+- spec of the weebo 4 project - ([13e963f](https://github.com/MonoFolio/batleforc/commit/13e963f60732be7dd9dc59449f4131c35a910d18)) - Max batleforc
+- spec of the weebo 4 project - ([aab64ef](https://github.com/MonoFolio/batleforc/commit/aab64efa51e5e534e58b895e0f176bcdd97ed3c3)) - Max batleforc
+- try to fix hey api and more doc - ([cecb0dd](https://github.com/MonoFolio/batleforc/commit/cecb0ddb4b6da5834ec5aa8e74f52f70919a26cb)) - Max batleforc
+- work on blog page render and upgrade package - ([447131b](https://github.com/MonoFolio/batleforc/commit/447131b5497727addf1db02367c434e8ca9b7ebf)) - Max batleforc
+- add licences - ([d358070](https://github.com/MonoFolio/batleforc/commit/d3580700403f517814a43387fdcf3e7046a3ad7b)) - Maxime
+- basic blog - ([de4d870](https://github.com/MonoFolio/batleforc/commit/de4d870242e3bd7e31280c9e5eb605b5882b0121)) - Max batleforc
+- first blog post ? - ([de1bd32](https://github.com/MonoFolio/batleforc/commit/de1bd329394cbc0cd742555d5039586620398bcb)) - Max batleforc
+- correction hyperlink techno ++ date - ([b4b820a](https://github.com/MonoFolio/batleforc/commit/b4b820af79a6b8ff39074b37b6f635696719443e)) - Max batleforc
+- upgrade package - ([b17a21d](https://github.com/MonoFolio/batleforc/commit/b17a21dc0f07be053b8c89edd3bf3851ba2a1826)) - Max batleforc
+- upgrade dep - ([4350fe9](https://github.com/MonoFolio/batleforc/commit/4350fe96116751b14fac24c35f6ad7ae7a6bf95b)) - Max batleforc
+- on pong indicate the key to use - ([920a995](https://github.com/MonoFolio/batleforc/commit/920a995e590a743f02928dfd70e3df74122c8945)) - Max batleforc
+- on pong indicate the key to use - ([d72f33e](https://github.com/MonoFolio/batleforc/commit/d72f33e0b9ae4827f830e316623d327b372ca1c4)) - Max batleforc
+- setup pong to be working as an external module and fix otlp external env var - ([26c661a](https://github.com/MonoFolio/batleforc/commit/26c661acf726dc542511f1b4ee5cf90a00178424)) - Max batleforc
+- setup pong to be working as an external module and fix otlp external env var - ([23fd98b](https://github.com/MonoFolio/batleforc/commit/23fd98bb8212663cfba73ef55472d714a3a0624f)) - Max batleforc
+- init work on including wasm inside the web app - ([996ca27](https://github.com/MonoFolio/batleforc/commit/996ca27f2f2e9c4c48517b1724e1f8ac8bf375d8)) - Max batleforc
+- include pong in the back folder - ([ba332c7](https://github.com/MonoFolio/batleforc/commit/ba332c7d94db0184e6cb41b3f440e6f5bdf9dd6c)) - Max batleforc
+- include pong in the back folder - ([5e77999](https://github.com/MonoFolio/batleforc/commit/5e7799990b3cb90428c6ab3a813f0613cc1ceba5)) - Max batleforc
+- Small Pong with Bevy and build the wasm module inside the media folder - ([70397a9](https://github.com/MonoFolio/batleforc/commit/70397a92ceffa69b6f3bdbb1a02c29e996c70f3c)) - Max batleforc
+- Small Pong with Bevy and build the wasm module inside the media folder - ([c7966f5](https://github.com/MonoFolio/batleforc/commit/c7966f59750a1ff98ed38413bd29bbfcfbebdfbf)) - Max batleforc
+- Small Pong with Bevy and build the wasm module inside the media folder - ([ff21995](https://github.com/MonoFolio/batleforc/commit/ff219956d7c89b2e998f938ec5c1d048a0da9c7c)) - Max batleforc
+- exclude pong has i will build the wasm part in it's sub image - ([c953f30](https://github.com/MonoFolio/batleforc/commit/c953f30a51acc30bc550dc077138582dbf43c884)) - Max batleforc
+- exclude pong has i will build the wasm part in it's sub image - ([b6f482f](https://github.com/MonoFolio/batleforc/commit/b6f482fe408b326882f12ce3ea0d1f9fdca40837)) - Max batleforc
+- remove previous - ([fb2dc67](https://github.com/MonoFolio/batleforc/commit/fb2dc67031455bef35054f35a3bb886934fdb356)) - Max batleforc
+- ajout perm on rust audit - ([e8b8877](https://github.com/MonoFolio/batleforc/commit/e8b88775864bbb28f8270741886b1f725c0d2036)) - Max batleforc
+- ajout perm on rust audit - ([cfceddb](https://github.com/MonoFolio/batleforc/commit/cfceddba928c81caedfc5e6fdc8f674462535dc7)) - Max batleforc
+- ajout perm on rust audit - ([50e6ffa](https://github.com/MonoFolio/batleforc/commit/50e6ffae6c28a4c76bed00c16d3f202aec235067)) - Max batleforc
+- ajout perm on rust audit - ([5e927b9](https://github.com/MonoFolio/batleforc/commit/5e927b97644141d175e15914f746a49dcf693841)) - Max batleforc
+- ajout perm on rust audit - ([18e6b3b](https://github.com/MonoFolio/batleforc/commit/18e6b3b8184f3005da6ce6cc5ff3ae8eda9449b8)) - Max batleforc
+- Start work on Pong - ([8a265cd](https://github.com/MonoFolio/batleforc/commit/8a265cdbef771d32af9b13f75f10aecb21df5083)) - Max batleforc
+- Add a part of the application that i use - ([0f468dc](https://github.com/MonoFolio/batleforc/commit/0f468dc3866ef3c25f507de599f5149c559c168f)) - Max batleforc
+- Add a part of the application that i use - ([0eb30e9](https://github.com/MonoFolio/batleforc/commit/0eb30e982bb90404483e9eb7b12930c67bb18fd1)) - Max batleforc
+- Rename folder and handle the Upper/Lowercase ++ add more doc on the data folder - ([8b58021](https://github.com/MonoFolio/batleforc/commit/8b58021726c82c7b15fc643435e3d91a4453d265)) - Max batleforc
+- Rename folder and handle the Upper/Lowercase ++ add more doc on the data folder - ([2c10e79](https://github.com/MonoFolio/batleforc/commit/2c10e79ea1f2594cf67fc478d5e7f5c06dceab28)) - Max batleforc
+- setup spectral lint - ([84d8ce2](https://github.com/MonoFolio/batleforc/commit/84d8ce2f3e46ae8da4a4342eadb1d83e09ae6689)) - Max batleforc
+- setup spectral lint - ([30aa0fb](https://github.com/MonoFolio/batleforc/commit/30aa0fb183d8f2f98fee251f95fc6842d6037efb)) - Max batleforc
+- setup spectral lint - ([8ce0d95](https://github.com/MonoFolio/batleforc/commit/8ce0d95f1e4c3493d7abe66de7a97db4aec51e28)) - Max batleforc
+- setup eslint - ([4e402ac](https://github.com/MonoFolio/batleforc/commit/4e402ac465b08d836de3c070d8f5629345ad7f81)) - Max batleforc
+- setup eslint - ([5082c80](https://github.com/MonoFolio/batleforc/commit/5082c80906cbcf2e19a581eee102d96a1de6387f)) - Max batleforc
+- setup eslint - ([4643b0f](https://github.com/MonoFolio/batleforc/commit/4643b0f792e90dc5c51bed83166ac75993238d0c)) - Max batleforc
+- setup eslint - ([06f9152](https://github.com/MonoFolio/batleforc/commit/06f915283bef77de0bfa9af83d4595145d67e198)) - Max batleforc
+- setup eslint - ([8219198](https://github.com/MonoFolio/batleforc/commit/8219198772b973c90087b85f7f0b2ca7bcbcf3a2)) - Max batleforc
+- setup eslint - ([cec87b4](https://github.com/MonoFolio/batleforc/commit/cec87b4b7a10f8ec752d46abd4e2d3090968b02f)) - Max batleforc
+- setup eslint - ([06168ff](https://github.com/MonoFolio/batleforc/commit/06168ff8c5e61b95e875f974411f69301c3cc1f7)) - Max batleforc
+- add doc on CICD/GitOps/Kube/some other aspect - ([5ab4f06](https://github.com/MonoFolio/batleforc/commit/5ab4f0646fa950745b097707fafd9537dabed5ad)) - Max batleforc
+- upgrade dep - ([769aa0d](https://github.com/MonoFolio/batleforc/commit/769aa0dece4bcddc67de4771080437bb8fe34eb9)) - Max batleforc
+- Mise en place de nouvelle doc et ajout d'icon - ([42db894](https://github.com/MonoFolio/batleforc/commit/42db894087e4fb205442f9d391d6e29812c14a0b)) - Max batleforc
+- disable the blog part has it is still in progress - ([b8c7615](https://github.com/MonoFolio/batleforc/commit/b8c7615ade5a9b5ca73515c205d71cf4cea45173)) - Max batleforc
+- make the doc sidebar mobile - ([a5b6ad2](https://github.com/MonoFolio/batleforc/commit/a5b6ad27b447a6a8f6baa416ad42068281dfa605)) - Max batleforc
+- create card has quick description of the page - ([cfc7a01](https://github.com/MonoFolio/batleforc/commit/cfc7a016467caf74f3b4918c421808f869b9406d)) - Max batleforc
+- include mermaidjs - ([144d6e1](https://github.com/MonoFolio/batleforc/commit/144d6e15796d088d0a7d9138b83916c6dbc2a978)) - Max batleforc
+- setup highlightjs and checkbox - ([38e5a1c](https://github.com/MonoFolio/batleforc/commit/38e5a1c5e1793752876619eed2dae5741fd35f05)) - Max batleforc
+- process markdown into object - ([8f58a63](https://github.com/MonoFolio/batleforc/commit/8f58a63f2c63558fd30051b0003cb915f24fbcbf)) - Max batleforc
+- Make DocView reactive on page change load the new page - ([5a25de3](https://github.com/MonoFolio/batleforc/commit/5a25de3cfacc0620232d6de6bf49e7d12b2c6aa6)) - Max batleforc
+- easter egg ? presque - ([4d8cb96](https://github.com/MonoFolio/batleforc/commit/4d8cb96a4f2a70b38fb46be8bdee662020556787)) - Max batleforc
+- Setup initial sidebar(handle show active page, link to category that has index) for doc, fetch initial page of index when on DocHomeView and display minimal info on main index if exist - ([6026aa3](https://github.com/MonoFolio/batleforc/commit/6026aa38af5eaec788c856fb9f9da8d2e1fc72ee)) - Max batleforc
+- add test front - ([eff77fd](https://github.com/MonoFolio/batleforc/commit/eff77fdd841ed0d22681ea77093fcdf0584d0cb9)) - Max batleforc
+- add test front - ([8833bad](https://github.com/MonoFolio/batleforc/commit/8833badcb549cc42f1e8674b83c080419c9dca4e)) - Max batleforc
+- add test front - ([b45c8a3](https://github.com/MonoFolio/batleforc/commit/b45c8a3107386b634b201a4a3b35c49acb0c18aa)) - Max batleforc
+- add test front - ([7fae413](https://github.com/MonoFolio/batleforc/commit/7fae413fc8c2c4184b8f55d7aa5dd9c6feac5a12)) - Max batleforc
+- add test front - ([42a2cc6](https://github.com/MonoFolio/batleforc/commit/42a2cc6338f9c0ca8ecaa93cfaf773df5a77302c)) - Max batleforc
+- update dep ++ fix cicd - ([c82ffd7](https://github.com/MonoFolio/batleforc/commit/c82ffd7f3da7f5aa0705732115ce3b64997ee453)) - Max batleforc
+- init page store - ([d41659b](https://github.com/MonoFolio/batleforc/commit/d41659b34fd89d88b0cb6bd6438f337737db7c51)) - Max batleforc
+- init store - ([0463b01](https://github.com/MonoFolio/batleforc/commit/0463b01473bd6c36b542c21377d8d90d712ceaa8)) - Max batleforc
+- change home to Maxime Leriche - ([5605d74](https://github.com/MonoFolio/batleforc/commit/5605d74676c15966529707fe27ea4ef3d4da4fb8)) - Max batleforc
+- conditional rendering of the hero ++ dynamic routing of the doc page - ([dd7063f](https://github.com/MonoFolio/batleforc/commit/dd7063ff7627b129de43e5d07011ef4b7986fefd)) - Max batleforc
+- enable gzip - ([75e8bb0](https://github.com/MonoFolio/batleforc/commit/75e8bb08ba0a77af67fe98ab6aa27f4a713b0cb2)) - Max batleforc
+- enable brotli/gzip - ([e0b27f6](https://github.com/MonoFolio/batleforc/commit/e0b27f66b8907d63b1ef496342d6e23211783c00)) - Max batleforc
+- enable brotli/gzip - ([85c1e0a](https://github.com/MonoFolio/batleforc/commit/85c1e0a3a731b96438bd9ed4dfa476c4bff1794f)) - Max batleforc
+- add compression on api and meta for the front - ([50d8d71](https://github.com/MonoFolio/batleforc/commit/50d8d71af30f614ecacd384a3264db84a02de84c)) - Max batleforc
+- deploy in beta front - ([a296ed3](https://github.com/MonoFolio/batleforc/commit/a296ed393c5cb34a590dcdfa7a77b5a4b6937160)) - Max batleforc
+- mise en place basic cicd (build and deploy only) [HOOK FAIL OK] - ([2a23236](https://github.com/MonoFolio/batleforc/commit/2a23236c3e4696d0f1c13d4839181cc6d3ab59cf)) - Max batleforc
+- update cicd readme [HOOK FAIL OK] - ([3f72e67](https://github.com/MonoFolio/batleforc/commit/3f72e67cfc1cd0d2850bd9efead1102a3e931a94)) - Max batleforc
+- Move lib into subdir, init CICD [HOOK FAIL OK] - ([c63147a](https://github.com/MonoFolio/batleforc/commit/c63147a40daea1200bc2e6ff4be2237d81c1d8e6)) - Max batleforc
+- upgrade package json [HOOK FAIL OK] - ([0fd6f28](https://github.com/MonoFolio/batleforc/commit/0fd6f281b554b84277d6a305aae750dc07565d3c)) - Max batleforc
+- upgrade package json [HOOK FAIL OK] - ([d7567a2](https://github.com/MonoFolio/batleforc/commit/d7567a205ccdc09a4ce2a64191b2ce9a19077635)) - Max batleforc
+- changement du style de la timeline [HOOK FAIL OK] - ([4e1109a](https://github.com/MonoFolio/batleforc/commit/4e1109a08ec3450c7d2c4ea97300227d936802a2)) - Max batleforc
+- Basic card - ([e2b7b1a](https://github.com/MonoFolio/batleforc/commit/e2b7b1a8eda6e160d9cd1fb75fd4d26e38f9d699)) - Max batleforc
+- setup who am i and download CV - ([e3e3d45](https://github.com/MonoFolio/batleforc/commit/e3e3d45a31102e5d334dc2eaa600c5f6081bc5f0)) - Max batleforc
+- Setup podman conteneur - ([2f4d41f](https://github.com/MonoFolio/batleforc/commit/2f4d41f7f5f9a2f0a39c635cd0ce65f6fb5c976f)) - Max batleforc
+- Mise en place HeroLink avec Router link - ([a8a90df](https://github.com/MonoFolio/batleforc/commit/a8a90dff155e783932e763cbfd0c1856109b254f)) - Max batleforc
+- try to update opentelemetry but the rust background about it is pure shit - ([23510a8](https://github.com/MonoFolio/batleforc/commit/23510a8f2afa177f0e17ce04df18beee980174c6)) - Max batleforc
+- Upgrade package yarn 2 - ([c3e9fcf](https://github.com/MonoFolio/batleforc/commit/c3e9fcf8ed3e57d19da3362bbc2680c8f747b751)) - Max batleforc
+- Upgrade package yarn and swagger ui - ([c3c6f99](https://github.com/MonoFolio/batleforc/commit/c3c6f9926224e104b9ee40734b547e1ab4c286a2)) - Max batleforc
+- Navbar likely to be ok - ([00d1128](https://github.com/MonoFolio/batleforc/commit/00d1128aa6f2496854765e25b3f08987977b1d19)) - Max batleforc
+- finish hero and init navbar ++ include tailwindcss - ([61fda05](https://github.com/MonoFolio/batleforc/commit/61fda059a216a60c89090b9b4b4198efb323f8ca)) - Max batleforc
+- init hero - ([4f56ba7](https://github.com/MonoFolio/batleforc/commit/4f56ba7a0ef6c37914fbb5f49c991fd777357f72)) - Max batleforc
+- setup env variable for vite config - ([5b14f1b](https://github.com/MonoFolio/batleforc/commit/5b14f1be2fc5ca2f18389813414459168fb8da2b)) - Max batleforc
+- create a js lib including the api call - ([6217b7e](https://github.com/MonoFolio/batleforc/commit/6217b7e8b5e4e2cf4654fcdbf1429124a835d47f)) - Max batleforc
+- move content and media to folio_content - ([b88cb10](https://github.com/MonoFolio/batleforc/commit/b88cb10f89e490a50f25b44cfef93d4d60aaf754)) - Max batleforc
+- setup media endpoint - ([f0fe84e](https://github.com/MonoFolio/batleforc/commit/f0fe84e0f1eea5592ee6edc178ec2478b992c8c4)) - Max batleforc
+- setup home endpoint and test - ([19eb910](https://github.com/MonoFolio/batleforc/commit/19eb91095de4e13a91a2fcd1b9cb6c3e5981697c)) - Max batleforc
+- setup doc sidebar api and test - ([b6ca74a](https://github.com/MonoFolio/batleforc/commit/b6ca74ae5f52911fc3e057e115977f9dd6f0f056)) - Max batleforc
+- setup page api and test - ([fd5fece](https://github.com/MonoFolio/batleforc/commit/fd5fecee75edf61498e5c9fc8930f8b8c55fa40d)) - Max batleforc
+- setup test for api docs and get_timeline - ([e74b2d9](https://github.com/MonoFolio/batleforc/commit/e74b2d99c6964c35c8af5985f803bfbde3f57d1d)) - Max batleforc
+- test ToSChema - ([7264869](https://github.com/MonoFolio/batleforc/commit/72648695abafcd48c31700d29dab0f016f5d660e)) - Max batleforc
+- remove pyroscope - ([237df04](https://github.com/MonoFolio/batleforc/commit/237df04147ab566cfbce55d64eab2753026d0da2)) - Max batleforc
+- remove pyroscope - ([70464d7](https://github.com/MonoFolio/batleforc/commit/70464d7f9e8f840ff72030a2191cdaca586e0df1)) - Max batleforc
+- init blog endpoint - ([8892811](https://github.com/MonoFolio/batleforc/commit/88928112659caedf7ba1618e2ad2c1bad372fea5)) - Max batleforc
+- setup base api/prepare db content/init tracing/init swaggerdoc - ([4dc5913](https://github.com/MonoFolio/batleforc/commit/4dc5913806f1beeaa28b3c71eaf679b93e558975)) - Max batleforc
+- setup basic milestone in the readme - ([15f0bab](https://github.com/MonoFolio/batleforc/commit/15f0babb97c69462348cd621fd34094f0082e6df)) - Max batleforc
+- mise en place home profil - ([3cc0f06](https://github.com/MonoFolio/batleforc/commit/3cc0f06feb88d2f058d2b365a51d2a1fdbeaac84)) - Max batleforc
+- mise en place config et basique home - ([3306566](https://github.com/MonoFolio/batleforc/commit/330656671211cceb330ceb6c3fc2317559265266)) - Max batleforc
+- extract markdown_struct to it's own libs - ([6209556](https://github.com/MonoFolio/batleforc/commit/62095565195acadb6201df92e35323fafa274556)) - Max batleforc
+- creation libs tool_tracing - ([7e4900f](https://github.com/MonoFolio/batleforc/commit/7e4900f224a836c23f93d46de034d51a2b4371fa)) - Max batleforc
+- rework sidebar to use the database - ([1405824](https://github.com/MonoFolio/batleforc/commit/1405824fdf989bbf419aae20f48c0c4a11c81b9f)) - Max batleforc
+- add codecov badge - ([8c998d0](https://github.com/MonoFolio/batleforc/commit/8c998d079ab38cdeb82af0e52e1fa5f731e730a6)) - Max batleforc
+- setup rust github action - ([99152ea](https://github.com/MonoFolio/batleforc/commit/99152ea5fa623921dbd782a9f044cc25be6b7feb)) - Max batleforc
+- setup rust github action - ([7c5e607](https://github.com/MonoFolio/batleforc/commit/7c5e60786b0685a9b5f52e3f65276e8fa5effb16)) - Max batleforc
+- mise en place dbFolder and rework blog timeline to be based on the dbFolder and user ShortPage that contain the path in dbFolder of the page - ([d468d8a](https://github.com/MonoFolio/batleforc/commit/d468d8a47643b11bb7ea55337793e1725ea17c91)) - Max batleforc
+- rewrite markwon lib to be more up to date - ([b18d507](https://github.com/MonoFolio/batleforc/commit/b18d5076b968bfa1d74d0f4f392e6741157089bb)) - Max batleforc
+- using date is better than unformated string - ([08a4176](https://github.com/MonoFolio/batleforc/commit/08a4176b2b1659ce32b0d5ec9fc613f8a823331b)) - Max batleforc
+- fully tested blog_timeline - ([2078c26](https://github.com/MonoFolio/batleforc/commit/2078c26029f4ed431271eb1dc388f815183658bb)) - Max batleforc
+- test content struct and init blog timeline - ([e7451e4](https://github.com/MonoFolio/batleforc/commit/e7451e4e27337cadba4a2c9858c75e9090174a26)) - Max batleforc
+- setup doc_sidebar with full test - ([6a3b879](https://github.com/MonoFolio/batleforc/commit/6a3b8799592a73a1f5d87c81cd22107f6e528a0e)) - Max batleforc
+- add weebo pic - ([27027c9](https://github.com/MonoFolio/batleforc/commit/27027c943481afb1fbff6759e1998301148d2b53)) - Max batleforc
+- setup the folder struct crawler - ([b71262a](https://github.com/MonoFolio/batleforc/commit/b71262a95a93843ddc1a51c07be4610a1dd5ee65)) - Max batleforc
+- setup the folder struct crawler - ([0f8a8fe](https://github.com/MonoFolio/batleforc/commit/0f8a8fed19f30a14ea84db7c237e14bcff1d29d4)) - Max batleforc
+- create basic content ++ write lot's of test on markdown - ([70abec1](https://github.com/MonoFolio/batleforc/commit/70abec1fefa2f42b43b26bb91bb698866f6da6ff)) - Max batleforc
+- init coverage work - ([be600a6](https://github.com/MonoFolio/batleforc/commit/be600a645a0df6ab6f5798b2b308a9495ae949f3)) - Max batleforc
+- Start working on the doc/project/blog workflow - ([e0eafa9](https://github.com/MonoFolio/batleforc/commit/e0eafa915175536b26b0aa559a9488b6d2ebfd21)) - Max batleforc
+- Start working on the doc/project/blog workflow - ([e209dff](https://github.com/MonoFolio/batleforc/commit/e209dff774e7fd50fe85ffc38eedd66dda1e859b)) - Max batleforc
+- Start working on the doc/project/blog workflow - ([1fd934e](https://github.com/MonoFolio/batleforc/commit/1fd934ea56ea2a13d227515079d6e54d7c79ba38)) - Max batleforc
+- Update Readme - ([0a01115](https://github.com/MonoFolio/batleforc/commit/0a01115a1190eab10a1726df497fbe74adf61136)) - Max batleforc
+- Mise en place hook a travers une lib nx - ([37a79db](https://github.com/MonoFolio/batleforc/commit/37a79dbb763f35b15071f5b4a051f5340bac6527)) - Max batleforc
+- define base content - ([9982d45](https://github.com/MonoFolio/batleforc/commit/9982d45a76ec7a68965bdc2b5c9d6992a2987c2c)) - Max batleforc
+- init project with two app created and a readme - ([d392baf](https://github.com/MonoFolio/batleforc/commit/d392baf938a59e1f556a84ce6bf2d6d183a8350b)) - Max batleforc
+#### Miscellaneous Chores
+- add jaeger and start working on pprof (but could be dropped sooon) - ([20b8861](https://github.com/MonoFolio/batleforc/commit/20b886172b112be566b7a8575f745770b3cac189)) - Max batleforc
+- Just change spec for tonight - ([f4acc4b](https://github.com/MonoFolio/batleforc/commit/f4acc4b669f32733fbee4e53be88d34d2272f788)) - Max batleforc
+
+- - -
+
+Changelog generated by [cocogitto](https://github.com/cocogitto/cocogitto).
