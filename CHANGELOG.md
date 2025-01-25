@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [1.0.2](https://github.com/MonoFolio/batleforc/compare/fb4e62b2f673142e93e9caaee2baaaaa2c62b6b2..1.0.2) - 2025-01-25
+#### Features
+- wip - ([fb4e62b](https://github.com/MonoFolio/batleforc/commit/fb4e62b2f673142e93e9caaee2baaaaa2c62b6b2)) - Max batleforc
+
+- - -
+
 ## [0.0.2](https://github.com/MonoFolio/batleforc/compare/4112d70e1f624173c22efd5a4332e4aed57dddd6..0.0.2) - 2025-01-25
 #### Features
 - wip - ([4112d70](https://github.com/MonoFolio/batleforc/commit/4112d70e1f624173c22efd5a4332e4aed57dddd6)) - Max batleforc
