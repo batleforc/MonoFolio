@@ -2,7 +2,7 @@
 
 [![codecov](https://codecov.io/github/batleforc/MonoFolio/graph/badge.svg?token=UONUFAX0K2)](https://codecov.io/github/batleforc/MonoFolio)
 
-## TODO
+## TODO !
 
 - Define the content of the portfolio
 - Reproduce existing portfolio or re-start from zero ? Make pros and cons
