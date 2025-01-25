@@ -1,6 +1,3 @@
-pre_bump_hooks = ["RUST_BUMP_VERSION=\"{{version}}\" nx run-many -t bump"]
-post_bump_hooks = ["git push", "git push origin {{version}}"]
-
 [changelog]
 path = "CHANGELOG.md"
 template = "remote"
@@ -8,8 +5,8 @@ remote = "github.com"
 repository = "batleforc"
 owner = "MonoFolio"
 authors = [
-    { username = "batleforc", signature = "Max" },
-    { username = "max", signature = "Max" },
+  { username = "batleforc", signature = "Max" },
+  { username = "max", signature = "Max" },
 ]
 
 [bump_profiles]
