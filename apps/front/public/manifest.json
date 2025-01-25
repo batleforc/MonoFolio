@@ -18,6 +18,20 @@
       "sizes": "512x512"
     }
   ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+maxlfoliodoc",
+      "url": "/doc/%s"
+    },
+    {
+      "protocol": "web+maxlfolioproject",
+      "url": "/project/%s"
+    },
+    {
+      "protocol": "web+maxlfolioblog",
+      "url": "/blog/%s"
+    }
+  ],
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",

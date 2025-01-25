@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import DocSidebar from '../component/Doc/DocSidebar.vue';
+import Footer from '../component/helper/Footer.vue';
 import PageRender from '../component/Page/PageRender.vue';
 import { useDocStore } from '../stores/doc';
 import { usePageStore } from '../stores/page';
@@ -29,9 +30,7 @@ if (docStore.inited && docStore.docContent.has_index && pageStore.pageLoading ==
         <h1>Doc home page</h1>
         <p>There is no index page for this documentation</p>
       </div>
-      <footer class="docFooter">
-        <p>Made with love and too much coffee @Batleforc - {{ new Date().getFullYear() }}</p>
-      </footer>
+      <Footer className="docFooter" />
     </div>
   </div>
 </template>

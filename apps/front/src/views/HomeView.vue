@@ -2,6 +2,7 @@
 import { useIndexStore } from '../stores';
 import { getMediaApiUrl } from '../helper/index';
 import IcoOrMedia from '../component/helper/IcoOrMedia.vue';
+import Footer from '../component/helper/Footer.vue';
 import { useBreakpoints } from '../helper/mediaQuerry';
 const indexStore = useIndexStore();
 const { type } = useBreakpoints();
@@ -90,6 +91,7 @@ const { type } = useBreakpoints();
           </Card>
         </RouterLink>
       </div>
+      <Footer className="docFooter" />
     </Panel>
   </div>
 </template>

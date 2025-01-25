@@ -10,7 +10,7 @@
 }
 
 .docFooter {
-  @apply flex justify-center items-center h-16 w-full hidden;
+  @apply flex justify-center items-center h-16 w-full;
   background-color: $color-bgCover;
   color: $color-textCover;
 }
