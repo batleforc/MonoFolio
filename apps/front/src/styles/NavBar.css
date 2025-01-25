@@ -1,4 +1,3 @@
-
 .navBarHeaderItem:hover {
   background-color: var(--color-bgCoverLighter);
   @apply rounded-lg;
@@ -18,11 +17,11 @@
   }
 }
 
-.p-menubar-item.p-focus>.p-menubar-item-content {
+.p-menubar-item.p-focus > .p-menubar-item-content {
   background-color: var(--color-bgCoverLighter);
 }
 
-.p-menubar-item:not(.p-disabled)>.p-menubar-item-content:hover {
+.p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover {
   background-color: var(--color-bgCoverLighter);
 }
 
@@ -38,7 +37,9 @@
 
 .navBarHeader {
   background-color: var(--color-bgCover);
+  border-color: var(--color-bgCover);
   z-index: 2000;
+
   @apply rounded-none sticky top-0 justify-between h-16;
 
   @media (min-width: 740px) {
@@ -66,5 +67,4 @@
 .ico-navBarHeader {
   font-size: 38px;
   color: var(--color-textCover);
-
 }

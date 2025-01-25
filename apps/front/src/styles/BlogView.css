@@ -1,3 +1,7 @@
 .blogHomeView {
   @apply text-4xl;
 }
+
+.blogHomeButton {
+  @apply bg-transparent border-transparent text-black;
+}

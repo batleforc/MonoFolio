@@ -27,7 +27,7 @@ if (!blogStore.inited && !blogStore.blogLoading) {
             <template #footer>
               <div class="flex flex-col place-items-end	">
                 <RouterLink :to="{ name: 'blogcontent', params: { page: post[0] } }">
-                  <Button label="Read more" />
+                  <Button class="blogHomeButton" label="Read more" />
                 </RouterLink>
               </div>
             </template>

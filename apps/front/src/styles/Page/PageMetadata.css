@@ -3,3 +3,7 @@
 .pageHeaderLink {
   @apply flex flex-wrap gap-2;
 }
+
+.pageHeaderWrapper {
+  @apply border-transparent;
+}
