@@ -16,7 +16,11 @@ pub fn init_page_v2_api() -> Scope {
 mod tests {
     use super::*;
     use actix_web::{web, App};
-    use markdown_struct::{content_struct::PageV2, doc_header::DocHeader, page_database::DbFolder};
+    use markdown_struct::{
+        content_struct::{Page, PageV2},
+        doc_header::DocHeader,
+        page_database::DbFolder,
+    };
 
     #[actix_web::test]
     async fn test_init_page_api() {
@@ -38,7 +42,7 @@ mod tests {
         let resp_body = actix_web::test::read_body(resp).await;
         assert_eq!(
             resp_body,
-            serde_json::to_string(db_folder.get_page("test").unwrap()).unwrap()
+            serde_json::to_string(&Page::from(db_folder.get_page("test").unwrap())).unwrap()
         );
     }
 }
