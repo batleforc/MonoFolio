@@ -14,13 +14,21 @@ pub struct Page {
 }
 
 /// V2 of the page struct, containing the metadata, path and commonmark content.
-#[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
+#[derive(Serialize, Deserialize, Debug, Clone, ToSchema)]
 pub struct PageV2 {
     pub name: String,
-    #[serde(skip_serializing)]
+    #[serde(skip_serializing, default = "String::new")]
     content: String,
     pub metadata: DocHeader,
     pub parsed_content: Node,
+}
+
+impl PartialEq for PageV2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.name == other.name
+            && self.metadata == other.metadata
+            && self.parsed_content == other.parsed_content
+    }
 }
 
 impl From<Page> for PageV2 {

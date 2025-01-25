@@ -55,10 +55,19 @@ impl Markdown {
     /// require two types: Data Object and Adapter
     /// # Examples
     ///```
-    /// use markdown_parser::*;
-    /// use markdown_parser::adapt::{SafeFM, JsonAdapter};
-    /// let origin = read_file("toml.md").unwrap();
-    /// let md = origin.adapt::<JsonAdapter, SafeFM>().unwrap();
+    /// use markdown_header::*;
+    /// use markdown_header::adapt::{JsonAdapter};
+    /// use std::fs;
+    /// #[derive(serde::Serialize, serde::Deserialize, Debug)]
+    /// struct SafeFM {
+    ///   title: String,
+    /// }
+    /// let md = Markdown::new(
+    ///     "content".to_string(),
+    ///     "{title &ésd hello".to_string(),
+    ///     Format::JSON,
+    /// );
+    /// let md = md.adapt::<JsonAdapter, SafeFM>();
     ///```
     ///
     pub fn adapt<A, T>(self) -> MarkdownResult
