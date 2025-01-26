@@ -8,15 +8,17 @@ export interface PageState {
   page?: Page;
   pageV2?: PageV2;
   pagePath: string;
+  v2Switch: boolean;
 }
 
 export const usePageStore = defineStore('page', {
   state: (): PageState => ({
     pageLoading: false,
     pagePath: '',
+    v2Switch: true,
   }),
   actions: {
-    fetchPage(path: string, v2 = false) {
+    fetchPage(path: string) {
       if (this.pageLoading) return new Promise<void>((resolve) => resolve());
 
       if (this.pagePath === path) {
@@ -32,17 +34,31 @@ export const usePageStore = defineStore('page', {
       if (category && category.has_index) {
         path = `${path}/index`;
       }
-      const getPagefunc = v2 ? getPageV2 : getPage;
-      return getPagefunc({ query: { path } })
-        .then((body) => {
-          if (body.status === 200) {
-            if (v2) {
+      if (this.v2Switch) {
+        return getPageV2({ query: { path } })
+          .then((body) => {
+            if (body.status === 200) {
               this.pageV2 = body.data;
               this.page = undefined;
-            } else {
-              this.pageV2 = undefined;
-              this.page = body.data;
             }
+            this.pagePath = path;
+          })
+          .catch((err) => {
+            console.error(err);
+            this.loadingError = 'Failed to load page';
+            this.pagePath = '';
+            this.page = undefined;
+            this.pageV2 = undefined;
+          })
+          .finally(() => {
+            this.pageLoading = false;
+          });
+      }
+      return getPage({ query: { path } })
+        .then((body) => {
+          if (body.status === 200) {
+            this.pageV2 = undefined;
+            this.page = body.data;
             this.pagePath = path;
           }
         })
@@ -51,6 +67,7 @@ export const usePageStore = defineStore('page', {
           this.loadingError = 'Failed to load page';
           this.pagePath = '';
           this.page = undefined;
+          this.pageV2 = undefined;
         })
         .finally(() => {
           this.pageLoading = false;
