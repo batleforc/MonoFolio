@@ -50,7 +50,7 @@ watch(pathReactive, (newVal) => {
         <h1>Doc home page</h1>
         <p>There is no index page for this documentation</p>
       </div>
-      <Footer />
+      <Footer className="docFooter" />
     </div>
   </div>
 
