@@ -2,6 +2,7 @@
 import DocSidebar from '../component/Doc/DocSidebar.vue';
 import Footer from '../component/helper/Footer.vue';
 import PageRender from '../component/Page/PageRender.vue';
+import PageV2Render from '../component/PageV2/PageV2Render.vue';
 import { useDocStore } from '../stores/doc';
 import { usePageStore } from '../stores/page';
 
@@ -25,6 +26,9 @@ if (docStore.inited && docStore.docContent.has_index && pageStore.pageLoading ==
     <div class="docContent">
       <div class="docRealContent" v-if="docStore.docContent.has_index && pageStore.page !== undefined">
         <PageRender :page="pageStore.page" />
+      </div>
+      <div class="docRealContent" v-if="docStore.docContent.has_index && pageStore.pageV2 !== undefined">
+        <PageV2Render :page="pageStore.pageV2" />
       </div>
       <div v-if="!docStore.docContent.has_index">
         <h1>Doc home page</h1>

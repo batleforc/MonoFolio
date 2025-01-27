@@ -32,7 +32,6 @@ if (!blogStore.inited && !blogStore.blogLoading) {
               </div>
             </template>
           </PageMetadata>
-
         </li>
       </ul>
     </div>
