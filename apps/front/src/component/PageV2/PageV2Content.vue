@@ -8,6 +8,8 @@ import PageV2List from './PageV2NodeKind/PageV2List.vue';
 import PageV2ListItem from './PageV2NodeKind/PageV2ListItem.vue';
 import PageV2InlineCode from './PageV2NodeKind/PageV2InlineCode.vue';
 import PageV2Link from './PageV2NodeKind/PageV2Link.vue';
+import PageV2Strong from './PageV2NodeKind/PageV2Strong.vue';
+import PageV2Emphasis from './PageV2NodeKind/PageV2Emphasis.vue';
 
 defineProps<{
   page: Node;
@@ -23,6 +25,8 @@ defineProps<{
   <PageV2ListItem v-else-if="page['ListItem'] !== undefined" :value="page" />
   <PageV2InlineCode v-else-if="page['InlineCode'] !== undefined" :value="page" />
   <PageV2Link v-else-if="page['Link'] !== undefined" :value="page" />
+  <PageV2Strong v-else-if="page['Strong'] !== undefined" :value="page" />
+  <PageV2Emphasis v-else-if="page['Emphasis'] !== undefined" :value="page" />
   <p v-else>
     {{ page }}
   </p>

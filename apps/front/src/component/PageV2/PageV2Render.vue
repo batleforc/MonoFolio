@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <div class="pageView">
     <PageMetadata v-if="page.metadata !== undefined" :metadata="page.metadata" />
-    <div class="pageContent" v-if="page.parsed_content !== undefined">
+    <div class="pageContent my-2" v-if="page.parsed_content !== undefined">
       <PageV2Content v-for="content in page.parsed_content['Root']['children']" :key="content" :page="content" />
     </div>
   </div>
