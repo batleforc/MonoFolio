@@ -7,6 +7,7 @@ import { computed, watch } from 'vue';
 import PageRender from '../component/Page/PageRender.vue';
 import PageV2Render from '../component/PageV2/PageV2Render.vue';
 import WarnBan from '../component/helper/WarnBan.vue';
+import Footer from '../component/helper/Footer.vue';
 
 const route = useRoute();
 const docStore = useDocStore();
@@ -54,9 +55,7 @@ watch(pathReactive, (newVal) => {
         <h1>Blog page</h1>
         <p>There is no index page for this documentation</p>
       </div>
-      <footer class="docFooter">
-        <p>Made with love and too much coffee @Batleforc - {{ new Date().getFullYear() }}</p>
-      </footer>
+      <Footer className="docFooter" />
     </div>
   </div>
 </template>

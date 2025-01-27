@@ -37,3 +37,5 @@ This part of the project is a big chunk of the work. There will be tree display 
 ### Easter Egg
 
 Well, the *easter egg* part of the project will more or less be an excuse to have a sandbox to play with. The idea is to not lock myself in a single idea and will be split between a possible 3D project, some vanilla js content and some other idea that I will have or already have.
+
+![Portfolio](media#weebo.jpeg)

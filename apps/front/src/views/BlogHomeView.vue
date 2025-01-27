@@ -4,6 +4,7 @@ import PageMetadata from '../component/Page/PageMetadata.vue';
 import { useBlogStore } from '../stores/blog';
 import { useDocStore } from '../stores/doc';
 import { usePageStore } from '../stores/page';
+import Footer from '../component/helper/Footer.vue';
 
 
 const docStore = useDocStore();
@@ -16,7 +17,6 @@ if (!docStore.inited && !docStore.docLoading) {
 if (!blogStore.inited && !blogStore.blogLoading) {
   blogStore.init();
 }
-
 
 </script>
 
@@ -39,5 +39,6 @@ if (!blogStore.inited && !blogStore.blogLoading) {
         </li>
       </ul>
     </div>
+    <Footer className="docFooter" />
   </div>
 </template>
