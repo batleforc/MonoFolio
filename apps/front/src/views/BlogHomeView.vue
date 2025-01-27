@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import WarnBan from '../component/helper/WarnBan.vue';
 import PageMetadata from '../component/Page/PageMetadata.vue';
 import { useBlogStore } from '../stores/blog';
 import { useDocStore } from '../stores/doc';
+import { usePageStore } from '../stores/page';
 
 
 const docStore = useDocStore();
 const blogStore = useBlogStore();
+const pageStore = usePageStore();
 
 if (!docStore.inited && !docStore.docLoading) {
   docStore.init();
@@ -19,6 +22,7 @@ if (!blogStore.inited && !blogStore.blogLoading) {
 
 <template>
   <div id="title">
+    <WarnBan v-if="pageStore.maintenance" text="Maintenance en cours" />
     <div class="flex flex-row justify-center"
       v-if="blogStore.inited && !blogStore.blogLoading && blogStore.getBlogContent !== undefined">
       <ul class="flex flex-col w-full">

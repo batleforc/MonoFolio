@@ -6,6 +6,7 @@ import { usePageStore } from '../stores/page';
 import { computed, watch } from 'vue';
 import PageRender from '../component/Page/PageRender.vue';
 import PageV2Render from '../component/PageV2/PageV2Render.vue';
+import WarnBan from '../component/helper/WarnBan.vue';
 
 const route = useRoute();
 const docStore = useDocStore();
@@ -42,6 +43,7 @@ watch(pathReactive, (newVal) => {
 <template>
   <div id="title" class="docContainer" v-if="docStore.inited && blogStore.inited">
     <div class="docContent">
+      <WarnBan v-if="pageStore.maintenance" text="Maintenance en cours" />
       <div class="docRealContent" v-if="pageStore.page !== undefined">
         <PageRender :page="pageStore.page" />
       </div>

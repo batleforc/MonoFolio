@@ -7,6 +7,7 @@ import { usePageStore } from '../stores/page';
 import PageRender from '../component/Page/PageRender.vue';
 import PageV2Render from '../component/PageV2/PageV2Render.vue';
 import Footer from '../component/helper/Footer.vue';
+import WarnBan from '../component/helper/WarnBan.vue';
 
 const route = useRoute();
 
@@ -38,8 +39,7 @@ watch(pathReactive, (newVal) => {
 
     <DocSidebar />
     <div class="docContent">
-      <h1 class="font-bold p-4 text-white bg-red-600 text-center"> 🚧🚧 WARNING : The Doc page is under construction
-        🚧🚧</h1>
+      <WarnBan v-if="pageStore.maintenance" text="Maintenance en cours" />
       <div class="docRealContent" v-if="pageStore.page !== undefined">
         <PageRender :page="pageStore.page" />
       </div>

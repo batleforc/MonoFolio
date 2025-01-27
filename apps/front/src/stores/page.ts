@@ -9,6 +9,7 @@ export interface PageState {
   pageV2?: PageV2;
   pagePath: string;
   v2Switch: boolean;
+  maintenance: boolean;
 }
 
 export const usePageStore = defineStore('page', {
@@ -16,6 +17,7 @@ export const usePageStore = defineStore('page', {
     pageLoading: false,
     pagePath: '',
     v2Switch: true,
+    maintenance: false,
   }),
   actions: {
     fetchPage(path: string) {

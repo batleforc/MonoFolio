@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DocSidebar from '../component/Doc/DocSidebar.vue';
 import Footer from '../component/helper/Footer.vue';
+import WarnBan from '../component/helper/WarnBan.vue';
 import PageRender from '../component/Page/PageRender.vue';
 import PageV2Render from '../component/PageV2/PageV2Render.vue';
 import { useDocStore } from '../stores/doc';
@@ -24,6 +25,7 @@ if (docStore.inited && docStore.docContent.has_index && pageStore.pageLoading ==
   <div id="title" class="docContainer" v-if="docStore.inited">
     <DocSidebar />
     <div class="docContent">
+      <WarnBan v-if="pageStore.maintenance" text="Maintenance en cours" />
       <div class="docRealContent" v-if="docStore.docContent.has_index && pageStore.page !== undefined">
         <PageRender :page="pageStore.page" />
       </div>
