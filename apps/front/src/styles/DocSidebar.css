@@ -1,5 +1,5 @@
 .docSidebar {
-  @apply border-r-2 min-w-48 px-4 py-2 hidden md:flex flex-col sticky;
+  @apply border-r-2 min-w-48 px-4 py-2 hidden md:flex flex-col sticky overflow-auto;
   background-color: var(--color-bgCover);
   color: var(--color-textCover);
 }
