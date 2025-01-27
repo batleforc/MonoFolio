@@ -8,7 +8,5 @@ defineProps<{
 </script>
 
 <template>
-  <div class="pageString">
-    {{ value["Text"]["value"] }}
-  </div>
+  {{ value["Text"]["value"] }}
 </template>
