@@ -27,7 +27,7 @@
     "vue-router": "^4.4.3"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.1",
     "@monodon/rust": "^2.0.0-beta.1",
     "@nx/cypress": "20.4.0",
     "@nx/devkit": "20.4.0",
