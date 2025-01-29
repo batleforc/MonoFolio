@@ -7,6 +7,7 @@ metadata:
     app: "{{ .Chart.Name }}-{{- template "mychart.name" . -}}"
 {{- include "mychart.labels" . | nindent 2 }}
   annotations:
+  traefik.ingress.kubernetes.io/router.middlewares: "portfolio-umami-beta@kubernetescrd"
 {{- include "mychart.annotations" . | nindent 2 }}
     {{- if .Values.ingress.annotations }}
     {{- toYaml .Values.ingress.annotations | nindent 4 }}
