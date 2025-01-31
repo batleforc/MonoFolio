@@ -19,7 +19,7 @@ defineProps<{
 </script>
 
 <template>
-  <PageV2Title v-if="page['Heading'] !== undefined" :value="page" :level="page['depth'] || 3" />
+  <PageV2Title v-if="page['Heading'] !== undefined" :value="page" :level="page['Heading']['depth'] || 3" />
   <PageV2Text v-else-if="page['Text'] !== undefined" :value="page" />
   <PageV2Paragraph v-else-if="page['Paragraph'] !== undefined" :value="page" :checked="checked" />
   <PageV2Code v-else-if="page['Code'] !== undefined" :value="page" />

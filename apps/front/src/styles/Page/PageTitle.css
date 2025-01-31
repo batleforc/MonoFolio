@@ -11,9 +11,9 @@
 }
 
 .pageBlockTitleH3 {
-  @apply font-semibold text-3xl;
+  @apply font-medium text-3xl;
 }
 
 .pageBlockTitleH4 {
-  @apply font-medium text-2xl;
+  @apply font-normal text-2xl;
 }

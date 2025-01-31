@@ -1,0 +1,26 @@
+.pageQuickNavHeading {
+}
+
+.pageQuickNavHeadingH1 {
+  @apply font-semibold;
+}
+
+.pageQuickNavHeadingH2 {
+  @apply font-medium ml-2;
+}
+
+.pageQuickNavHeadingH3 {
+  @apply font-normal ml-4;
+}
+
+.pageQuickNavHeadingH4 {
+  @apply font-light ml-6;
+}
+
+.pageQuickNav {
+  @apply text-nowrap text-sm mt-4 my-12 min-w-32 max-w-80 pl-2 border-l-1 h-fit;
+}
+
+.pageQuickNavWrapper {
+  @apply hidden md:block sticky top-4 h-9/10;
+}

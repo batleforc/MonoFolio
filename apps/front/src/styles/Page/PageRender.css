@@ -1,3 +1,7 @@
 .pageView {
   @apply px-2;
 }
+
+.pageWrapper {
+  @apply flex flex-row h-full items-start;
+}
