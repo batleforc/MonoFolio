@@ -1,5 +1,17 @@
 .homePageGoFurtherCard {
-  @apply w-64 m-2;
+  @apply w-64 m-2 border-2;
+  @apply border-[var(--color-bgCover)] bg-[var(--color-bgCover)] text-[var(--color-textCover)];
+  h3 {
+    @apply text-[var(--color-textCover)];
+  }
+}
+
+.homePageGoFurtherCard:hover {
+  @apply w-64 m-2 border-2;
+  @apply bg-[var(--color-bgCover)] text-[var(--couleur-accent-1)] border-[var(--couleur-accent-1)];
+  h3 {
+    @apply text-[var(--couleur-accent-1)];
+  }
 }
 
 .homePageContainer {

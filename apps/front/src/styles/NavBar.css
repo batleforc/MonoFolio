@@ -1,6 +1,17 @@
+.navBarHeaderItem {
+  @apply px-4 py-2 rounded-md font-medium border-2 border-[var(--color-bgCover)];
+  @apply hover:bg-[var(--couleur-accent-1)];
+}
+
 .navBarHeaderItem:hover {
-  background-color: var(--color-bgCoverLighter);
-  @apply rounded-lg;
+  @apply bg-[var(--color-bgCover)];
+  @apply border-[var(--couleur-accent-1)] border-2;
+  .ico-navBarHeader {
+    @apply text-[var(--couleur-accent-1)];
+  }
+  .navBarHeaderLabel {
+    @apply text-[var(--couleur-accent-1)];
+  }
 }
 
 .p-menubar-button {

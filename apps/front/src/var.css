@@ -17,4 +17,10 @@
 
   --margin: 5%;
   --size: 80%;
+
+  --couleur-primaire: #111827; /* Noir bleuté */
+  --couleur-secondaire: #374151; /* Gris foncé */
+  --couleur-accent-1: #facc15; /* Jaune néon */
+  --couleur-accent-2: #ec4899; /* Rose fluo */
+  --couleur-accent-3: #60a5fa; /* Bleu électrique */
 }

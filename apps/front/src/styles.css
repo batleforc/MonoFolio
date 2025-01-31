@@ -12,7 +12,7 @@ html,
 body,
 #root {
   margin: 0;
-  background-color: var(--color-textCover);
+  @apply bg-[var(--couleur-primaire)] text-gray-300;
 }
 
 html {
@@ -49,4 +49,46 @@ html {
 .ico-template {
   font-size: 32px;
   color: black;
+}
+
+/* Styles pour les titres */
+h1,
+h2,
+h3 {
+  @apply font-bold text-white; /* Titres en gras et blancs */
+}
+
+/* Styles pour les liens */
+a {
+  @apply text-[var(--couleur-accent-2)] hover:text-[var(--couleur-accent-1)]; /* Liens roses avec survol jaune */
+}
+
+/* Styles pour les boutons */
+.btn {
+  @apply px-4 py-2 rounded-md font-medium;
+  @apply bg-[var(--couleur-secondaire)] hover:bg-[var(--couleur-accent-1)]; /* Boutons gris avec survol jaune */
+}
+
+/* Styles pour les cartes */
+.card {
+  @apply bg-[var(--couleur-secondaire)] rounded-lg shadow-md p-6; /* Cartes grises avec ombre */
+}
+
+/* Effets de lumière */
+.neon-text {
+  @apply text-[var(--couleur-accent-3)] drop-shadow-lg; /* Texte bleu électrique avec effet de lumière */
+}
+
+.glow {
+  @apply shadow-[var(--couleur-accent-2)]; /* Effet de lumière rose */
+}
+
+/* Styles spécifiques au thème Cyberpunk */
+.cyberpunk-city {
+  @apply bg-gradient-to-b from-[#1f2937] to-[#000000]; /* Dégradé de couleurs pour une ville sombre */
+}
+
+/* Styles spécifiques au thème Néonpunk */
+.neon-lights {
+  @apply bg-[var(--couleur-primaire)] backdrop-blur-md; /* Arrière-plan sombre avec effet de flou */
 }

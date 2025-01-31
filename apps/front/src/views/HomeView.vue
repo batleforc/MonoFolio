@@ -9,8 +9,8 @@ const { type } = useBreakpoints();
 </script>
 
 <template>
-  <div v-if="indexStore.inited" class="homePageContainer">
-    <Panel class="homePageWhoAmI" header="Qui suis je ?">
+  <div v-if="indexStore.inited" class="homePageContainer flex flex-col items-center">
+    <Panel class="homePageWhoAmI w-3/4" header="Qui suis je ?">
       <p v-for="text in indexStore.getPresentation" :key="text">{{ text }}</p>
     </Panel>
     <div class="homePageCvContainer">
@@ -19,9 +19,9 @@ const { type } = useBreakpoints();
         <IcoOrMedia media="ico#download" className="ml-2" />
       </a>
     </div>
-    <div>
+    <div class="flex justify-center w-3/4">
       <Timeline :value="indexStore.getHistory" :align="type == 'xs' ? 'left' : 'alternate'"
-        class="w-full px-2 py-5 customized-timeline" :class="type == 'xs' ? 'justify-end' : ''">
+        class="w-full px-2 py-5 customized-timeline " :class="type == 'xs' ? 'justify-end' : ''">
         <template #content="slotProps">
           <Card class="min-w-64 pt-4 text-pretty">
             <template #header>
@@ -44,7 +44,7 @@ const { type } = useBreakpoints();
         </template>
       </Timeline>
     </div>
-    <Panel class="" header="Pour aller plus loin">
+    <Panel class="w-3/4" header="Pour aller plus loin">
       <p>Maintenant que vous avez un peu plus d'informations sur mon historique, que diriez-vous de découvrir la
         suite ?
       </p>
