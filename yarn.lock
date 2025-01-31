@@ -8450,10 +8450,15 @@ tailwindcss-primeui@^0.4.0:
   resolved "https://registry.yarnpkg.com/tailwindcss-primeui/-/tailwindcss-primeui-0.4.0.tgz#bfddbeb06a731168bf8dc981ddfdb68e0985d100"
   integrity sha512-YYC7B7Yyzm1/4pEGgpf1ABAhbrKY++LuPoUamnKE7fTPO5Ct/Qr/dT+Uq2yiVhQnaW1zHQpYnThxfksaxhlDfQ==
 
-tailwindcss@4.0.0, tailwindcss@^4.0.0:
+tailwindcss@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.0.0.tgz#1f275ed16eb4127cb70bf5e9f53fb8eb7b72be3c"
   integrity sha512-ULRPI3A+e39T7pSaf1xoi58AqqJxVCLg8F/uM5A3FadUbnyDTgltVnXJvdkTjwCOGA6NazqHVcwPJC5h2vRYVQ==
+
+tailwindcss@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.0.2.tgz#c31db4675b97487b8f23b96aa081d4802d4bcb69"
+  integrity sha512-cjWQjZEbzQNqH4IiSjRcYg96zjlu+rjzTFkqTc/fN3FNnIU4CoNlQvwCsIomwG/2EPWYT9ysFL1QF6Av3fZeNg==
 
 tapable@^2.2.0:
   version "2.2.1"
