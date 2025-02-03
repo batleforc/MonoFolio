@@ -18,10 +18,10 @@ let pathReactive = computed(() => {
   return (Array.isArray(route.params.page) ? route.params.page.join('') : route.params.page);
 });
 
-if (!docStore.inited && !docStore.docLoading) {
+if (!docStore.isInitialized && !docStore.docLoading) {
   docStore.init();
 }
-if (!blogStore.inited && !blogStore.blogLoading) {
+if (!blogStore.isInitialized && !blogStore.blogLoading) {
   blogStore.init().then(() => {
     if (blogStore.getBlogContentUnordered[pathReactive.value] === undefined) {
       return;
@@ -42,7 +42,7 @@ watch(pathReactive, (newVal) => {
 </script>
 
 <template>
-  <div id="title" class="docContainer" v-if="docStore.inited && blogStore.inited">
+  <div id="title" class="docContainer" v-if="docStore.isInitialized && blogStore.isInitialized">
     <div class="docContent">
       <WarnBan v-if="pageStore.maintenance" text="Maintenance en cours" />
       <div class="docRealContent" v-if="pageStore.page !== undefined">

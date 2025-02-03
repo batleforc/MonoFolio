@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { Node } from '@portfolio/api-client';
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 defineProps<{
   page: Node
@@ -14,7 +17,9 @@ const computeId = (value: Node) => {
 const smoothScroll = (event: MouseEvent) => {
   if (!event) return;
   event.preventDefault();
-  document.querySelector((event.target as HTMLElement).getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+  const href = (event.target as HTMLElement).getAttribute('href')
+  document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  router.push({ hash: href });
 }
 
 </script>

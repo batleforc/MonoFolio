@@ -102,7 +102,7 @@ export type DocHeader = {
     techno?: Array<string>;
     title: string;
     weight?: number;
-    writter?: DocHeaderWritter;
+    writer?: DocHeaderWriter;
 };
 
 /**
@@ -125,7 +125,7 @@ export type DocHeaderSpec = {
 /**
  * Writer present in the header of a markdown file.
  */
-export type DocHeaderWritter = {
+export type DocHeaderWriter = {
     avatar: string;
     name: string;
     url: string;
@@ -687,3 +687,7 @@ export type GetPageV2Responses = {
 };
 
 export type GetPageV2Response = GetPageV2Responses[keyof GetPageV2Responses];
+
+export type ClientOptions = {
+    baseURL: 'http://localhost:5437' | 'https://maxleriche.net' | 'https://beta.maxleriche.net' | (string & {});
+};

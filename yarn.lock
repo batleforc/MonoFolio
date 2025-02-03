@@ -1259,10 +1259,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.1.tgz#de633db3ec2ef6a3c89e2f19038063e8a122e2c2"
   integrity sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==
 
-"@hey-api/client-axios@^0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@hey-api/client-axios/-/client-axios-0.5.2.tgz#606f6d6c672bc4d2310a6e207cb3ef362caa9218"
-  integrity sha512-qgaNIjL3Vw2VWz5/J8BLUVkIA4Lb5f48syOtGfL6RK+9TS7Si0T44Z/53VWRhxmJdsrdQ6MCtfKyQEhD5yjh6w==
+"@hey-api/client-axios@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@hey-api/client-axios/-/client-axios-0.6.0.tgz#4ed97e4a47964df3f21d366fbe954e6077cf8a48"
+  integrity sha512-+wLcSx0K47168Xxx6EzNEWcJjFFAGDEjp9SqKgHg343uls41Ob6EACp/Ouozj4UMP5En+Anq70pDRNDVRY3MVQ==
 
 "@highlightjs/vue-plugin@^2.1.0":
   version "2.1.0"

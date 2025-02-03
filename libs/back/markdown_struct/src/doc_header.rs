@@ -30,7 +30,7 @@ fn empty_doc_header_spec() -> DocHeaderSpec {
     }
 }
 
-fn default_doc_header_writter() -> DocHeaderWritter {
+fn default_doc_header_writer() -> DocHeaderWriter {
     Default::default()
 }
 
@@ -64,15 +64,15 @@ pub struct DocHeaderLink {
 
 /// Writer present in the header of a markdown file.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone, ToSchema)]
-pub struct DocHeaderWritter {
+pub struct DocHeaderWriter {
     pub name: String,
     pub url: String,
     pub avatar: String,
 }
 
-impl Default for DocHeaderWritter {
+impl Default for DocHeaderWriter {
     fn default() -> Self {
-        DocHeaderWritter {
+        DocHeaderWriter {
             name: "Maxime".to_string(),
             url: "https://maxleriche.net".to_string(),
             avatar: "https://avatars.githubusercontent.com/u/24699592?s=80".to_string(),
@@ -86,8 +86,8 @@ pub struct DocHeader {
     pub title: String,
     pub date: DateTime<Utc>,
     pub description: Option<String>,
-    #[serde(default = "default_doc_header_writter")]
-    pub writter: DocHeaderWritter,
+    #[serde(default = "default_doc_header_writer")]
+    pub writer: DocHeaderWriter,
     #[serde(default = "default_weight")]
     pub weight: i32,
     #[serde(default = "empty_doc_header_spec")]
@@ -107,7 +107,7 @@ impl Default for DocHeader {
             title: "".to_string(),
             date: Utc::now(),
             description: None,
-            writter: DocHeaderWritter {
+            writer: DocHeaderWriter {
                 name: "".to_string(),
                 url: "".to_string(),
                 avatar: "".to_string(),
@@ -159,7 +159,7 @@ spec:
 tags:
  - project
  - discovery
- - easteregg
+ - easter_egg
 techno:
   - vue
   - rust
@@ -195,7 +195,7 @@ THIS IS A TEST
                 url: "https://maxleriche.net".to_string(),
             }]
         );
-        assert_eq!(header.tags, vec!["project", "discovery", "easteregg"]);
+        assert_eq!(header.tags, vec!["project", "discovery", "easter_egg"]);
         assert_eq!(header.techno, vec!["vue", "rust", "actix", "nx"]);
     }
 
@@ -211,7 +211,7 @@ spec:
   doc: false
 tags:
  - project
- - easteregg
+ - easter_egg
 techno:
   - vue
   - rust
@@ -252,7 +252,7 @@ THIS IS A TEST
                 }
             ]
         );
-        assert_eq!(header.tags, vec!["project", "easteregg"]);
+        assert_eq!(header.tags, vec!["project", "easter_egg"]);
         assert_eq!(header.techno, vec!["vue", "rust"]);
     }
 

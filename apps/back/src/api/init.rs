@@ -20,7 +20,7 @@ use crate::{
         page::{init_page_api, init_page_v2_api},
     },
     config::Config,
-    homeprofil::HomeContent,
+    home_profile::HomeContent,
 };
 
 #[get("/")]

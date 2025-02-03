@@ -14,9 +14,9 @@ defineProps<{
     <Card>
       <template #header>
         <div class="flex justify-between px-4 pt-2">
-          <a target="_blank" rel="noreferrer" :href="metadata.writter.url" class="flex items-center gap-2">
-            <Avatar :image="metadata.writter.avatar" size="xlarge" />
-            <p class="font-bold text-2xl">{{ metadata.writter.name }}</p>
+          <a target="_blank" rel="noreferrer" :href="metadata.writer.url" class="flex items-center gap-2">
+            <Avatar :image="metadata.writer.avatar" size="xlarge" />
+            <p class="font-bold text-2xl">{{ metadata.writer.name }}</p>
           </a>
           <div>
             <p>{{ new Date(metadata.date).toLocaleString() }}</p>

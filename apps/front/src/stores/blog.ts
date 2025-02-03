@@ -2,7 +2,7 @@ import { BlogTimeline, getTimeline, PageShort } from '@portfolio/api-client';
 import { defineStore } from 'pinia';
 
 export interface BlogState {
-  inited: boolean;
+  isInitialized: boolean;
   blogLoading: boolean;
   loadingError?: string;
   blogContent: BlogTimeline;
@@ -10,7 +10,7 @@ export interface BlogState {
 
 export const useBlogStore = defineStore('blog', {
   state: (): BlogState => ({
-    inited: false,
+    isInitialized: false,
     blogLoading: false,
     blogContent: {
       pages: {},
@@ -34,7 +34,7 @@ export const useBlogStore = defineStore('blog', {
   },
   actions: {
     init() {
-      if (this.inited) return Promise.reject();
+      if (this.isInitialized) return Promise.reject();
       this.blogLoading = true;
       return getTimeline()
         .then((body) => {
@@ -49,7 +49,7 @@ export const useBlogStore = defineStore('blog', {
         })
         .finally(() => {
           this.blogLoading = false;
-          this.inited = true;
+          this.isInitialized = true;
         });
     },
   },

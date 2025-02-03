@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { getHome, HomeContent, HomeHistory } from '@portfolio/api-client';
 export interface IndexState {
-  inited: boolean;
+  isInitialized: boolean;
   homeLoading: boolean;
   loadingError?: string;
   homeContent?: HomeContent;
@@ -9,7 +9,7 @@ export interface IndexState {
 
 export const useIndexStore = defineStore('index', {
   state: (): IndexState => ({
-    inited: false,
+    isInitialized: false,
     homeLoading: false,
   }),
   getters: {
@@ -24,7 +24,7 @@ export const useIndexStore = defineStore('index', {
   },
   actions: {
     init() {
-      if (this.inited) return;
+      if (this.isInitialized) return;
       this.homeLoading = true;
       getHome()
         .then((body) => {
@@ -38,7 +38,7 @@ export const useIndexStore = defineStore('index', {
         })
         .finally(() => {
           this.homeLoading = false;
-          this.inited = true;
+          this.isInitialized = true;
         });
     },
   },

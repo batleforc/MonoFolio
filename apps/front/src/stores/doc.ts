@@ -2,7 +2,7 @@ import { DocCategory, getDocSidebar, PageShort } from '@portfolio/api-client';
 import { defineStore } from 'pinia';
 
 export interface DocState {
-  inited: boolean;
+  isInitialized: boolean;
   docLoading: boolean;
   loadingError?: string;
   docContent?: DocCategory;
@@ -10,12 +10,12 @@ export interface DocState {
 
 export const useDocStore = defineStore('doc', {
   state: (): DocState => ({
-    inited: false,
+    isInitialized: false,
     docLoading: false,
   }),
   actions: {
     init() {
-      if (this.inited) return Promise.reject();
+      if (this.isInitialized) return Promise.reject();
       this.docLoading = true;
       return getDocSidebar()
         .then((body) => {
@@ -30,7 +30,7 @@ export const useDocStore = defineStore('doc', {
         })
         .finally(() => {
           this.docLoading = false;
-          this.inited = true;
+          this.isInitialized = true;
         });
     },
     searchCategory(path: string): DocCategory | undefined {

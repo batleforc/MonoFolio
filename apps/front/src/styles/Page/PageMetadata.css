@@ -7,3 +7,7 @@
 .pageHeaderWrapper {
   @apply border-transparent;
 }
+
+.pageHeaderTitle {
+  @apply text-[var(--couleur-primaire)];
+}

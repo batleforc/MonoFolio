@@ -5,3 +5,7 @@
 .pageWrapper {
   @apply flex flex-row h-full items-start;
 }
+
+.pageCheckbox {
+  @apply w-6 h-6;
+}

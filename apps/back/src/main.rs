@@ -1,4 +1,4 @@
-use back::{api::init::init_api, config, homeprofil::load_home_content};
+use back::{api::init::init_api, config, home_profile::load_home_content};
 use markdown_struct::{
     blog_timeline::BlogTimeline, doc_sidebar::DocCategory, folder_struct, page_database::DbFolder,
 };

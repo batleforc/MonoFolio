@@ -1,7 +1,7 @@
 use actix_web::{get, web, HttpResponse, Responder};
 use tracing::instrument;
 
-use crate::homeprofil::HomeContent;
+use crate::home_profile::HomeContent;
 
 /// Get home content
 ///

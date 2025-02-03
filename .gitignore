@@ -102,3 +102,5 @@ out/
 /cicd/sandbox
 vite.config.*.timestamp*
 vitest.config.*.timestamp*
+
+/folio_content/media/mermaid

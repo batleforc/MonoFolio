@@ -10,7 +10,7 @@ pub fn init_home_api() -> Scope {
 mod tests {
     use actix_web::{web, App, Scope};
 
-    use crate::homeprofil::{HomeContent, HomeHistory, HomeHistoryUrl, HomeUrl};
+    use crate::home_profile::{HomeContent, HomeHistory, HomeHistoryUrl, HomeUrl};
 
     use super::*;
 

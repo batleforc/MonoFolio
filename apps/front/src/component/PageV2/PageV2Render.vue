@@ -3,9 +3,22 @@ import { PageV2 } from '@portfolio/api-client';
 import PageMetadata from './PageV2Metadata.vue';
 import PageV2Content from './PageV2Content.vue';
 import PageV2QuickNav from './PageV2QuickNav/PageV2QuickNav.vue';
-defineProps<{
+import { onMounted } from 'vue';
+
+const props = defineProps<{
   page: PageV2;
 }>();
+
+onMounted(() => {
+  document.title = props.page.metadata?.title || 'Portfolio';
+  const hash = window.location.hash;
+  if (hash) {
+    const element = document.querySelector(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+});
 
 </script>
 

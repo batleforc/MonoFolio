@@ -11,10 +11,10 @@ const docStore = useDocStore();
 const blogStore = useBlogStore();
 const pageStore = usePageStore();
 
-if (!docStore.inited && !docStore.docLoading) {
+if (!docStore.isInitialized && !docStore.docLoading) {
   docStore.init();
 }
-if (!blogStore.inited && !blogStore.blogLoading) {
+if (!blogStore.isInitialized && !blogStore.blogLoading) {
   blogStore.init();
 }
 
@@ -24,7 +24,7 @@ if (!blogStore.inited && !blogStore.blogLoading) {
   <div id="title">
     <WarnBan v-if="pageStore.maintenance" text="Maintenance en cours" />
     <div class="flex flex-row justify-center"
-      v-if="blogStore.inited && !blogStore.blogLoading && blogStore.getBlogContent !== undefined">
+      v-if="blogStore.isInitialized && !blogStore.blogLoading && blogStore.getBlogContent !== undefined">
       <ul class="flex flex-col w-full">
         <li class="p-2" v-for="post in blogStore.getBlogContent" :key="post[0]">
           <PageMetadata :default-collapsed="true" :metadata="post[1].metadata">

@@ -18,7 +18,7 @@ let pathReactive = computed(() => {
 
 const docStore = useDocStore();
 const pageStore = usePageStore();
-if (!docStore.inited && !docStore.docLoading) {
+if (!docStore.isInitialized && !docStore.docLoading) {
   docStore.init().then(() => {
     pageStore.fetchPage(pathReactive.value);
   });
@@ -35,7 +35,7 @@ watch(pathReactive, (newVal) => {
 </script>
 
 <template>
-  <div id="title" class="docContainer" v-if="docStore.inited">
+  <div id="title" class="docContainer" v-if="docStore.isInitialized">
 
     <DocSidebar />
     <div class="docContent">

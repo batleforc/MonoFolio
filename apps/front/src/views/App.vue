@@ -5,7 +5,7 @@ import Hero from '../component/Hero/Hero.vue';
 import NavBar from '../component/NavBar/NavBar.vue';
 
 const indexStore = useIndexStore();
-if (!indexStore.inited && !indexStore.homeLoading) {
+if (!indexStore.isInitialized && !indexStore.homeLoading) {
   indexStore.init();
 }
 </script>
@@ -13,7 +13,7 @@ if (!indexStore.inited && !indexStore.homeLoading) {
 <template>
   <Hero v-if="$route.meta.hero" />
   <div class="flex flex-col min-h-full">
-    <NavBar v-if="indexStore.inited" :link="indexStore.homeContent.url" />
+    <NavBar v-if="indexStore.isInitialized" :link="indexStore.homeContent.url" />
     <RouterView />
   </div>
 

@@ -9,7 +9,7 @@ const { type } = useBreakpoints();
 </script>
 
 <template>
-  <div v-if="indexStore.inited" class="homePageContainer flex flex-col items-center">
+  <div v-if="indexStore.isInitialized" class="homePageContainer flex flex-col items-center">
     <Panel class="homePageWhoAmI w-3/4" header="Qui suis je ?">
       <p v-for="text in indexStore.getPresentation" :key="text">{{ text }}</p>
     </Panel>

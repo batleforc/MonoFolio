@@ -48,6 +48,56 @@ pub struct Root {
     pub children: Vec<Node>,
 }
 
+impl Node {
+    /// get array of children if the node has children
+    /// return None if the node has no children
+
+    pub fn get_iter_children(&self) -> Option<impl Iterator<Item = &Node>> {
+        match self {
+            Node::Root(root) => Some(root.children.iter()),
+            Node::Blockquote(blockquote) => Some(blockquote.children.iter()),
+            Node::FootnoteDefinition(footnote_definition) => {
+                Some(footnote_definition.children.iter())
+            }
+            Node::MdxJsxFlowElement(mdx_jsx_flow_element) => {
+                Some(mdx_jsx_flow_element.children.iter())
+            }
+            Node::List(list) => Some(list.children.iter()),
+            Node::MdxjsEsm(_) => None,
+            Node::Toml(_) => None,
+            Node::Yaml(_) => None,
+            Node::Break(_) => None,
+            Node::InlineCode(_) => None,
+            Node::InlineMath(_) => None,
+            Node::Delete(delete) => Some(delete.children.iter()),
+            Node::Emphasis(emphasis) => Some(emphasis.children.iter()),
+            Node::MdxTextExpression(_) => None,
+            Node::FootnoteReference(_) => None,
+            Node::Html(_) => None,
+            Node::Image(_) => None,
+            Node::ImageReference(_) => None,
+            Node::MdxJsxTextElement(mdx_jsx_text_element) => {
+                Some(mdx_jsx_text_element.children.iter())
+            }
+            Node::Link(link) => Some(link.children.iter()),
+            Node::LinkReference(link_reference) => Some(link_reference.children.iter()),
+            Node::Strong(strong) => Some(strong.children.iter()),
+            Node::Text(_) => None,
+            Node::Code(_) => None,
+            Node::Math(_) => None,
+            Node::MdxFlowExpression(_) => None,
+            Node::Heading(heading) => Some(heading.children.iter()),
+            Node::Table(table) => Some(table.children.iter()),
+            Node::ThematicBreak(_) => None,
+            Node::TableRow(table_row) => Some(table_row.children.iter()),
+            Node::TableCell(table_cell) => Some(table_cell.children.iter()),
+            Node::ListItem(list_item) => Some(list_item.children.iter()),
+            Node::Definition(_) => None,
+            Node::Paragraph(paragraph) => Some(paragraph.children.iter()),
+        }
+    }
+}
+
 impl From<mdast::Node> for Node {
     fn from(node: mdast::Node) -> Self {
         match node {

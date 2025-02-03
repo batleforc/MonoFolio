@@ -9,7 +9,7 @@ const indexStore = useIndexStore();
 </script>
 
 <template>
-  <div v-if="indexStore.inited" id="cover" class="coverPage">
+  <div v-if="indexStore.isInitialized" id="cover" class="coverPage">
     <div class="coverPageContent">
       <h1 class="coverPageTitle">{{ indexStore.homeContent.name }}</h1>
       <TextRotate :texts="indexStore.homeContent.coverTitle" />

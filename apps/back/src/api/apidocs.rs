@@ -6,7 +6,7 @@ use crate::{
             get_page_v2::{self},
         },
     },
-    homeprofil::{HomeContent, HomeHistory, HomeHistoryUrl, HomeUrl},
+    home_profile::{HomeContent, HomeHistory, HomeHistoryUrl, HomeUrl},
 };
 
 use super::blog::get_timeline;
@@ -15,7 +15,7 @@ use super::home::get_home;
 use markdown_struct::{
     blog_timeline::BlogTimeline,
     content_struct::{Page, PageShort},
-    doc_header::{DocHeader, DocHeaderLink, DocHeaderSpec, DocHeaderWritter},
+    doc_header::{DocHeader, DocHeaderLink, DocHeaderSpec, DocHeaderWriter},
     doc_sidebar::DocCategory,
 };
 use utoipa::OpenApi;
@@ -52,7 +52,7 @@ use utoipa::OpenApi;
             DocHeader,
             DocHeaderSpec,
             DocHeaderLink,
-            DocHeaderWritter,
+            DocHeaderWriter,
             BlogTimeline,
             HomeUrl,
             HomeHistoryUrl,

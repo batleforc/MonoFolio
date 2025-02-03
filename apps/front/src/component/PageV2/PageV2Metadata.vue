@@ -14,10 +14,10 @@ defineProps<{
     <Card>
       <template #header>
         <div class="flex justify-between px-4 pt-2">
-          <a v-if="metadata.writter !== undefined" target="_blank" rel="noreferrer" :href="metadata.writter.url"
+          <a v-if="metadata.writer !== undefined" target="_blank" rel="noreferrer" :href="metadata.writer.url"
             class="flex items-center gap-2">
-            <Avatar :image="metadata.writter.avatar" size="xlarge" />
-            <p class="font-bold text-2xl">{{ metadata.writter.name }}</p>
+            <Avatar :image="metadata.writer.avatar" size="xlarge" />
+            <p class="font-bold text-2xl">{{ metadata.writer.name }}</p>
           </a>
           <div>
             <p>{{ new Date(metadata.date).toLocaleString() }}</p>
@@ -25,7 +25,7 @@ defineProps<{
         </div>
       </template>
       <template #title>
-        <h1>
+        <h1 class="pageHeaderTitle">
           <IcoOrMedia v-if="metadata.image !== undefined && metadata.image !== null && metadata.image !== ''"
             className="pageHeaderMetadataIco" :media="metadata.image" />
           {{ metadata.title }}

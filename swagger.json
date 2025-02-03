@@ -478,8 +478,8 @@
             "type": "integer",
             "format": "int32"
           },
-          "writter": {
-            "$ref": "#/components/schemas/DocHeaderWritter"
+          "writer": {
+            "$ref": "#/components/schemas/DocHeaderWriter"
           }
         }
       },
@@ -514,7 +514,7 @@
           }
         }
       },
-      "DocHeaderWritter": {
+      "DocHeaderWriter": {
         "type": "object",
         "description": "Writer present in the header of a markdown file.",
         "required": [

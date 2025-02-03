@@ -9,20 +9,20 @@ import { usePageStore } from '../stores/page';
 
 const docStore = useDocStore();
 const pageStore = usePageStore();
-if (!docStore.inited && !docStore.docLoading) {
+if (!docStore.isInitialized && !docStore.docLoading) {
   docStore.init().then((data) => {
     if (data && data.has_index) {
       pageStore.fetchPage("index");
     }
   });
 }
-if (docStore.inited && docStore.docContent.has_index && pageStore.pageLoading === false && pageStore.pagePath !== "index") {
+if (docStore.isInitialized && docStore.docContent.has_index && pageStore.pageLoading === false && pageStore.pagePath !== "index") {
   pageStore.fetchPage("index");
 }
 </script>
 
 <template>
-  <div id="title" class="docContainer" v-if="docStore.inited">
+  <div id="title" class="docContainer" v-if="docStore.isInitialized">
     <DocSidebar />
     <div class="docContent">
       <WarnBan v-if="pageStore.maintenance" text="Maintenance en cours" />

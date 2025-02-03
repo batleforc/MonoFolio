@@ -28,7 +28,7 @@ export const usePageStore = defineStore('page', {
         return new Promise<void>((resolve) => resolve());
       }
       const doc = useDocStore();
-      if (!doc.inited) {
+      if (!doc.isInitialized) {
         return doc.init().then(() => this.fetchPage(path));
       }
       this.pageLoading = true;
