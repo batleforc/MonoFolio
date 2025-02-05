@@ -23,7 +23,7 @@ actix-web = "4"
 utoipa = { workspace = true, features = ["actix_extras"] }
 actix-cors = "0.7"
 tracing-actix-web = "0.7"
-infer = "0.16"
+infer = "0.19"
 utoipa-scalar = { version = "0.3", features = ["actix-web"] }
 
 
