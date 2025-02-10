@@ -1737,10 +1737,24 @@
     detect-port "^1.5.1"
     tslib "^2.3.0"
 
-"@nx/devkit@20.4.0", "@nx/devkit@>= 19 < 21":
+"@nx/devkit@20.4.0":
   version "20.4.0"
   resolved "https://registry.yarnpkg.com/@nx/devkit/-/devkit-20.4.0.tgz#0f3a7659b8d92074f0f2fee74f18f72e2f08e9ac"
   integrity sha512-qog9oGbuz7DDoXH5k+19tTI3WtaR1p9G5NobiDPfcWmsr1BTK2WH2V2/vVYFAfAcM/DEFgK3ITC5L3PSaJvMmw==
+  dependencies:
+    ejs "^3.1.7"
+    enquirer "~2.3.6"
+    ignore "^5.0.4"
+    minimatch "9.0.3"
+    semver "^7.5.3"
+    tmp "~0.2.1"
+    tslib "^2.3.0"
+    yargs-parser "21.1.1"
+
+"@nx/devkit@20.4.2", "@nx/devkit@>= 19 < 21":
+  version "20.4.2"
+  resolved "https://registry.yarnpkg.com/@nx/devkit/-/devkit-20.4.2.tgz#729239d051d79d8723628e3a4369d68993965928"
+  integrity sha512-JD/7E/e49P7V9ESQK8b7uEzxgp1TP9Op163QmsJ6In0fpv3RytZSmAUx7lBdwOuOS6yybz8UWSLC/tyADUfDcg==
   dependencies:
     ejs "^3.1.7"
     enquirer "~2.3.6"
