@@ -10,6 +10,10 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: ['main']
+    paths:
+      - '**/back/**/*.rs'
+      - 'folio_content/**/*'
+      - '.spectral.yaml'
   schedule:
     - cron: '50 23 * * *'
 

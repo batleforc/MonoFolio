@@ -15,10 +15,12 @@ on:
     paths:
       - '**/Cargo.toml'
       - '**/Cargo.lock'
-      - 'package.json'
   pull_request:
     # The branches below must be a subset of the branches above
     branches: ['main']
+    paths:
+      - '**/Cargo.toml'
+      - '**/Cargo.lock'
   schedule:
     - cron: '50 23 * * *'
 
