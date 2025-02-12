@@ -3,7 +3,6 @@ use super::tracing_kind::{Tracing, TracingKind};
 use opentelemetry::trace::TracerProvider;
 use opentelemetry::KeyValue;
 use opentelemetry_otlp::{WithExportConfig, WithTonicConfig};
-use opentelemetry_sdk::runtime;
 use opentelemetry_sdk::trace;
 use opentelemetry_sdk::Resource;
 use std::env;
@@ -85,12 +84,14 @@ pub fn init_tracing(tracing_config: Vec<Tracing>, name: String) {
                     .build()
                     .expect("Failed to build exporter");
 
-                let trace_provider = trace::TracerProvider::builder()
-                    .with_batch_exporter(exporter, runtime::Tokio)
-                    .with_resource(Resource::new_with_defaults(vec![
-                        KeyValue::new("service.name", name.clone()),
-                        KeyValue::new("service.pod", pod_name.clone()),
-                    ]))
+                let trace_provider = trace::SdkTracerProvider::builder()
+                    .with_batch_exporter(exporter)
+                    .with_resource(
+                        Resource::builder()
+                            .with_service_name(name.clone())
+                            .with_attribute(KeyValue::new("service.pod", pod_name.clone()))
+                            .build(),
+                    )
                     .build();
 
                 let env_filter = EnvFilter::builder()
@@ -111,9 +112,7 @@ pub fn init_tracing(tracing_config: Vec<Tracing>, name: String) {
 
 #[cfg_attr(coverage_nightly, coverage(off))]
 pub fn stop_tracing(tracing_config: Vec<Tracing>, _name: String) {
-    if tracing_config.iter().any(|x| x.kind == TracingKind::Otel) {
-        opentelemetry::global::shutdown_tracer_provider();
-    }
+    if tracing_config.iter().any(|x| x.kind == TracingKind::Otel) {}
 }
 
 #[cfg(test)]
