@@ -67,7 +67,7 @@
     "nx": "20.4.2",
     "prettier": "^3.3.3",
     "sass": "1.83.4",
-    "tailwindcss": "^4.0.4",
+    "tailwindcss": "^4.0.6",
     "tailwindcss-primeui": "^0.4.0",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.2",
