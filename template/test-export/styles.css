@@ -1,0 +1,150 @@
+/* General Styles */
+body {
+  @apply bg-[#221111] text-white m-0 p-0;
+  font-family: 'Space Grotesk', 'Noto Sans', sans-serif;
+}
+
+a {
+  @apply no-underline text-inherit;
+}
+
+/* Header */
+header {
+  @apply flex items-center bg-[#221111] p-4 pb-2 justify-between;
+}
+
+header h2 {
+  @apply text-lg font-bold text-center flex-1 px-12;
+}
+
+/* Hero Section */
+.hero {
+  @apply flex flex-col gap-6 bg-cover bg-center bg-no-repeat min-h-[480px] p-4 pb-10 justify-end rounded-xl;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%),
+    url('https://cdn.usegalileo.ai/sdxl10/ee0689df-53ea-4233-9993-558315c3f5c5.png');
+}
+
+.hero h1 {
+  @apply text-4xl font-black leading-tight tracking-[-0.033em];
+}
+
+.hero h2 {
+  @apply text-sm font-normal leading-normal;
+}
+
+.hero button {
+  @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#78080e] text-white text-sm font-bold leading-normal tracking-[0.015em];
+}
+
+/* Key Milestones */
+.milestones {
+  @apply p-4;
+}
+
+.milestones h2 {
+  @apply text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5;
+}
+
+.milestones .grid {
+  @apply grid grid-cols-[40px_1fr] gap-x-2 px-4;
+}
+
+.milestones .grid div {
+  @apply flex flex-col gap-1;
+}
+
+.milestones .grid .timeline {
+  @apply items-center gap-1;
+}
+
+.milestones .grid .timeline div {
+  @apply w-[1.5px] bg-[#673234];
+}
+
+.milestones .grid .timeline .dot {
+  @apply size-2 rounded-full bg-white;
+}
+
+.milestones .grid .content p {
+  @apply m-0;
+}
+
+.milestones .grid .content .year {
+  @apply text-[#ca9194];
+}
+
+/* Companies Section */
+.companies {
+  @apply px-4 py-10;
+}
+
+.companies h1 {
+  @apply text-[32px] font-bold leading-tight tracking-light max-w-[720px];
+}
+
+.companies .grid {
+  @apply grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3;
+}
+
+.companies .grid .company {
+  @apply flex flex-col gap-3 pb-3;
+}
+
+.companies .grid .company .image {
+  @apply w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl;
+}
+
+.companies .grid .company p {
+  @apply m-0;
+}
+
+.companies .grid .company .description {
+  @apply text-[#ca9194];
+}
+
+/* Contact Section */
+.contact {
+  @apply p-4 grid grid-cols-2;
+}
+
+.contact .item {
+  @apply flex flex-col gap-1 border-t border-solid border-t-[#673234] py-4;
+}
+
+.contact .item.full {
+  @apply col-span-2 pr-[50%];
+}
+
+.contact .item p {
+  @apply m-0;
+}
+
+.contact .item .label {
+  @apply text-[#ca9194];
+}
+
+/* Footer */
+footer {
+  @apply flex gap-2 border-t border-[#482325] bg-[#34191a] px-4 pb-3 pt-2;
+}
+
+footer a {
+  @apply flex flex-1 flex-col items-center gap-1;
+}
+
+footer a.active {
+  @apply text-white;
+}
+
+footer a.inactive {
+  @apply text-[#ca9194];
+}
+
+footer a svg {
+  @apply w-6 h-6;
+}
+
+footer a p {
+  @apply text-xs font-medium m-0;
+}

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import HomeViewV2 from '../viewsV2/HomeView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,6 +8,14 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      component: HomeViewV2,
+      meta: {
+        hero: true,
+      },
+    },
+    {
+      path: '/old_home',
+      name: 'home_old',
       component: HomeView,
       meta: {
         hero: true,

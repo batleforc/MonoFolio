@@ -30,6 +30,7 @@
     "primevue",
     "sarif",
     "serde",
+    "tailwindcss",
     "toggleable",
     "tokio",
     "unplugin",

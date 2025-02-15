@@ -16,17 +16,28 @@
   <body>
     <div
       class="relative flex size-full min-h-screen flex-col bg-[#221111] dark justify-between group/design-root overflow-x-hidden"
-      style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'
+      style="font-family: 'Space Grotesk', 'Noto Sans', sans-serif"
     >
       <div>
         <div class="flex items-center bg-[#221111] p-4 pb-2 justify-between">
-          <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pl-12 pr-12">Maxime Leriche</h2>
+          <h2
+            class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pl-12 pr-12"
+          >
+            Maxime Leriche
+          </h2>
         </div>
         <div class="@container">
           <div class="@[480px]:p-4">
             <div
               class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
-              style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://cdn.usegalileo.ai/sdxl10/ee0689df-53ea-4233-9993-558315c3f5c5.png");'
+              style="
+                background-image:
+                  linear-gradient(
+                    rgba(0, 0, 0, 0.1) 0%,
+                    rgba(0, 0, 0, 0.4) 100%
+                  ),
+                  url('https://cdn.usegalileo.ai/sdxl10/ee0689df-53ea-4233-9993-558315c3f5c5.png');
+              "
             >
               <div class="flex flex-col gap-2 text-left">
                 <h1
@@ -34,7 +45,9 @@
                 >
                   Designer, Engineer and Entrepreneur
                 </h1>
-                <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                <h2
+                  class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
+                >
                   I lead design at Stripe. I'm also a co-founder of 8 companies.
                 </h2>
               </div>
@@ -46,99 +59,283 @@
             </div>
           </div>
         </div>
+        <h2
+          class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+        >
+          Key Milestones
+        </h2>
+        <div class="grid grid-cols-[40px_1fr] gap-x-2 px-4">
+          <div class="flex flex-col items-center gap-1 pt-5">
+            <div class="size-2 rounded-full bg-white"></div>
+            <div class="w-[1.5px] bg-[#673234] h-4 grow"></div>
+          </div>
+          <div class="flex flex-1 flex-col py-3">
+            <p class="text-white text-base font-medium leading-normal">
+              Joined Stripe as Lead Designer
+            </p>
+            <p class="text-[#ca9194] text-base font-normal leading-normal">
+              2020
+            </p>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-[1.5px] bg-[#673234] h-4"></div>
+            <div class="size-2 rounded-full bg-white"></div>
+            <div class="w-[1.5px] bg-[#673234] h-4 grow"></div>
+          </div>
+          <div class="flex flex-1 flex-col py-3">
+            <p class="text-white text-base font-medium leading-normal">
+              Co-founded 8 Companies
+            </p>
+            <p class="text-[#ca9194] text-base font-normal leading-normal">
+              2010
+            </p>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-[1.5px] bg-[#673234] h-4"></div>
+            <div class="size-2 rounded-full bg-white"></div>
+            <div class="w-[1.5px] bg-[#673234] h-4 grow"></div>
+          </div>
+          <div class="flex flex-1 flex-col py-3">
+            <p class="text-white text-base font-medium leading-normal">
+              Graduated from Stanford
+            </p>
+            <p class="text-[#ca9194] text-base font-normal leading-normal">
+              2008
+            </p>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-[1.5px] bg-[#673234] h-4"></div>
+            <div class="size-2 rounded-full bg-white"></div>
+            <div class="w-[1.5px] bg-[#673234] h-4 grow"></div>
+          </div>
+          <div class="flex flex-1 flex-col py-3">
+            <p class="text-white text-base font-medium leading-normal">
+              Published 'Designing for Scale'
+            </p>
+            <p class="text-[#ca9194] text-base font-normal leading-normal">
+              2006
+            </p>
+          </div>
+          <div class="flex flex-col items-center gap-1 pb-3">
+            <div class="w-[1.5px] bg-[#673234] h-4"></div>
+            <div class="size-2 rounded-full bg-white"></div>
+          </div>
+          <div class="flex flex-1 flex-col py-3">
+            <p class="text-white text-base font-medium leading-normal">
+              Became a father to twins
+            </p>
+            <p class="text-[#ca9194] text-base font-normal leading-normal">
+              2004
+            </p>
+          </div>
+        </div>
         <div class="flex flex-col gap-10 px-4 py-10 @container">
           <h1
             class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
           >
             Companies I've worked with
           </h1>
-          <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
+          <div
+            class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3"
+          >
             <div class="flex flex-col gap-3 pb-3">
               <div
                 class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/61a374be-15b4-4dbe-8685-7d5d8bba700a.png");'
+                style="
+                  background-image: url('https://cdn.usegalileo.ai/sdxl10/61a374be-15b4-4dbe-8685-7d5d8bba700a.png');
+                "
               ></div>
               <div>
-                <p class="text-white text-base font-medium leading-normal">Stripe</p>
-                <p class="text-[#ca9194] text-sm font-normal leading-normal">Payments platform for internet businesses</p>
+                <p class="text-white text-base font-medium leading-normal">
+                  Stripe
+                </p>
+                <p class="text-[#ca9194] text-sm font-normal leading-normal">
+                  Payments platform for internet businesses
+                </p>
               </div>
             </div>
             <div class="flex flex-col gap-3 pb-3">
               <div
                 class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/34e5470e-ce84-4816-bdcf-11d6e47526e7.png");'
+                style="
+                  background-image: url('https://cdn.usegalileo.ai/sdxl10/34e5470e-ce84-4816-bdcf-11d6e47526e7.png');
+                "
               ></div>
               <div>
-                <p class="text-white text-base font-medium leading-normal">Lob</p>
-                <p class="text-[#ca9194] text-sm font-normal leading-normal">API for direct mail</p>
+                <p class="text-white text-base font-medium leading-normal">
+                  Lob
+                </p>
+                <p class="text-[#ca9194] text-sm font-normal leading-normal">
+                  API for direct mail
+                </p>
               </div>
             </div>
             <div class="flex flex-col gap-3 pb-3">
               <div
                 class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/4fd54a0b-b6e4-4814-ac44-348a2389873c.png");'
+                style="
+                  background-image: url('https://cdn.usegalileo.ai/sdxl10/4fd54a0b-b6e4-4814-ac44-348a2389873c.png');
+                "
               ></div>
               <div>
-                <p class="text-white text-base font-medium leading-normal">OpenSea</p>
-                <p class="text-[#ca9194] text-sm font-normal leading-normal">The largest NFT marketplace in the world</p>
+                <p class="text-white text-base font-medium leading-normal">
+                  OpenSea
+                </p>
+                <p class="text-[#ca9194] text-sm font-normal leading-normal">
+                  The largest NFT marketplace in the world
+                </p>
               </div>
             </div>
           </div>
         </div>
         <div class="p-4 grid grid-cols-2">
-          <div class="flex flex-col gap-1 border-t border-solid border-t-[#673234] py-4 pr-2">
-            <p class="text-[#ca9194] text-sm font-normal leading-normal">Location</p>
-            <p class="text-white text-sm font-normal leading-normal">San Francisco, CA</p>
+          <div
+            class="flex flex-col gap-1 border-t border-solid border-t-[#673234] py-4 pr-2"
+          >
+            <p class="text-[#ca9194] text-sm font-normal leading-normal">
+              Location
+            </p>
+            <p class="text-white text-sm font-normal leading-normal">
+              San Francisco, CA
+            </p>
           </div>
-          <div class="flex flex-col gap-1 border-t border-solid border-t-[#673234] py-4 pl-2">
-            <p class="text-[#ca9194] text-sm font-normal leading-normal">Availability</p>
-            <p class="text-white text-sm font-normal leading-normal">Open to new opportunities</p>
+          <div
+            class="flex flex-col gap-1 border-t border-solid border-t-[#673234] py-4 pl-2"
+          >
+            <p class="text-[#ca9194] text-sm font-normal leading-normal">
+              Availability
+            </p>
+            <p class="text-white text-sm font-normal leading-normal">
+              Open to new opportunities
+            </p>
           </div>
-          <div class="flex flex-col gap-1 border-t border-solid border-t-[#673234] py-4 pr-2 col-span-2 pr-[50%]">
-            <p class="text-[#ca9194] text-sm font-normal leading-normal">Email</p>
-            <p class="text-white text-sm font-normal leading-normal">maxime@leriche.io</p>
+          <div
+            class="flex flex-col gap-1 border-t border-solid border-t-[#673234] py-4 pr-2 col-span-2 pr-[50%]"
+          >
+            <p class="text-[#ca9194] text-sm font-normal leading-normal">
+              Email
+            </p>
+            <p class="text-white text-sm font-normal leading-normal">
+              maxime@leriche.io
+            </p>
           </div>
         </div>
       </div>
       <div>
-        <div class="flex gap-2 border-t border-[#482325] bg-[#34191a] px-4 pb-3 pt-2">
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-white" href="#">
-            <div class="text-white flex h-8 items-center justify-center" data-icon="House" data-size="24px" data-weight="fill">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+        <div
+          class="flex gap-2 border-t border-[#482325] bg-[#34191a] px-4 pb-3 pt-2"
+        >
+          <a
+            class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-white"
+            href="#"
+          >
+            <div
+              class="text-white flex h-8 items-center justify-center"
+              data-icon="House"
+              data-size="24px"
+              data-weight="fill"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24px"
+                height="24px"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
                 <path
                   d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z"
                 ></path>
               </svg>
             </div>
-            <p class="text-white text-xs font-medium leading-normal tracking-[0.015em]">Home</p>
+            <p
+              class="text-white text-xs font-medium leading-normal tracking-[0.015em]"
+            >
+              Home
+            </p>
           </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#ca9194]" href="#">
-            <div class="text-[#ca9194] flex h-8 items-center justify-center" data-icon="Table" data-size="24px" data-weight="regular">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+          <a
+            class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#ca9194]"
+            href="#"
+          >
+            <div
+              class="text-[#ca9194] flex h-8 items-center justify-center"
+              data-icon="Table"
+              data-size="24px"
+              data-weight="regular"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24px"
+                height="24px"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
                 <path
                   d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM40,112H80v32H40Zm56,0H216v32H96ZM216,64V96H40V64ZM40,160H80v32H40Zm176,32H96V160H216v32Z"
                 ></path>
               </svg>
             </div>
-            <p class="text-[#ca9194] text-xs font-medium leading-normal tracking-[0.015em]">Projects</p>
+            <p
+              class="text-[#ca9194] text-xs font-medium leading-normal tracking-[0.015em]"
+            >
+              Projects
+            </p>
           </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#ca9194]" href="#">
-            <div class="text-[#ca9194] flex h-8 items-center justify-center" data-icon="PersonSimpleWalk" data-size="24px" data-weight="regular">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+          <a
+            class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#ca9194]"
+            href="#"
+          >
+            <div
+              class="text-[#ca9194] flex h-8 items-center justify-center"
+              data-icon="PersonSimpleWalk"
+              data-size="24px"
+              data-weight="regular"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24px"
+                height="24px"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
                 <path
                   d="M152,80a32,32,0,1,0-32-32A32,32,0,0,0,152,80Zm0-48a16,16,0,1,1-16,16A16,16,0,0,1,152,32Zm64,112a8,8,0,0,1-8,8c-35.31,0-52.95-17.81-67.12-32.12-2.74-2.77-5.36-5.4-8-7.84l-13.43,30.88,37.2,26.57A8,8,0,0,1,160,176v56a8,8,0,0,1-16,0V180.12l-31.07-22.2L79.34,235.19A8,8,0,0,1,72,240a7.84,7.84,0,0,1-3.19-.67,8,8,0,0,1-4.15-10.52l54.08-124.37c-9.31-1.65-20.92,1.2-34.7,8.58a163.88,163.88,0,0,0-30.57,21.77,8,8,0,0,1-10.95-11.66c2.5-2.35,61.69-57.23,98.72-25.08,3.83,3.32,7.48,7,11,10.57C166.19,122.7,179.36,136,208,136A8,8,0,0,1,216,144Z"
                 ></path>
               </svg>
             </div>
-            <p class="text-[#ca9194] text-xs font-medium leading-normal tracking-[0.015em]">About</p>
+            <p
+              class="text-[#ca9194] text-xs font-medium leading-normal tracking-[0.015em]"
+            >
+              About
+            </p>
           </a>
-          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#ca9194]" href="#">
-            <div class="text-[#ca9194] flex h-8 items-center justify-center" data-icon="ChatTeardrop" data-size="24px" data-weight="regular">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                <path d="M132,24A100.11,100.11,0,0,0,32,124v84.33A15.69,15.69,0,0,0,47.67,224H132a100,100,0,0,0,0-200Zm0,184H48V124a84,84,0,1,1,84,84Z"></path>
+          <a
+            class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#ca9194]"
+            href="#"
+          >
+            <div
+              class="text-[#ca9194] flex h-8 items-center justify-center"
+              data-icon="ChatTeardrop"
+              data-size="24px"
+              data-weight="regular"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24px"
+                height="24px"
+                fill="currentColor"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M132,24A100.11,100.11,0,0,0,32,124v84.33A15.69,15.69,0,0,0,47.67,224H132a100,100,0,0,0,0-200Zm0,184H48V124a84,84,0,1,1,84,84Z"
+                ></path>
               </svg>
             </div>
-            <p class="text-[#ca9194] text-xs font-medium leading-normal tracking-[0.015em]">Contact</p>
+            <p
+              class="text-[#ca9194] text-xs font-medium leading-normal tracking-[0.015em]"
+            >
+              Contact
+            </p>
           </a>
         </div>
         <div class="h-5 bg-[#34191a]"></div>

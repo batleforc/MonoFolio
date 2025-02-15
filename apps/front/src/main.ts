@@ -1,4 +1,4 @@
-import './styles.css';
+import './stylesV2.css';
 import 'highlight.js/styles/github-dark.css';
 import { createApp, markRaw } from 'vue';
 import { createPinia } from 'pinia';
@@ -8,6 +8,7 @@ import Aura from '@primevue/themes/aura';
 import 'highlight.js/lib/common';
 import hljsVue from '@highlightjs/vue-plugin';
 import App from './views/App.vue';
+import AppV2 from './viewsV2/App.vue';
 import router from './router';
 import { client } from '@portfolio/api-client';
 
@@ -15,7 +16,7 @@ client.setConfig({
   baseURL: import.meta.env.VITE_API_URL as string,
 });
 
-const app = createApp(App);
+const app = createApp(AppV2);
 
 const pinia = createPinia();
 
