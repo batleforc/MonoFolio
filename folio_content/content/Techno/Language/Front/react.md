@@ -4,7 +4,7 @@ title: "Reactjs"
 description: "Reactjs - JavaScript Framework"
 spec:
   blog: false
-  project: true
+  project: false
   doc: true
 image: "ico#react"
 links:

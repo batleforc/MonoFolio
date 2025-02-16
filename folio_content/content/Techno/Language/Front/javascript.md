@@ -4,7 +4,7 @@ title: "JavaScript"
 description: "JavaScript - Programming Language"
 spec:
   blog: false
-  project: true
+  project: false
   doc: true
 image: "ico#javascript"
 links:

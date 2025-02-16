@@ -5,3 +5,4 @@ pub mod home;
 pub mod init;
 pub mod media;
 pub mod page;
+pub mod project;

@@ -13,7 +13,7 @@ const indexStore = useIndexStore();
     <div class="@[480px]:p-4">
       <div class="hero">
         <div class="flex flex-col gap-2 text-left">
-          <h1>Designer, Engineer and Entrepreneur</h1>
+          <h1>{{ indexStore.homeContent.shortDescription }}</h1>
           <h2>
             <TextRotate :texts="indexStore.homeContent.coverTitle" />
           </h2>
@@ -32,44 +32,21 @@ const indexStore = useIndexStore();
         <div class="w-[1.5px] bg-[#673234] h-4 grow"></div>
       </div>
       <div class="content">
-        <p>Joined Stripe as Lead Designer</p>
-        <p class="year">2020</p>
+        <p>Take over the world ?</p>
+        <p class="year">Now</p>
       </div>
-      <div class="timeline">
-        <div class="w-[1.5px] bg-[#673234] h-4"></div>
-        <div class="dot"></div>
-        <div class="w-[1.5px] bg-[#673234] h-4 grow"></div>
-      </div>
-      <div class="content">
-        <p>Co-founded 8 Companies</p>
-        <p class="year">2010</p>
-      </div>
-      <div class="timeline">
-        <div class="w-[1.5px] bg-[#673234] h-4"></div>
-        <div class="dot"></div>
-        <div class="w-[1.5px] bg-[#673234] h-4 grow"></div>
-      </div>
-      <div class="content">
-        <p>Graduated from Stanford</p>
-        <p class="year">2008</p>
-      </div>
-      <div class="timeline">
-        <div class="w-[1.5px] bg-[#673234] h-4"></div>
-        <div class="dot"></div>
-        <div class="w-[1.5px] bg-[#673234] h-4 grow"></div>
-      </div>
-      <div class="content">
-        <p>Published 'Designing for Scale'</p>
-        <p class="year">2006</p>
-      </div>
-      <div class="timeline">
-        <div class="w-[1.5px] bg-[#673234] h-4"></div>
-        <div class="dot"></div>
-      </div>
-      <div class="content">
-        <p>Became a father to twins</p>
-        <p class="year">2004</p>
-      </div>
+      <template v-for="(timeline, index) in indexStore.getHistory" :key="timeline.title">
+        <div class="timeline">
+          <div v-if="index !== indexStore.getHistory.length - 1" class="dot"></div>
+          <div class="w-[1.5px] bg-[#673234] h-4" :class="index == indexStore.getHistory.length - 1 ? '' : 'grow'">
+          </div>
+          <div v-if="index === indexStore.getHistory.length - 1" class="dot"></div>
+        </div>
+        <div class="content">
+          <p>{{ timeline.title }}</p>
+          <p class="year">{{ timeline.date }} - {{ timeline.lieux }}</p>
+        </div>
+      </template>
     </div>
   </div>
   <div class="companies">

@@ -172,6 +172,7 @@ export type HomeContent = {
     history: Array<HomeHistory>;
     name: string;
     presentation: string;
+    shortDescription: string;
     url: Array<HomeUrl>;
 };
 
@@ -456,6 +457,12 @@ export type Paragraph = {
     children: Array<Node>;
 };
 
+export type ProjectList = {
+    projects: {
+        [key: string]: PageShort;
+    };
+};
+
 /**
  * Reference kind in the markdown AST.
  */
@@ -655,6 +662,29 @@ export type GetPageResponses = {
 };
 
 export type GetPageResponse = GetPageResponses[keyof GetPageResponses];
+
+export type GetProjectListData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/api/projects';
+};
+
+export type GetProjectListErrors = {
+    /**
+     * Internal server error.
+     */
+    500: unknown;
+};
+
+export type GetProjectListResponses = {
+    /**
+     * Project list.
+     */
+    200: ProjectList;
+};
+
+export type GetProjectListResponse = GetProjectListResponses[keyof GetProjectListResponses];
 
 export type GetPageV2Data = {
     body?: never;

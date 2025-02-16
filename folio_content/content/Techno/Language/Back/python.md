@@ -4,7 +4,7 @@ title: "Python"
 description: "Python - High-level programming language"
 spec:
   blog: false
-  project: true
+  project: false
   doc: true
 image: "ico#python"
 links:

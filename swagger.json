@@ -174,6 +174,31 @@
         }
       }
     },
+    "/api/projects": {
+      "get": {
+        "tags": [
+          "Project"
+        ],
+        "summary": "Get project list",
+        "description": "Get project list with minimal description of each article.",
+        "operationId": "get_project_list",
+        "responses": {
+          "200": {
+            "description": "Project list.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectList"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
     "/api/v2/page": {
       "get": {
         "tags": [
@@ -622,7 +647,8 @@
           "coverTitle",
           "cvUrl",
           "url",
-          "history"
+          "history",
+          "shortDescription"
         ],
         "properties": {
           "coverTitle": {
@@ -644,6 +670,9 @@
             "type": "string"
           },
           "presentation": {
+            "type": "string"
+          },
+          "shortDescription": {
             "type": "string"
           },
           "url": {
@@ -1529,6 +1558,23 @@
           }
         }
       },
+      "ProjectList": {
+        "type": "object",
+        "required": [
+          "projects"
+        ],
+        "properties": {
+          "projects": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PageShort"
+            },
+            "propertyNames": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "ReferenceKind": {
         "type": "string",
         "description": "Reference kind in the markdown AST.",
@@ -1674,6 +1720,10 @@
     {
       "name": "Home",
       "description": "Endpoints that return the content meant for the home page."
+    },
+    {
+      "name": "Project",
+      "description": "Return the content of the project list and page to be displayed."
     },
     {
       "name": "Media",

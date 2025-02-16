@@ -4,7 +4,7 @@ title: "PHP"
 description: "PHP - Hypertext Preprocessor"
 spec:
   blog: false
-  project: true
+  project: false
   doc: true
 image: "ico#php"
 links:

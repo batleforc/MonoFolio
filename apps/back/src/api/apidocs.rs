@@ -12,11 +12,13 @@ use crate::{
 use super::blog::get_timeline;
 use super::doc::get_doc_sidebar;
 use super::home::get_home;
+use super::project::get_project_list;
 use markdown_struct::{
     blog_timeline::BlogTimeline,
     content_struct::{Page, PageShort},
     doc_header::{DocHeader, DocHeaderLink, DocHeaderSpec, DocHeaderWriter},
     doc_sidebar::DocCategory,
+    project_list::ProjectList,
 };
 use utoipa::OpenApi;
 
@@ -37,6 +39,7 @@ use utoipa::OpenApi;
         ( name = "Blog", description = "Return the content of the blog timeline and page to be displayed."),
         ( name = "Doc", description = "Return the content of the documentation page, sidebar and header."),
         ( name = "Home", description = "Endpoints that return the content meant for the home page."),
+        ( name = "Project", description = "Return the content of the project list and page to be displayed."),
         ( name = "Media", description = "Return the assets that are meant to be dynamically loaded and not a part of the static build."),
         ( name = "Page", description = "Return the content of a page with a specific workflow turning shortPage into a full page.")
     ),
@@ -59,6 +62,7 @@ use utoipa::OpenApi;
             HomeHistory,
             HomeContent,
             DocCategory,
+            ProjectList
         )
     ),
     paths(
@@ -67,7 +71,8 @@ use utoipa::OpenApi;
         get_doc_sidebar::get_doc_sidebar,
         get_home::get_home,
         get_media::get_media,
-        get_page_v2::get_page_v2
+        get_page_v2::get_page_v2,
+        get_project_list::get_project_list
     )
 )]
 pub struct ApiDocs;

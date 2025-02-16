@@ -13,6 +13,7 @@ pub struct HomeContent {
     pub cv_url: String,
     pub url: Vec<HomeUrl>,
     pub history: Vec<HomeHistory>,
+    pub short_description: String,
 }
 
 /// Url that should be present on the home page.
@@ -117,6 +118,7 @@ mod tests {
             presentation: "Aloha !\n".to_string(),
             cover_title: vec!["dev".to_string(), "ops".to_string()],
             cv_url: "https://cv.com".to_string(),
+            short_description: "short description".to_string(),
             url: vec![HomeUrl {
                 url: "https://cv.com".to_string(),
                 name: "cv".to_string(),

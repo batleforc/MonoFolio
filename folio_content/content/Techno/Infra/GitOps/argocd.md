@@ -4,7 +4,7 @@ title: "ArgoCD"
 description: "ArgoCD - Declarative GitOps CD for Kubernetes"
 spec:
   blog: false
-  project: true
+  project: false
   doc: true
 links:
   - name: "ArgoCD"

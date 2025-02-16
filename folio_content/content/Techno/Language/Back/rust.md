@@ -4,7 +4,7 @@ title: "Rust"
 description: "Rust - Systems Programming Language"
 spec:
   blog: false
-  project: true
+  project: false
   doc: true
 image: "ico#rust"
 links:

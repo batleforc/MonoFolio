@@ -4,6 +4,7 @@ use actix_web::{
 };
 use markdown_struct::{
     blog_timeline::BlogTimeline, doc_sidebar::DocCategory, page_database::DbFolder,
+    project_list::ProjectList,
 };
 use tracing::info;
 use tracing_actix_web::{RequestId, TracingLogger};
@@ -18,6 +19,7 @@ use crate::{
         home::init_home_api,
         media::init_media_api,
         page::{init_page_api, init_page_v2_api},
+        project::init_project_api,
     },
     config::Config,
     home_profile::HomeContent,
@@ -33,6 +35,7 @@ pub async fn init_api(
     db_folder: DbFolder,
     blog_timeline: BlogTimeline,
     doc_sidebar: DocCategory,
+    project_list: ProjectList,
     home_content: HomeContent,
     config: Config,
 ) -> Result<(), std::io::Error> {
@@ -49,6 +52,7 @@ pub async fn init_api(
             .app_data(web::Data::new(db_folder.clone()))
             .app_data(web::Data::new(blog_timeline.clone()))
             .app_data(web::Data::new(doc_sidebar.clone()))
+            .app_data(web::Data::new(project_list.clone()))
             .app_data(web::Data::new(home_content.clone()))
             .app_data(web::Data::new(config.clone()))
             .wrap(cors)
@@ -60,6 +64,7 @@ pub async fn init_api(
                     .service(init_blog_api())
                     .service(init_page_api())
                     .service(init_doc_api())
+                    .service(init_project_api())
                     .service(init_home_api())
                     .service(init_media_api())
                     .service(hello)

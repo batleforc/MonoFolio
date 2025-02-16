@@ -4,7 +4,7 @@ title: "C#"
 description: "c# - Programming Language"
 spec:
   blog: false
-  project: true
+  project: false
   doc: true
 image: "ico#dot-net"
 links:

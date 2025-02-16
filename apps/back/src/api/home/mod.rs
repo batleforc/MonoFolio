@@ -20,6 +20,7 @@ mod tests {
             name: "max truc".to_string(),
             presentation: "Aloha !\n".to_string(),
             cover_title: vec!["dev".to_string(), "ops".to_string()],
+            short_description: "short description".to_string(),
             cv_url: "https://cv.com".to_string(),
             url: vec![HomeUrl {
                 url: "https://cv.com".to_string(),

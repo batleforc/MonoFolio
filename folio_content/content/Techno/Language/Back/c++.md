@@ -4,7 +4,7 @@ title: "C++"
 description: "C++ - Programming Language"
 spec:
   blog: false
-  project: true
+  project: false
   doc: true
 links:
   - name: "C++"

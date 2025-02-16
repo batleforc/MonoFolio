@@ -5,3 +5,4 @@ pub mod doc_sidebar;
 pub mod folder_struct;
 pub mod mdast_to_schema;
 pub mod page_database;
+pub mod project_list;

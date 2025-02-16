@@ -4,7 +4,7 @@ title: "Golang"
 description: "Golang - Programming Language"
 spec:
   blog: false
-  project: true
+  project: false
   doc: true
 image: "ico#go"
 links:

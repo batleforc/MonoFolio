@@ -4,7 +4,7 @@ title: "Svelte"
 description: "Svelte - JavaScript Framework"
 spec:
   blog: false
-  project: true
+  project: false
   doc: true
 image: "ico#svelte"
 links:

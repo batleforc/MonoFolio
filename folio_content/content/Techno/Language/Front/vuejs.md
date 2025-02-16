@@ -4,7 +4,7 @@ title: "Vue.js"
 description: "Vue.js - JavaScript Framework"
 spec:
   blog: false
-  project: true
+  project: false
   doc: true
 image: "ico#vue-dot-js"
 links:

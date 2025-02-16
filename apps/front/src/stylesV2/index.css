@@ -1,5 +1,5 @@
 body {
-  @apply bg-[#221111] text-white m-0 p-0;
+  @apply bg-[var(--color-dark-red)] text-white m-0 p-0;
   font-family: 'Space Grotesk', 'Noto Sans', sans-serif;
 }
 
@@ -9,7 +9,7 @@ a {
 
 /* Header */
 header {
-  @apply flex items-center bg-[#221111] p-4 pb-2 justify-between h-12;
+  @apply flex items-center bg-[var(--color-dark-red)] p-4 pb-2 justify-between h-12;
 }
 
 header h2 {
@@ -18,7 +18,7 @@ header h2 {
 
 /* Main Div */
 #root {
-  @apply relative flex size-full min-h-screen flex-col bg-[#221111] justify-between overflow-x-hidden;
+  @apply relative flex size-full min-h-screen flex-col bg-[var(--color-dark-red)] justify-between overflow-x-hidden;
 }
 
 /* Hero Section */
@@ -63,7 +63,7 @@ header h2 {
 }
 
 .milestones .grid .timeline div {
-  @apply w-[1.5px] bg-[#673234];
+  @apply w-[1.5px] bg-[var(--color-light-red)];
 }
 
 .milestones .grid .timeline .dot {
@@ -75,7 +75,7 @@ header h2 {
 }
 
 .milestones .grid .content .year {
-  @apply text-[#ca9194];
+  @apply text-[var(--color-pink)];
 }
 
 /* Companies Section */
@@ -104,7 +104,7 @@ header h2 {
 }
 
 .companies .grid .company .description {
-  @apply text-[#ca9194];
+  @apply text-[var(--color-pink)];
 }
 
 /* Contact Section */
@@ -113,7 +113,7 @@ header h2 {
 }
 
 .contact .item {
-  @apply flex flex-col gap-1 border-t border-solid border-t-[#673234] py-4;
+  @apply flex flex-col gap-1 border-t border-solid border-t-[var(--color-light-red)] py-4;
 }
 
 .contact .item.full {
@@ -125,12 +125,12 @@ header h2 {
 }
 
 .contact .item .label {
-  @apply text-[#ca9194];
+  @apply text-[var(--color-pink)];
 }
 
 /* Footer */
 footer {
-  @apply flex fixed bottom-0 h-17 w-full gap-2 border-t border-[#482325] bg-[#34191a] px-4 pb-3 pt-2;
+  @apply flex fixed bottom-0 h-17 w-full gap-2 border-t border-[var(--color-dark-light-red)] bg-[var(--color-dark-darker-red)] px-4 pb-3 pt-2;
 }
 
 footer a {
@@ -142,7 +142,7 @@ footer a.active {
 }
 
 footer a.inactive {
-  @apply text-[#ca9194];
+  @apply text-[var(--color-pink)];
 }
 
 footer a svg {

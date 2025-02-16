@@ -1,6 +1,7 @@
 use back::{api::init::init_api, config, home_profile::load_home_content};
 use markdown_struct::{
     blog_timeline::BlogTimeline, doc_sidebar::DocCategory, folder_struct, page_database::DbFolder,
+    project_list::ProjectList,
 };
 use tool_tracing::init::{init_tracing, stop_tracing};
 use tracing::{error, info};
@@ -27,6 +28,8 @@ async fn main() -> std::io::Result<()> {
     };
     let blog_timeline = BlogTimeline::generate_timeline_from_db(db_folder.clone(), "".to_string());
     let doc_sidebar = DocCategory::generate_sidebar_from_db(db_folder.clone(), "".to_string());
+    let project_list =
+        ProjectList::generate_project_list_from_db(db_folder.clone(), "".to_string());
     let home = match load_home_content(&config.content_path.clone()) {
         Ok(home) => home,
         Err(e) => {
@@ -39,6 +42,7 @@ async fn main() -> std::io::Result<()> {
         db_folder,
         blog_timeline,
         doc_sidebar,
+        project_list,
         home,
         config.clone(),
     )
