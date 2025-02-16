@@ -45,12 +45,12 @@ RUN strip dist/target/release/server && \
   strip dist/target/release/swagger
 
 # Build the wasm
-FROM build_base AS build_wasm
+# FROM build_base AS build_wasm
 
-RUN touch apps/pong/src/main.rs
-RUN cargo build --release --bin pong --target wasm32-unknown-unknown && \
-  wasm-bindgen --target web --out-dir ./out/ --out-name 'pong' ./dist/target/wasm32-unknown-unknown/release/pong.wasm && \
-  wasm-opt -O -ol 100 -s 100 ./out/pong_bg.wasm -o ./out/pong_bg.wasm
+# RUN touch apps/pong/src/main.rs
+# RUN cargo build --release --bin pong --target wasm32-unknown-unknown && \
+#   wasm-bindgen --target web --out-dir ./out/ --out-name 'pong' ./dist/target/wasm32-unknown-unknown/release/pong.wasm && \
+#   wasm-opt -O -ol 100 -s 100 ./out/pong_bg.wasm -o ./out/pong_bg.wasm
 
 FROM gcr.io/distroless/cc-debian12
 #FROM registry.hub.docker.com/library/debian:bullseye-slim
@@ -62,7 +62,7 @@ COPY --from=build_back /app/dist/target/release/swagger .
 
 COPY ./folio_content/ .
 
-COPY --from=build_wasm /app/out/ ./media/pong/
+# COPY --from=build_wasm /app/out/ ./media/pong/
 
 EXPOSE 5437
 
