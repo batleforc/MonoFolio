@@ -7,6 +7,7 @@ spec:
   blog: true
   project: true
   doc: true
+image: media#ArgoCDxOVhcom.png
 tags:
  - project
  - Kube

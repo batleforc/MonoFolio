@@ -5,12 +5,14 @@ export interface IndexState {
   homeLoading: boolean;
   loadingError?: string;
   homeContent?: HomeContent;
+  title: string;
 }
 
 export const useIndexStore = defineStore('index', {
   state: (): IndexState => ({
     isInitialized: false,
     homeLoading: false,
+    title: 'Maxime Leriche - Portfolio',
   }),
   getters: {
     getHistory(): HomeHistory[] | undefined {
@@ -21,8 +23,16 @@ export const useIndexStore = defineStore('index', {
     getPresentation(): string | undefined {
       return this.homeContent?.presentation.split('\n');
     },
+    getTitle(): string {
+      return this.title;
+    },
   },
   actions: {
+    setTitle(title: string) {
+      if (this.title === title) return;
+      this.title = title;
+      document.title = title;
+    },
     init() {
       if (this.isInitialized) return;
       this.homeLoading = true;

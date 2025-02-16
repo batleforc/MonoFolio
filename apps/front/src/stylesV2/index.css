@@ -38,7 +38,11 @@ header h2 {
 }
 
 .hero button {
-  @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#78080e] text-white text-sm font-bold leading-normal tracking-[0.015em];
+  @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[var(--color-red)] text-white text-sm font-bold leading-normal tracking-[0.015em];
+}
+
+.button-home {
+  @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[var(--color-red)] text-white text-sm font-bold leading-normal tracking-[0.015em];
 }
 
 /* Key Milestones */

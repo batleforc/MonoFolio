@@ -1,14 +1,21 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import { useIndexStore } from '../stores';
+import { onMounted } from 'vue';
+import Header from '../component/home/Header.vue';
+import NavBar from '../component/home/NavBar.vue';
 
 const indexStore = useIndexStore();
-if (!indexStore.isInitialized && !indexStore.homeLoading) {
-  indexStore.init();
-}
+onMounted(() => {
+  if (!indexStore.isInitialized && !indexStore.homeLoading) {
+    indexStore.init();
+  }
+});
 
 </script>
 
 <template>
+  <Header />
   <RouterView v-if="indexStore.isInitialized" />
+  <NavBar />
 </template>

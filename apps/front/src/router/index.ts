@@ -52,6 +52,21 @@ const router = createRouter({
       ],
     },
     {
+      path: '/project',
+      children: [
+        {
+          name: 'project',
+          path: '',
+          component: () => import('../views/418View.vue'),
+        },
+        {
+          name: 'projectcontent',
+          path: ':page+',
+          component: () => import('../views/418View.vue'),
+        },
+      ],
+    },
+    {
       path: '/pong',
       name: 'pong',
       component: () => import('../views/PongView.vue'),
@@ -68,7 +83,7 @@ const router = createRouter({
     },
     {
       path: '/:pathMatch(.*)*',
-      redirect: { name: '404' },
+      component: () => import('../views/404View.vue'),
     },
   ],
 });

@@ -1,149 +1,39 @@
 <script setup lang="ts">
-import TextRotate from '../component/Hero/TextRotate.vue';
+
+import { onMounted } from 'vue';
+import Hero from '../component/home/Hero.vue';
+import Milestones from '../component/home/Milestones.vue';
 import { useIndexStore } from '../stores';
+import { useProjectStore } from '../stores/project';
+import Projects from '../component/home/Projects.vue';
 
 const indexStore = useIndexStore();
+const projectStore = useProjectStore();
+
+onMounted(() => {
+  if (!projectStore.isInitialized)
+    projectStore.init();
+  indexStore.setTitle(`${indexStore.homeContent.name} - Portfolio`);
+});
+
 </script>
 
 <template>
-  <header>
-    <h2>{{ indexStore.homeContent.name }}</h2>
-  </header>
-  <div class="@container">
-    <div class="@[480px]:p-4">
-      <div class="hero">
-        <div class="flex flex-col gap-2 text-left">
-          <h1>{{ indexStore.homeContent.shortDescription }}</h1>
-          <h2>
-            <TextRotate :texts="indexStore.homeContent.coverTitle" />
-          </h2>
-        </div>
-        <button>
-          <span class="truncate">Contact</span>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="milestones">
-    <h2>Key Milestones</h2>
-    <div class="grid">
-      <div class="timeline">
-        <div class="dot"></div>
-        <div class="w-[1.5px] bg-[#673234] h-4 grow"></div>
-      </div>
-      <div class="content">
-        <p>Take over the world ?</p>
-        <p class="year">Now</p>
-      </div>
-      <template v-for="(timeline, index) in indexStore.getHistory" :key="timeline.title">
-        <div class="timeline">
-          <div v-if="index !== indexStore.getHistory.length - 1" class="dot"></div>
-          <div class="w-[1.5px] bg-[#673234] h-4" :class="index == indexStore.getHistory.length - 1 ? '' : 'grow'">
-          </div>
-          <div v-if="index === indexStore.getHistory.length - 1" class="dot"></div>
-        </div>
-        <div class="content">
-          <p>{{ timeline.title }}</p>
-          <p class="year">{{ timeline.date }} - {{ timeline.lieux }}</p>
-        </div>
-      </template>
-    </div>
-  </div>
-  <div class="companies">
-    <h1>Companies I've worked with</h1>
-    <div class="grid">
-      <div class="company">
-        <div class="image" style="
-                background-image: url('https://cdn.usegalileo.ai/sdxl10/61a374be-15b4-4dbe-8685-7d5d8bba700a.png');
-              "></div>
-        <div>
-          <p>Stripe</p>
-          <p class="description">
-            Payments platform for internet businesses
-          </p>
-        </div>
-      </div>
-      <div class="company">
-        <div class="image" style="
-                background-image: url('https://cdn.usegalileo.ai/sdxl10/34e5470e-ce84-4816-bdcf-11d6e47526e7.png');
-              "></div>
-        <div>
-          <p>Lob</p>
-          <p class="description">API for direct mail</p>
-        </div>
-      </div>
-      <div class="company">
-        <div class="image" style="
-                background-image: url('https://cdn.usegalileo.ai/sdxl10/4fd54a0b-b6e4-4814-ac44-348a2389873c.png');
-              "></div>
-        <div>
-          <p>OpenSea</p>
-          <p class="description">
-            The largest NFT marketplace in the world
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <Hero />
+  <Milestones />
+  <Projects />
   <div class="contact">
     <div class="item">
       <p class="label">Location</p>
-      <p>San Francisco, CA</p>
+      <p>France, Somewhere or Nowhere</p>
     </div>
     <div class="item">
       <p class="label">Availability</p>
-      <p>Open to new opportunities</p>
+      <p>Working at Macif</p>
     </div>
     <div class="item full">
       <p class="label">Email</p>
-      <p>maxime@leriche.io</p>
+      <p>maxime.lerichepro@gmail.com</p>
     </div>
   </div>
-  <footer>
-    <a class="active" href="#">
-      <div class="text-white flex h-8 items-center justify-center" data-icon="House" data-size="24px"
-        data-weight="fill">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-          <path
-            d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z">
-          </path>
-        </svg>
-      </div>
-      <p>Home</p>
-    </a>
-    <a class="inactive" href="#">
-      <div class="text-[#ca9194] flex h-8 items-center justify-center" data-icon="Table" data-size="24px"
-        data-weight="regular">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-          <path
-            d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM40,112H80v32H40Zm56,0H216v32H96ZM216,64V96H40V64ZM40,160H80v32H40Zm176,32H96V160H216v32Z">
-          </path>
-        </svg>
-      </div>
-      <p>Projects</p>
-    </a>
-    <a class="inactive" href="#">
-      <div class="text-[#ca9194] flex h-8 items-center justify-center" data-icon="PersonSimpleWalk" data-size="24px"
-        data-weight="regular">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-          <path
-            d="M152,80a32,32,0,1,0-32-32A32,32,0,0,0,152,80Zm0-48a16,16,0,1,1-16,16A16,16,0,0,1,152,32Zm64,112a8,8,0,0,1-8,8c-35.31,0-52.95-17.81-67.12-32.12-2.74-2.77-5.36-5.4-8-7.84l-13.43,30.88,37.2,26.57A8,8,0,0,1,160,176v56a8,8,0,0,1-16,0V180.12l-31.07-22.2L79.34,235.19A8,8,0,0,1,72,240a7.84,7.84,0,0,1-3.19-.67,8,8,0,0,1-4.15-10.52l54.08-124.37c-9.31-1.65-20.92,1.2-34.7,8.58a163.88,163.88,0,0,0-30.57,21.77,8,8,0,0,1-10.95-11.66c2.5-2.35,61.69-57.23,98.72-25.08,3.83,3.32,7.48,7,11,10.57C166.19,122.7,179.36,136,208,136A8,8,0,0,1,216,144Z">
-          </path>
-        </svg>
-      </div>
-      <p>About</p>
-    </a>
-    <a class="inactive" href="#">
-      <div class="text-[#ca9194] flex h-8 items-center justify-center" data-icon="ChatTeardrop" data-size="24px"
-        data-weight="regular">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-          <path
-            d="M132,24A100.11,100.11,0,0,0,32,124v84.33A15.69,15.69,0,0,0,47.67,224H132a100,100,0,0,0,0-200Zm0,184H48V124a84,84,0,1,1,84,84Z">
-          </path>
-        </svg>
-      </div>
-      <p>Contact</p>
-    </a>
-  </footer>
-  <div class="h-17 bg-[#34191a]"></div>
 </template>

@@ -22,7 +22,7 @@ defineProps({
   <IcoMoonSVG v-if="media.startsWith('ico#')" :icon="media.replace('ico#', '')" :className="className" />
   <img :alt="alt" v-else-if="media.startsWith('media#')" :src="getMediaApiUrl(media.replace('media#', ''))"
     :class="className" />
-  <img :alt="alt" v-else-if="media.startsWith('http') || media.startsWith('url#')" :src="media.replace('media#', '')"
+  <img :alt="alt" v-else-if="media.startsWith('http') || media.startsWith('url#')" :src="media.replace('url#', '')"
     :class="className" />
   <p v-else>{{ media }}</p>
 </template>
