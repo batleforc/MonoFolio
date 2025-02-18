@@ -39,9 +39,9 @@ use utoipa::OpenApi;
         ( name = "Blog", description = "Return the content of the blog timeline and page to be displayed."),
         ( name = "Doc", description = "Return the content of the documentation page, sidebar and header."),
         ( name = "Home", description = "Endpoints that return the content meant for the home page."),
-        ( name = "Project", description = "Return the content of the project list and page to be displayed."),
         ( name = "Media", description = "Return the assets that are meant to be dynamically loaded and not a part of the static build."),
-        ( name = "Page", description = "Return the content of a page with a specific workflow turning shortPage into a full page.")
+        ( name = "Page", description = "Return the content of a page with a specific workflow turning shortPage into a full page."),
+        ( name = "Project", description = "Return the content of the project list and page to be displayed."),
     ),
     servers(
         (url = "http://localhost:5437", description = "Local development server."),

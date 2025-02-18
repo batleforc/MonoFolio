@@ -51,7 +51,6 @@ pub struct Root {
 impl Node {
     /// get array of children if the node has children
     /// return None if the node has no children
-
     pub fn get_iter_children(&self) -> Option<impl Iterator<Item = &Node>> {
         match self {
             Node::Root(root) => Some(root.children.iter()),

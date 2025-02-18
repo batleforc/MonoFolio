@@ -16,7 +16,7 @@ const formatString = (str: string) => {
 
 <template>
   <div class="companies" v-if="projectStore.isInitialized">
-    <h1>Projets</h1>
+    <h2>Projets</h2>
     <div class="grid">
       <div class="company" v-for="[name, project] in projectStore.getProjectContent" :key="name">
         <div v-if="project.metadata.image === undefined || project.metadata.image === null" class="image" style="

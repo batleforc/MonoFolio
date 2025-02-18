@@ -6,6 +6,7 @@ import Milestones from '../component/home/Milestones.vue';
 import { useIndexStore } from '../stores';
 import { useProjectStore } from '../stores/project';
 import Projects from '../component/home/Projects.vue';
+import Contact from '../component/home/Contact.vue';
 
 const indexStore = useIndexStore();
 const projectStore = useProjectStore();
@@ -22,18 +23,5 @@ onMounted(() => {
   <Hero />
   <Milestones />
   <Projects />
-  <div class="contact">
-    <div class="item">
-      <p class="label">Location</p>
-      <p>France, Somewhere or Nowhere</p>
-    </div>
-    <div class="item">
-      <p class="label">Availability</p>
-      <p>Working at Macif</p>
-    </div>
-    <div class="item full">
-      <p class="label">Email</p>
-      <p>maxime.lerichepro@gmail.com</p>
-    </div>
-  </div>
+  <Contact />
 </template>

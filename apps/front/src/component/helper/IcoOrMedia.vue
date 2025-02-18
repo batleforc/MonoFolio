@@ -14,12 +14,16 @@ defineProps({
     type: String,
     default: '',
   },
+  fill: {
+    type: String,
+    default: '',
+  }
 });
 
 </script>
 
 <template>
-  <IcoMoonSVG v-if="media.startsWith('ico#')" :icon="media.replace('ico#', '')" :className="className" />
+  <IcoMoonSVG v-if="media.startsWith('ico#')" :icon="media.replace('ico#', '')" :className="className" :fill="fill" />
   <img :alt="alt" v-else-if="media.startsWith('media#')" :src="getMediaApiUrl(media.replace('media#', ''))"
     :class="className" />
   <img :alt="alt" v-else-if="media.startsWith('http') || media.startsWith('url#')" :src="media.replace('url#', '')"

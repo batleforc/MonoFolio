@@ -15,7 +15,7 @@ const indexStore = useIndexStore();
           </h2>
         </div>
         <button>
-          <span class="truncate">Contact</span>
+          <span class="truncate">More</span>
         </button>
       </div>
     </div>

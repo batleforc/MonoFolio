@@ -50,7 +50,8 @@ header h2 {
   @apply p-4;
 }
 
-.milestones h2 {
+.milestones h2,
+.contact-container h2 {
   @apply text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5;
 }
 
@@ -87,8 +88,8 @@ header h2 {
   @apply px-4 py-10;
 }
 
-.companies h1 {
-  @apply text-[32px] font-bold leading-tight tracking-normal max-w-[720px];
+.companies h2 {
+  @apply text-[22px] font-bold leading-tight tracking-normal max-w-[720px];
 }
 
 .companies .grid {
@@ -155,4 +156,13 @@ footer a svg {
 
 footer a p {
   @apply text-xs font-medium m-0;
+}
+
+/* Contact Form */
+.contact-social {
+  @apply w-6 h-6;
+}
+
+.contact-social-container {
+  @apply p-4;
 }

@@ -10,7 +10,7 @@ use tracing::instrument;
     operation_id = "get_project_list",
     path = "/api/projects",
     responses(
-        (status = 200, description = "Project list.", body = ProjectList),
+        (status = 200, description = "Content of the Project List.", body = ProjectList),
         (status = 500, description = "Internal server error."),
     )
 )]
