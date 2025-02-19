@@ -4,7 +4,7 @@ use utoipa::ToSchema;
 
 use super::{content_struct::PageShort, page_database::DbFolder};
 
-// List of projects, contain the short representation of the pages, mainly aimed at the Home screen.
+/// List of projects, contain the short representation of the pages, mainly aimed at the Home screen.
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, ToSchema)]
 pub struct ProjectList {
     pub projects: HashMap<String, PageShort>,

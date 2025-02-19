@@ -1560,6 +1560,7 @@
       },
       "ProjectList": {
         "type": "object",
+        "description": "List of projects, contain the short representation of the pages, mainly aimed at the Home screen.",
         "required": [
           "projects"
         ],

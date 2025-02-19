@@ -457,6 +457,9 @@ export type Paragraph = {
     children: Array<Node>;
 };
 
+/**
+ * List of projects, contain the short representation of the pages, mainly aimed at the Home screen.
+ */
 export type ProjectList = {
     projects: {
         [key: string]: PageShort;
@@ -679,7 +682,7 @@ export type GetProjectListErrors = {
 
 export type GetProjectListResponses = {
     /**
-     * Project list.
+     * Content of the Project List.
      */
     200: ProjectList;
 };
