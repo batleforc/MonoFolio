@@ -7,7 +7,7 @@ const route = useRoute();
 </script>
 
 <template>
-  <footer>
+  <footer id="navbar">
     <RouterLink :to="{ name: 'home' }" :class="route.name === 'home' ? 'active' : 'inactive'">
       <div class="flex h-8 items-center justify-center" data-icon="House" data-size="24px" data-weight="fill">
         <IcoMoonSVG icon="home" fill="currentColor" className="w-24 " />
@@ -37,11 +37,7 @@ const route = useRoute();
     </RouterLink>
     <RouterLink :to="{ name: 'blog' }" :class="route.name === 'blog' ? 'active' : 'inactive'">
       <div class="flex h-8 items-center justify-center" data-icon="ChatTeardrop" data-size="24px" data-weight="regular">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-          <path
-            d="M132,24A100.11,100.11,0,0,0,32,124v84.33A15.69,15.69,0,0,0,47.67,224H132a100,100,0,0,0,0-200Zm0,184H48V124a84,84,0,1,1,84,84Z">
-          </path>
-        </svg>
+        <IcoMoonSVG icon="newspaper" fill="currentColor" className="w-24 " />
       </div>
       <p>blog</p>
     </RouterLink>

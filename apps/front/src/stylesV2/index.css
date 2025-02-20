@@ -26,7 +26,7 @@ header h2 {
   @apply flex flex-col gap-6 bg-cover bg-center bg-no-repeat min-h-[480px] p-4 pb-10 justify-end rounded-xl;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%),
-    url('https://cdn.usegalileo.ai/sdxl10/ee0689df-53ea-4233-9993-558315c3f5c5.png');
+    url('/home_hero.png');
 }
 
 .hero h1 {

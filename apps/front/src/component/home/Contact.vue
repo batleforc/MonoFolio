@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { useIndexStore } from '../../stores';
 import HeroLink from '../Hero/HeroLink.vue';
+import IcoOrMedia from '../helper/IcoOrMedia.vue';
 import { getMediaApiUrl } from '../../helper/index';
 const indexStore = useIndexStore();
 </script>
 
 <template>
-  <div class="contact-container">
+  <div id="contact" class="contact-container">
     <h2>Contact</h2>
     <div class="contact">
       <div class="item">
@@ -34,9 +35,9 @@ const indexStore = useIndexStore();
       <div class="item full">
         <p class="label">CV</p>
         <div class="flex">
-          <a :href="getMediaApiUrl(indexStore.homeContent.cvUrl)" target="_blank" rel="noreferrer" class="homePageCV">
+          <a :href="getMediaApiUrl(indexStore.homeContent.cvUrl)" target="_blank" rel="noreferrer" class="flex">
             Mon CV
-            <IcoOrMedia media="ico#download" className="ml-2" />
+            <IcoOrMedia media="ico#download" className="ml-2 text-white contact-social" fill="currentColor" />
           </a>
         </div>
       </div>

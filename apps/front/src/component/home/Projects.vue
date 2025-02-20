@@ -15,7 +15,7 @@ const formatString = (str: string) => {
 </script>
 
 <template>
-  <div class="companies" v-if="projectStore.isInitialized">
+  <div id="projects" class="companies" v-if="projectStore.isInitialized">
     <h2>Projets</h2>
     <div class="grid">
       <div class="company" v-for="[name, project] in projectStore.getProjectContent" :key="name">

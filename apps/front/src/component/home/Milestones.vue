@@ -5,7 +5,7 @@ const indexStore = useIndexStore();
 </script>
 
 <template>
-  <div class="milestones">
+  <div id="milestones" class="milestones">
     <h2>Expérience</h2>
     <div class="grid">
       <div class="timeline">
