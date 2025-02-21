@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@monodon/rust": "^2.0.0-beta.1",
-    "@nx/cypress": "20.4.4",
+    "@nx/cypress": "20.4.6",
     "@nx/devkit": "20.4.4",
     "@nx/eslint": "20.4.4",
     "@nx/eslint-plugin": "20.4.4",
