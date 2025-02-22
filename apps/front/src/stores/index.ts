@@ -28,6 +28,11 @@ export const useIndexStore = defineStore('index', {
     },
   },
   actions: {
+    getHomeHistory(name: string): HomeHistory {
+      return this.homeContent?.history.find(
+        (url) => url.title === name,
+      ) as HomeHistory;
+    },
     setTitle(title: string) {
       if (this.title === title) return;
       this.title = title;

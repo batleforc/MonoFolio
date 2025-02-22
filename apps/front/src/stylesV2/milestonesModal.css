@@ -1,0 +1,43 @@
+.milestonesModal {
+  @apply w-screen h-screen bg-[var(--color-dark-red)] fixed top-0 text-white m-0 p-0;
+}
+
+.milestonesModal .header {
+  @apply flex items-center bg-[#221111] p-4 pb-2 justify-between;
+}
+
+.milestonesModal .close-icon {
+  @apply text-white flex size-12 shrink-0 items-center;
+}
+
+.milestonesModal h2 {
+  @apply text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12;
+}
+
+.milestonesModal .container {
+  @apply @container;
+}
+
+.milestonesModal .content {
+  @apply @[480px]:px-4 @[480px]:py-3;
+}
+
+.milestonesModal .image {
+  @apply w-full bg-contain bg-center bg-no-repeat flex flex-col justify-end overflow-hidden bg-[#221111] @[480px]:rounded-xl min-h-80;
+}
+
+.milestonesModal .image-none {
+  @apply w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#221111] @[480px]:rounded-xl min-h-80;
+}
+
+.milestonesModal h1 {
+  @apply text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 text-left pb-3 pt-5;
+}
+
+.milestonesModal .date {
+  @apply text-[#ca9194] text-sm font-normal leading-normal pb-3 pt-1 px-4;
+}
+
+.milestonesModal .description {
+  @apply text-white text-base font-normal leading-normal pb-3 pt-1 px-4;
+}

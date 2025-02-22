@@ -1,12 +1,10 @@
 name: Maxime Leriche
 presentation: |
-  Hello,
-  Moi c'est Maxime, je suis un développeur passionné autant par les nouvelles technologies qu'un nouveau projet.
-  J'aime apprendre en permanence et construire ce que j'estime être ma base de connaissance.
-  Et vous êtes ici sur mon site qui est un savant mélange de mes passions et de mes projets.
-  Malgré le fait que je sois un développeur, je suis aussi un passionné d'architecture et capable de passer du Software au Hardware.
-  Principalement autodidacte, j'ai beaucoup appris en effectuant des projects personnels et a travers mes différentes expériences.
-  Alors, bienvenue et bonne visite !
+  Hello There,
+  Max pour vous servir, couteau suisse passionné. Entre Dev, Ops, archi et bien d'autre domaine, l'IT est un vaste monde qui me passionne.
+  Donc bienvenue sur mon site, un savant mélange de mes passions et de mes projets.
+  Et sans doute bien plus encore.
+  Made with ❤️ and too much coffee ☕, welcome and enjoy !
 shortDescription: Dev, Ops, Archi et Passionné
 coverTitle:
 - Ops, Back, Front.
@@ -33,7 +31,7 @@ history:
   lieux: Lycée Marie Curie, Nogent sur Oise
   date: 2015 - 2018
   weight: 1
-  imgUrl: logoLyceeMarieCurie.png
+  imgUrl: media#logoLyceeMarieCurie.png
   description: |
     Bac STI2D ITEC
     Obtenu avec mention Bien
@@ -43,7 +41,7 @@ history:
   lieux: IUT Amiens, Amiens
   date: 2018 - 2020
   weight: 2
-  imgUrl: logoIutAmiens.jpg
+  imgUrl: media#logoIutAmiens.jpg
   description: |
     DUT Informatique
     Découverte de la programmation et des bases nécessaires pour devenir développeur (Java, C, SQL, C#, JS, Python, PHP, etc)
@@ -51,7 +49,7 @@ history:
   lieux: Maxinfoweb, Neuilly en Thelle
   date: Mars 2020 - Juin 2020
   weight: 3
-  imgUrl: logoMaxinfoweb.png
+  imgUrl: media#logoMaxinfoweb.png
   description: |
     Stage de fin d'étude BAC+2
     Développements d'applications en PHP sur un Framework propre à l'entreprise.
@@ -61,7 +59,7 @@ history:
   lieux: Museomix, Amiens
   date: 2019
   weight: 4
-  imgUrl: museomixLogo.png
+  imgUrl: media#museomixLogo.png
   url:
   - name: Objectif CIAP
     url: https://www.youtube.com/watch?v=fZ8DYxclVvQ
@@ -75,7 +73,7 @@ history:
   lieux: IUT La Rochelle, Niort
   date: 2020 - 2021
   weight: 5
-  imgUrl: logoIUTLaRochelle.png
+  imgUrl: media#logoIUTLaRochelle.png
   description: |
     Licence Professionnelle Développement Cloud et Mobile
     Découverte des technologies du cloud et de la mobilité
@@ -84,7 +82,7 @@ history:
   lieux: Nexi Conseils, Aigrefeuille d'Aunis
   date: 2020 - 2021
   weight: 6
-  imgUrl: nexiConseils.png
+  imgUrl: media#nexiConseils.png
   description: |
     Alternance en tant que développeur natif et PWA
     Découverte du développement mobile natif (Android et iOS) et des PWA
@@ -93,7 +91,7 @@ history:
   lieux: Université de La Rochelle, Niort
   date: 2021 - 2023
   weight: 7
-  imgUrl: logoUniversiteLaRochelle.png
+  imgUrl: media#logoUniversiteLaRochelle.png
   description: |
     Master Architecte Logiciel
     Découverte de l'architecture logicielle et des bonnes pratiques de développement ainsi que des concepts de recherche universitaire.
@@ -102,7 +100,7 @@ history:
   lieux: Macif, Niort
   date: 2021 - 2023
   weight: 8
-  imgUrl: macif.png
+  imgUrl: media#macif.png
   description: |
     Alternance en tant que DevOps et développeur couche d'échange
     Mise en situation réelle des concepts appris en cours et découverte de concepts plus avancés
@@ -112,7 +110,7 @@ history:
   lieux: Macif, Niort
   date: 2023 - Now
   weight: 9
-  imgUrl: macif.png
+  imgUrl: media#macif.png
   description: |
     À la suite de mon alternance, la Macif et plus précisément mon manager m'a fait confiance en me proposant de continuer l'aventure avec eux.
     J'ai donc accepté et je suis maintenant ingénieur participant à l'évolution de la couche d'échange (principalement) et du socle de fabrication.

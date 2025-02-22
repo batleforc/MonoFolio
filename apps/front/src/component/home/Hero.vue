@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import { useIndexStore } from '../../stores';
 import TextRotate from '../Hero/TextRotate.vue';
 const indexStore = useIndexStore();
+const router = useRouter();
 const smoothScroll = (event: MouseEvent) => {
   if (!event) return;
   event.preventDefault();
   document.querySelector(`#contact`)?.scrollIntoView({ behavior: 'smooth' });
+  router.push({ name: 'home', hash: '#contact' });
 }
 </script>
 
