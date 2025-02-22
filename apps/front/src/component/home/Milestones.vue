@@ -27,12 +27,12 @@ const toSlug = (str: string) => {
       <template v-for="(timeline, index) in indexStore.getHistory" :key="timeline.title">
         <div class="timeline" :to-open="'milestone' + toSlug(timeline.title)" @click="modal = timeline.title">
           <div v-if="index !== indexStore.getHistory.length - 1" class="dot"></div>
-          <div class="w-[1.5px] bg-[var(--color-light-red)] h-4"
+          <div class="w-[1.5px] bg-[var(--color-light-red)] h-4 "
             :class="index == indexStore.getHistory.length - 1 ? '' : 'grow'">
           </div>
           <div v-if="index === indexStore.getHistory.length - 1" class="dot"></div>
         </div>
-        <div class="content" @click="modal = timeline.title">
+        <div class="content cursor-pointer" @click="modal = timeline.title">
           <p>{{ timeline.title }}</p>
           <p class="year">{{ timeline.date }} - {{ timeline.lieux }}</p>
         </div>
