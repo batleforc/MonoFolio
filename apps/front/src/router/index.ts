@@ -1,5 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+
+declare global {
+  interface Window {
+    umami?: {
+      track?: (object) => void;
+    };
+  }
+}
 import HomeViewV2 from '../viewsV2/HomeView.vue';
 
 const router = createRouter({
@@ -86,6 +94,17 @@ const router = createRouter({
       component: () => import('../views/404View.vue'),
     },
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  if (window.umami?.track !== undefined) {
+    window.umami.track((props) => ({
+      ...props,
+      url: to.path,
+      title: to.name || props.title,
+    }));
+  }
+  next();
 });
 
 export default router;
