@@ -31,6 +31,9 @@ const router = createRouter({
     },
     {
       path: '/doc',
+      meta: {
+        track: false,
+      },
       children: [
         {
           name: 'doc',
@@ -46,6 +49,9 @@ const router = createRouter({
     },
     {
       path: '/blog',
+      meta: {
+        track: false,
+      },
       children: [
         {
           name: 'blog',
@@ -61,6 +67,9 @@ const router = createRouter({
     },
     {
       path: '/project',
+      meta: {
+        track: false,
+      },
       children: [
         {
           name: 'project',
@@ -97,7 +106,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (window.umami?.track !== undefined) {
+  if (window.umami?.track !== undefined && to.meta.track !== false) {
     window.umami.track((props) => ({
       ...props,
       url: to.path,
