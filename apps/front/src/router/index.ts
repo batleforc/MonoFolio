@@ -74,7 +74,7 @@ const router = createRouter({
         {
           name: 'project',
           path: '',
-          component: () => import('../views/418View.vue'),
+          component: () => import('../viewsV2/ProjectHomeView.vue'),
         },
         {
           name: 'projectcontent',

@@ -1,2 +1,24 @@
 .blogListe {
+  @apply relative flex size-full min-h-screen flex-col bg-[#221111] overflow-x-hidden;
+}
+
+.pageV2Adviser {
+  @apply flex items-center gap-4 bg-[#221111] px-4 py-3;
+}
+
+.pageV2Adviser .image {
+  @apply bg-center bg-no-repeat aspect-video bg-cover rounded-lg h-14 w-fit;
+}
+
+.pageV2Adviser .content {
+  @apply flex flex-col justify-center w-3/4;
+}
+
+.pageV2Adviser .title {
+  @apply text-white text-base font-medium leading-normal line-clamp-1;
+}
+
+.pageV2Adviser .date,
+.pageV2Adviser .description {
+  @apply text-[#ca9194] text-sm font-normal leading-normal line-clamp-2;
 }

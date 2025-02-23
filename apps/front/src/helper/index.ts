@@ -43,3 +43,11 @@ export const getMediaUrl = (path: string) => {
     url: path,
   };
 };
+
+export const formatString = (str: string, length = 35) => {
+  let target = str.substring(0, length);
+  if (target.length === length) {
+    target += '...';
+  }
+  return target;
+};

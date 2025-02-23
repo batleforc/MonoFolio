@@ -1,16 +1,8 @@
 <script setup lang="ts">
 import { useProjectStore } from '../../stores/project';
 import IcoOrMedia from '../helper/IcoOrMedia.vue';
-
+import { formatString } from '../../helper';
 const projectStore = useProjectStore();
-
-const formatString = (str: string) => {
-  let target = str.substring(0, 35);
-  if (target.length === 35) {
-    target += '...';
-  }
-  return target;
-};
 
 </script>
 
