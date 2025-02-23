@@ -22,7 +22,7 @@ const indexStore = useIndexStore();
       </div>
       <div class="item">
         <p class="label">Email</p>
-        <p>maxime.lerichepro@gmail.com</p>
+        <p class="truncate"><a href="mailto:maxime.lerichepro@gmail.com">maxime.lerichepro@gmail.com</a></p>
       </div>
       <div class="item">
         <p class="label">Réseau Sociaux</p>

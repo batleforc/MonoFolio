@@ -22,11 +22,13 @@
   @apply @[480px]:px-4 @[480px]:py-3;
 }
 
-.milestonesModal .image {
+.milestonesModal .image,
+.blogListe .image {
   @apply w-full bg-contain bg-center bg-no-repeat flex flex-col justify-end overflow-hidden bg-[#221111] @[480px]:rounded-xl min-h-80;
 }
 
-.milestonesModal .image-none {
+.milestonesModal .image-none,
+.blogListe .image-none {
   @apply w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#221111] @[480px]:rounded-xl min-h-80;
 }
 

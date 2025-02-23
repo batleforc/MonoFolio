@@ -7,8 +7,6 @@ const props = defineProps<{ modal: HomeHistory | undefined, close: () => void }>
 
 const picture = ref(getMediaUrl(props.modal?.imgUrl));
 
-console.log("Hello WOrld", props.modal.title);
-
 </script>
 
 <template>

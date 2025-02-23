@@ -56,7 +56,7 @@ const router = createRouter({
         {
           name: 'blog',
           path: '',
-          component: () => import('../views/BlogHomeView.vue'),
+          component: () => import('../viewsV2/BlogHomeView.vue'),
         },
         {
           name: 'blogcontent',
