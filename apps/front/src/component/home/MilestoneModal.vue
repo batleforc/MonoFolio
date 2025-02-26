@@ -35,5 +35,6 @@ const picture = ref(getMediaUrl(props.modal?.imgUrl));
       <p class="date">{{ modal.date }}</p>
       <p class="description">{{ modal.description }}</p>
     </div>
+    <div class="h-17 bg-[#34191a]"></div>
   </div>
 </template>

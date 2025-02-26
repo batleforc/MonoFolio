@@ -32,6 +32,7 @@ history:
   date: 2015 - 2018
   weight: 1
   imgUrl: media#logoLyceeMarieCurie.png
+  icoUrl: ico#school
   description: |
     Bac STI2D ITEC
     Obtenu avec mention Bien
@@ -42,6 +43,7 @@ history:
   date: 2018 - 2020
   weight: 2
   imgUrl: media#logoIutAmiens.jpg
+  icoUrl: ico#school
   description: |
     DUT Informatique
     Découverte de la programmation et des bases nécessaires pour devenir développeur (Java, C, SQL, C#, JS, Python, PHP, etc)
@@ -50,6 +52,7 @@ history:
   date: Mars 2020 - Juin 2020
   weight: 3
   imgUrl: media#logoMaxinfoweb.png
+  icoUrl: ico#work
   description: |
     Stage de fin d'étude BAC+2
     Développements d'applications en PHP sur un Framework propre à l'entreprise.
@@ -60,6 +63,7 @@ history:
   date: 2019
   weight: 4
   imgUrl: media#museomixLogo.png
+  icoUrl: ico#handyman
   url:
   - name: Objectif CIAP
     url: https://www.youtube.com/watch?v=fZ8DYxclVvQ
@@ -74,6 +78,7 @@ history:
   date: 2020 - 2021
   weight: 5
   imgUrl: media#logoIUTLaRochelle.png
+  icoUrl: ico#school
   description: |
     Licence Professionnelle Développement Cloud et Mobile
     Découverte des technologies du cloud et de la mobilité
@@ -83,6 +88,7 @@ history:
   date: 2020 - 2021
   weight: 6
   imgUrl: media#nexiConseils.png
+  icoUrl: ico#work
   description: |
     Alternance en tant que développeur natif et PWA
     Découverte du développement mobile natif (Android et iOS) et des PWA
@@ -92,6 +98,7 @@ history:
   date: 2021 - 2023
   weight: 7
   imgUrl: media#logoUniversiteLaRochelle.png
+  icoUrl: ico#school
   description: |
     Master Architecte Logiciel
     Découverte de l'architecture logicielle et des bonnes pratiques de développement ainsi que des concepts de recherche universitaire.
@@ -101,6 +108,7 @@ history:
   date: 2021 - 2023
   weight: 8
   imgUrl: media#macif.png
+  icoUrl: ico#work
   description: |
     Alternance en tant que DevOps et développeur couche d'échange
     Mise en situation réelle des concepts appris en cours et découverte de concepts plus avancés
@@ -111,6 +119,7 @@ history:
   date: 2023 - Now
   weight: 9
   imgUrl: media#macif.png
+  icoUrl: ico#work
   description: |
     À la suite de mon alternance, la Macif et plus précisément mon manager m'a fait confiance en me proposant de continuer l'aventure avec eux.
     J'ai donc accepté et je suis maintenant ingénieur participant à l'évolution de la couche d'échange (principalement) et du socle de fabrication.

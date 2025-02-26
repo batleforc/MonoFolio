@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { DocHeader } from '@portfolio/api-client';
-import IcoOrMedia from '../helper/IcoOrMedia.vue';
 import { formatString, getMediaUrl, MediaType } from '../../helper';
 import { ref } from 'vue';
 const props = defineProps<{

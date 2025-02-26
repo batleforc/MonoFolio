@@ -35,6 +35,7 @@ pub struct HomeHistory {
     pub date: String,
     pub weight: i32,
     pub img_url: String,
+    pub ico_url: Option<String>,
     pub description: String,
     pub url: Option<Vec<HomeHistoryUrl>>,
 }
@@ -132,6 +133,7 @@ mod tests {
                 weight: 1,
                 img_url: "https://cv.com".to_string(),
                 description: "description".to_string(),
+                ico_url: Some("https://cv.com".to_string()),
                 url: Some(vec![HomeHistoryUrl {
                     url: "https://cv.com".to_string(),
                     name: "cv".to_string(),

@@ -49,10 +49,6 @@ header h2 {
 }
 
 /* Key Milestones */
-.milestones {
-  @apply p-4;
-}
-
 .milestones h2,
 .contact-container h2 {
   @apply text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5;

@@ -5,6 +5,7 @@ import { onMounted } from 'vue';
 import Header from '../component/home/Header.vue';
 import NavBar from '../component/home/NavBar.vue';
 import { usePageStore } from '../stores/page';
+import WarnBan from '../component/helper/WarnBan.vue';
 
 const indexStore = useIndexStore();
 const pageStore = usePageStore();

@@ -182,6 +182,7 @@ export type HomeContent = {
 export type HomeHistory = {
     date: string;
     description: string;
+    icoUrl?: string | null;
     imgUrl: string;
     lieux: string;
     title: string;

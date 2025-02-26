@@ -34,6 +34,7 @@ mod tests {
                 date: "date".to_string(),
                 weight: 1,
                 img_url: "https://cv.com".to_string(),
+                ico_url: Some("https://cv.com".to_string()),
                 description: "description".to_string(),
                 url: Some(vec![HomeHistoryUrl {
                     url: "https://cv.com".to_string(),

@@ -701,6 +701,12 @@
           "description": {
             "type": "string"
           },
+          "icoUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "imgUrl": {
             "type": "string"
           },

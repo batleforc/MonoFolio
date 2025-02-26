@@ -1,5 +1,5 @@
 .milestonesModal {
-  @apply w-screen h-screen bg-[var(--color-dark-red)] fixed top-0 text-white m-0 p-0;
+  @apply w-screen h-screen bg-[var(--color-dark-red)] fixed top-0 text-white m-0 p-0 overflow-x-scroll;
 }
 
 .milestonesModal .header {
