@@ -68,7 +68,7 @@
     "jsdom": "^26.0.0",
     "nx": "20.4.6",
     "prettier": "^3.5.2",
-    "sass": "1.85.0",
+    "sass": "1.85.1",
     "tailwindcss": "^4.0.6",
     "tailwindcss-primeui": "^0.4.0",
     "ts-jest": "^29.1.0",
