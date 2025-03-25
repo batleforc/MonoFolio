@@ -17,7 +17,7 @@ tracing-bunyan-formatter = "0.3"
 opentelemetry = "0.28"
 opentelemetry_sdk = { version = "0.28", features = ["rt-tokio"] }
 opentelemetry-otlp = { version = "0.28", features = ["grpc-tonic"] }
-tracing-opentelemetry = "0.29"
+tracing-opentelemetry = "0.30"
 serde_json = { workspace = true }
 tokio = { workspace = true }
 tonic = { version = "0.12" }
